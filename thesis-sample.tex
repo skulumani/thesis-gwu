@@ -55,13 +55,26 @@ Professor Peter J. Olver, University of Minnesota}
 % Commands to hide or show lists of figures, tables, etc.
 \hidelistoftables
 
+% Definition of any abbreviations used.
+\abbreviations{
+ \acro{CFD}{Computational Fluid Dynamics}
+ \acro{MSRSF}{Monotonic, Single-Root Scalar Function}
+}
+
 %% DOCUMENT AREA
 \begin{document}
 
 
 \chapter{Introduction}   \label{chap:intro}
-The first part.
+The first part.  For example in \ac{CFD}.
 
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/f1_plain.pdf}
+ \end{center}
+ \caption{ \label{fig:fn:1}
+  An example of a search function}
+\end{figure}
 
 \newpage
 
@@ -70,8 +83,16 @@ And this should at least continue onto a second page.  There are many texts that
 \chapter{Setting}
 The second chapter has the good stuff.
 
-\section{What it is}
+\section{Convergence Criteria}
 Actually, it might have the worst stuff.  But it is slightly easier to write than the material in Chapter \ref{chap:intro}.
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/f1_tol.pdf}
+ \end{center}
+ \caption{ \label{fig:fn:tol}
+  Illustration of $x$- and $y$-tolerances for bisection iterations}
+\end{figure}
 
 \newpage
 
@@ -84,6 +105,15 @@ It is usually a good idea to give reasons for your research.  If you do not, the
 
 I need this page to see what even-numbered pages look like.
 
+\appendix
+\chapter{Methods}
+Here is how to implement the methods.
+
+\section{Bisection}
+The easiest method.
+
+\section{False Position}
+The next one.
 
 % Using AIAA bibliography style since I'm in aero.
 \bibliographystyle{aiaa}

@@ -94,8 +94,6 @@
 \DeclareOption{listmaps=false}{\@umich@listofmapsfalse}
 \DeclareOption{listappendices=true}{\@umich@listofappendicestrue}
 \DeclareOption{listappendices=false}{\@umich@listofmapsfalse}
-\DeclareOption{listabbrevs=true}{\@umich@listofabbrevstrue}
-\DeclareOption{listabbrevs=false}{\@umich@listofabbrevsfalse}
 
 % Declare option for copyright page.
 \DeclareOption{copyright=true}{\@umich@copyrighttrue}
@@ -176,6 +174,9 @@
 
 % This package is used for silly letter spacing
 \RequirePackage{soul}
+
+% This package is used for the list of abbreviations
+\RequirePackage[printonlyused]{acronym}
 
 % This package is for the index, if it is to be used.
 \if@umich@index
@@ -715,9 +716,9 @@
  \vskip 1ex}
 
 % These lines set the spacing for other table of contents entries.
-\renewcommand*{\l@section}{\@dottedtocline{2}{2.5em}{1.5em}}
-\renewcommand*{\l@subsection}{\@dottedtocline{3}{5.0em}{1.5em}}
-\renewcommand*{\l@subsubsection}{\@dottedtocline{4}{7.5em}{1.5em}}
+\renewcommand*{\l@section}{\@dottedtocline{2}{2.5em}{2em}}
+\renewcommand*{\l@subsection}{\@dottedtocline{3}{5.0em}{2em}}
+\renewcommand*{\l@subsubsection}{\@dottedtocline{4}{7.5em}{2em}}
 
 % Number of section layers to show in table of contents
 \setcounter{tocdepth}{3}
@@ -731,25 +732,211 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
  % Add the title
  \centerline{\large\bf TABLE OF CONTENTS} %
  % Add some space after the title.
- \vspace{2ex}
+ \vspace{2ex} %
  % Start the automatic table of contents features.
- \begin{singlespace}
-  \@starttoc{toc}\if@restonecol\twocolumn\fi
- \end{singlespace}
+ \begin{singlespace} %
+  \@starttoc{toc}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
 }
 
 
-%% ---- LIST OF FIGURES, TABLES, ETC. ----------------------------------
+%% ---- LIST OF FIGURES ------------------------------------------------
 % This sets the formatting for the various entry types.
-\renewcommand*{\l@figure}{\@dottedtocline{1}{1em}{1.5em}}
-\renewcommand*{\l@table}{\@dottedtocline{1}{1em}{1.5em}}
-\newcommand*{\l@map}{\@dottedtocline{1}{1em}{1.5em}}
-\newcommand*{\l@appendix}{\@dottedtocline{1}{1em}{1.5em}}
-\newcommand*{\l@abbreviation}{\@dottedtocline{1}{1em}{1.5em}}
+\renewcommand*{\l@figure}{\@dottedtocline{1}{0em}{1.5em}}
+
+% This sets the formatting of the list of figures page.
+\renewcommand*{\listoffigures}{%
+ % Move to new page.
+ \newpage %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF FIGURES} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic table of contents features.
+ \begin{singlespace} %
+  \@starttoc{lof}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %
+}
+
+
+%% ---- LIST OF TABLES -------------------------------------------------
+% This sets the format for the table entries.
+\renewcommand*{\l@table}{\@dottedtocline{1}{0em}{1.5em}}
+
+% This sets the formatting of the list of tables page.
+\renewcommand*{\listoftables}{%
+ % Move to new page.
+ \newpage %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF FIGURES} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic table of contents features.
+ \begin{singlespace} %
+  \@starttoc{lot}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Tables} %
+}
+
+
+%% ---- LIST OF MAPS ---------------------------------------------------
+% This sets the formatting for map entries in the list of maps.
+\newcommand*{\l@map}{\@dottedtocline{1}{1em}{0em}}
+
+
+%% ---- LIST OF APPENDICES ---------------------------------------------
+% This sets the formatting for appendices in the list.
+\newcommand*{\l@appendix}{\@dottedtocline{1}{0em}{1.5em}}
+
+% This sets the formatting of the list of appendices page.
+\newcommand*{\listofappendices}{%
+ % Move to new page.
+ \newpage %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF APPENDICES} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic table of contents features.
+ \begin{singlespace} %
+  \@starttoc{loa}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Appendices} %
+}
+
+% Renew the command that starts the appendices.
+\renewcommand{\appendix}{ %
+ % Renew the counters.
+ \renewcommand*{\thechapter}{\Alph{chapter}} %
+ % Start over the chapter counter.
+ \setcounter{chapter}{0} %
+ % Add the page to the table of contents.
+ \addcontentsline{toc}{chapter}{Appendices} %
+ % Header for appendices.
+ \renewcommand{\@chapapp}{Appendix} %
+ % Renew the chapter command.
+% \def\@chapter[#1]#2{ %
+%  \ifnum \c@secnumdepth >\m@ne %
+%   \refstepcounter{chapter} %
+%   \typeout{\@chapapp\space\thechapter.} %
+%   \addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}#1} %
+%  \else %
+%   \addcontentsline{loa}{chapter}{#1} %
+%  \fi %
+%  \chaptermark{#1} %
+%  \addtocontents{lof}{\protect\addvspace{10\p@}} %
+%  \addtocontents{lot}{\protect\addvspace{10\p@}} %
+%  \if@twocolumn %
+%   \@topnewpage[\@makechapterhead{#2}] %
+%  \else %
+%   \@makechapterhead{#2}%
+%   \@afterheading %
+%  \fi } %
+%\renewcommand*{\chapter}[1]{%
+% \clearpage \global\@topnum\z@ \@afterindenttrue
+% \refstepcounter{chapter}
+% \typeout{\@chapapp\space\theappendix.}
+% \hbox{}
+% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{}\fi\fi
+% \addtocontents{loa}{\hbox{ }}
+% \addcontentsline{loa}{appendix}{\protect\numberline{\theappendix.}{\ignorespaces\rm #1}}
+% \hbox{ }
+% \twoinmar
+% \centerline{\large\bf \@chapapp{} \theappendix} \par
+% \vspace{0.3in}
+% \begin{center}
+%  \Large\bf #1
+% \end{center}
+% \vspace{0.7in}
+% \par\@afterindenttrue}
+}
+
+%\def\appendix#1{%
+% \clearpage \global\@topnum\z@ \@afterindenttrue
+% \refstepcounter{chapter}
+% \typeout{\@chapapp\space\theappendix.}
+% \hbox{}
+% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{}\fi\fi
+% \addtocontents{loa}{\hbox{ }}
+% \addcontentsline{loa}{appendix}{\protect\numberline{\theappendix.}{\ignorespaces\rm #1}}
+% \hbox{ }
+% \twoinmar
+% \centerline{\large\bf \@chapapp{} \theappendix} \par
+% \vspace{0.3in}
+% \begin{center}
+%  \Large\bf #1
+% \end{center}
+% \vspace{0.7in}
+% \par\@afterindenttrue
+%}
+
+
+
+
+%% ---- LIST OF ABBREVIATIONS ------------------------------------------
+% Variable holding the contents of the abbreviations.
+\newcommand{\@abbrevs}{}
+
+% Command to set the abbreviations.
+\newcommand{\abbreviations}[1]{ %
+ % Show the list of abbreviations.
+ \@umich@listofabbrevstrue %
+ % Redefine the list.
+ \renewcommand{\@abbrevs}{#1}}
+
+% This sets the formatting for the abbreviations.
+\newcommand*{\l@abbreviation}{\@dottedtocline{1}{0em}{1.5em}}
+
+% This sets the formatting of the list of tables page.
+\newcommand*{\listofabbreviations}{%
+ % Move to new page.
+ \newpage %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF ABBREVIATIONS} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic abbreviations feature.
+ \begin{singlespace} %
+  \begin{acronym} %
+   \@abbrevs %
+  \end{acronym} %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
+}
 
 
 %% ---- LINKS ----------------------------------------------------------
@@ -797,7 +984,7 @@
  % Insert the frontispiece if there is one.
  \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
  % Initialize page numbers.
- \setcounter{page}{0} %
+ \setcounter{page}{1} %
  % Page numbers at the bottom
  \pagestyle{plain} %
  % Use lower-case roman numerals.
@@ -827,7 +1014,7 @@
  % Insert the list of abbreviations.
  \if@umich@listofabbrevs\listofabbreviations\fi %
  % Move to next page.
- \newpage
+ \newpage %
  % Restart page numbers for the chapters.
  \setcounter{page}{1} %
  % Page numbers at the bottom
@@ -836,48 +1023,19 @@
  \renewcommand{\thepage}{\arabic{page}} %
  % Add the word 'Chapter' to the table of contents.
  \addtocontents{toc}{\vspace{1.5ex}\noindent %
- {\bf Chapter}\vspace{1.5ex}}
+ {\bf Chapter}\vspace{1.5ex}} %
+ % Use the correct formatting.
+ \if@umich@thesis %
+  % Use 1.5 spacing
+  \onehalfspacing %
+ \else %
+  % Use two-column format
+  \twocolumn %
+ \fi %
 }
 
 
 %%-- Table of contents and lists --
-%
-%
-%\def\l@figure{\@dottedtocline{1}{1.0em}{3.5em}}
-%\let\l@table\l@figure
-%\let\l@map\l@figure
-%\let\l@anything\l@figure
-%\def\l@appendix{\@dottedtocline{1}{1.0em}{2.5em}}
-%\let\l@abbreviation\l@figure
-%
-%
-%\def\listoffigures{%
-% \newpage
-% \addcontentsline{toc}{chapter}{LIST OF FIGURES}
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf LIST OF FIGURES}
-% \vspace{0.7in}
-% \begin{singlespace}
-%  \@starttoc{lof}\if@restonecol\twocolumn\fi
-%  \addtocontents{lof}{\noindent\underline{\bf Figure}\hfill\rm\protect\newline}
-% \end{singlespace}
-%}
-%
-%\def\listoftables{%
-% \newpage
-% \addcontentsline{toc}{chapter}{LIST OF TABLES}
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf LIST OF TABLES}
-% \vspace{0.7in}
-% \begin{singlespace}
-%  \@starttoc{lot}\if@restonecol\twocolumn\fi
-%  \addtocontents{lot}{\noindent\underline{\bf Table}\hfill\rm\protect\newline}
-% \end{singlespace}
-%}
 %
 %\def\listofmaps{%
 % \newpage

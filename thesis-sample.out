@@ -1,7 +1,13 @@
 \BOOKMARK [0][-]{section*.1}{Dedication}{}
 \BOOKMARK [0][-]{section*.2}{Acknowledgments}{}
 \BOOKMARK [0][-]{section*.3}{Preface}{}
+\BOOKMARK [0][-]{section*.4}{List of Figures}{}
+\BOOKMARK [0][-]{section*.5}{List of Abbreviations}{}
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}
 \BOOKMARK [0][-]{chapter.2}{Setting}{}
-\BOOKMARK [1][-]{section.2.1}{What it is}{chapter.2}
+\BOOKMARK [1][-]{section.2.1}{Convergence Criteria}{chapter.2}
 \BOOKMARK [1][-]{section.2.2}{Why we are doing it}{chapter.2}
+\BOOKMARK [0][-]{section.2.2}{Appendices}{}
+\BOOKMARK [0][-]{appendix.A}{Methods}{}
+\BOOKMARK [1][-]{section.A.1}{Bisection}{appendix.A}
+\BOOKMARK [1][-]{section.A.2}{False Position}{appendix.A}
