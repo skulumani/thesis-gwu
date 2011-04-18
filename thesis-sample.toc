@@ -1,0 +1,8 @@
+\contentsline {chapter}{Dedication}{i}{section*.1}
+\contentsline {chapter}{Acknowledgments}{ii}{section*.2}
+\contentsline {chapter}{Preface}{iii}{section*.3}
+\vspace {1.5ex}\noindent {\bf Chapter}\vspace {1.5ex}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Setting}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}What it is}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Why we are doing it}{4}{section.2.2}

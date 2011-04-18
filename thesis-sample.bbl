@@ -1,0 +1,8 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{chapra:2002:numerics}
+Chapra, S.~C. and Canale, R.~P., {\em Numerical Methods for Engineers\/},
+  McGraw-Hill, 4th ed., 2002.
+
+\end{thebibliography}
