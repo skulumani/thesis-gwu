@@ -729,6 +729,10 @@
 \renewcommand*{\tableofcontents}{%
  % Move to new page.
  \newpage %
+ % Add a pdf anchor.
+ \phantomsection %
+ % Add a bookmark manually for the table of contents.
+ \pdfbookmark[0]{Table of Contents}{\thepage} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
@@ -833,71 +837,49 @@
 
 % Renew the command that starts the appendices.
 \renewcommand{\appendix}{ %
+ % Move to new page.
+ \clearpage %
  % Renew the counters.
  \renewcommand*{\thechapter}{\Alph{chapter}} %
  % Start over the chapter counter.
  \setcounter{chapter}{0} %
+ % Add a pdf anchor.
+ \phantomsection %
  % Add the page to the table of contents.
- \addcontentsline{toc}{chapter}{Appendices} %
+ \addcontentsline{toc}{chapter}{Appendices}
+ % Stop adding sections to the table of contents.
+ \addtocontents{toc}{\setcounter{tocdepth}{1}} %
  % Header for appendices.
  \renewcommand{\@chapapp}{Appendix} %
- % Renew the chapter command.
-% \def\@chapter[#1]#2{ %
-%  \ifnum \c@secnumdepth >\m@ne %
-%   \refstepcounter{chapter} %
-%   \typeout{\@chapapp\space\thechapter.} %
-%   \addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}#1} %
-%  \else %
-%   \addcontentsline{loa}{chapter}{#1} %
-%  \fi %
-%  \chaptermark{#1} %
-%  \addtocontents{lof}{\protect\addvspace{10\p@}} %
-%  \addtocontents{lot}{\protect\addvspace{10\p@}} %
-%  \if@twocolumn %
-%   \@topnewpage[\@makechapterhead{#2}] %
-%  \else %
-%   \@makechapterhead{#2}%
-%   \@afterheading %
-%  \fi } %
-%\renewcommand*{\chapter}[1]{%
-% \clearpage \global\@topnum\z@ \@afterindenttrue
-% \refstepcounter{chapter}
-% \typeout{\@chapapp\space\theappendix.}
-% \hbox{}
-% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{}\fi\fi
-% \addtocontents{loa}{\hbox{ }}
-% \addcontentsline{loa}{appendix}{\protect\numberline{\theappendix.}{\ignorespaces\rm #1}}
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf \@chapapp{} \theappendix} \par
-% \vspace{0.3in}
-% \begin{center}
-%  \Large\bf #1
-% \end{center}
-% \vspace{0.7in}
-% \par\@afterindenttrue}
+ % Renew the chapter and section labels.
+ \let\@chapter\@chapter@appendix %
 }
 
-%\def\appendix#1{%
-% \clearpage \global\@topnum\z@ \@afterindenttrue
-% \refstepcounter{chapter}
-% \typeout{\@chapapp\space\theappendix.}
-% \hbox{}
-% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{}\fi\fi
-% \addtocontents{loa}{\hbox{ }}
-% \addcontentsline{loa}{appendix}{\protect\numberline{\theappendix.}{\ignorespaces\rm #1}}
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf \@chapapp{} \theappendix} \par
-% \vspace{0.3in}
-% \begin{center}
-%  \Large\bf #1
-% \end{center}
-% \vspace{0.7in}
-% \par\@afterindenttrue
-%}
-
-
+% Make a special chapter command for appendices.
+\def\@chapter@appendix[#1]#2{ %
+ % Increase the chapter letter.
+ \refstepcounter{chapter} %
+ % Print a line to the .log file.
+ \typeout{\@chapapp\space\thechapter.} %
+ % Hopefully this works.
+ \phantomsection %
+ % Add a bookmark manually.
+ \pdfbookmark[0]{#1}{#2} %
+ % Add to the list of appendices rather than toc.
+ \addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}#1} %
+ % Save the chapter number.
+ \chaptermark{#1} %
+ % Add extra space to the lists of figures and tables and maps.
+ \addtocontents{lof}{\protect\addvspace{10\p@}} %
+ \addtocontents{lot}{\protect\addvspace{10\p@}} %
+ \addtocontents{lom}{\protect\addvspace{10\p@}} %
+ % Produce the appropriate headings for the first page.
+ \if@twocolumn %
+  \@topnewpage[\@makechapterhead{#2}] %
+ \else %
+  \@makechapterhead{#2} %
+  \@afterheading %
+ \fi }
 
 
 %% ---- LIST OF ABBREVIATIONS ------------------------------------------
@@ -1022,8 +1004,8 @@
  % Use Arabic numerals.
  \renewcommand{\thepage}{\arabic{page}} %
  % Add the word 'Chapter' to the table of contents.
- \addtocontents{toc}{\vspace{1.5ex}\noindent %
- {\bf Chapter}\vspace{1.5ex}} %
+ \addtocontents{toc}{\vspace{1.3ex}\noindent %
+ {\bf Chapter}\vspace{1.3ex}} %
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
@@ -1195,50 +1177,6 @@
 % \fi}
 %
 %%-- Appendices and bibliography --
-%
-%\def\startappendices{\par
-% \def\thechapter {\Alph{chapter}}
-% \def\theappendix{\Alph{chapter}}
-% \def\thesection{\theappendix.\arabic{section}}
-% \def\theequation{{\rm \theappendix}.\arabic{equation}}
-% \def\thefigure{{\rm \theappendix}.\@arabic\c@figure}
-% \def\thetable{{\rm \theappendix}.\@arabic\c@table}
-% \def\themap{{\rm \theappendix}.\@arabic\c@map}
-%
-% \setcounter{chapter}{0}
-% \setcounter{section}{0}
-% \def\@chapapp{APPENDIX}
-% \pagestyle{plain}
-% \clearpage
-% \hbox{}
-% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{}\fi\fi
-% \thispagestyle{chappage}
-% \addcontentsline{toc}{chapter}{APPENDICES}
-% \hbox{ }
-% \vertadjust
-% \vfill
-% \centerline{\large\bf APPENDICES} % The half title page
-% \vfill
-%}
-%
-%\def\appendix#1{%
-% \clearpage \global\@topnum\z@ \@afterindenttrue
-% \refstepcounter{chapter}
-% \typeout{\@chapapp\space\theappendix.}
-% \hbox{}
-% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{}\fi\fi
-% \addtocontents{loa}{\hbox{ }}
-% \addcontentsline{loa}{appendix}{\protect\numberline{\theappendix.}{\ignorespaces\rm #1}}
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf \@chapapp{} \theappendix} \par
-% \vspace{0.3in}
-% \begin{center}
-%  \Large\bf #1
-% \end{center}
-% \vspace{0.7in}
-% \par\@afterindenttrue
-%}
 %
 %\def\endofchapterbibliography{%
 % \clearpage
