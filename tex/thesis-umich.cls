@@ -64,6 +64,8 @@
 \newif\if@umich@listoffigures
 \newif\if@umich@listoftables
 \newif\if@umich@listofmaps
+\newif\if@umich@listofillustrations
+\newif\if@umich@listofprograms
 \newif\if@umich@listofappendices
 \newif\if@umich@listofabbrevs
 \newif\if@umich@copyright
@@ -92,6 +94,10 @@
 \DeclareOption{listtables=false}{\@umich@listoftablesfalse}
 \DeclareOption{listmaps=true}{\@umich@listofmapstrue}
 \DeclareOption{listmaps=false}{\@umich@listofmapsfalse}
+\DeclareOption{listillustrations=true}{\@umich@listillustrationstrue}
+\DeclareOption{listillustrations=false}{\@umich@listillustrationsfalse}
+\DeclareOption{listprograms=true}{\@umich@listofprogramstrue}
+\DeclareOption{listprograms=false}{\@umich@listofprogramsfalse}
 \DeclareOption{listappendices=true}{\@umich@listofappendicestrue}
 \DeclareOption{listappendices=false}{\@umich@listofmapsfalse}
 
@@ -174,6 +180,9 @@
 
 % This package is used for silly letter spacing
 \RequirePackage{soul}
+
+% This package is used to generate alternate environments.
+\RequirePackage{float}
 
 % This package is used for the list of abbreviations
 \RequirePackage[printonlyused]{acronym}
@@ -691,6 +700,8 @@
 \newcommand{\showlistoffigures}{\@umich@listoffigurestrue}
 \newcommand{\showlistoftables}{\@umich@listoftablestrue}
 \newcommand{\showlistofmaps}{\@umich@listofmapstrue}
+\newcommand{\showlistofillustrations}{\@umich@listillustrationstrue}
+\newcommand{\showlistofprograms}{\@umich@listofprogramstrue}
 \newcommand{\showlistofappendices}{\@umich@listofappendicestrue}
 \newcommand{\showlistofabbreviations}{\@umich@listofabbrevstrue}
 
@@ -698,6 +709,8 @@
 \newcommand{\hidelistoffigures}{\@umich@listoffiguresfalse}
 \newcommand{\hidelistoftables}{\@umich@listoftablesfalse}
 \newcommand{\hidelistofmaps}{\@umich@listofmapsfalse}
+\newcommand{\hidelistofillustrations}{\@umich@listillustrationsfalse}
+\newcommand{\hidelistofprograms}{\@umich@listofprogramsfalse}
 \newcommand{\hidelistofappendices}{\@umich@listofappendicesfalse}
 \newcommand{\hidelistofabbreviations}{\@umich@listofabbrevsfalse}
 
@@ -752,12 +765,14 @@
 
 %% ---- LIST OF FIGURES ------------------------------------------------
 % This sets the formatting for the various entry types.
-\renewcommand*{\l@figure}{\@dottedtocline{1}{0em}{1.5em}}
+\renewcommand*{\l@figure}{\@dottedtocline{1}{0em}{2.5em}}
 
 % This sets the formatting of the list of figures page.
 \renewcommand*{\listoffigures}{%
  % Move to new page.
  \newpage %
+ % Anchor for pdf
+ \phantomsection %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -779,12 +794,14 @@
 
 %% ---- LIST OF TABLES -------------------------------------------------
 % This sets the format for the table entries.
-\renewcommand*{\l@table}{\@dottedtocline{1}{0em}{1.5em}}
+\renewcommand*{\l@table}{\@dottedtocline{1}{0em}{2.5em}}
 
 % This sets the formatting of the list of tables page.
 \renewcommand*{\listoftables}{%
  % Move to new page.
  \newpage %
+ % Anchor for pdf
+ \phantomsection %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -792,7 +809,7 @@
   \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF FIGURES} %
+ \centerline{\large\bf LIST OF TABLES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -805,18 +822,117 @@
 
 
 %% ---- LIST OF MAPS ---------------------------------------------------
+% Command to generate the 'map' environment.
+\newfloat{map}{tbp}{lom}[chapter]
+% Use a capitalized version for the captions.
+\floatname{map}{Map}
+
 % This sets the formatting for map entries in the list of maps.
-\newcommand*{\l@map}{\@dottedtocline{1}{1em}{0em}}
+\newcommand*{\l@map}{\@dottedtocline{1}{0em}{2.5em}}
+
+% This sets the formatting of the list of maps page.
+\newcommand*{\listofmaps}{%
+ % Move to new page.
+ \newpage %
+ % Anchor for pdf
+ \phantomsection %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF MAPS} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic table of contents features.
+ \begin{singlespace} %
+  \@starttoc{lom}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Maps} %
+}
+
+
+%% ---- LIST OF ILLUSTRATIONS ------------------------------------------
+% Command to generate the 'illustration' environment.
+\newfloat{illustration}{tbp}{loi}[chapter]
+% Use a capitalized version for the captions.
+\floatname{illustration}{Illustration}
+
+% This sets the formatting for map entries in the list of maps.
+\newcommand*{\l@illustration}{\@dottedtocline{1}{0em}{2.5em}}
+
+% This sets the formatting of the list of maps page.
+\newcommand*{\listofillustrations}{%
+ % Move to new page.
+ \newpage %
+ % Anchor for pdf
+ \phantomsection %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF ILLUSTRATIONS} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic table of contents features.
+ \begin{singlespace} %
+  \@starttoc{loi}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Illustrations} %
+}
+
+
+%% ---- LIST OF PROGRAMS -----------------------------------------------
+% Command to generate the 'map' environment.
+\newfloat{program}{tbp}{lop}[chapter]
+% Use a capitalized version for the captions.
+\floatname{program}{Program}
+
+% This sets the formatting for map entries in the list of maps.
+\newcommand*{\l@program}{\@dottedtocline{1}{0em}{2.5em}}
+
+% This sets the formatting of the list of maps page.
+\newcommand*{\listofprograms}{%
+ % Move to new page.
+ \newpage %
+ % Anchor for pdf
+ \phantomsection %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF PROGRAMS} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic table of contents features.
+ \begin{singlespace} %
+  \@starttoc{lop}\if@restonecol\twocolumn\fi %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Programs} %
+}
 
 
 %% ---- LIST OF APPENDICES ---------------------------------------------
 % This sets the formatting for appendices in the list.
-\newcommand*{\l@appendix}{\@dottedtocline{1}{0em}{1.5em}}
+\newcommand*{\l@appendix}{\@dottedtocline{1}{0em}{2.5em}}
 
 % This sets the formatting of the list of appendices page.
 \newcommand*{\listofappendices}{%
  % Move to new page.
  \newpage %
+ % Anchor for pdf
+ \phantomsection %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -894,12 +1010,14 @@
  \renewcommand{\@abbrevs}{#1}}
 
 % This sets the formatting for the abbreviations.
-\newcommand*{\l@abbreviation}{\@dottedtocline{1}{0em}{1.5em}}
+\newcommand*{\l@abbreviation}{\@dottedtocline{1}{0em}{2.5em}}
 
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofabbreviations}{%
  % Move to new page.
  \newpage %
+ % Anchor for pdf
+ \phantomsection %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -918,6 +1036,34 @@
  \end{singlespace} %
  % Add this page to the table of contents.
  \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
+}
+
+
+%% ---- BIBLIOGRAPHY ---------------------------------------------------
+% Save the original bibliography command.
+\let\@tex@bibliography\bibliography
+
+% Change the bibliography header.
+\renewcommand*{\bibname}{\centerline{\large BIBLIOGRAPHY}}
+
+% Create a new command for the bibliography.
+\renewcommand*{\bibliography}[1]{ %
+ % Update the page format.
+ \if@umich@report %
+  % Eliminate vertical space.
+  \ \\[-2ex] %
+ \else %
+  % Switch to single spacing
+  \singlespacing %
+ \fi %
+ % Move to new page.
+ \clearpage %
+ % Create a pdf anchor.
+ \phantomsection %
+ % Add to table of contents.
+ \addcontentsline{toc}{chapter}{Bibliography} %
+ % Load the bibliography.
+ \@tex@bibliography{#1} %
 }
 
 
@@ -991,6 +1137,10 @@
  \if@umich@listoftables\listoftables\fi %
  % Insert the list of maps.
  \if@umich@listofmaps\listofmaps\fi %
+ % Insert the list of illustrations.
+ \if@umich@listofillustrations\listofillustrations\fi %
+ % Insert the list of programs.
+ \if@umich@listofprograms\listofprograms\fi %
  % Insert the list of appendices.
  \if@umich@listofappendices\listofappendices\fi %
  % Insert the list of abbreviations.
@@ -1047,20 +1197,6 @@
 % \end{singlespace}
 %}
 %
-%\def\listofabbreviations{% Uses the acronym package -jg
-% \newpage
-% \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf LIST OF ABBREVIATIONS}
-% \vspace{0.7in}
-% \begin{singlespace}
-%  \begin{acronym}
-%   \input{abbr}
-%  \end{acronym}
-% \end{singlespace} 
-%}
 %
 %\def\startabstractpage#1#2#3{% This formats the optional in-dissertation abstract - jg
 % \newpage
@@ -1177,54 +1313,6 @@
 % \fi}
 %
 %%-- Appendices and bibliography --
-%
-%\def\endofchapterbibliography{%
-% \clearpage
-% \hbox{ }
-% \twoinmar
-% \begin{center}
-%  {\large \bf BIBLIOGRAPHY}
-% \end{center}
-% \vspace{0.75in}
-%}
-%
-%\def\startbibliography{% This sets things up for BibTeX
-% \clearpage
-% \hbox{}
-% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{} \fi\fi
-% \thispagestyle{chappage}
-% \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
-% \hbox{ }
-% \vertadjust
-% \vfill
-% \centerline{\large\bf BIBLIOGRAPHY} % The half title page
-% \vfill
-% \renewcommand{\bibname}{\vspace{-.13in}\centerline{\large\bf BIBLIOGRAPHY}}
-%}
-%
-%\def\thebibliography#1{% If using BibTeX, this code is ignored
-% \clearpage
-% \hbox{}
-% \if@twoside \ifodd\c@page \else\thispagestyle{empty} \clearpage\hbox{} \fi\fi
-% \thispagestyle{chappage}
-% \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
-% \hbox{ }
-% \vertadjust
-% \vfill
-% \centerline{\large\bf BIBLIOGRAPHY} % Half title page
-% \vfill
-% \newpage
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf BIBLIOGRAPHY}
-% \vspace{0.7in}
-% \list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
-% \advance\leftmargin\labelsep
-% \usecounter{enumi}}
-% \def\newblock{\hskip .11em plus .33em minus -.07em}
-% \sloppy\clubpenalty4000\widowpenalty4000
-% \sfcode`\.=1000\relax}
-%\let\endthebibliography=\endlist
 %
 %\def\startextabstractpage#1#2#3{% This formats an external Abstract that can be printed at the end of the document. Comment it out in thesis.tex when not needed. - jg
 % \ttlpg
