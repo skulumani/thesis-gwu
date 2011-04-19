@@ -93,8 +93,8 @@
 \newif\if@umich@backref
 
 % Declare options for the overall layout.
-\DeclareOption{thesis}{\@umich@thesistrue}
-\DeclareOption{report}{\@umich@reporttrue}
+\DeclareOption{thesis}{\@umich@thesistrue\@umich@reportfalse}
+\DeclareOption{report}{\@umich@reporttrue\@umich@thesisfalse}
 
 % Declare an option for the index.
 \DeclareOption{index}{\@umich@indextrue}
@@ -1347,7 +1347,7 @@
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
-  \onehalfspacing %
+  \doublespacing %
  \else %
   % Use two-column format
   \twocolumn %
