@@ -68,6 +68,8 @@
 \newif\if@umich@listofprograms
 \newif\if@umich@listofappendices
 \newif\if@umich@listofabbrevs
+\newif\if@umich@listofsymbols
+\newif\if@umich@listofacronyms
 \newif\if@umich@copyright
 \newif\if@umich@frontispiece
 \newif\if@umich@dedication
@@ -93,24 +95,6 @@
 % Declare options for the overall layout.
 \DeclareOption{thesis}{\@umich@thesistrue}
 \DeclareOption{report}{\@umich@reporttrue}
-
-% Declare options for which lists are present.
-\DeclareOption{listfigures=true}{\@umich@listoffigurestrue}
-\DeclareOption{listfigures=false}{\@umich@listoffiguresfalse}
-\DeclareOption{listtables=true}{\@umich@listoftablestrue}
-\DeclareOption{listtables=false}{\@umich@listoftablesfalse}
-\DeclareOption{listmaps=true}{\@umich@listofmapstrue}
-\DeclareOption{listmaps=false}{\@umich@listofmapsfalse}
-\DeclareOption{listillustrations=true}{\@umich@listillustrationstrue}
-\DeclareOption{listillustrations=false}{\@umich@listillustrationsfalse}
-\DeclareOption{listprograms=true}{\@umich@listofprogramstrue}
-\DeclareOption{listprograms=false}{\@umich@listofprogramsfalse}
-\DeclareOption{listappendices=true}{\@umich@listofappendicestrue}
-\DeclareOption{listappendices=false}{\@umich@listofmapsfalse}
-
-% Declare option for copyright page.
-\DeclareOption{copyright=true}{\@umich@copyrighttrue}
-\DeclareOption{copyright=false}{\@umich@copyrightfalse}
 
 % Declare an option for the index.
 \DeclareOption{index}{\@umich@indextrue}
@@ -755,6 +739,8 @@
 \newcommand{\showlistofprograms}{\@umich@listofprogramstrue}
 \newcommand{\showlistofappendices}{\@umich@listofappendicestrue}
 \newcommand{\showlistofabbreviations}{\@umich@listofabbrevstrue}
+\newcommand{\showlistofacronyms}{\@umich@listofacronymstrue}
+\newcommand{\showlistofsymbos}{\@umich@listofsymbolstrue}
 
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@umich@listoffiguresfalse}
@@ -764,7 +750,8 @@
 \newcommand{\hidelistofprograms}{\@umich@listofprogramsfalse}
 \newcommand{\hidelistofappendices}{\@umich@listofappendicesfalse}
 \newcommand{\hidelistofabbreviations}{\@umich@listofabbrevsfalse}
-
+\newcommand{\hidelistofacronyms}{\@umich@listofacronymsfalse}
+\newcommand{\hidelistofsymbos}{\@umich@listofsymbolsfalse}
 
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
@@ -1089,6 +1076,89 @@
  \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
 }
 
+
+%% ---- LIST OF ACRONYMS -----------------------------------------------
+% Variable holding the contents of the abbreviations.
+\newcommand{\@acronyms}{}
+
+% Command to set the abbreviations.
+\newcommand{\acronyms}[1]{ %
+ % Show the list of abbreviations.
+ \@umich@listofacronymstrue %
+ % Redefine the list.
+ \renewcommand{\@acronyms}{#1}}
+
+% This sets the formatting for the abbreviations.
+\newcommand*{\l@acronym}{\@dottedtocline{1}{0em}{2.5em}}
+
+% This sets the formatting of the list of acronyms page.
+\newcommand*{\listofacronyms}{%
+ % Move to new page.
+ \newpage %
+ % Anchor for pdf
+ \phantomsection %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF ACRONYMS} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic abbreviations feature.
+ \begin{singlespace} %
+  \begin{acronym} %
+   \@acronyms %
+  \end{acronym} %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Acronyms} %
+}
+
+
+%% ---- LIST OF SYMBOLS ------------------------------------------------
+% Variable holding the contents of the symbols.
+\newcommand{\@symbols}{}
+
+% Command to set the symbols.
+\newcommand{\symbols}[1]{ %
+ % Show the list of symbols.
+ \@umich@listofsymbolstrue %
+ % Redefine the list.
+ \renewcommand{\@symbols}{#1}}
+
+% This sets the formatting for the abbreviations.
+\newcommand*{\l@symbol}{\@dottedtocline{1}{0em}{2.5em}}
+
+% This sets the formatting of the list of tables page.
+\newcommand*{\listofsymbols}{%
+ % Move to new page.
+ \newpage %
+ % Anchor for pdf
+ \phantomsection %
+ % Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf LIST OF SYMBOLS} %
+ % Add some space after the title.
+ \vspace{1ex} %
+ % Start the automatic symbols feature.
+ \begin{singlespace} %
+  \begin{acronym} %
+   \@symbols %
+  \end{acronym} %
+ \end{singlespace} %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Symbols} %
+}
+
+
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
 \newcommand{\@abstract}{}
@@ -1257,6 +1327,10 @@
  \if@umich@listofappendices\listofappendices\fi %
  % Insert the list of abbreviations.
  \if@umich@listofabbrevs\listofabbreviations\fi %
+ % Insert the list of acronyms.
+ \if@umich@listofacronyms\listofacronyms\fi %
+ % Insert the list of symbols.
+ \if@umich@listofsymbols\listofsymbols\fi %
  % Insert the abstract.
  \if@umich@abstract\abstractpage\fi %
  % Move to next page.
