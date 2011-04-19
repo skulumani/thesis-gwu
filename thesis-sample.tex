@@ -14,10 +14,13 @@
 \year=2012
 
 % Frontispiece
-\frontispiece{FRONTISPIECE TEXT}
+\frontispiece{\includegraphics[width=4in]{./pics/frontispiece.pdf}}
+
+% Default style for front pages
+\frontpagestyle{1}
 
 % Dedication
-\dedication[4]{ %
+\dedication{ %
 This dissertation is in honor of Adlai Stevenson and William Jennings Bryan,
 who were both twice the Democratic nominee for President of the United States
 without winning either time.  As an interesting side note, Adlai Stevenson's
@@ -37,7 +40,7 @@ Spangelo for suggesting that this template be ready by the end of April 2011.
 \acknowledgmentswidth{0.8}
 
 % Preface
-\preface{ %
+\preface[2]{ %
 The text of this document is of course mainly meant to show how
 the template works.  The topic is thus a basic problem which has
 been solved in a large number of ways.  This sample topic, which
@@ -52,6 +55,9 @@ slightly improved performance.}
 Professor James F. Driscoll, Chair \\
 Professor Peter J. Olver, University of Minnesota}
 
+% Chair must be entered separately for formatting reasons.
+\chair{James F. Driscoll}
+
 % Commands to hide or show lists of figures, tables, etc.
 \hidelistoftables
 \showlistofprograms
@@ -62,6 +68,15 @@ Professor Peter J. Olver, University of Minnesota}
  \acro{CFD}{Computational Fluid Dynamics}
  \acro{MSRSF}{Monotonic, Single-Root Scalar Function}
 }
+
+% Some abstract text
+\abstract{
+We show that it is possible to get approximate solutions to
+analytically intractable equations using iterative methods.
+Thus we show that the author could pass an undergraduate
+class in numerical analysis.  In addition, a unique
+extension to Brent's method is proposed that results in
+slight improvements in convergence.}
 
 %% DOCUMENT AREA
 \begin{document}
@@ -120,6 +135,10 @@ Here is how to implement the methods.
 
 \section{Bisection}
 The easiest method.
+
+\begin{equation}
+x_k = \frac{a_k+b_k}{2}
+\end{equation}
 
 \section{False Position}
 The next one.

@@ -5,13 +5,14 @@
 \contentsline {chapter}{List of Programs}{vi}{section*.8}
 \contentsline {chapter}{List of Appendices}{vii}{section*.10}
 \contentsline {chapter}{List of Abbreviations}{viii}{section*.12}
+\contentsline {chapter}{Abstract}{ix}{section*.13}
 \vspace {1.3ex}\noindent {\bf Chapter}\vspace {1.3ex}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Setting}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Convergence Criteria}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Why we are doing it}{4}{section.2.2}
-\contentsline {chapter}{Appendices}{6}{section*.14}
+\contentsline {chapter}{Appendices}{6}{section*.15}
 \global \c@tocdepth 1\relax 
 \contentsline {section}{\numberline {A.1}Bisection}{6}{section.A.1}
 \contentsline {section}{\numberline {A.2}False Position}{6}{section.A.2}
-\contentsline {chapter}{Bibliography}{7}{section*.16}
+\contentsline {chapter}{Bibliography}{7}{section*.17}

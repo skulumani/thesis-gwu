@@ -69,6 +69,13 @@
 \newif\if@umich@listofappendices
 \newif\if@umich@listofabbrevs
 \newif\if@umich@copyright
+\newif\if@umich@frontispiece
+\newif\if@umich@dedication
+\newif\if@umich@acknowledgments
+\newif\if@umich@preface
+\newif\if@umich@prologue
+\newif\if@umich@foreword
+\newif\if@umich@abstract
 
 % Set the default value of some of the options to true.
 \@umich@thesistrue
@@ -279,6 +286,8 @@
 \newcommand{\@degree}{Doctor of Philosophy}
 \newcommand{\@department}{Insert a Department Name!}
 \newcommand{\@committee}{Insert a Committee!}
+\newcommand{\@chair}{Insert a Chair!}
+\newcommand{\@cochair}{}
 
 % Commands to set the titlepage fields
 \renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
@@ -286,6 +295,8 @@
 \newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 \newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
+\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
+\newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
 
 % Commands for the user to be able to use the defined fields.
 \newcommand{\inserttitle}{\@title}
@@ -293,6 +304,8 @@
 \newcommand{\insertdegree}{\@degree}
 \newcommand{\insertdepartment}{\@department}
 \newcommand{\insertcommittee}{\@committee}
+\newcommand{\insertchair}{\@chair}
+\newcommand{\insertcochair}{\@cochair}
 
 % This redefines the title page to automatically have all of the
 % features and properties that it should according to the guidelines.
@@ -349,7 +362,11 @@
 \newcommand{\@frontispiece}{\@empty}
 
 % Command to set the frontispiece
-\newcommand{\frontispiece}[1]{\renewcommand{\@frontispiece}{#1}}
+\newcommand{\frontispiece}[1]{
+ % Turn the frontispiece on.
+ \@umich@frontispiecetrue %
+ % Set the frontispiece.
+ \renewcommand{\@frontispiece}{#1}}
 
 % Command to insert the frontispiece
 \newcommand{\insertfrontispiece}{\@frontispiece}
@@ -403,6 +420,11 @@
 %% ---- STYLING FOR REMAINING FRONT PAGES ------------------------------
 % Command to set the spacing for all-caps headings
 \sodef\an{}{.6em}{1em plus1em}{2em plus.1em minus.1em}
+
+% Default frontmatter style
+\newcommand{\@frontpagestyle}{2}
+% Command to change it
+\newcommand{\frontpagestyle}[1]{\renewcommand{\@frontpagestyle}{#1}}
 
 % Command to insert front page matter with styles
 \newcommand{\insertfront}[4]{ %
@@ -512,17 +534,38 @@
  }}}} %
 }
 
+%% ---- COMMANDS TO HIDE/SHOW FRONT PAGES ------------------------------
+% Commands to show front pages
+\newcommand{\showcopyright}{\@umich@copyrighttrue}
+\newcommand{\showdedication}{\@umich@dedicationtrue}
+\newcommand{\showacknowledgments}{\@umich@acknowledgmentstrue}
+\newcommand{\showpreface}{\@umich@prefacetrue}
+\newcommand{\showforeword}{\@umich@forewordtrue}
+\newcommand{\showprologue}{\@umich@prologuetrue}
+\newcommand{\showabstract}{\@umich@abstracttrue}
+
+% Commands to hide front pages
+\newcommand{\hidecopyright}{\@umich@copyrightfalse}
+\newcommand{\hidededication}{\@umich@dedicationfalse}
+\newcommand{\hideacknowledgments}{\@umich@acknowledgmentsfalse}
+\newcommand{\hidepreface}{\@umich@prefacefalse}
+\newcommand{\hideforeword}{\@umich@forewordfalse}
+\newcommand{\hideprologue}{\@umich@prologuefalse}
+\newcommand{\hideabstract}{\@umich@abstractfalse}
+
 
 %% ---- DEDICATION PAGE ------------------------------------------------
 % Command that holds the value text of the dedication
 \newcommand{\@dedication}{}
 % Command that sets the dedication style
-\newcommand{\@dedicationstyle}{1}
+\newcommand{\@dedicationstyle}{\@frontpagestyle}
 % Command that sets the width of the dedication text area
 \newcommand{\@dedication@width}{0.66}
 
 % Command to change it from the default
 \newcommand{\dedication}[2][]{ %
+ % Show the dedication.
+ \showdedication %
  % Set the dedication text.
  \renewcommand{\@dedication}{#2} %
  % Set the dedication style.
@@ -551,12 +594,14 @@
 % Command that holds the value text of the acknowledgments
 \newcommand{\@acknowledgments}{}
 % Command that sets the acknowledgments style
-\newcommand{\@acknowledgmentsstyle}{2}
+\newcommand{\@acknowledgmentsstyle}{\@frontpagestyle}
 % Command that sets the width of the acknowledgments text area
 \newcommand{\@acknowledgments@width}{0.66}
 
 % Command to change it from the default
 \newcommand{\acknowledgments}[2][]{ %
+ % Show the acknowledgments page.
+ \showacknowledgments %
  % Set the acknowledgments text.
  \renewcommand{\@acknowledgments}{#2} %
  % Set the acknowledgments style.
@@ -588,12 +633,14 @@
 % Command that holds the value text of the preface
 \newcommand{\@preface}{}
 % Command that sets the preface style
-\newcommand{\@prefacestyle}{2}
+\newcommand{\@prefacestyle}{\@frontpagestyle}
 % Command that sets the width of the preface text area
 \newcommand{\@preface@width}{0.75}
 
 % Command to change it from the default
 \newcommand{\preface}[2][]{ %
+ % Show the preface.
+ \showpreface %
  % Set the preface text.
  \renewcommand{\@preface}{#2} %
  % Set the preface style.
@@ -625,12 +672,14 @@
 % Command that holds the value text of the foreword
 \newcommand{\@foreword}{}
 % Command that sets the foreword style
-\newcommand{\@forewordstyle}{2}
+\newcommand{\@forewordstyle}{\@frontpagestyle}
 % Command that sets the width of the foreword text area
 \newcommand{\@foreword@width}{0.66}
 
 % Command to change it from the default
 \newcommand{\foreword}[2][]{ %
+ % Show the foreword.
+ \showforeword %
  % Set the foreword text.
  \renewcommand{\@foreword}{#2} %
  % Set the foreword style.
@@ -662,12 +711,14 @@
 % Command that holds the value text of the prologue
 \newcommand{\@prologue}{}
 % Command that sets the prologue style
-\newcommand{\@prologuestyle}{2}
+\newcommand{\@prologuestyle}{\@frontpagestyle}
 % Command that sets the width of the prologue text area
 \newcommand{\@prologue@width}{0.75}
 
 % Command to change it from the default
 \newcommand{\prologue}[2][]{ %
+ % Show the prologue.
+ \showprologue %
  % Set the prologue text.
  \renewcommand{\@foreword}{#2} %
  % Set the prologue style.
@@ -1038,6 +1089,66 @@
  \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
 }
 
+%% ---- ABSTRACT -------------------------------------------------------
+% Command to hold the text of the abstract.
+\newcommand{\@abstract}{}
+
+% Command to set it.
+\renewcommand{\abstract}[1]{
+ % Show the abstract page.
+ \showabstract %
+ % Set the abstract text.
+ \renewcommand{\@abstract}{#1}}
+
+% Command to insert it.
+\newcommand{\insertabstract}{\@abstract}
+
+% Format the abstract page.
+\newcommand{\abstractpage}{ %
+ % Set the page formatting.
+ \frntpg %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
+ % Extra vertical space
+ \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ % Center the title area.
+ \begin{center} %
+  % Formatting
+  \large \bfseries
+  % Add the heading.
+  ABSTRACT \\[5ex] %
+  % Add the title of the dissertation.
+  \normalsize %
+  \inserttitle \\[2ex] %
+  % Add the word 'by'
+  by \\[2ex]
+  % Add the author.
+  \insertauthor
+ \end{center} %
+ % Vertical rubber space
+ \vspace*{\stretch{2}} %
+ % Insert the chair info
+ \ifthenelse{\equal{\@cochair}{}}{
+  % No co-chairs; insert the chair.
+  {\bf Chair: \insertchair} %
+ }{ %
+  % Use co-chairs.
+  {\bf Co-Chairs: \insertcochairs}} %
+ % Vertical rubber space
+ \vspace*{\stretch{2}} %
+ % Insert the text in a centered minipage.
+ \begin{center} %
+  \begin{minipage}{0.9\textwidth} %
+   % Double-spaced lines required by Rackham
+   \doublespacing %
+   % Insert the text.
+   \insertabstract %
+  \end{minipage} %
+ \end{center} %
+ % Vertical rubber space
+ \vspace*{\stretch{1}} %
+}
+
 
 %% ---- BIBLIOGRAPHY ---------------------------------------------------
 % Save the original bibliography command.
@@ -1110,7 +1221,8 @@
  % Insert a title page.
  \titlepage %
  % Insert the frontispiece if there is one.
- \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
+ \if@umich@frontispiece\frontispiecepage\fi %
+% \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
  % Initialize page numbers.
  \setcounter{page}{1} %
  % Page numbers at the bottom
@@ -1120,15 +1232,15 @@
  % Insert the copyright page if there is one.
  \if@umich@copyright\copyrightpage\fi
  % Insert a dedication if there is one.
- \ifthenelse{\equal{\@dedication}{}}{}{\dedicationpage} %
+ \if@umich@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
- \ifthenelse{\equal{\@acknowledgments}{}}{}{\acknowledgmentspage} %
+ \if@umich@acknowledgments\acknowledgmentspage\fi %
  % Insert the preface if there is one.
- \ifthenelse{\equal{\@preface}{}}{}{\prefacepage} %
+ \if@umich@preface\prefacepage\fi %
  % Insert the foreword if there is one.
- \ifthenelse{\equal{\@foreword}{}}{}{\forewordpage} %
+ \if@umich@foreword\forewordpage\fi %
  % Insert the prologue if there is one.
- \ifthenelse{\equal{\@prologue}{}}{}{\prologuepage} %
+ \if@umich@prologue\prologuepage\fi %
  % Insert the table of contents.
  \tableofcontents %
  % Insert the list of figures.
@@ -1145,6 +1257,8 @@
  \if@umich@listofappendices\listofappendices\fi %
  % Insert the list of abbreviations.
  \if@umich@listofabbrevs\listofabbreviations\fi %
+ % Insert the abstract.
+ \if@umich@abstract\abstractpage\fi %
  % Move to next page.
  \newpage %
  % Restart page numbers for the chapters.
@@ -1166,169 +1280,3 @@
  \fi %
 }
 
-
-%%-- Table of contents and lists --
-%
-%\def\listofmaps{%
-% \newpage
-% \addcontentsline{toc}{chapter}{LIST OF MAPS}
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf LIST OF MAPS}
-% \vspace{0.7in}
-% \begin{singlespace}
-%  \@starttoc{lom}\if@restonecol\twocolumn\fi
-%  \addtocontents{lom}{\noindent\underline{\bf Map}\hfill\rm\protect\newline}
-% \end{singlespace}
-%}
-%
-%\def\listofappendices{%
-% \newpage
-% \addcontentsline{toc}{chapter}{LIST OF APPENDICES}
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf LIST OF APPENDICES}
-% \vspace{0.7in}
-% \begin{singlespace}
-%  \@starttoc{loa}\if@restonecol\twocolumn\fi
-%  \addtocontents{loa}{\noindent\underline{\bf Appendix}\hfill\rm\protect\newline}
-% \end{singlespace}
-%}
-%
-%
-%\def\startabstractpage#1#2#3{% This formats the optional in-dissertation abstract - jg
-% \newpage
-% \addcontentsline{toc}{chapter}{ABSTRACT}
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \twoinmar
-% \centerline{\large\bf ABSTRACT}
-% \vspace{0.25in}
-% \begin{center}
-%  \begin{singlespace}
-%   #1 \\
-%  \end{singlespace}
-%   by \\
-%   #2 \\
-% \end{center}
-% \vspace{0.4in}
-% \noindent #3
-% \vspace{0.25in}\\
-%}
-%
-%%-- Start chapters --
-%
-%\def\thechapter {\Roman{chapter}}
-%\def\thesection {\@arabic\c@chapter.\@arabic\c@section}
-%\def\thefigure {\@arabic\c@chapter.\@arabic\c@figure}
-%\def\thetable {\@arabic\c@chapter.\@arabic\c@table}
-%\def\theequation {\@arabic\c@chapter.\@arabic\c@equation}
-%
-%\newcounter{map}[chapter]
-%\def\themap{\@arabic\c@chapter.\@arabic\c@map}
-%\def\fps@map{tbp}
-%\def\ftype@map{1}
-%\def\ext@map{lom}
-%\def\fnum@map{Map \themap}
-%\def\map{\@float{map}}
-%\let\endmap\end@float
-%\@namedef{map*}{\@dblfloat{map}}
-%\@namedef{endmap*}{\end@dblfloat}
-%
-%\def\startthechapters{%
-% \def\@chapapp{CHAPTER}
-% \addtocontents{toc}{\protect\mbox{ }\protect\newline\noindent{\bf CHAPTER}\protect\newline}
-% \addtocontents{toc}{\hbox{ }}
-% \clearpage % This has to be before the rest.  jj
-% \if@twoside \ifodd\c@page \else \ttlpg \hbox{ }\fi\fi % For two-sided printing, make sure Chapter I starts on right-hand page. jg
-% \clearpage
-% \setcounter{chapter}{0}
-% \setcounter{page}{1} % -- ...always begin with ii.
-% \renewcommand{\thepage}{\arabic{page}}
-% \pagestyle{plain}
-% \def\tocname{toc}
-%}
-%
-%\def\@chapter[#1]#2{%
-% \ifnum \c@secnumdepth >\m@ne
-%  \refstepcounter{chapter}
-%  \typeout{\@chapapp\space\thechapter.}
-%  \addtocontents{toc}{\hbox{ }}
-%  \addcontentsline{toc}{chap}{\protect\numberline{\hbox{ }\hfill\bf\thechapter.\hspace{5pt}}{\bf #1}}
-%  \addtocontents{toc}{\hbox{ }}
-% \else
-%  \addtocontents{toc}{\hbox{ }}
-%  \addcontentsline{toc}{chap}{#1}
-%  \addtocontents{toc}{\hbox{ }}
-% \fi
-% \if@twocolumn \@topnewpage[\@makechapterhead{#2}]
-% \else \@makechapterhead{#2} \@afterheading \fi
-%}
-%
-%\def\@makechapterhead#1{%
-% \hbox{ }
-% \twoinmar
-% {\parindent 0pt \raggedright
-%  \ifnum \c@secnumdepth >\m@ne
-%  \centerline{\large\bf \@chapapp{} \thechapter} \par
-%  \vskip 0.3in \fi
-%  \begin{center}
-%   \Large\bf #1
-%  \end{center}
-%  \nobreak \vskip 0.7in
-% }
-% \@afterindenttrue
-%}
-%
-%\def\section{\@startsection{section}{1}{\z@}{3.5ex plus 1ex minus
-% .2ex}{2.3ex plus .2ex}{\large\bf}}
-%\def\subsection{\@startsection{subsection}{2}{\z@}{3.25ex plus 1ex minus
-% .2ex}{1.5ex plus .2ex}{\normalsize\bf}}
-%\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{3.25ex plus
-% 1ex minus .2ex}{1.5ex plus .2ex}{\normalsize\bf}}
-%
-%\long\def\@caption#1[#2]#3{%
-% \addtocontents{\csname ext@#1\endcsname}{\hbox{ }}
-% \addcontentsline{\csname ext@#1\endcsname}{#1}{\protect\numberline{\csname
-%  the#1\endcsname}{\ignorespaces\protect\small\protect\normalsize\rm #2}}
-% \par
-% \begingroup
-%  \@parboxrestore
-%  \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces\protect\small\normalsize\rm #3}
-%  \par
-% \endgroup
-%}
-%
-%\long\def\@makecaption#1#2{
-% \vskip 10pt
-% \setbox\@tempboxa\hbox{#1: #2}
-% \ifdim \wd\@tempboxa >\hsize
-%  \setbox\@tempboxa\hbox{#1: }
-%  \def\@tempdimj{\hsize}
-%  \advance\@tempdimj -\wd\@tempboxa
-%  \hbox to\hsize{#1: \parbox[t]{\@tempdimj}{#2}}
-% \else \hbox to\hsize{\hfill\box\@tempboxa\hfill}
-% \fi}
-%
-%%-- Appendices and bibliography --
-%
-%\def\startextabstractpage#1#2#3{% This formats an external Abstract that can be printed at the end of the document. Comment it out in thesis.tex when not needed. - jg
-% \ttlpg
-% \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
-% \hbox{ }
-% \centerline{\large\bf ABSTRACT}
-% \vspace{0.25in}
-% \begin{center}
-%  \begin{singlespace}
-%   #1 \\
-%  \end{singlespace}
-%   by \\
-%   #2 \\
-% \end{center}
-% \vspace{0.4in}
-% \noindent #3
-% \vspace{0.25in}\\
-% \pagestyle{empty}
-%}
