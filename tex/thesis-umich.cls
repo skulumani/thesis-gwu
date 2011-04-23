@@ -1248,6 +1248,28 @@
 }
 
 
+%% ---- CODE ENVIRONMENT -----------------------------------------------
+% This generates a 'code' environment that allows inline citations
+% of small snippets of code.
+\newenvironment{code} %
+ {\quote\small\verbatim} %
+ {\endverbatim\endquote}
+
+% Formatting commands
+% This command is used for names of files
+\newcommand{\tfile}[1]{{\small\textsf{#1}}}
+% This command puts a box around text that is meant for menu entries.
+\newcommand{\tmenu}[1]{\framebox[\width]{\ {\tiny\textsf{#1}}\ }}
+% This command is intended for names of variables within programs.
+\newcommand{\tvar}[1]{{\small\texttt{#1}}}
+% This command is used to display the contents of strings.
+% It automatically adds the correct, upright quotes around the argument.
+\newcommand{\tstring}[1]{ %
+ {\small\texttt{\textquotesingle#1\textquotesingle}}}
+% This command gives a bold version of the variable names.
+\newcommand{\tfunction}[1]{{\small\texttt{\textbf{#1}}}}
+
+
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
 \RequirePackage[usenames,dvipsnames]{color}

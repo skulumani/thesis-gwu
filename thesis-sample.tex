@@ -21,34 +21,37 @@
 
 % Dedication
 \dedication{ %
-This dissertation is in honor of Adlai Stevenson and William Jennings Bryan,
-who were both twice the Democratic nominee for President of the United States
-without winning either time.  As an interesting side note, Adlai Stevenson's
-grandfather, Adlai E. Stevenson I, was William Jennings Bryan's
-running mate in the 1900 election.}
+This dissertation is in honor of Adlai Stevenson and William Jennings
+Bryan, who were both twice the Democratic nominee for President of the
+United States without winning either time.  As an interesting side note,
+Adlai Stevenson's grandfather, Adlai E. Stevenson I, was William
+Jennings Bryan's running mate in the 1900 election.}
 
 % Acknowledgments
 \acknowledgments[4]{ %
 It is imperative that I thank all of the authors of the dissertation
-template from the Department of Atmospheric, Oceanic and Space Sciences, 
+template from the Department of Atmospheric, Oceanic and Space Sciences,
 which is available online at
-\href{http://aoss.engin.umich.edu/pages/current/dissertation-template}{ %
-http://aoss.engin.umich.edu/}.  To my knowledge, the authors include
-Jin Ji, Roque D. Oliveira, and Jason Gilbert.  I also must thank Sara
-Spangelo for suggesting that this template be ready by the end of April 2011.
-}
+\href{http://aoss.engin.umich.edu/pages/current/dissertation-template}{%
+http://aoss.engin.umich.edu/}.  To my knowledge, the authors of that
+template include Jin Ji, Roque D. Oliveira, and Jason Gilbert.  I also
+must thank Sara Spangelo for suggesting that this template be ready by
+the end of April 2011.}
+% This command sets the width of the acknowledgments area as a fraction
+% of the total width of the text area.
 \acknowledgmentswidth{0.8}
 
 % Preface
 \preface[2]{ %
-The text of this document is of course mainly meant to show how
-the template works.  The topic is thus a basic problem which has
-been solved in a large number of ways.  This sample topic, which
-is solving equations of one variable using iterative techniques,
-allows us to use sample equations and figures so that we can see
-how they will look in this template.  In addition to the standard
-methods, the text also demonstrates a new algorithm that has
-slightly improved performance.}
+The text of this document is of course mainly meant to show how the
+template works.  The topic is thus a basic problem which has been solved
+in a great number of ways.  This sample topic, which is solving
+equations of one variable using iterative techniques, allows us to use
+sample equations and figures so that we can see how they will look in
+this template.  In addition to this subject, the text also serves as a
+very unusual users' manual.  The second chapter, which does not match
+the other chapters at all, gives instructions on the actual commands
+that are used with this template.}
 
 % Committee
 \committee{ %
@@ -72,11 +75,10 @@ Professor Peter J. Olver, University of Minnesota}
 % Some abstract text
 \abstract{
 We show that it is possible to get approximate solutions to
-analytically intractable equations using iterative methods.
-Thus we show that the author could pass an undergraduate
-class in numerical analysis.  In addition, a unique
-extension to Brent's method is proposed that results in
-slight improvements in convergence.}
+analytically intractable equations using iterative methods.  Thus we
+show that the author could pass an undergraduate class in numerical
+analysis.  In addition, a unique extension to Brent's method is
+proposed that results in slight improvements in convergence.}
 
 %% DOCUMENT AREA
 \begin{document}
@@ -97,7 +99,25 @@ cannot be solved analytically when a perfect gas is not assumed.
 
 \newpage
 
-And this should at least continue onto a second page.  There are many texts that have a section on the subject, for instance \cite{chapra:2002:numerics}.
+And this should at least continue onto a second page.  There are many
+texts that have a section on the subject, for instance
+\cite{chapra:2002:numerics}.
+
+\chapter{Using This Template}
+This chapter is stuck among the others as a brief users' manual for this
+template.
+
+\section{General Usage}
+The way to invoke usage of this template is to put
+\begin{code}
+\documentclass{thesis-umich.cls}
+\end{code}
+at the beginning of your preamble.  This can also work if the
+\tfile{thesis-umich.cls} file is not in the same directory as your
+\tfile{.tex} file.  To do so, just give the relative path.
+\begin{code}
+\documentclass{./tex/thesis-umich.cls}
+\end{code}
 
 \chapter{Setting}
 The second chapter has the good stuff.
