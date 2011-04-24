@@ -859,8 +859,8 @@
 \renewcommand*{\listoffigures}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -875,8 +875,6 @@
  \begin{singlespace} %
   \@starttoc{lof}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %
 }
 
 
@@ -888,8 +886,8 @@
 \renewcommand*{\listoftables}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Tables} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -904,8 +902,6 @@
  \begin{singlespace} %
   \@starttoc{lot}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Tables} %
 }
 
 
@@ -922,8 +918,8 @@
 \newcommand*{\listofmaps}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Maps} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -938,8 +934,6 @@
  \begin{singlespace} %
   \@starttoc{lom}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Maps} %
 }
 
 
@@ -956,8 +950,8 @@
 \newcommand*{\listofillustrations}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Illustrations} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -972,8 +966,6 @@
  \begin{singlespace} %
   \@starttoc{loi}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Illustrations} %
 }
 
 
@@ -990,6 +982,8 @@
 \newcommand*{\listofprograms}{%
  % Move to new page.
  \newpage %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Programs} %
  % Anchor for pdf
  \phantomsection %
  % Use front page styling.
@@ -1006,8 +1000,6 @@
  \begin{singlespace} %
   \@starttoc{lop}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Programs} %
 }
 
 
@@ -1019,6 +1011,8 @@
 \newcommand*{\listofappendices}{%
  % Move to new page.
  \newpage %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Appendices} %
  % Anchor for pdf
  \phantomsection %
  % Use front page styling.
@@ -1035,8 +1029,6 @@
  \begin{singlespace} %
   \@starttoc{loa}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Appendices} %
 }
 
 % Renew the command that starts the appendices.
@@ -1106,8 +1098,8 @@
 \newcommand*{\listofabbreviations}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1124,8 +1116,6 @@
    \@abbrevs %
   \end{acronym} %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
 }
 
 
@@ -1147,8 +1137,8 @@
 \newcommand*{\listofacronyms}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Acronyms} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1165,8 +1155,6 @@
    \@acronyms %
   \end{acronym} %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Acronyms} %
 }
 
 
@@ -1188,8 +1176,8 @@
 \newcommand*{\listofsymbols}{%
  % Move to new page.
  \newpage %
- % Anchor for pdf
- \phantomsection %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{List of Symbols} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1206,8 +1194,6 @@
    \@symbols %
   \end{acronym} %
  \end{singlespace} %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Symbols} %
 }
 
 
