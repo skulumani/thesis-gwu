@@ -290,6 +290,7 @@
 \newcommand{\insertcommittee}{\@committee}
 \newcommand{\insertchair}{\@chair}
 \newcommand{\insertcochair}{\@cochair}
+\newcommand{\insertyear}{\number\year}
 
 % This redefines the title page to automatically have all of the
 % features and properties that it should according to the guidelines.
@@ -419,14 +420,15 @@
   \vspace*{\stretch{1}} %
   % Center on the page.
   \begin{center} %
-   % Use single spacing.
-   \begin{singlespace} %
-    % Make a minipage.
-    \begin{minipage}{#4\textwidth} %
-     % Insert the text.
-     \sloppy #1 %
-    \end{minipage} %
-   \end{singlespace} %
+   % Make a minipage.
+   \begin{minipage}{#4\textwidth} %
+    % Required to use 1.5-spacing for dissertation.
+    \if@umich@thesis %
+     \onehalfspacing %
+    \fi %
+    % Insert the text.
+    \sloppy #1 %
+   \end{minipage} %
   \end{center} %
   % Vertical rubber space
   \vspace*{\stretch{2}} %
@@ -437,16 +439,17 @@
   \vspace*{\stretch{1}} %
   % Center on the page.
   \begin{center} %
-   % Use single spacing.
-   \begin{singlespace} %
-    % Make a minipage.
-    \begin{minipage}{#4\textwidth} %
-     % Heading
-     \begin{center}\textbf{\textit{#3}}\end{center} %
-     % Insert the text.
-     \sloppy #1 %
-    \end{minipage} %
-   \end{singlespace} %
+   % Make a minipage.
+   \begin{minipage}{#4\textwidth} %
+    % Required to use 1.5-spacing for dissertation.
+    \if@umich@thesis %
+     \onehalfspacing %
+    \fi %
+    % Heading
+    \begin{center}\textbf{\textit{#3}}\end{center} %
+    % Insert the text.
+    \sloppy #1 %
+   \end{minipage} %
   \end{center} %
   % Vertical rubber space
   \vspace*{\stretch{2}} %
@@ -457,18 +460,19 @@
   \vspace*{\stretch{1}} %
   % Center on the page.
   \begin{center} %
-   % Use single spacing.
-   \begin{singlespace} %
-    % Make a minipage.
-    \begin{minipage}{#4\textwidth}
-     % Line above
-     \rule[1.4ex]{\textwidth}{1pt} %
-     % Insert the text.
-     \sloppy #1 \\ %
-     % Line below
-     \rule{\textwidth}{1pt} %
-    \end{minipage} %
-   \end{singlespace} %
+   % Make a minipage.
+   \begin{minipage}{#4\textwidth}
+    % Line above
+    \rule[1.4ex]{\textwidth}{1pt} %
+    % Required to use 1.5-spacing for dissertation.
+    \if@umich@thesis %
+     \onehalfspacing %
+    \fi %
+    % Insert the text.
+    \sloppy #1 \\ %
+    % Line below
+    \rule{\textwidth}{1pt} %
+   \end{minipage} %
   \end{center} %
   % Vertical rubber space
   \vspace*{\stretch{2}} %
@@ -479,22 +483,23 @@
   \vspace*{\stretch{1}} %
   % Center on the page.
   \begin{center} %
-   % Use single spacing.
-   \begin{singlespace} %
     % Make a minipage.
-    \begin{minipage}{#4\textwidth}
-     % Heading
-     \begin{center} \textbf{\uppercase{\an{#3}}} \end{center} %
-     % Move up a bit.
-     \ \\[-4ex] %
-     % Line above
-     \rule[1.4ex]{\textwidth}{1pt} %
-     % Insert the text.
-     \sloppy #1 \\ %
-     % Line below
-     \rule{\textwidth}{1pt} %
-    \end{minipage} %
-   \end{singlespace} %
+   \begin{minipage}{#4\textwidth}
+    % Heading
+    \begin{center} \textbf{\uppercase{\an{#3}}} \end{center} %
+    % Move up a bit.
+    \ \\[-4ex] %
+    % Line above
+    \rule[1.4ex]{\textwidth}{1pt} %
+    % Required to use 1.5-spacing for dissertation.
+    \if@umich@thesis %
+     \onehalfspacing %
+    \fi %
+    % Insert the text.
+    \sloppy #1 \\ %
+    % Line below
+    \rule{\textwidth}{1pt} %
+   \end{minipage} %
   \end{center} %
   % Vertical rubber space
   \vspace*{\stretch{2}} %
@@ -504,15 +509,12 @@
   \vspace*{\stretch{1}} %
   % Center on the page.
   \begin{center} %
-   % Use single spacing.
-   \begin{singlespace} %
-    % Make a minipage.
-    \begin{minipage}{0.7\textwidth} %
-     % Insert the text.
-     \begin{center} \sloppy #1 \end{center} %
-    \end{minipage} %
-   \end{singlespace} %
-  \end{center} %
+   % Make a minipage.
+   \begin{minipage}{0.7\textwidth} %
+    % Insert the text.
+    \begin{center} \sloppy #1 \end{center} %
+   \end{minipage} %
+ \end{center} %
   % Vertical rubber space
   \vspace*{\stretch{1}} %
  }}}} %
@@ -1257,17 +1259,17 @@
 
 % Formatting commands
 % This command is used for names of files
-\newcommand{\tfile}[1]{{\small\textsf{#1}}}
+\newcommand{\tfile}[1]{{\footnotesize\textsf{#1}}}
 % This command puts a box around text that is meant for menu entries.
 \newcommand{\tmenu}[1]{\framebox[\width]{\ {\tiny\textsf{#1}}\ }}
 % This command is intended for names of variables within programs.
-\newcommand{\tvar}[1]{{\small\texttt{#1}}}
+\newcommand{\tvar}[1]{{\footnotesize\texttt{#1}}}
 % This command is used to display the contents of strings.
 % It automatically adds the correct, upright quotes around the argument.
 \newcommand{\tstring}[1]{ %
- {\small\texttt{\textquotesingle#1\textquotesingle}}}
+ {\footnotesize\texttt{\textquotesingle#1\textquotesingle}}}
 % This command gives a bold version of the variable names.
-\newcommand{\tfunction}[1]{{\small\texttt{\textbf{#1}}}}
+\newcommand{\tfunction}[1]{{\footnotesize\texttt{\textbf{#1}}}}
 
 
 %% ---- LINKS ----------------------------------------------------------
@@ -1369,7 +1371,7 @@
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
-  \doublespacing %
+  \onehalfspacing %
  \else %
   % Use two-column format
   \twocolumn %
