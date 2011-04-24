@@ -1074,9 +1074,11 @@
  % Save the chapter number.
  \chaptermark{#1} %
  % Add extra space to the lists of figures and tables and maps.
- \addtocontents{lof}{\protect\addvspace{10\p@}} %
- \addtocontents{lot}{\protect\addvspace{10\p@}} %
- \addtocontents{lom}{\protect\addvspace{10\p@}} %
+ \addtocontents{lof}{\protect\addvspace{8pt}} %
+ \addtocontents{lot}{\protect\addvspace{8pt}} %
+ \addtocontents{lom}{\protect\addvspace{8pt}} %
+ \addtocontents{lop}{\protect\addvspace{8pt}} %
+ \addtocontents{loi}{\protect\addvspace{8pt}} %
  % Produce the appropriate headings for the first page.
  \if@twocolumn %
   \@topnewpage[\@makechapterhead{#2}] %

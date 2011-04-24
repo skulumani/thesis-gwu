@@ -49,9 +49,9 @@ in a great number of ways.  This sample topic, which is solving
 equations of one variable using iterative techniques, allows us to use
 sample equations and figures so that we can see how they will look in
 this template.  In addition to this subject, the text also serves as a
-very unusual users' manual.  The second chapter, which does not match
-the other chapters at all, gives instructions on the actual commands
-that are used with this template.}
+very unusual users' manual.  Chapter \ref{chap:manual}, which does not
+match the other chapters at all, gives instructions on the actual
+commands that are used with this template.}
 
 % Committee
 \committee{ %
@@ -104,7 +104,7 @@ And this should at least continue onto a second page.  There are many
 texts that have a section on the subject, for instance
 \cite{chapra:2002:numerics}.
 
-\chapter{Using This Template}
+\chapter{Using This Template}   \label{chap:manual}
 This chapter is stuck among the others as a brief users' manual for this
 template.  The approach to this template is to result in \LaTeX~source
 code files (\textit{i.e.}~\tfile{.tex} files) that are as simple as
@@ -203,6 +203,8 @@ template, and they work \emph{almost} exactly like the standard
 commands.
 
 \begin{table}
+ \caption{ \label{tab:identifiers}
+  List of all identifier commands}
  \centering
  \small
  \begin{tabular}{l @{\hspace{16pt}} l @{\hspace{16pt}} p{6cm}}
@@ -232,8 +234,6 @@ commands.
    & Year that dissertation will be \emph{completed} \\
   \hline \hline
  \end{tabular}
- \caption{ \label{tab:identifiers}
-  List of all identifier commands}
 \end{table}
 
 A full list of the identifiers is given in Table \ref{tab:identifiers}.
@@ -339,6 +339,8 @@ a prologue, a foreword, and a preface.  The only difference between each
 pair of commands is the resulting heading.
 
 \begin{table}
+ \caption{ \label{tab:fronstyle}
+  List of styles for frontmatter text pages}
  \centering
  \begin{tabular}{c @{\hspace{16pt}} p{8cm}}
   \hline \hline
@@ -353,8 +355,6 @@ pair of commands is the resulting heading.
   other & Centered text with no header or lines \\
   \hline \hline
  \end{tabular}
- \caption{ \label{tab:fronstyle}
-  List of styles for frontmatter text pages}
 \end{table}
 
 The final capability of the front page commands is to change the width
@@ -372,7 +372,7 @@ width.  This command exists for each of the text pages, and the argument
 should be a single number between 0 and 1.
 
 
-\subsection{Lists of Things}
+\subsection{Lists of Things}   \label{ssec:lists}
 For whatever reason, the Rackham guidelines say more about the Table of
 Contents than any other page.  There are lots of comments about what
 \textbf{\textsf{must}} and \textbf{\textsf{must not}} go in the Table
@@ -457,14 +457,136 @@ by the way) will have the appropriate page number.
 
 
 \section{Text Portion}
+The template also provides several tools that can be used in the main
+text part of the document, as well.  One of the features of this
+template is that it loads most of the common packages automatically.
+This alleviates the need for an annoying list of \verb|\usepackage|
+commands in the preamble.  This does not mean, however that other
+packages cannot be used.
 
 
 \subsection{Alternative Float Types}  \label{ssec:float}
+The Rackham guidelines refer to objects such as maps and illustrations,
+which behave much like a figure, but may be numbered and organized
+separately. Correspondingly, template provides environments for maps,
+programs, and illustrations.  They work exactly like a figure, as shown
+in the following example.
+\begin{code}
+\begin{map}
+ \centering
+ \includegrapics{...}
+ \caption{...}
+\end{map}
+\end{code}
+The only difference between this and a figure is that the caption will
+say ``Map \ldots'' instead of ``Figure \ldots''  As mentioned in Section
+\ref{ssec:lists}, this is also tied to a List of Maps, although the user
+must have the command
+\begin{code}
+\showlistofmaps
+\end{code}
+if there are at least two maps in the document.
+
+\subsection{Additional Text Formatting}
+The template contains several commands which can be used to format
+special types of text.  These work exactly like built-in
+\LaTeX~commands such as \verb|\textbf|, but they combine multiple
+formatting features.  A complete list with examples is in Table
+\ref{tab:text:function}.
+
+\begin{table}
+ \caption{ \label{tab:text:function}
+  List of text function from this template}
+ \centering
+ \begin{tabular}{l @{\hspace{16pt}} l @{\hspace{16pt}} p{6cm}}
+  \hline \hline
+  \textsc{Command} & \textsc{Example} & \textsc{Possible use} \\
+  \hline
+  \verb|\tfile|     & \tfile{thesis-umich.cls}
+   & name of a file \\
+  \verb|\tfunction| & \tfunction{sqrt}
+   & name of functions in programs \\
+  \verb|\tmenu|     & \tmenu{Format}
+   & a button or menu entry \\
+  \verb|\tstring|   & \tstring{off}
+   & contents of a string in a program \\
+  \verb|\tvar|      & \tvar{n\_apples}
+   & name of variable in programs \\
+  \hline \hline
+ \end{tabular}
+\end{table}
+
+Another capability that is provided by this template is the short code
+snippets that have been interspersed throughout this chapter.  This is
+done using the \verb|code| environment, and an example is shown in
+Program \ref{program:code}.  The only differences between this
+environment and the \verb|verbatim| environment are that there is an
+indentation to set it off from the rest of the text, and the resulting
+text is not enormous compared to the rest of the text.
+
+\begin{program}[!htb]
+\centering
+\begin{verbatim}
+\begin{code}
+Stuff to appear exactly as you type it...
+\end{code}
+\end{verbatim}
+\caption{ \label{program:code}
+Entering small code snippets}
+\end{program}
+
+
+\subsection{Bibliography}
+The bibliography does not require any special additional guidelines.  It
+will work best with Bib\TeX, and the usual
+\begin{code}
+\bibliography{./ref/references}
+\end{code}
+type of command will result in a correctly formatted bibliography.
+The references within the text will automatically generate links to the
+part of the bibliography page where the reference information is
+present.
+
+There is an additional capability that puts links to the page numbers on
+which each reference was cited.  As an example. suppose you cited
+reference 1 on pages 24, 36, and 40.  Then the bibliography will have
+the numbers 24, 36, and 40 immediately after the first reference, and
+these numbers will be links to the corresponding pages.  In order to
+activate this behavior, use the \verb|backref| option in the very first
+line.
+\begin{code}
+\documentclass[backref]{thesis-umich.cls}
+\end{code}
+
+
+
+\subsection{Document Format}
+The template has a capability to change the format of the entire
+document by simply changing
+\begin{code}
+\documentclass{thesis-umich.cls}
+\end{code}
+to
+\begin{code}
+\documentclass[report]{thesis-umich.cls}
+\end{code}
+This can also be combined with other options.
+\begin{code}
+\documentclass[report,backref]{thesis-umich.cls}
+\end{code}
+The \verb|report| format will change the base font size from 12pt to
+10pt, decrease the size of the margins, and change the main text into
+two-column format.  It also puts headers on pages that are not the first
+page of a chapter.  The purpose of this option is to compress the
+dissertation into a tighter, more journal-like format for personal
+records.  However, it will \emph{not} ensure that all of your figures,
+tables, and equations will fit with the new format.
+
 
 
 
 \chapter{Setting}
-The second chapter has the good stuff.
+The next chapter has the good stuff.
 
 \section{Convergence Criteria}
 Actually, it might have the worst stuff.  But it is slightly easier to
@@ -512,6 +634,50 @@ The next one.
 
 
 \chapter{Using Appendices}    \label{app:appendix}
+This appendix contains the portion of the users' manual that describes
+how to use appendices with this template.  It is put in this appendix
+rather than in Chapter \ref{chap:manual} simply so that there are two
+appendices, so that a list of appendices can appear earlier in the
+document.
+
+\section{Starting the Appendices}
+Actually, using appendices is quite simple.  Immediately after the end
+of the last chapter and before the start of the first appendix, simply
+enter the command \verb|\appendix|.  This will tell \LaTeX~to change
+how it interprets the commands \verb|\chapter|, \verb|\section|,
+\textit{etc.}
+
+Each appendix is actually a chapter, so once the \verb|\appendix|
+command has been called, start a new appendix by simply using the
+\verb|\chapter| command.
+\begin{code}
+\appendix
+\chapter{The First Appendix}
+...
+
+\chapter{The Boring Part That Is Not in the Chapters}
+\end{code}
+
+Note that the \verb|\appendix| command should be called only
+once--not before the start of each appendix.
+
+\section{Lists Including the Appendices}
+As mentioned in Section \ref{ssec:lists}, the command
+\begin{code}
+\showlistofappendices
+\end{code}
+must appear in the preamble if there are more than one appendices.  For
+some reason, Rackham does not want the individual appendices and their
+sections to appear in the Table of Contents, so a special List of
+Appendices page (which must occur in the Table of Contents!) is required
+as a sort of extension to the Table of Contents.
+
+This does not require a user of this template to do anything, but it is
+so silly that I felt it was worth explaining.  Also, there is nowhere
+for the sections or subsections of appendices to show up in the Table of
+Contents or any of the lists, but they do still create navigation tabs
+in a modern PDF viewer.
+
 
 
 % Using AIAA bibliography style since I'm in aero.
