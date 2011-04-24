@@ -1054,7 +1054,7 @@
  % Stop adding sections to the table of contents.
  \addtocontents{toc}{\setcounter{tocdepth}{1}} %
  % Header for appendices.
- \renewcommand{\@chapapp}{Appendix} %
+ \renewcommand{\@chapapp}{APPENDIX} %
  % Renew the chapter and section labels.
  \let\@chapter\@chapter@appendix %
 }
@@ -1339,6 +1339,35 @@
  {\footnotesize\texttt{\textquotesingle#1\textquotesingle}}}
 % This command gives a bold version of the variable names.
 \newcommand{\tfunction}[1]{{\footnotesize\texttt{\textbf{#1}}}}
+
+
+
+%% ---- CHAPTER HEADINGS -----------------------------------------------
+
+% Change the chapter headings to uppercase.
+\renewcommand{\@chapapp}{CHAPTER}
+
+% Change the formatting of the first page of each chapter.
+\renewcommand{\@makechapterhead}[1]{%
+ % Insert an extra top margin.
+ \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ % Insert the text
+ { %
+  % Ensure proper alignment.
+  \parindent 0pt \raggedright %
+  % Check for chapter overflow.
+  \ifnum \c@secnumdepth >\m@ne %
+   % CHAPTER and number
+   \centerline{\Large\bf \@chapapp{} \thechapter} \par %
+   % Vertical space
+   \vskip 0.3in \fi %
+   % Insert the title of the chapter.
+   \begin{center} \LARGE\bf #1 \end{center} %
+   % Vertical space after the title
+   \nobreak \vskip 0.3in %
+ } %
+}
+
 
 
 %% ---- LINKS ----------------------------------------------------------
