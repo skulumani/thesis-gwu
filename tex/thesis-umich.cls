@@ -433,8 +433,8 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
- \ifthenelse{\equal{#2}{2}}{
-  % Style 2: simple heading
+ \ifthenelse{\equal{#2}{2}}{ %
+  % Style 2: simple bold italic heading
   % Vertical rubber space
   \vspace*{\stretch{1}} %
   % Center on the page.
@@ -455,7 +455,28 @@
   \vspace*{\stretch{2}} %
  }{ %
  \ifthenelse{\equal{#2}{3}}{ %
-  % Style 3: lined
+  % Style 3: Spread caps heading
+  % Vertical rubber space
+  \vspace*{\stretch{1}} %
+  % Center on the page.
+  \begin{center} %
+   % Make a minipage.
+   \begin{minipage}{#4\textwidth} %
+    % Required to use 1.5-spacing for dissertation.
+    \if@umich@thesis %
+     \onehalfspacing %
+    \fi %
+    % Heading
+    \begin{center} \textbf{\uppercase{\an{#3}}} \end{center} %
+    % Insert the text.
+    \sloppy #1 %
+   \end{minipage} %
+  \end{center} %
+  % Vertical rubber space
+  \vspace*{\stretch{2}} %
+ }{ %
+ \ifthenelse{\equal{#2}{4}}{ %
+  % Style 4: lined
   % Vertical rubber space
   \vspace*{\stretch{1}} %
   % Center on the page.
@@ -477,8 +498,35 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
- \ifthenelse{\equal{#2}{4}}{ %
-  % Style 4: lined with heading
+ \ifthenelse{\equal{#2}{5}}{ %
+  % Style 5: bold italic heading with lines
+  % Vertical rubber space
+  \vspace*{\stretch{1}} %
+  % Center on the page.
+  \begin{center} %
+    % Make a minipage.
+   \begin{minipage}{#4\textwidth}
+    % Heading
+    \begin{center} \textbf{\textit{#3}} \end{center} %
+    % Move up a bit.
+    \ \\[-4ex] %
+    % Line above
+    \rule[1.4ex]{\textwidth}{1pt} %
+    % Required to use 1.5-spacing for dissertation.
+    \if@umich@thesis %
+     \onehalfspacing %
+    \fi %
+    % Insert the text.
+    \sloppy #1 \\ %
+    % Line below
+    \rule{\textwidth}{1pt} %
+   \end{minipage} %
+  \end{center} %
+  % Vertical rubber space
+  \vspace*{\stretch{2}} %
+ }{ %
+ \ifthenelse{\equal{#2}{6}}{ %
+  % Style 6: lined with spread caps header
   % Vertical rubber space
   \vspace*{\stretch{1}} %
   % Center on the page.
@@ -505,7 +553,7 @@
   \vspace*{\stretch{2}} %
  }{ %
   % Default style: centered
-% Vertical rubber space
+  % Vertical rubber space
   \vspace*{\stretch{1}} %
   % Center on the page.
   \begin{center} %
@@ -517,7 +565,7 @@
  \end{center} %
   % Vertical rubber space
   \vspace*{\stretch{1}} %
- }}}} %
+ }}}}}} %
 }
 
 %% ---- COMMANDS TO HIDE/SHOW FRONT PAGES ------------------------------
@@ -770,8 +818,8 @@
 
 % These lines set the spacing for other table of contents entries.
 \renewcommand*{\l@section}{\@dottedtocline{2}{2.5em}{2em}}
-\renewcommand*{\l@subsection}{\@dottedtocline{3}{5.0em}{2em}}
-\renewcommand*{\l@subsubsection}{\@dottedtocline{4}{7.5em}{2em}}
+\renewcommand*{\l@subsection}{\@dottedtocline{3}{5.0em}{2.8em}}
+\renewcommand*{\l@subsubsection}{\@dottedtocline{4}{7.5em}{3.5em}}
 
 % Number of section layers to show in table of contents
 \setcounter{tocdepth}{3}
@@ -1175,10 +1223,29 @@
 % Command to insert it.
 \newcommand{\insertabstract}{\@abstract}
 
+% Whether or not abstract page has a page number
+\newif\if@abstract@pageno
+% Default value
+\if@umich@thesis
+ \@abstract@pagenotrue
+\fi
+
+% Command to hide abstract page number
+\newcommand{\hideabstractpagenumber}{ %
+ \@abstract@pagenofalse}
+% Command to show abstract page number
+\newcommand{\showbstractpagenumber}{ %
+ \@abstract@pagenotrue}
+
 % Format the abstract page.
 \newcommand{\abstractpage}{ %
  % Set the page formatting.
  \frntpg %
+ % Whether or not to hide the page number
+ \if@abstract@pageno %
+ \else %
+  \thispagestyle{empty} %
+ \fi %
  % Add this page to the table of contents.
  \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
  % Extra vertical space

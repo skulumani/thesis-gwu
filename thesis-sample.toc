@@ -13,15 +13,17 @@
 \contentsline {section}{\numberline {2.1}General Usage}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Front Matter}{4}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Identifiers}{5}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Copyright Page}{6}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Frontispiece and Copyright}{6}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Text Pages}{6}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Abstract Page}{6}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Lists of Things}{6}{subsection.2.2.5}
-\contentsline {chapter}{\numberline {3}Setting}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Convergence Criteria}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}Why we are doing it}{8}{section.3.2}
-\contentsline {chapter}{Appendices}{10}{section*.17}
+\contentsline {subsection}{\numberline {2.2.4}Lists of Things}{8}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Abstract Page}{9}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Text Portion}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Alternative Float Types}{9}{subsection.2.3.1}
+\contentsline {chapter}{\numberline {3}Setting}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Convergence Criteria}{10}{section.3.1}
+\contentsline {section}{\numberline {3.2}Why we are doing it}{11}{section.3.2}
+\contentsline {chapter}{Appendices}{13}{section*.17}
 \global \c@tocdepth 1\relax 
-\contentsline {section}{\numberline {A.1}Bisection}{10}{section.A.1}
-\contentsline {section}{\numberline {A.2}False Position}{10}{section.A.2}
-\contentsline {chapter}{Bibliography}{12}{section*.20}
+\contentsline {section}{\numberline {A.1}Bisection}{13}{section.A.1}
+\contentsline {section}{\numberline {A.2}False Position}{13}{section.A.2}
+\contentsline {chapter}{Bibliography}{15}{section*.20}
