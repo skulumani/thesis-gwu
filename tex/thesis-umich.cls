@@ -1398,6 +1398,8 @@
 \AtBeginDocument{ %
  % Insert a title page.
  \titlepage %
+ % Change the PDF title.
+ \hypersetup{pdftitle=\inserttitle} %
  % Insert the frontispiece if there is one.
  \if@umich@frontispiece\frontispiecepage\fi %
 % \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
