@@ -154,6 +154,9 @@
 % This changes the font.
 \RequirePackage{times}
 
+% Compress multiple citations
+\RequirePackage{cite}
+
 % This package allows the ability to create a 'code' environment.
 \RequirePackage{verbatim}
 
@@ -1329,7 +1332,6 @@
 
 
 %% ---- CHAPTER HEADINGS -----------------------------------------------
-
 % Change the chapter headings to uppercase.
 \renewcommand{\@chapapp}{CHAPTER}
 
@@ -1355,6 +1357,11 @@
 }
 
 
+%% ---- SPACING --------------------------------------------------------
+% This fixes the spacing below captions, which by default can be small.
+\setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
+
+
 
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
@@ -1377,7 +1384,7 @@
  \hypersetup{ %
   colorlinks=true, %
   pdfstartview={FitH}, %
-  citecolor=DarkGreen, %
+  citecolor=Black, %
   linkcolor=Black, %
   urlcolor=Blue %
  }

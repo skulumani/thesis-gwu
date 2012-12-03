@@ -17,18 +17,18 @@
 \contentsline {subsection}{\numberline {2.2.3}Text Pages}{6}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Lists of Things}{8}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Abstract Page}{9}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}Text Portion}{9}{section.2.3}
+\contentsline {section}{\numberline {2.3}Text Portion}{10}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Alternative Float Types}{10}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Additional Text Formatting}{10}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Bibliography}{11}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}Document Format}{11}{subsection.2.3.4}
-\contentsline {chapter}{\numberline {3}Setting}{12}{chapter.3}
-\contentsline {section}{\numberline {3.1}Convergence Criteria}{12}{section.3.1}
-\contentsline {section}{\numberline {3.2}Why we are doing it}{13}{section.3.2}
-\contentsline {chapter}{Appendices}{15}{section*.14}
+\contentsline {chapter}{\numberline {3}Setting}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Convergence Criteria}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Why we are doing it}{14}{section.3.2}
+\contentsline {chapter}{Appendices}{16}{section*.14}
 \global \c@tocdepth 1\relax 
-\contentsline {section}{\numberline {A.1}Bisection}{15}{section.A.1}
-\contentsline {section}{\numberline {A.2}False Position}{15}{section.A.2}
-\contentsline {section}{\numberline {B.1}Starting the Appendices}{16}{section.B.1}
-\contentsline {section}{\numberline {B.2}Lists Including the Appendices}{16}{section.B.2}
-\contentsline {chapter}{Bibliography}{18}{section*.17}
+\contentsline {section}{\numberline {A.1}Bisection}{16}{section.A.1}
+\contentsline {section}{\numberline {A.2}False Position}{16}{section.A.2}
+\contentsline {section}{\numberline {B.1}Starting the Appendices}{17}{section.B.1}
+\contentsline {section}{\numberline {B.2}Lists Including the Appendices}{17}{section.B.2}
+\contentsline {chapter}{Bibliography}{19}{section*.17}
