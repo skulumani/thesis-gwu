@@ -1418,6 +1418,8 @@
  \renewcommand{\thepage}{\roman{page}} %
  % Insert the copyright page if there is one.
  \if@umich@copyright\copyrightpage\fi
+ % Initialize page numbers.
+ \setcounter{page}{1} %
  % Insert a dedication if there is one.
  \if@umich@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
