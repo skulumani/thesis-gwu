@@ -78,6 +78,7 @@
 \newif\if@umich@prologue
 \newif\if@umich@foreword
 \newif\if@umich@abstract
+\newif\if@umich@abstractmore
 
 % Set the default value of some of the options to true.
 \@umich@thesistrue
@@ -151,8 +152,11 @@
 % This is useful for complex figures.
 \RequirePackage{subfigure}
 
-% This changes the font.
+% This changes the font to Times New Roman.
 \RequirePackage{times}
+
+% And in equations, too!
+\RequirePackage{mathptmx}
 
 % Compress multiple citations
 \RequirePackage{cite}
@@ -580,6 +584,7 @@
 \newcommand{\showforeword}{\@umich@forewordtrue}
 \newcommand{\showprologue}{\@umich@prologuetrue}
 \newcommand{\showabstract}{\@umich@abstracttrue}
+\newcommand{\showabstractmore}{\@umich@abstractmoretrue}
 
 % Commands to hide front pages
 \newcommand{\hidecopyright}{\@umich@copyrightfalse}
@@ -588,7 +593,8 @@
 \newcommand{\hidepreface}{\@umich@prefacefalse}
 \newcommand{\hideforeword}{\@umich@forewordfalse}
 \newcommand{\hideprologue}{\@umich@prologuefalse}
-\newcommand{\hideabstract}{\@umich@abstractfalse}
+\newcommand{\hideabstract}{\@umich@abstractfalse %
+ \@umich@abstractmorefalse }
 
 
 %% ---- DEDICATION PAGE ------------------------------------------------
@@ -1030,7 +1036,7 @@
  \vspace{1ex} %
  % Start the automatic table of contents features.
  \begin{singlespace} %
-  \@starttoc{loa}\if@restonecol\twocolumn\fi %
+  \@starttoc{lox}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
 }
 
@@ -1065,7 +1071,7 @@
  % Add a bookmark manually.
  \pdfbookmark[0]{#1}{#2} %
  % Add to the list of appendices rather than toc.
- \addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}#1} %
+ \addcontentsline{lox}{chapter}{\protect\numberline{\thechapter}#1} %
  % Save the chapter number.
  \chaptermark{#1} %
  % Add extra space to the lists of figures and tables and maps.
@@ -1203,6 +1209,8 @@
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
 \newcommand{\@abstract}{}
+% Command to hold additional page of abstract
+\newcommand{\@abstractmore}{}
 
 % Command to set it.
 \renewcommand{\abstract}[1]{
@@ -1211,8 +1219,16 @@
  % Set the abstract text.
  \renewcommand{\@abstract}{#1}}
 
+% Command to set it.
+\newcommand{\abstractmore}[1]{
+ % Show the abstract page.
+ \showabstractmore %
+ % Set the abstract text.
+ \renewcommand{\@abstractmore}{#1}}
+
 % Command to insert it.
 \newcommand{\insertabstract}{\@abstract}
+\newcommand{\insertabstractmore}{\@abstractmore}
 
 % Whether or not abstract page has a page number
 \newif\if@abstract@pageno
@@ -1273,6 +1289,28 @@
    \doublespacing %
    % Insert the text.
    \insertabstract %
+  \end{minipage} %
+ \end{center} %
+ % Vertical rubber space
+ \vspace*{\stretch{1}} %
+}
+
+% Format the abstract page.
+\newcommand{\abstractmorepage}{ %
+ % Set the page formatting.
+ \frntpg %
+ % Whether or not to hide the page number
+ \if@abstract@pageno %
+ \else %
+  \thispagestyle{empty} %
+ \fi %
+ % Insert the text in a centered minipage.
+ \begin{center} %
+  \begin{minipage}{0.9\textwidth} %
+   % Double-spaced lines required by Rackham
+   \doublespacing %
+   % Insert the text.
+   \insertabstractmore %
   \end{minipage} %
  \end{center} %
  % Vertical rubber space
@@ -1372,10 +1410,10 @@
 % This will make labels and references hyperlinks.
 \if@umich@backref
  % Use references in the bibliography.
- \RequirePackage[pagebackref=true]{hyperref}
+ \RequirePackage[pagebackref=true,bookmarksdepth=3]{hyperref}
 \else
  % Do not use back references.
- \RequirePackage{hyperref}
+ \RequirePackage[bookmarksdepth=3]{hyperref}
 \fi
 
 % This controls some settings that affect the appearance of links.
@@ -1452,6 +1490,8 @@
  \if@umich@listofsymbols\listofsymbols\fi %
  % Insert the abstract.
  \if@umich@abstract\abstractpage\fi %
+ % Insert the abstract.
+ \if@umich@abstractmore\abstractmorepage\fi %
  % Move to next page.
  \newpage %
  % Restart page numbers for the chapters.
