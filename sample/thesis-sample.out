@@ -1,26 +1,35 @@
-\BOOKMARK [0][-]{section*.1}{Dedication}{}
-\BOOKMARK [0][-]{section*.2}{Acknowledgments}{}
-\BOOKMARK [0][-]{section*.3}{Preface}{}
-\BOOKMARK [0][-]{iv.0}{Table of Contents}{}
-\BOOKMARK [0][-]{section*.5}{List of Figures}{}
-\BOOKMARK [0][-]{section*.6}{List of Tables}{}
-\BOOKMARK [0][-]{section*.7}{List of Programs}{}
-\BOOKMARK [0][-]{section*.9}{List of Appendices}{}
-\BOOKMARK [0][-]{section*.11}{List of Abbreviations}{}
-\BOOKMARK [0][-]{section*.12}{Abstract}{}
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}
-\BOOKMARK [0][-]{chapter.2}{Using This Template}{}
-\BOOKMARK [1][-]{section.2.1}{General Usage}{chapter.2}
-\BOOKMARK [1][-]{section.2.2}{Front Matter}{chapter.2}
-\BOOKMARK [1][-]{section.2.3}{Text Portion}{chapter.2}
-\BOOKMARK [0][-]{chapter.3}{Setting}{}
-\BOOKMARK [1][-]{section.3.1}{Convergence Criteria}{chapter.3}
-\BOOKMARK [1][-]{section.3.2}{Why we are doing it}{chapter.3}
-\BOOKMARK [0][-]{section*.14}{Appendices}{}
-\BOOKMARK [0][-]{Methods.0}{Methods}{}
-\BOOKMARK [1][-]{section.A.1}{Bisection}{Methods.0}
-\BOOKMARK [1][-]{section.A.2}{False Position}{Methods.0}
-\BOOKMARK [0][-]{Using Appendices.0}{Using Appendices}{}
-\BOOKMARK [1][-]{section.B.1}{Starting the Appendices}{Using Appendices.0}
-\BOOKMARK [1][-]{section.B.2}{Lists Including the Appendices}{Using Appendices.0}
-\BOOKMARK [0][-]{section*.17}{Bibliography}{}
+\BOOKMARK [0][-]{section*.1}{Dedication}{}% 1
+\BOOKMARK [0][-]{section*.2}{Acknowledgments}{}% 2
+\BOOKMARK [0][-]{section*.3}{Preface}{}% 3
+\BOOKMARK [0][-]{v.0}{Table of Contents}{}% 4
+\BOOKMARK [0][-]{section*.5}{List of Figures}{}% 5
+\BOOKMARK [0][-]{section*.6}{List of Tables}{}% 6
+\BOOKMARK [0][-]{section*.7}{List of Programs}{}% 7
+\BOOKMARK [0][-]{section*.9}{List of Appendices}{}% 8
+\BOOKMARK [0][-]{section*.11}{List of Abbreviations}{}% 9
+\BOOKMARK [0][-]{section*.12}{Abstract}{}% 10
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 11
+\BOOKMARK [0][-]{chapter.2}{Using This Template}{}% 12
+\BOOKMARK [1][-]{section.2.1}{General Usage}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.2}{Front Matter}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.1}{Identifiers}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.2}{Frontispiece and Copyright}{section.2.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.3}{Text Pages}{section.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.4}{Lists of Things}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.5}{Abstract Page}{section.2.2}% 19
+\BOOKMARK [1][-]{section.2.3}{Text Portion}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.3.1}{Alternative Float Types}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.2}{Additional Text Formatting}{section.2.3}% 22
+\BOOKMARK [2][-]{subsection.2.3.3}{Bibliography}{section.2.3}% 23
+\BOOKMARK [2][-]{subsection.2.3.4}{Document Format}{section.2.3}% 24
+\BOOKMARK [0][-]{chapter.3}{Setting}{}% 25
+\BOOKMARK [1][-]{section.3.1}{Convergence Criteria}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.2}{Why we are doing it}{chapter.3}% 27
+\BOOKMARK [0][-]{section*.14}{Appendices}{}% 28
+\BOOKMARK [0][-]{Methods.0}{Methods}{}% 29
+\BOOKMARK [1][-]{section.A.1}{Bisection}{Methods.0}% 30
+\BOOKMARK [1][-]{section.A.2}{False Position}{Methods.0}% 31
+\BOOKMARK [0][-]{Using Appendices.0}{Using Appendices}{}% 32
+\BOOKMARK [1][-]{section.B.1}{Starting the Appendices}{Using Appendices.0}% 33
+\BOOKMARK [1][-]{section.B.2}{Lists Including the Appendices}{Using Appendices.0}% 34
+\BOOKMARK [0][-]{section*.17}{Bibliography}{}% 35

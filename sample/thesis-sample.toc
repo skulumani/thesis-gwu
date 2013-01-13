@@ -1,12 +1,12 @@
-\contentsline {chapter}{Dedication}{i}{section*.1}
-\contentsline {chapter}{Acknowledgments}{ii}{section*.2}
-\contentsline {chapter}{Preface}{iii}{section*.3}
-\contentsline {chapter}{List of Figures}{vi}{section*.5}
-\contentsline {chapter}{List of Tables}{vii}{section*.6}
-\contentsline {chapter}{List of Programs}{viii}{section*.7}
-\contentsline {chapter}{List of Appendices}{ix}{section*.9}
-\contentsline {chapter}{List of Abbreviations}{x}{section*.11}
-\contentsline {chapter}{Abstract}{xi}{section*.12}
+\contentsline {chapter}{Dedication}{ii}{section*.1}
+\contentsline {chapter}{Acknowledgments}{iii}{section*.2}
+\contentsline {chapter}{Preface}{iv}{section*.3}
+\contentsline {chapter}{List of Figures}{vii}{section*.5}
+\contentsline {chapter}{List of Tables}{viii}{section*.6}
+\contentsline {chapter}{List of Programs}{ix}{section*.7}
+\contentsline {chapter}{List of Appendices}{x}{section*.9}
+\contentsline {chapter}{List of Abbreviations}{xi}{section*.11}
+\contentsline {chapter}{Abstract}{xii}{section*.12}
 \vspace {1.3ex}\noindent {\bf Chapter}\vspace {1.3ex}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Using This Template}{3}{chapter.2}

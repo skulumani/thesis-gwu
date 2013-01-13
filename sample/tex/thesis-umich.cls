@@ -201,6 +201,42 @@
 \fi
 
 
+%% ----- MATH FONTS ------------------------------------------------------------
+% Commands for changing the math mode to and from bold
+\newcommand\txmath{\mathversion{normal}}
+\renewcommand\boldmath{\mathversion{bold}}
+
+% Normal symbols
+\SetSymbolFont{letters}{normal}{OML}{txmi}{m}{it}
+\SetSymbolFont{letters}{bold}{OML}{txmi}{bx}{it}
+% Math operators
+\SetSymbolFont{operators}{normal}{OT1}{txr}{m}{n}
+\SetSymbolFont{operators}{bold}{OT1}{txr}{bx}{n}
+% Math symbols
+\SetSymbolFont{symbols}{normal}{OMS}{txsy}{m}{n}
+\SetSymbolFont{symbols}{bold}{OMS}{txsy}{bx}{n}
+% Large symbols
+\SetSymbolFont{largesymbols}{normal}{OMX}{txex}{m}{n}
+\SetSymbolFont{largesymbols}{bold}{OMX}{txex}{bx}{n}
+
+% Math alphabets, at most 16 families
+% Roman
+\SetMathAlphabet{\mathrm}{normal}{OT1}{txr}{m}{n}
+\SetMathAlphabet{\mathrm}{bold}{OT1}{txr}{bx}{n}
+% Italic
+\SetMathAlphabet{\mathit}{normal}{OT1}{txr}{m}{it}
+\SetMathAlphabet{\mathit}{bold}{OT1}{txr}{bx}{it}
+% Bold
+\SetMathAlphabet{\mathbf}{normal}{OT1}{txr}{bx}{n}
+\SetMathAlphabet{\mathbf}{bold}{OT1}{txr}{bx}{n}
+% Sans-serif
+\SetMathAlphabet{\mathsf}{normal}{OT1}{cmss}{m}{n}
+\SetMathAlphabet{\mathsf}{bold}{OT1}{cmss}{bx}{n}
+% Calligraphic
+\SetMathAlphabet{\mathcal}{normal}{OMS}{cmsy}{m}{n}
+\SetMathAlphabet{\mathcal}{bold}{OMS}{cmsy}{bx}{n}
+
+
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
