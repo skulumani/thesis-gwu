@@ -77,6 +77,7 @@
 \newif\if@umich@preface
 \newif\if@umich@prologue
 \newif\if@umich@foreword
+\newif\if@umich@nomenclature
 \newif\if@umich@abstract
 \newif\if@umich@abstractmore
 
@@ -173,6 +174,9 @@
 % This package is used to set line spacing.
 \RequirePackage{setspace}
 
+% This package is used to make nomenclature tables that can span pages.
+\RequirePackage{longtable}
+
 % This package allows conditional testing of varibles.
 \RequirePackage{ifthen}
 
@@ -201,7 +205,7 @@
 \fi
 
 
-%% ----- MATH FONTS ------------------------------------------------------------
+%% ----- MATH FONTS ------------------------------------------------------
 % Commands for changing the math mode to and from bold
 \newcommand\txmath{\mathversion{normal}}
 \renewcommand\boldmath{\mathversion{bold}}
@@ -619,6 +623,7 @@
 \newcommand{\showpreface}{\@umich@prefacetrue}
 \newcommand{\showforeword}{\@umich@forewordtrue}
 \newcommand{\showprologue}{\@umich@prologuetrue}
+\newcommand{\shownomenclature}{\@umich@nomenclaturetrue}
 \newcommand{\showabstract}{\@umich@abstracttrue}
 \newcommand{\showabstractmore}{\@umich@abstractmoretrue}
 
@@ -629,6 +634,7 @@
 \newcommand{\hidepreface}{\@umich@prefacefalse}
 \newcommand{\hideforeword}{\@umich@forewordfalse}
 \newcommand{\hideprologue}{\@umich@prologuefalse}
+\newcommand{\hidenomenclature}{\@umich@nomenclaturefalse}
 \newcommand{\hideabstract}{\@umich@abstractfalse %
  \@umich@abstractmorefalse }
 
@@ -1241,6 +1247,58 @@
  \end{singlespace} %
 }
 
+%% ---- NOMENCLATURE ---------------------------------------------------
+% New command for nomenclature environment
+\newenvironment{symboltable}[1][]
+{ %
+ % Insert the title if present.
+ \ifthenelse{\equal{#1}{}}{ %
+  % Start the tabular environment.
+  \noindent\longtable[l]{@{} p{3.6em} @{\hspace{2pt}=\hspace{1em}} l} %
+ }{ %
+ % Insert the title.
+ \noindent\textit{#1}\\[-4ex] %
+ % Start the tabular environment.
+ \noindent\longtable[l]{@{} p{3.6em} @{\hspace{2pt}=\hspace{1em}} l} %
+ }
+}{ %
+ % End the tabular environment
+ \endlongtable %
+}
+
+% Variable holding the contents of the symbols.
+\newcommand{\@nomenclature}{}
+
+% Command to set the symbols.
+\newcommand{\nomenclature}[1]{ %
+ % Show the list of symbols.
+ \@umich@nomenclaturetrue %
+ % Redefine the list.
+ \renewcommand{\@nomenclature}{#1}}
+
+% Command to insert nomenclature
+\newcommand{\insertnomenclature}{ %
+ % Move to new page.
+ \newpage %
+ % Add this page to the table of contents.
+ \phantomsection\addcontentsline{toc}{chapter}{Nomenclature} %
+% Use front page styling.
+ \frntpg %
+ % Larger upper margin for first page of table (thesis only)
+ \if@umich@thesis %
+  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \fi %
+ % Add the title
+ \centerline{\large\bf NOMENCLATURE} %
+ % Add some space after the title.
+ \vskip4ex %
+% Set the line skip
+\begin{onehalfspace}
+% Insert the nomenclature conents
+\@nomenclature %
+\end{onehalfspace}
+}
+
 
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
@@ -1436,7 +1494,6 @@
 \setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
 
 
-
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
 \RequirePackage[usenames,dvipsnames]{color}
@@ -1524,6 +1581,8 @@
  \if@umich@listofacronyms\listofacronyms\fi %
  % Insert the list of symbols.
  \if@umich@listofsymbols\listofsymbols\fi %
+ % Insert the nomenclature.
+ \if@umich@nomenclature\insertnomenclature\fi %
  % Insert the abstract.
  \if@umich@abstract\abstractpage\fi %
  % Insert the abstract.
