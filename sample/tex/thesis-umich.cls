@@ -79,7 +79,6 @@
 \newif\if@umich@foreword
 \newif\if@umich@nomenclature
 \newif\if@umich@abstract
-\newif\if@umich@abstractmore
 
 % Set the default value of some of the options to true.
 \@umich@thesistrue
@@ -625,7 +624,6 @@
 \newcommand{\showprologue}{\@umich@prologuetrue}
 \newcommand{\shownomenclature}{\@umich@nomenclaturetrue}
 \newcommand{\showabstract}{\@umich@abstracttrue}
-\newcommand{\showabstractmore}{\@umich@abstractmoretrue}
 
 % Commands to hide front pages
 \newcommand{\hidecopyright}{\@umich@copyrightfalse}
@@ -635,8 +633,7 @@
 \newcommand{\hideforeword}{\@umich@forewordfalse}
 \newcommand{\hideprologue}{\@umich@prologuefalse}
 \newcommand{\hidenomenclature}{\@umich@nomenclaturefalse}
-\newcommand{\hideabstract}{\@umich@abstractfalse %
- \@umich@abstractmorefalse }
+\newcommand{\hideabstract}{\@umich@abstractfalse}
 
 
 %% ---- DEDICATION PAGE ------------------------------------------------
@@ -1303,8 +1300,6 @@
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
 \newcommand{\@abstract}{}
-% Command to hold additional page of abstract
-\newcommand{\@abstractmore}{}
 
 % Command to set it.
 \renewcommand{\abstract}[1]{
@@ -1313,16 +1308,8 @@
  % Set the abstract text.
  \renewcommand{\@abstract}{#1}}
 
-% Command to set it.
-\newcommand{\abstractmore}[1]{
- % Show the abstract page.
- \showabstractmore %
- % Set the abstract text.
- \renewcommand{\@abstractmore}{#1}}
-
 % Command to insert it.
 \newcommand{\insertabstract}{\@abstract}
-\newcommand{\insertabstractmore}{\@abstractmore}
 
 % Whether or not abstract page has a page number
 \newif\if@abstract@pageno
@@ -1376,37 +1363,15 @@
   {\bf Co-Chairs: \insertcochairs}} %
  % Vertical rubber space
  \vspace*{\stretch{2}} %
- % Insert the text in a centered minipage.
- \begin{center} %
-  \begin{minipage}{0.9\textwidth} %
-   % Double-spaced lines required by Rackham
-   \doublespacing %
-   % Insert the text.
-   \insertabstract %
-  \end{minipage} %
- \end{center} %
- % Vertical rubber space
- \vspace*{\stretch{1}} %
-}
-
-% Format the abstract page.
-\newcommand{\abstractmorepage}{ %
- % Set the page formatting.
- \frntpg %
- % Whether or not to hide the page number
- \if@abstract@pageno %
- \else %
-  \thispagestyle{empty} %
- \fi %
- % Insert the text in a centered minipage.
- \begin{center} %
-  \begin{minipage}{0.9\textwidth} %
-   % Double-spaced lines required by Rackham
-   \doublespacing %
-   % Insert the text.
-   \insertabstractmore %
-  \end{minipage} %
- \end{center} %
+ % Insert the text as a quotation
+ \begin{quotation} %
+  % Double-spaced lines required by Rackham
+  \doublespacing %
+  % Don't go past the margin.
+  \sloppy %
+  % Insert the text.
+  \insertabstract %
+ \end{quotation} %
  % Vertical rubber space
  \vspace*{\stretch{1}} %
 }
@@ -1585,8 +1550,6 @@
  \if@umich@nomenclature\insertnomenclature\fi %
  % Insert the abstract.
  \if@umich@abstract\abstractpage\fi %
- % Insert the abstract.
- \if@umich@abstractmore\abstractmorepage\fi %
  % Move to next page.
  \newpage %
  % Restart page numbers for the chapters.
