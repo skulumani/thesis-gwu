@@ -1360,7 +1360,7 @@
   {\bf Chair: \insertchair} %
  }{ %
   % Use co-chairs.
-  {\bf Co-Chairs: \insertcochairs}} %
+  {\bf Co-Chairs: \insertcochair}} %
  % Vertical rubber space
  \vspace*{\stretch{2}} %
  % Insert the text as a quotation
