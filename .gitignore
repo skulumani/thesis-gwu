@@ -64,6 +64,11 @@ acs-*.bib
 
 # fixme
 *.lox
+*.loa
+*.lom
+*.lop
+*.lot
+*.lox
 
 #(r)(e)ledmac/(r)(e)ledpar
 *.end
@@ -207,7 +212,6 @@ TSWLatexianTemp*
 .LSOverride
 
 # Icon must end with two \r
-Icon
 Icon
 
 # Thumbnails
