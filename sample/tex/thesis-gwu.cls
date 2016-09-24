@@ -964,7 +964,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries TABLE OF CONTENTS} %
+ \begin{center}{\large\bfseries TABLE OF CONTENTS}\end{center} %
  % Add some space after the title.
  \vspace{2ex} %
  % Start the automatic table of contents features.
@@ -991,7 +991,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF FIGURES} %
+ \begin{center}{\large\bfseries LIST OF FIGURES} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1018,7 +1018,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF TABLES} %
+ \begin{center}{\large\bfseries LIST OF TABLES} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1050,7 +1050,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF MAPS} %
+ \begin{center}{\large\bfseries LIST OF MAPS} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1082,7 +1082,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF ILLUSTRATIONS} %
+ \begin{center}{\large\bfseries LIST OF ILLUSTRATIONS} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1116,7 +1116,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF PROGRAMS} %
+ \begin{center}{\large\bfseries LIST OF PROGRAMS} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1145,7 +1145,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF APPENDICES} %
+ \begin{center}{\large\bfseries LIST OF APPENDICES} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1230,7 +1230,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF ABBREVIATIONS} %
+ \begin{center}{\large\bfseries LIST OF ABBREVIATIONS} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1269,7 +1269,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF ACRONYMS} %
+ \begin{center}{\large\bfseries LIST OF ACRONYMS} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1308,7 +1308,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries LIST OF SYMBOLS} %
+ \begin{center}{\large\bfseries LIST OF SYMBOLS} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic symbols feature.
@@ -1361,7 +1361,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bfseries NOMENCLATURE} %
+ \begin{center}{\large\bfseries NOMENCLATURE} \end{center}%
  % Add some space after the title.
  \vskip4ex %
 % Set the line skip
@@ -1515,7 +1515,7 @@
   % Check for chapter overflow.
   \ifnum \c@secnumdepth >\m@ne %
    % CHAPTER and number
-   \centerline{\Large\bfseries \@chapapp{} \thechapter} \par %
+   \begin{center}{\Large\bfseries \@chapapp{} \thechapter} \end{center} \par%
    % Vertical space
    \vskip 0.3in \fi %
    % Insert the title of the chapter.
