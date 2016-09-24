@@ -1,31 +1,65 @@
 % Use the University of Michigan thesis class.
-\documentclass[thesis]{./tex/thesis-umich}
+% options include report, thesis, debug, backref
+\documentclass[debug,thesis,backref]{./tex/thesis-gwu}[2016/09/24]
 
+% --------- FRONT MATTER PAGES ---------------------
 % Title of the thesis
 \title{Solving Nonlinear Equations of One Variable}
 
 % Author name
-\author{Derek J. Dalle}
+\author{Shankar Kulumani}
 
+% Previous degrees
+\bsdepartment{Astronautical Engineering}
+\bsschool{U.S. Air Force Academy}
+\bsgrad{May 2009}
+
+\msdepartment{Aeronautics and Astronautics}
+\msschool{Purdue University}
+\msgrad{December 2013}
+
+% PhD degree commands
+% Committee
+\showcommitteepage
+%\hidecommitteepage
+\committee{ %
+Tayoung Lee, Associate Professor of Engineering and Applied Science, Dissertation Director\\
+James Lee, Professor of Engineering and Applied Science, Committee Member\\
+Adam Wickenheiser, Assistant Professor of Engineering and Applied Science, Committee Member\\
+Full Name, Title, Dissertation Director/Co-Director/Committee Member
+}
+
+% Chair must be entered separately for formatting reasons.
+\chair{Taeyoung Lee}
+\chairtitle{Associate Professor of Mechanical and Aerospace Engineering}
 % Department
-\department{Aerospace Engineering}
+\department{Mechanical and Aerospace Engineering}
 
-% Year of completion
-\year=2012
+\phdgrad{May 28, 2018}
+\defensedate{May 28, 2018}
+% Year of completion for copyright page and perhaps other places
+\year=2018 
 
 % Frontispiece
+% delete to not print
 \frontispiece{\includegraphics[width=4in]{./pics/frontispiece.pdf}}
+
+% Copyright page
+%\hidecopyright
+\showcopyright
+%\copyrightholder{Someone else}
 
 % Default style for front pages
 \frontpagestyle{1}
 
 % Dedication
 \dedication{ %
-This dissertation is in honor of Adlai Stevenson and William Jennings
-Bryan, who were both twice the Democratic nominee for President of the
-United States without winning either time.  As an interesting side note,
-Adlai Stevenson's grandfather, Adlai E. Stevenson I, was William
-Jennings Bryan's running mate in the 1900 election.}
+To Christine.
+
+This page should be centered and maybe italics. 
+
+Add another page style option for this
+}
 
 % Acknowledgments
 \acknowledgments[6]{ %
@@ -53,16 +87,37 @@ very unusual users' manual.  Chapter \ref{chap:manual}, which does not
 match the other chapters at all, gives instructions on the actual
 commands that are used with this template.}
 
-% Committee
-\committee{ %
-Professor James F. Driscoll, Chair \\
-Professor Peter J. Olver, University of Minnesota}
+% commands to show or hide front matter pages
+\showcopyright
+% \hidecopyright
 
-% Chair must be entered separately for formatting reasons.
-\chair{James F. Driscoll}
+\showdedication
+% \hidededication
 
+\showacknowledgments
+% \hideacknowledgments
+
+\showpreface
+% \hidepreface
+
+\showforeword
+% \hideforeword
+
+\showprologue
+% \hideprologue
+
+\shownomenclature
+% \hidenomenclature
+
+% \showabstract
+\hideabstract
+
+% \showcommitteepage
+\hidecommitteepage
+
+% ------------ TABLE OF CONTENTS ----------------------
 % Commands to hide or show lists of figures, tables, etc.
-%\hidelistoftables
+\showlistoftables
 \showlistofprograms
 \showlistofappendices
 
