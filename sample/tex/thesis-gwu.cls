@@ -1,17 +1,19 @@
 %%
-%% This is the file thesis-umich.cls.
+%% This is the file thesis-gwu.cls.
 %% It provides a LaTeX class that is consistent with the guidelines
-%% provided by the Rackham Graduate School as described at
-%%   <http://www.rackham.umich.edu/downloads/
-%%               oard-dissertation-format-guidelines.pdf>
+%% provided by the School of Engineering and Science as described at
+%%   <http://library.gwu.edu/node/1128>
+%%
+%% GWU provides a sad excuse for a LaTeX template and this is an attempt to 
+%% improve.
 %%
 %% This class is based on the LaTeX template provided at
-%%   <http://aoss.engin.umich.edu/pages/current/dissertation-template>
+%%   <http://www-personal.umich.edu/~dalle/codes/thesis-umich/>
 %%
 %% The correct usage of this template is to use it as a documentclass.
 %% The first line of the .tex file should be
 %%
-%%     \documentclass{thesis-umich}
+%%     \documentclass{thesis-gwu}
 %%
 %% if this file is in the same directory as the .tex file.  If the
 %% two files are not in the same directory, the relative path from
@@ -20,7 +22,7 @@
 %% thesis-umich.cls is in a subfolder called 'tex', the command
 %% should be
 %%
-%%     \documentclass{./tex/thesis-umich}
+%%     \documentclass{./tex/thesis-gwu}
 %%
 %% An example is distributed with this file that demonstrates all
 %% of the features of the template.  The example is in a file called
@@ -46,6 +48,7 @@
 %%                                  in-dissertation abstract and
 %%                                  abstract that prints at the end.
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
+%%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
 %%
 
 %% ---- HEADERS --------------------------------------------------------
@@ -53,56 +56,60 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-umich}[2011/04/09 Thesis template]
+\ProvidesClass{thesis-gwu}[2016/09/24 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
-% The variables are \@umich@thesis and \@umich@report.
+% The variables are \@gwu@thesis and \@gwu@report.
 % The default values are false.
-\newif\if@umich@thesis
-\newif\if@umich@report
-\newif\if@umich@listoffigures
-\newif\if@umich@listoftables
-\newif\if@umich@listofmaps
-\newif\if@umich@listofillustrations
-\newif\if@umich@listofprograms
-\newif\if@umich@listofappendices
-\newif\if@umich@listofabbrevs
-\newif\if@umich@listofsymbols
-\newif\if@umich@listofacronyms
-\newif\if@umich@copyright
-\newif\if@umich@frontispiece
-\newif\if@umich@dedication
-\newif\if@umich@acknowledgments
-\newif\if@umich@preface
-\newif\if@umich@prologue
-\newif\if@umich@foreword
-\newif\if@umich@nomenclature
-\newif\if@umich@abstract
+\newif\if@gwu@thesis
+\newif\if@gwu@report
+\newif\if@gwu@debug % option for debuggin
+\newif\if@gwu@listoffigures
+\newif\if@gwu@listoftables
+\newif\if@gwu@listofmaps
+\newif\if@gwu@listofillustrations
+\newif\if@gwu@listofprograms
+\newif\if@gwu@listofappendices
+\newif\if@gwu@listofabbrevs
+\newif\if@gwu@listofsymbols
+\newif\if@gwu@listofacronyms
+\newif\if@gwu@copyright
+\newif\if@gwu@frontispiece
+\newif\if@gwu@committeepage
+\newif\if@gwu@dedication
+\newif\if@gwu@acknowledgments
+\newif\if@gwu@preface
+\newif\if@gwu@prologue
+\newif\if@gwu@foreword
+\newif\if@gwu@nomenclature
+\newif\if@gwu@abstract
 
 % Set the default value of some of the options to true.
-\@umich@thesistrue
-\@umich@listoffigurestrue
-\@umich@listoftablestrue
-\@umich@copyrighttrue
+\@gwu@thesistrue
+\@gwu@listoffigurestrue
+\@gwu@listoftablestrue
+\@gwu@copyrighttrue
+\@gwu@committeepagetrue
 
 % This declares a variable for using an index.
 % An index is not allowed in dissertations.
-\newif\if@umich@index
+\newif\if@gwu@index
 
 % This makes an option for bibliography backrefs.
-\newif\if@umich@backref
+\newif\if@gwu@backref
 
 % Declare options for the overall layout.
-\DeclareOption{thesis}{\@umich@thesistrue\@umich@reportfalse}
-\DeclareOption{report}{\@umich@reporttrue\@umich@thesisfalse}
+\DeclareOption{thesis}{\@gwu@thesistrue\@gwu@reportfalse}
+\DeclareOption{report}{\@gwu@reporttrue\@gwu@thesisfalse}
+% if you call debug option then use the thesis option but not report
+\DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue\@gwu@reportfalse}
 
 % Declare an option for the index.
-\DeclareOption{index}{\@umich@indextrue}
+\DeclareOption{index}{\@gwu@indextrue}
 
 % Declare an option for bibliography backrefs.
-\DeclareOption{backref}{\@umich@backreftrue}
-
+\DeclareOption{backref}{\@gwu@backreftrue}
 
 % This passes any other options on to the 'report' class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}%
@@ -113,7 +120,7 @@
 
 % This control structure calls the standard LaTeX report.cls class.
 % The base font size should be 10pt unless using the submit option.
-\if@umich@report
+\if@gwu@report
  % Call the report class with 10pt fonts and two-sided formatting.
  \LoadClass[letterpaper,10pt,twoside]{report}
 \else
@@ -122,24 +129,30 @@
 \fi
 
 % Make sure the index is off for 'thesis'.
-\if@umich@thesis
- \@umich@indexfalse
+\if@gwu@thesis
+ \@gwu@indexfalse
 \fi
 
 
 %% ---- PACKAGE LOADING ------------------------------------------------
 % This class uses the geometry.sty package to set the margins.
-\if@umich@report
+\if@gwu@report
  % Use a 1-inch margin for all four sides for the report version.
  \RequirePackage[margin=1in,footskip=8pt,headsep=0.4cm,%
   headheight=\baselineskip]{geometry}
  % This sets the distance between columns.
  \setlength{\columnsep}{0.3in}
+\else \if@gwu@debug
+  % Show margins 
+  \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in,
+  showframe]{geometry}
 \else
  % Use the standard margins for the thesis version.
- \RequirePackage[margin=1in,left=1.5in, %
-  headheight=0.5\baselineskip]{geometry}
+ \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in]{geometry}
 \fi
+
+% Obsolete package check
+\RequirePackage[l2tabu,orthodox]{nag}
 
 % This loads the required math packages.
 \RequirePackage{amsmath}
@@ -150,7 +163,7 @@
 \RequirePackage{graphicx}
 
 % This is useful for complex figures.
-\RequirePackage{subfigure}
+\RequirePackage{subcaption}
 
 % This changes the font to Times New Roman.
 \RequirePackage{times}
@@ -189,7 +202,7 @@
 \RequirePackage[printonlyused]{acronym}
 
 % This package is for the index, if it is to be used.
-\if@umich@index
+\if@gwu@index
  \RequirePackage{makeidx}
  \makeindex
 \fi
@@ -199,7 +212,7 @@
 
 % This package will allow for some sections to be in
 % different numbers of columns.
-\if@umich@report
+\if@gwu@report
  \RequirePackage{multicol}
 \fi
 
@@ -254,7 +267,7 @@
 \fancyhf{}
 
 % Set the header and footer for normal pages.
-\if@umich@report
+\if@gwu@report
  \fancyhead[LE,RO]{\bfseries\thepage}
  \fancyhead[LO]{\bfseries\rightmark}
  \fancyhead[RE]{\bfseries\leftmark}
@@ -313,31 +326,66 @@
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
 \renewcommand{\@author}{Insert an Author!}
+
+\newcommand{\@bsdepartment}{Insert a BS department name!}
+\newcommand{\@bsschool}{Insert BS school!}
+\newcommand{\@bsgrad}{BS Grad date!}
+
+\newcommand{\@msdepartment}{Insert a MS department name!}
+\newcommand{\@msschool}{Insert MS school!}
+\newcommand{\@msgrad}{MS Grad date!}
+
 \newcommand{\@degree}{Doctor of Philosophy}
 \newcommand{\@department}{Insert a Department Name!}
 \newcommand{\@committee}{Insert a Committee!}
 \newcommand{\@chair}{Insert a Chair!}
+\newcommand{\@chairtitle}{Professor of INSERT Title!}
 \newcommand{\@cochair}{}
+\newcommand{\@phdgrad}{PhD Grad date!}
+\newcommand{\@defensedate}{Insert defense date!}
 
 % Commands to set the titlepage fields
 \renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
 \renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
+
+\newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
+\newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
+\newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
+
+\newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
+\newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
+\newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
+
 \newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 \newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
 \newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
+\newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
 \newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
-
+\newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
+\newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
 % Commands for the user to be able to use the defined fields.
 \newcommand{\inserttitle}{\@title}
 \newcommand{\insertauthor}{\@author}
+
+\newcommand{\insertbsdepartment}{\@bsdepartment}
+\newcommand{\insertbsschool}{\@bsschool}
+\newcommand{\insertbsgrad}{\@bsgrad}
+
+\newcommand{\insertmsdepartment}{\@msdepartment}
+\newcommand{\insertmsschool}{\@msschool}
+\newcommand{\insertmsgrad}{\@msgrad}
+
 \newcommand{\insertdegree}{\@degree}
 \newcommand{\insertdepartment}{\@department}
 \newcommand{\insertcommittee}{\@committee}
 \newcommand{\insertchair}{\@chair}
+\newcommand{\insertchairtitle}{\@chairtitle}
 \newcommand{\insertcochair}{\@cochair}
 \newcommand{\insertyear}{\number\year}
+\newcommand{\insertphdgrad}{\@phdgrad}
 
+\newcommand{\insertdefensedate}{\@defensedate}
 % This redefines the title page to automatically have all of the
 % features and properties that it should according to the guidelines.
 \renewcommand*{\titlepage}{
@@ -350,40 +398,34 @@
   % Center the title page as well.
   \begin{center} %
    % Put the title itself in 1.5-spaced format.
-   \begin{onehalfspacing}
+   \begin{singlespacing}
     % Insert the title.
-    {\Large\bfseries\inserttitle} %
-   \end{onehalfspacing} \\[4ex] %
+    {\normalsize\bfseries\inserttitle} %
+   \end{singlespacing} \\[4ex] %
    % Vertical rubber space
 %   \vfill %
    % Print the word 'by'.
    by \\[2ex] %
    % Insert the author
-   \insertauthor \\ %
+   \insertauthor \\[4ex] %
    % More rubber space
-   \vfill %
+   %\vfill %
+   % previous degrees
+   B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+   M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2ex]
    % Text from guidelines
-   A dissertation submitted in partial fulfillment \\ %
-   of the requirements for the degree of \\ %
-   % Name of degree
-   \insertdegree \\ %
-   % Department
-   (\insertdepartment) \\ %
-   in the University of Michigan \\ %
-   % Year of completion
-   \number\year %
+   A Dissertation submitted to \\[2ex] %
+   The Faulty of \\
+   The School of Engineering and Applied Science \\
+   of The George Washington University \\
+   in partial satisfaction fo the requirements \\
+   for the degree of \insertdegree \\[2ex]
+   \insertphdgrad \\[2ex]
+   % insert doctoral advisor
+   Dissertation directed by \\[2ex]
+   \insertchair \\
+   \insertchairtitle
   \end{center} %
-  % More rubber space
-  \vfill %
-  % Non-justified content
-  \begin{flushleft}
-   % Heading for the committee
-   \hspace{1in}Doctoral Committee: \\[2ex] %
-   % Horizontal spacing
-   \hspace{1.5in} %
-   % Insert the committee (in a box).
-   \parbox{4.2in}{\insertcommittee}
-  \end{flushleft} %
  \end{singlespace} %
 }
 
@@ -395,7 +437,7 @@
 % Command to set the frontispiece
 \newcommand{\frontispiece}[1]{
  % Turn the frontispiece on.
- \@umich@frontispiecetrue %
+ \@gwu@frontispiecetrue %
  % Set the frontispiece.
  \renewcommand{\@frontispiece}{#1}}
 
@@ -417,6 +459,39 @@
  \end{center} %
 }
 
+%% ---- DISSERTATION COMMITTEE PAGE ---------------------------------------
+
+% command for the committee page 
+\newcommand*{\committeepage}{
+  % Use titlepage formatting
+  \ttlpg
+  \begin{doublespacing}
+    \noindent
+    The School of Engineering and Applied Science of The George Washington
+    University certifies that \insertauthor~has passed the Final Examination for the
+    degree of \insertdegree~as of \insertdefensedate. This is the
+    final and approved form of the dissertation.
+  \end{doublespacing}
+
+  \begin{center}
+    \begin{singlespace}
+      {\normalsize\bfseries\inserttitle} \\[4ex]
+      \insertauthor
+    \end{singlespace}
+  \end{center}
+
+  % Non-justified content
+  \begin{flushleft}
+   % Heading for the committee
+   Dissertation Research Committee: \\[2ex] %
+   % Horizontal spacing
+   \hspace{5em} %
+   % Insert the committee (in a box).
+   \parbox{4.2in}{\insertcommittee}
+  \end{flushleft} %
+  % flexible vertical space
+  \vfill
+}
 
 %% ---- COPYRIGHT PAGE -------------------------------------------------
 % Command that holds the name of the copyright holder
@@ -437,11 +512,10 @@
   % Vertical rubber space
   \ \vfill %
   % Insert the frontispiece.
-  \copyright \insertcopyrightholder \\[1ex] %
+  \copyright~\number\year~by \insertcopyrightholder \\ %
+  All rights reserved
   % Horizontal line
-  \rule[0.5ex]{5in}{1pt} \\[1ex] %
-  % The year of publication
-  \number\year %
+  %\rule[0.5ex]{5in}{1pt} \\[1ex] %
   % Vertical rubber space
   \vfill %
  \end{center} %
@@ -469,7 +543,7 @@
    % Make a minipage.
    \begin{minipage}{#4\textwidth} %
     % Required to use 1.5-spacing for dissertation.
-    \if@umich@thesis %
+    \if@gwu@thesis %
      \onehalfspacing %
     \fi %
     % Insert the text.
@@ -488,7 +562,7 @@
    % Make a minipage.
    \begin{minipage}{#4\textwidth} %
     % Required to use 1.5-spacing for dissertation.
-    \if@umich@thesis %
+    \if@gwu@thesis %
      \onehalfspacing %
     \fi %
     % Heading
@@ -509,7 +583,7 @@
    % Make a minipage.
    \begin{minipage}{#4\textwidth} %
     % Required to use 1.5-spacing for dissertation.
-    \if@umich@thesis %
+    \if@gwu@thesis %
      \onehalfspacing %
     \fi %
     % Heading
@@ -532,7 +606,7 @@
     % Line above
     \rule[1.4ex]{\textwidth}{1pt} %
     % Required to use 1.5-spacing for dissertation.
-    \if@umich@thesis %
+    \if@gwu@thesis %
      \onehalfspacing %
     \fi %
     % Insert the text.
@@ -559,7 +633,7 @@
     % Line above
     \rule[1.4ex]{\textwidth}{1pt} %
     % Required to use 1.5-spacing for dissertation.
-    \if@umich@thesis %
+    \if@gwu@thesis %
      \onehalfspacing %
     \fi %
     % Insert the text.
@@ -586,7 +660,7 @@
     % Line above
     \rule[1.4ex]{\textwidth}{1pt} %
     % Required to use 1.5-spacing for dissertation.
-    \if@umich@thesis %
+    \if@gwu@thesis %
      \onehalfspacing %
     \fi %
     % Insert the text.
@@ -616,25 +690,26 @@
 
 %% ---- COMMANDS TO HIDE/SHOW FRONT PAGES ------------------------------
 % Commands to show front pages
-\newcommand{\showcopyright}{\@umich@copyrighttrue}
-\newcommand{\showdedication}{\@umich@dedicationtrue}
-\newcommand{\showacknowledgments}{\@umich@acknowledgmentstrue}
-\newcommand{\showpreface}{\@umich@prefacetrue}
-\newcommand{\showforeword}{\@umich@forewordtrue}
-\newcommand{\showprologue}{\@umich@prologuetrue}
-\newcommand{\shownomenclature}{\@umich@nomenclaturetrue}
-\newcommand{\showabstract}{\@umich@abstracttrue}
+\newcommand{\showcopyright}{\@gwu@copyrighttrue}
+\newcommand{\showdedication}{\@gwu@dedicationtrue}
+\newcommand{\showacknowledgments}{\@gwu@acknowledgmentstrue}
+\newcommand{\showpreface}{\@gwu@prefacetrue}
+\newcommand{\showforeword}{\@gwu@forewordtrue}
+\newcommand{\showprologue}{\@gwu@prologuetrue}
+\newcommand{\shownomenclature}{\@gwu@nomenclaturetrue}
+\newcommand{\showabstract}{\@gwu@abstracttrue}
+\newcommand{\showcommitteepage}{\@gwu@committeepagetrue}
 
 % Commands to hide front pages
-\newcommand{\hidecopyright}{\@umich@copyrightfalse}
-\newcommand{\hidededication}{\@umich@dedicationfalse}
-\newcommand{\hideacknowledgments}{\@umich@acknowledgmentsfalse}
-\newcommand{\hidepreface}{\@umich@prefacefalse}
-\newcommand{\hideforeword}{\@umich@forewordfalse}
-\newcommand{\hideprologue}{\@umich@prologuefalse}
-\newcommand{\hidenomenclature}{\@umich@nomenclaturefalse}
-\newcommand{\hideabstract}{\@umich@abstractfalse}
-
+\newcommand{\hidecopyright}{\@gwu@copyrightfalse}
+\newcommand{\hidededication}{\@gwu@dedicationfalse}
+\newcommand{\hideacknowledgments}{\@gwu@acknowledgmentsfalse}
+\newcommand{\hidepreface}{\@gwu@prefacefalse}
+\newcommand{\hideforeword}{\@gwu@forewordfalse}
+\newcommand{\hideprologue}{\@gwu@prologuefalse}
+\newcommand{\hidenomenclature}{\@gwu@nomenclaturefalse}
+\newcommand{\hideabstract}{\@gwu@abstractfalse}
+\newcommand{\hidecommitteepage}{\@gwu@committeepagefalse}
 
 %% ---- DEDICATION PAGE ------------------------------------------------
 % Command that holds the value text of the dedication
@@ -830,26 +905,26 @@
 
 %% ---- COMMANDS FOR LIST OF FIGURES, ETC. -----------------------------
 % Commands to show each of the lists
-\newcommand{\showlistoffigures}{\@umich@listoffigurestrue}
-\newcommand{\showlistoftables}{\@umich@listoftablestrue}
-\newcommand{\showlistofmaps}{\@umich@listofmapstrue}
-\newcommand{\showlistofillustrations}{\@umich@listillustrationstrue}
-\newcommand{\showlistofprograms}{\@umich@listofprogramstrue}
-\newcommand{\showlistofappendices}{\@umich@listofappendicestrue}
-\newcommand{\showlistofabbreviations}{\@umich@listofabbrevstrue}
-\newcommand{\showlistofacronyms}{\@umich@listofacronymstrue}
-\newcommand{\showlistofsymbos}{\@umich@listofsymbolstrue}
+\newcommand{\showlistoffigures}{\@gwu@listoffigurestrue}
+\newcommand{\showlistoftables}{\@gwu@listoftablestrue}
+\newcommand{\showlistofmaps}{\@gwu@listofmapstrue}
+\newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
+\newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
+\newcommand{\showlistofappendices}{\@gwu@listofappendicestrue}
+\newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
+\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
+\newcommand{\showlistofsymbos}{\@gwu@listofsymbolstrue}
 
 % Commands to hide each of the lists
-\newcommand{\hidelistoffigures}{\@umich@listoffiguresfalse}
-\newcommand{\hidelistoftables}{\@umich@listoftablesfalse}
-\newcommand{\hidelistofmaps}{\@umich@listofmapsfalse}
-\newcommand{\hidelistofillustrations}{\@umich@listillustrationsfalse}
-\newcommand{\hidelistofprograms}{\@umich@listofprogramsfalse}
-\newcommand{\hidelistofappendices}{\@umich@listofappendicesfalse}
-\newcommand{\hidelistofabbreviations}{\@umich@listofabbrevsfalse}
-\newcommand{\hidelistofacronyms}{\@umich@listofacronymsfalse}
-\newcommand{\hidelistofsymbos}{\@umich@listofsymbolsfalse}
+\newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
+\newcommand{\hidelistoftables}{\@gwu@listoftablesfalse}
+\newcommand{\hidelistofmaps}{\@gwu@listofmapsfalse}
+\newcommand{\hidelistofillustrations}{\@gwu@listillustrationsfalse}
+\newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse}
+\newcommand{\hidelistofappendices}{\@gwu@listofappendicesfalse}
+\newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse}
+\newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
+\newcommand{\hidelistofsymbos}{\@gwu@listofsymbolsfalse}
 
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
@@ -885,11 +960,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf TABLE OF CONTENTS} %
+ \centerline{\large\bfseries TABLE OF CONTENTS} %
  % Add some space after the title.
  \vspace{2ex} %
  % Start the automatic table of contents features.
@@ -912,11 +987,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF FIGURES} %
+ \centerline{\large\bfseries LIST OF FIGURES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -939,11 +1014,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF TABLES} %
+ \centerline{\large\bfseries LIST OF TABLES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -971,11 +1046,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF MAPS} %
+ \centerline{\large\bfseries LIST OF MAPS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1003,11 +1078,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF ILLUSTRATIONS} %
+ \centerline{\large\bfseries LIST OF ILLUSTRATIONS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1037,11 +1112,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF PROGRAMS} %
+ \centerline{\large\bfseries LIST OF PROGRAMS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1066,11 +1141,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF APPENDICES} %
+ \centerline{\large\bfseries LIST OF APPENDICES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1135,7 +1210,7 @@
 % Command to set the abbreviations.
 \newcommand{\abbreviations}[1]{ %
  % Show the list of abbreviations.
- \@umich@listofabbrevstrue %
+ \@gwu@listofabbrevstrue %
  % Redefine the list.
  \renewcommand{\@abbrevs}{#1}}
 
@@ -1151,11 +1226,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF ABBREVIATIONS} %
+ \centerline{\large\bfseries LIST OF ABBREVIATIONS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1174,7 +1249,7 @@
 % Command to set the abbreviations.
 \newcommand{\acronyms}[1]{ %
  % Show the list of abbreviations.
- \@umich@listofacronymstrue %
+ \@gwu@listofacronymstrue %
  % Redefine the list.
  \renewcommand{\@acronyms}{#1}}
 
@@ -1190,11 +1265,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF ACRONYMS} %
+ \centerline{\large\bfseries LIST OF ACRONYMS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1213,7 +1288,7 @@
 % Command to set the symbols.
 \newcommand{\symbols}[1]{ %
  % Show the list of symbols.
- \@umich@listofsymbolstrue %
+ \@gwu@listofsymbolstrue %
  % Redefine the list.
  \renewcommand{\@symbols}{#1}}
 
@@ -1229,11 +1304,11 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf LIST OF SYMBOLS} %
+ \centerline{\large\bfseries LIST OF SYMBOLS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic symbols feature.
@@ -1269,7 +1344,7 @@
 % Command to set the symbols.
 \newcommand{\nomenclature}[1]{ %
  % Show the list of symbols.
- \@umich@nomenclaturetrue %
+ \@gwu@nomenclaturetrue %
  % Redefine the list.
  \renewcommand{\@nomenclature}{#1}}
 
@@ -1282,11 +1357,11 @@
 % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
- \if@umich@thesis %
-  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \if@gwu@thesis %
+  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \centerline{\large\bf NOMENCLATURE} %
+ \centerline{\large\bfseries NOMENCLATURE} %
  % Add some space after the title.
  \vskip4ex %
 % Set the line skip
@@ -1314,7 +1389,7 @@
 % Whether or not abstract page has a page number
 \newif\if@abstract@pageno
 % Default value
-\if@umich@thesis
+\if@gwu@thesis
  \@abstract@pagenotrue
 \fi
 
@@ -1337,32 +1412,29 @@
  % Add this page to the table of contents.
  \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
  % Extra vertical space
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  % Center the title area.
  \begin{center} %
-  % Formatting
-  \large \bfseries
-  % Add the heading.
-  ABSTRACT \\[5ex] %
+  % Formatting add the heading
+  {\large \bfseries Abstract} \\[5ex] %
   % Add the title of the dissertation.
-  \normalsize %
-  \inserttitle \\[2ex] %
+  {\normalsize \bfseries \inserttitle} \\[2ex] %
   % Add the word 'by'
   by \\[2ex]
   % Add the author.
   \insertauthor
  \end{center} %
  % Vertical rubber space
- \vspace*{\stretch{2}} %
+ %\vspace*{\stretch{2}} %
  % Insert the chair info
- \ifthenelse{\equal{\@cochair}{}}{
+ %\ifthenelse{\equal{\@cochair}{}}{
   % No co-chairs; insert the chair.
-  {\bf Chair: \insertchair} %
- }{ %
+  %{\bfseries Chair: \insertchair} %
+ %}{ %
   % Use co-chairs.
-  {\bf Co-Chairs: \insertcochair}} %
+  %{\bfseries Co-Chairs: \insertcochair}} %
  % Vertical rubber space
- \vspace*{\stretch{2}} %
+ %\vspace*{\stretch{2}} %
  % Insert the text as a quotation
  \begin{quotation} %
   % Double-spaced lines required by Rackham
@@ -1387,7 +1459,7 @@
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
  % Update the page format.
- \if@umich@report %
+ \if@gwu@report %
   % Eliminate vertical space.
   \ \\[-2ex] %
  \else %
@@ -1443,11 +1515,11 @@
   % Check for chapter overflow.
   \ifnum \c@secnumdepth >\m@ne %
    % CHAPTER and number
-   \centerline{\Large\bf \@chapapp{} \thechapter} \par %
+   \centerline{\Large\bfseries \@chapapp{} \thechapter} \par %
    % Vertical space
    \vskip 0.3in \fi %
    % Insert the title of the chapter.
-   \begin{center} \LARGE\bf #1 \end{center} %
+   \begin{center} \LARGE\bfseries #1 \end{center} %
    % Vertical space after the title
    \nobreak \vskip 0.3in %
  } %
@@ -1466,7 +1538,7 @@
 \definecolor{DarkGreen}{rgb}{0,0.6,0}
 
 % This will make labels and references hyperlinks.
-\if@umich@backref
+\if@gwu@backref
  % Use references in the bibliography.
  \RequirePackage[pagebackref=true,bookmarksdepth=3]{hyperref}
 \else
@@ -1475,7 +1547,7 @@
 \fi
 
 % This controls some settings that affect the appearance of links.
-\if@umich@thesis
+\if@gwu@thesis
  % Use black for the main links.
  \hypersetup{ %
   colorlinks=true, %
@@ -1504,8 +1576,10 @@
  % Change the PDF title.
  \hypersetup{pdftitle=\inserttitle} %
  % Insert the frontispiece if there is one.
- \if@umich@frontispiece\frontispiecepage\fi %
+ \if@gwu@frontispiece\frontispiecepage\fi %
 % \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
+  % Insert dissertation committeee page 
+  \if@gwu@committeepage\committeepage\fi
  % Initialize page numbers.
  \setcounter{page}{1} %
  % Page numbers at the bottom
@@ -1513,43 +1587,43 @@
  % Use lower-case roman numerals.
  \renewcommand{\thepage}{\roman{page}} %
  % Insert the copyright page if there is one.
- \if@umich@copyright\copyrightpage\fi
+ \if@gwu@copyright\copyrightpage\fi
  % Initialize page numbers.
  \setcounter{page}{1} %
  % Insert a dedication if there is one.
- \if@umich@dedication\dedicationpage\fi %
+ \if@gwu@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
- \if@umich@acknowledgments\acknowledgmentspage\fi %
+ \if@gwu@acknowledgments\acknowledgmentspage\fi %
  % Insert the preface if there is one.
- \if@umich@preface\prefacepage\fi %
+ \if@gwu@preface\prefacepage\fi %
+ % Insert the abstract.
+ \if@gwu@abstract\abstractpage\fi %
  % Insert the foreword if there is one.
- \if@umich@foreword\forewordpage\fi %
+ \if@gwu@foreword\forewordpage\fi %
  % Insert the prologue if there is one.
- \if@umich@prologue\prologuepage\fi %
+ \if@gwu@prologue\prologuepage\fi %
  % Insert the table of contents.
  \tableofcontents %
  % Insert the list of figures.
- \if@umich@listoffigures\listoffigures\fi %
+ \if@gwu@listoffigures\listoffigures\fi %
  % Insert the list of tables.
- \if@umich@listoftables\listoftables\fi %
+ \if@gwu@listoftables\listoftables\fi %
  % Insert the list of maps.
- \if@umich@listofmaps\listofmaps\fi %
+ \if@gwu@listofmaps\listofmaps\fi %
  % Insert the list of illustrations.
- \if@umich@listofillustrations\listofillustrations\fi %
+ \if@gwu@listofillustrations\listofillustrations\fi %
  % Insert the list of programs.
- \if@umich@listofprograms\listofprograms\fi %
+ \if@gwu@listofprograms\listofprograms\fi %
  % Insert the list of appendices.
- \if@umich@listofappendices\listofappendices\fi %
+ \if@gwu@listofappendices\listofappendices\fi %
  % Insert the list of abbreviations.
- \if@umich@listofabbrevs\listofabbreviations\fi %
+ \if@gwu@listofabbrevs\listofabbreviations\fi %
  % Insert the list of acronyms.
- \if@umich@listofacronyms\listofacronyms\fi %
+ \if@gwu@listofacronyms\listofacronyms\fi %
  % Insert the list of symbols.
- \if@umich@listofsymbols\listofsymbols\fi %
+ \if@gwu@listofsymbols\listofsymbols\fi %
  % Insert the nomenclature.
- \if@umich@nomenclature\insertnomenclature\fi %
- % Insert the abstract.
- \if@umich@abstract\abstractpage\fi %
+ \if@gwu@nomenclature\insertnomenclature\fi %
  % Move to next page.
  \newpage %
  % Restart page numbers for the chapters.
@@ -1559,10 +1633,10 @@
  % Use Arabic numerals.
  \renewcommand{\thepage}{\arabic{page}} %
  % Add the word 'Chapter' to the table of contents.
- \addtocontents{toc}{\vspace{1.3ex}\noindent %
- {\bf Chapter}\vspace{1.3ex}} %
+ %\addtocontents{toc}{\vspace{1.3ex}\noindent %
+ %{\bfseries Chapter}\vspace{1.3ex}} %
  % Use the correct formatting.
- \if@umich@thesis %
+ \if@gwu@thesis %
   % Use 1.5 spacing
   \onehalfspacing %
  \else %
