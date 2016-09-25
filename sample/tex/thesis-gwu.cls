@@ -882,7 +882,7 @@
  % Show the prologue.
  \showprologue %
  % Set the prologue text.
- \renewcommand{\@foreword}{#2} %
+ \renewcommand{\@prologue}{#2} %
  % Set the prologue style.
  \ifthenelse{\equal{#1}{}}{}{ %
   \renewcommand{\@prologuestyle}{#1}}}
@@ -1596,7 +1596,11 @@
  % Insert a title page.
  \titlepage %
  % Change the PDF title.
- \hypersetup{pdftitle=\inserttitle} %
+ \hypersetup{
+ pdftitle=\inserttitle,
+ pdfauthor=\insertauthor,
+ pdfcreator=\insertauthor,
+ pdfproducer=\insertauthor} %
  % Insert the frontispiece if there is one.
  \if@gwu@frontispiece\frontispiecepage\fi %
 % \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
