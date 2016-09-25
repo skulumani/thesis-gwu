@@ -135,6 +135,7 @@
 
 
 %% ---- PACKAGE LOADING ------------------------------------------------
+
 % This class uses the geometry.sty package to set the margins.
 \if@gwu@report
  % Use a 1-inch margin for all four sides for the report version.
@@ -162,32 +163,29 @@
 % This loads the proper graphics package.
 \RequirePackage{graphicx}
 
+% Better spacing for text
+\RequirePackage{microtype}
+
 % This is useful for complex figures.
 \RequirePackage{subcaption}
 
-% This changes the font to Times New Roman.
-\RequirePackage{times}
-
-% And in equations, too!
-\RequirePackage{mathptmx}
-
 % Compress multiple citations
-\RequirePackage{cite}
+% \RequirePackage{cite}
 
 % This package allows the ability to create a 'code' environment.
 \RequirePackage{verbatim}
 
 % This hopefully tells verbatim to leave my damn quotes alone.
-\RequirePackage{upquote}
+% \RequirePackage{upquote}
 
 % This package enables the use of proper single quotes in text.
-\RequirePackage{textcomp}
+% \RequirePackage{textcomp}
 
 % This package is used to set line spacing.
 \RequirePackage{setspace}
 
 % This package is used to make nomenclature tables that can span pages.
-\RequirePackage{longtable}
+% \RequirePackage{longtable}
 
 % This package allows conditional testing of varibles.
 \RequirePackage{ifthen}
@@ -222,41 +220,59 @@
   \RequirePackage{refcheck} % check for unused references/labels
 \fi
 
-%% ----- MATH FONTS ------------------------------------------------------
-% Commands for changing the math mode to and from bold
-\newcommand\txmath{\mathversion{normal}}
-\renewcommand\boldmath{\mathversion{bold}}
+%% ---- HYPERREF ----------------------------------------------------------
+% This loads a package that allows extra colors for links.
+\RequirePackage[usenames,dvipsnames]{color}
+% Custom color for references.
+\definecolor{DarkGreen}{rgb}{0,0.6,0}
 
-% Normal symbols
-\SetSymbolFont{letters}{normal}{OML}{txmi}{m}{it}
-\SetSymbolFont{letters}{bold}{OML}{txmi}{bx}{it}
-% Math operators
-\SetSymbolFont{operators}{normal}{OT1}{txr}{m}{n}
-\SetSymbolFont{operators}{bold}{OT1}{txr}{bx}{n}
-% Math symbols
-\SetSymbolFont{symbols}{normal}{OMS}{txsy}{m}{n}
-\SetSymbolFont{symbols}{bold}{OMS}{txsy}{bx}{n}
-% Large symbols
-\SetSymbolFont{largesymbols}{normal}{OMX}{txex}{m}{n}
-\SetSymbolFont{largesymbols}{bold}{OMX}{txex}{bx}{n}
+% This will make labels and references hyperlinks.
+\if@gwu@backref
+ % Use references in the bibliography.
+ \RequirePackage[pagebackref=true,bookmarksdepth=3]{hyperref}
+\else
+ % Do not use back references.
+ \RequirePackage[bookmarksdepth=3]{hyperref}
+\fi
 
-% Math alphabets, at most 16 families
-% Roman
-\SetMathAlphabet{\mathrm}{normal}{OT1}{txr}{m}{n}
-\SetMathAlphabet{\mathrm}{bold}{OT1}{txr}{bx}{n}
-% Italic
-\SetMathAlphabet{\mathit}{normal}{OT1}{txr}{m}{it}
-\SetMathAlphabet{\mathit}{bold}{OT1}{txr}{bx}{it}
-% Bold
-\SetMathAlphabet{\mathbf}{normal}{OT1}{txr}{bx}{n}
-\SetMathAlphabet{\mathbf}{bold}{OT1}{txr}{bx}{n}
-% Sans-serif
-\SetMathAlphabet{\mathsf}{normal}{OT1}{cmss}{m}{n}
-\SetMathAlphabet{\mathsf}{bold}{OT1}{cmss}{bx}{n}
-% Calligraphic
-\SetMathAlphabet{\mathcal}{normal}{OMS}{cmsy}{m}{n}
-\SetMathAlphabet{\mathcal}{bold}{OMS}{cmsy}{bx}{n}
+% This controls some settings that affect the appearance of links.
+\if@gwu@thesis
+ % Use black for the main links.
+ \hypersetup{ %
+  colorlinks=false, %
+  pdfstartview={FitH}, %
+  citecolor=Black, %
+  linkcolor=Black, %
+  urlcolor=Blue %
+ }
+\else
+ % Use maroon for the main links.
+ \hypersetup{ %
+  colorlinks=true, %
+  pdfstartview={FitH}, %
+  citecolor=DarkGreen, %
+  linkcolor=Maroon, %
+  urlcolor=Blue %
+ }
+\fi
 
+\if@gwu@debug
+  \hypersetup{
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitV},    % fits the width of the page to the window
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=Blue           % color of external links
+  }
+\fi
+% Cleveref referencing - must happen after hyperref
+\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
 
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
@@ -1481,30 +1497,6 @@
  \@tex@bibliography{#1} %
 }
 
-
-%% ---- CODE ENVIRONMENT -----------------------------------------------
-% This generates a 'code' environment that allows inline citations
-% of small snippets of code.
-\newenvironment{code} %
- {\quote\small\verbatim} %
- {\endverbatim\endquote}
-
-% Formatting commands
-% This command is used for names of files
-\newcommand{\tfile}[1]{{\footnotesize\textsf{#1}}}
-% This command puts a box around text that is meant for menu entries.
-\newcommand{\tmenu}[1]{\framebox[\width]{\ {\tiny\textsf{#1}}\ }}
-% This command is intended for names of variables within programs.
-\newcommand{\tvar}[1]{{\footnotesize\texttt{#1}}}
-% This command is used to display the contents of strings.
-% It automatically adds the correct, upright quotes around the argument.
-\newcommand{\tstring}[1]{ %
- {\footnotesize\texttt{\textquotesingle#1\textquotesingle}}}
-% This command gives a bold version of the variable names.
-\newcommand{\tfunction}[1]{{\footnotesize\texttt{\textbf{#1}}}}
-
-
-
 %% ---- CHAPTER HEADINGS -----------------------------------------------
 % Change the chapter headings to uppercase.
 \renewcommand{\@chapapp}{CHAPTER}
@@ -1534,61 +1526,6 @@
 %% ---- SPACING --------------------------------------------------------
 % This fixes the spacing below captions, which by default can be small.
 \setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
-
-
-%% ---- LINKS ----------------------------------------------------------
-% This loads a package that allows extra colors for links.
-\RequirePackage[usenames,dvipsnames]{color}
-% Custom color for references.
-\definecolor{DarkGreen}{rgb}{0,0.6,0}
-
-% This will make labels and references hyperlinks.
-\if@gwu@backref
- % Use references in the bibliography.
- \RequirePackage[pagebackref=true,bookmarksdepth=3]{hyperref}
-\else
- % Do not use back references.
- \RequirePackage[bookmarksdepth=3]{hyperref}
-\fi
-
-% This controls some settings that affect the appearance of links.
-\if@gwu@thesis
- % Use black for the main links.
- \hypersetup{ %
-  colorlinks=false, %
-  pdfstartview={FitH}, %
-  citecolor=Black, %
-  linkcolor=Black, %
-  urlcolor=Blue %
- }
-\else
- % Use maroon for the main links.
- \hypersetup{ %
-  colorlinks=true, %
-  pdfstartview={FitH}, %
-  citecolor=DarkGreen, %
-  linkcolor=Maroon, %
-  urlcolor=Blue %
- }
-\fi
-
-\if@gwu@debug
-  \hypersetup{
-    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
-    pdffitwindow=false,     % window fit to page when opened
-    pdfstartview={FitV},    % fits the width of the page to the window
-    pdfnewwindow=true,      % links in new PDF window
-    colorlinks=false,       % false: boxed links; true: colored links
-    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
-    citecolor=black,        % color of links to bibliography
-    filecolor=magenta,      % color of file links
-    urlcolor=Blue           % color of external links
-  }
-\fi
-% Cleveref referencing - must happen after hyperref
-\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
