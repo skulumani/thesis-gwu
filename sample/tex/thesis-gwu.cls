@@ -836,7 +836,7 @@
 % Command that sets the foreword style
 \newcommand{\@forewordstyle}{\@frontpagestyle}
 % Command that sets the width of the foreword text area
-\newcommand{\@foreword@width}{0.66}
+\newcommand{\@foreword@width}{0.75}
 
 % Command to change it from the default
 \newcommand{\foreword}[2][]{ %
@@ -1555,7 +1555,7 @@
 \if@gwu@thesis
  % Use black for the main links.
  \hypersetup{ %
-  colorlinks=true, %
+  colorlinks=false, %
   pdfstartview={FitH}, %
   citecolor=Black, %
   linkcolor=Black, %
@@ -1622,12 +1622,12 @@
  \if@gwu@acknowledgments\acknowledgmentspage\fi %
  % Insert the preface if there is one.
  \if@gwu@preface\prefacepage\fi %
- % Insert the abstract.
- \if@gwu@abstract\abstractpage\fi %
  % Insert the foreword if there is one.
  \if@gwu@foreword\forewordpage\fi %
  % Insert the prologue if there is one.
  \if@gwu@prologue\prologuepage\fi %
+ % Insert the abstract.
+ \if@gwu@abstract\abstractpage\fi %
  % Insert the table of contents.
  \tableofcontents %
  % Insert the list of figures.
