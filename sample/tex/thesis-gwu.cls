@@ -216,6 +216,11 @@
  \RequirePackage{multicol}
 \fi
 
+% some extra packages to help with debugging
+\if@gwu@debug
+  \RequirePackage[final]{showlabels} % show labels for referencing
+  \RequirePackage{refcheck} % check for unused references/labels
+\fi
 
 %% ----- MATH FONTS ------------------------------------------------------
 % Commands for changing the math mode to and from bold
@@ -1567,6 +1572,23 @@
  }
 \fi
 
+\if@gwu@debug
+  \hypersetup{
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitV},    % fits the width of the page to the window
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=Blue           % color of external links
+  }
+\fi
+% Cleveref referencing - must happen after hyperref
+\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
