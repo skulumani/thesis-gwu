@@ -426,22 +426,20 @@
    % Vertical rubber space
 %   \vfill %
    % Print the word 'by'.
-   by \\[2ex] %
-   % Insert the author
-   \insertauthor \\[4ex] %
+   by \insertauthor \\[4ex] %
    % More rubber space
    %\vfill %
    % previous degrees
    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-   M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2ex]
+   M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
    % Text from guidelines
-   A Dissertation submitted to \\[2ex] %
-   The Faulty of \\
+   A Dissertation submitted to \\[4ex] %
+   The Faculty of \\
    The School of Engineering and Applied Science \\
    of The George Washington University \\
    in partial satisfaction fo the requirements \\
-   for the degree of \insertdegree \\[2ex]
-   \insertphdgrad \\[2ex]
+   for the degree of \insertdegree \\[4ex]
+   \insertphdgrad \\[4ex]
    % insert doctoral advisor
    Dissertation directed by \\[2ex]
    \insertchair \\
