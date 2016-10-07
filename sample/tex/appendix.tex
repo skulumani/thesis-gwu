@@ -38,22 +38,13 @@ how it interprets the commands \verb|\chapter|, \verb|\section|,
 Each appendix is actually a chapter, so once the \verb|\appendix|
 command has been called, start a new appendix by simply using the
 \verb|\chapter| command.
-\begin{code}
-\appendix
-\chapter{The First Appendix}
-...
-
-\chapter{The Boring Part That Is Not in the Chapters}
-\end{code}
 
 Note that the \verb|\appendix| command should be called only
 once--not before the start of each appendix.
 
 \section{Lists Including the Appendices}
 As mentioned in Section \ref{ssec:lists}, the command
-\begin{code}
-\showlistofappendices
-\end{code}
+
 must appear in the preamble if there are more than one appendices.  For
 some reason, Rackham does not want the individual appendices and their
 sections to appear in the Table of Contents, so a special List of
