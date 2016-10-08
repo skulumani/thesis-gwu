@@ -46,12 +46,7 @@ Dissertation Director/Co-Director/Committee Member
 % delete to not print
 
 % Copyright page
-%\hidecopyright
-\showcopyright
 %\copyrightholder{Someone else}
-
-% Default style for front pages
-\frontpagestyle{3}
 
 % Dedication
 \dedication[8]{ %
@@ -59,52 +54,77 @@ Dissertation Director/Co-Director/Committee Member
 }
 
 % Acknowledgments
-\acknowledgments[3]{ %
-This template is a fork of the great work done by Derek Dalle~\url{http://www-personal.umich.edu/~dalle/codes/thesis-umich/}.
-None of this would be possible without the work of Derek and many other individuals before me.
+\acknowledgments{
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Integer sagittis, sem nec molestie blandit, dui orci fermentum ex, eu vehicula sapien ipsum consectetur lacus. 
+Vivamus non leo ut sem iaculis hendrerit. Duis sed quam ligula. 
+Duis fermentum fringilla ante. Etiam scelerisque mi sapien, ac dictum arcu accumsan et. 
+Fusce vel purus lacinia, rhoncus sapien id, lobortis libero. 
+Vivamus nec odio et felis aliquam eleifend. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+Curabitur suscipit ex eget purus fermentum, in facilisis mauris viverra. 
+In tincidunt sollicitudin diam, sed volutpat ex vestibulum eget. 
+Curabitur maximus porttitor auctor. Sed imperdiet suscipit leo sed congue. 
+Aliquam porttitor egestas aliquet. Donec imperdiet blandit odio, eu mollis ex bibendum semper. 
+Donec suscipit nisi nisi, nec tempor dolor eleifend a. 
+Aliquam rutrum lacus eget tellus suscipit, et ullamcorper elit eleifend.
 }
-% This command sets the width of the acknowledgments area as a fraction
-% of the total width of the text area.
-\acknowledgmentswidth{0.8}
 
 % Preface
-\preface[4]{ %
-This template demonstrates much of the use of the class file.
+\preface{Ut ornare ut risus in condimentum. 
+Proin vitae est sit amet eros hendrerit efficitur. 
+Pellentesque ultricies turpis a euismod malesuada. 
+Nam ut ante sollicitudin, blandit erat vel, dignissim purus. 
+Cras molestie luctus dolor non dapibus. Donec ac hendrerit nulla. 
+Vivamus faucibus velit at imperdiet posuere. 
+Suspendisse pharetra sit amet purus id dictum.
+
 }
 
-\prologue[5]{
-Much of the code in this template is unchanged from the original version.
-I have corrected several uses of obsolete packages, i.e., \texttt{subfigure}, \texttt{centerline} etc.
-In addition, I've made some modifications to better match the GWU SEAS template.
+\prologue{
+Fusce imperdiet lectus vitae sapien sollicitudin, ac mollis nulla feugiat. 
+Mauris vitae tellus non elit faucibus volutpat. 
+Phasellus congue, urna a luctus dictum, ligula urna commodo ante, at dignissim nunc nulla et ligula. 
+Cras tincidunt, diam et imperdiet vulputate, felis erat malesuada nibh, quis porttitor turpis libero at ligula. 
+Etiam ut lacus euismod, interdum erat eget, lobortis neque. 
+Suspendisse maximus sem in tempor facilisis. Aenean sed quam enim. 
+Mauris posuere libero magna, non posuere nisi luctus vel. 
+Vestibulum porttitor varius nisi, at volutpat ipsum hendrerit nec. 
+In sit amet risus congue, sodales erat in, venenatis tortor. 
+Ut semper placerat nunc, nec laoreet orci egestas aliquet. 
+Phasellus commodo vel mauris eu maximus. 
+Morbi id vulputate nisl.
 }
 
-\foreword[6]{
-  The template provided by GWU,\url{http://library.gwu.edu/etd/LaTeX}, is severely lacking.
-  In my opinion, it suffers from a number of deficiencies, including but not limited to:
-  \begin{enumerate}
-    \item No actual source code, but rather a PDF printout of the source file
-    \item Hardcoded values instead of a robust template/class file
-    \item No guidance on the actual format (margins, text size, front matter, etc.)
-  \end{enumerate}
-This template is an attempt to remedy these problems and offer a consistent style for all future GWU graduate work.
+\foreword[2]{
+Fusce in eros a diam molestie fermentum. 
+In nisl neque, egestas at sem at, ornare cursus eros. 
+Aenean euismod erat pretium, sollicitudin leo quis, vestibulum mauris. 
+Proin commodo pharetra aliquam. Aliquam in purus tortor. 
+Nulla viverra neque ac justo fringilla facilisis. 
+Suspendisse et pellentesque sem. 
+Integer laoreet nibh enim, at sollicitudin lectus sodales at. 
+Mauris at vestibulum ex. Sed in sapien in ante sollicitudin ultrices. 
+Pellentesque tincidunt est ut massa vehicula, ac lacinia justo vehicula. 
+Quisque imperdiet feugiat justo a vulputate. Sed non consequat purus, eu pellentesque risus. 
+Phasellus leo felis, eleifend et tincidunt et, commodo non enim.
 }
 
 % commands to show or hide front matter pages
 
-\shownomenclature
-% \hidenomenclature
-
+\showcopyright
 \showabstract
-% \hideabstract
-
 \showcommitteepage
-% \hidecommitteepage
-
+\showdedication
+\showacknowledgments
+\showpreface
+\showprologue
+\showforeword
 % ------------ TABLE OF CONTENTS ----------------------
 % Commands to hide or show lists of figures, tables, etc.
+\showlistoffigures
 \showlistoftables
-\showlistofprograms
-% \showlistofappendices % must hide list of appendices
+\hidenomenclature
 
 % Definition of any abbreviations used.
 \abbreviations{
