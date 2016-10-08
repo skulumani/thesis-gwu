@@ -531,7 +531,7 @@
   % Vertical rubber space
   \ \vfill %
   % Insert the frontispiece.
-  \copyright~\number\year~by \insertcopyrightholder \\ %
+  \copyright~Copyright~\number\year~by~\insertcopyrightholder \\ %
   All rights reserved
   % Horizontal line
   %\rule[0.5ex]{5in}{1pt} \\[1ex] %
