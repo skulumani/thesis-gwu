@@ -437,7 +437,7 @@
    The Faculty of \\
    The School of Engineering and Applied Science \\
    of The George Washington University \\
-   in partial satisfaction fo the requirements \\
+   in partial satisfaction of the requirements \\
    for the degree of \insertdegree \\[4ex]
    \insertphdgrad \\[4ex]
    % insert doctoral advisor
