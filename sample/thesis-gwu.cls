@@ -573,25 +573,18 @@
   \vspace*{\stretch{2}} %
  }{ %
  \ifthenelse{\equal{#2}{2}}{ %
-  % Style 2: simple bold italic heading
-  % Vertical rubber space
-  \vspace*{\stretch{1}} %
+  % Style 2: Bold heading at top of page. Doublespacing for text
   % Center on the page.
-  \begin{center} %
-   % Make a minipage.
-   \begin{minipage}{#4\textwidth} %
-    % Required to use 1.5-spacing for dissertation.
+   % Heading
+   \begin{center}\textbf{\normalsize{#3}}\end{center}
+    % Required to use double-spacing for dissertation.
     \if@gwu@thesis %
-     \onehalfspacing %
+     \doublespacing %
     \fi %
-    % Heading
-    \begin{center}\textbf{\textit{#3}}\end{center} %
     % Insert the text.
     \sloppy #1 %
-   \end{minipage} %
-  \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  \vspace*{\stretch{1}} %
  }{ %
  \ifthenelse{\equal{#2}{3}}{ %
   % Style 3: Spread caps heading
