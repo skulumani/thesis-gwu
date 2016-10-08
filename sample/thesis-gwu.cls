@@ -729,7 +729,7 @@
 % Command that sets the dedication style
 \newcommand{\@dedicationstyle}{\@frontpagestyle}
 % Command that sets the width of the dedication text area
-\newcommand{\@dedication@width}{0.66}
+\newcommand{\@dedication@width}{1}
 
 % Command to change it from the default
 \newcommand{\dedication}[2][]{ %
@@ -765,7 +765,7 @@
 % Command that sets the acknowledgments style
 \newcommand{\@acknowledgmentsstyle}{\@frontpagestyle}
 % Command that sets the width of the acknowledgments text area
-\newcommand{\@acknowledgments@width}{0.66}
+\newcommand{\@acknowledgments@width}{1}
 
 % Command to change it from the default
 \newcommand{\acknowledgments}[2][]{ %
@@ -804,7 +804,7 @@
 % Command that sets the preface style
 \newcommand{\@prefacestyle}{\@frontpagestyle}
 % Command that sets the width of the preface text area
-\newcommand{\@preface@width}{0.75}
+\newcommand{\@preface@width}{1}
 
 % Command to change it from the default
 \newcommand{\preface}[2][]{ %
@@ -843,7 +843,7 @@
 % Command that sets the foreword style
 \newcommand{\@forewordstyle}{\@frontpagestyle}
 % Command that sets the width of the foreword text area
-\newcommand{\@foreword@width}{0.75}
+\newcommand{\@foreword@width}{1}
 
 % Command to change it from the default
 \newcommand{\foreword}[2][]{ %
@@ -882,7 +882,7 @@
 % Command that sets the prologue style
 \newcommand{\@prologuestyle}{\@frontpagestyle}
 % Command that sets the width of the prologue text area
-\newcommand{\@prologue@width}{0.75}
+\newcommand{\@prologue@width}{1}
 
 % Command to change it from the default
 \newcommand{\prologue}[2][]{ %
