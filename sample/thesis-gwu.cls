@@ -459,7 +459,7 @@
 % command for the committee page 
 \newcommand*{\committeepage}{
   % Use titlepage formatting
-  \ttlpg
+  \frntpg
     \begin{doublespace}
     \noindent
     The School of Engineering and Applied Science of The George Washington
@@ -501,7 +501,7 @@
 % Command for copyright page
 \newcommand*{\copyrightpage}{ %
  % Insert the titlepage formatting.
- \ttlpg %
+ \frntpg %
  % Center the page.
  \begin{center} %
   % Vertical rubber space
@@ -918,7 +918,7 @@
  % First add some vertical space.
  \vskip 1ex plus 1pt minus 1pt
  % Format the spacing and use dots between title and number.
- \@dottedtocline{1}{0em}{1.0em} %
+ \@dottedtocline{1}{0em}{1.2em} %
  % This sets the formatting for the chapter name and page number.
  {\textbf{#1}}{\textbf{#2}} %
  % Add some space below, too.
@@ -944,10 +944,6 @@
  \pdfbookmark[0]{Table of Contents}{\thepage} %
  % Use front page styling.
  \frntpg %
- % Larger upper margin for first page of table
- \if@gwu@thesis %
-  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
- \fi %
  % Add the title
  \begin{center}{\large\bfseries TABLE OF CONTENTS}\end{center} %
  % Add some space after the title.
@@ -1109,55 +1105,6 @@
   \@starttoc{lop}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
 }
-
-
-%% ---- LIST OF APPENDICES ---------------------------------------------
-% This sets the formatting for appendices in the list.
-\newcommand*{\l@appendix}{\@dottedtocline{1}{0em}{2.5em}}
-
-% Renew the command that starts the appendices.
-\renewcommand{\appendix}{ %
- % Move to new page.
- \clearpage %
- % Renew the counters.
- \renewcommand*{\thechapter}{\Alph{chapter}} %
- % Start over the chapter counter.
- \setcounter{chapter}{0} %
- % Add a pdf anchor.
- \phantomsection %
- % Add the page to the table of contents.
- \addcontentsline{toc}{chapter}{Appendices}
- % Header for appendices.
- \renewcommand{\@chapapp}{APPENDIX} %
- % Renew the chapter and section labels.
- \let\@chapter\@chapter@appendix %
-}
-
-% Make a special chapter command for appendices.
-\def\@chapter@appendix[#1]#2{ %
- % Increase the chapter letter.
- \refstepcounter{chapter} %
- % Print a line to the .log file.
- \typeout{\@chapapp\space\thechapter.} %
- % Hopefully this works.
- \phantomsection %
- % Add a bookmark manually.
- \pdfbookmark[0]{#1}{#2} %
- % Add to the list of appendices rather than toc.
- \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1} %
- % Save the chapter number.
- \chaptermark{#1} %
- % Add extra space to the lists of figures and tables and maps.
- \addtocontents{lof}{\protect\addvspace{8pt}} %
- \addtocontents{lot}{\protect\addvspace{8pt}} %
- \addtocontents{lom}{\protect\addvspace{8pt}} %
- \addtocontents{lop}{\protect\addvspace{8pt}} %
- \addtocontents{loi}{\protect\addvspace{8pt}} %
- 
-  \@makechapterhead{#2} %
-  \@afterheading %
- }
-
 
 %% ---- LIST OF ABBREVIATIONS ------------------------------------------
 % Variable holding the contents of the abbreviations.
@@ -1452,21 +1399,16 @@
  pdfauthor=\insertauthor,
  pdfcreator=\insertauthor,
  pdfproducer=\insertauthor} %
- % Insert the frontispiece if there is one.
- \if@gwu@frontispiece\frontispiecepage\fi %
-% \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
   % Insert dissertation committeee page 
   \if@gwu@committeepage\committeepage\fi
  % Initialize page numbers.
- \setcounter{page}{1} %
+ \setcounter{page}{2} %
  % Page numbers at the bottom
  \pagestyle{plain} %
  % Use lower-case roman numerals.
  \renewcommand{\thepage}{\roman{page}} %
  % Insert the copyright page if there is one.
  \if@gwu@copyright\copyrightpage\fi
- % Initialize page numbers.
- \setcounter{page}{1} %
  % Insert a dedication if there is one.
  \if@gwu@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
@@ -1477,6 +1419,9 @@
  \if@gwu@foreword\forewordpage\fi %
  % Insert the prologue if there is one.
  \if@gwu@prologue\prologuepage\fi %
+ % Insert the frontispiece if there is one.
+ \if@gwu@frontispiece\frontispiecepage\fi %
+% \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
  % Insert the abstract.
  \if@gwu@abstract\abstractpage\fi %
  % Insert the table of contents.
