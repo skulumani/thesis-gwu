@@ -1390,28 +1390,19 @@
   \thispagestyle{empty} %
  \fi %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
- % Extra vertical space
- %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
- % Center the title area.
+ \phantomsection\addcontentsline{toc}{chapter}{Abstract} 
  \begin{center} %
   % Formatting add the heading
-  {\large \bfseries Abstract} \\[5ex] %
+  {\large \textbf{Abstract}} \\[5ex] %
   % Add the title of the dissertation.
   {\normalsize \bfseries \inserttitle} \\[2ex] %
-  % Add the word 'by'
-  by \\[2ex]
-  % Add the author.
-  \insertauthor
  \end{center} %
- \begin{quotation} %
-  % Double-spaced lines required by Rackham
-  \doublespacing %
+ \begin{doublespace} %
   % Don't go past the margin.
   \sloppy %
   % Insert the text.
-  \insertabstract %
- \end{quotation} %
+  \par \insertabstract %
+ \end{doublespace} %
  % Vertical rubber space
  \vspace*{\stretch{1}} %
 }
