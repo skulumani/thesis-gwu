@@ -484,13 +484,13 @@
 \newcommand*{\committeepage}{
   % Use titlepage formatting
   \ttlpg
-  \begin{doublespacing}
+    \begin{doublespace}
     \noindent
     The School of Engineering and Applied Science of The George Washington
     University certifies that \insertauthor~has passed the Final Examination for the
     degree of \insertdegree~as of \insertdefensedate. This is the
     final and approved form of the dissertation.
-  \end{doublespacing}
+    \end{doublespace}
 
   \begin{center}
     \begin{singlespace}
@@ -506,7 +506,7 @@
    % Horizontal spacing
    \hspace{5em} %
    % Insert the committee (in a box).
-   \parbox{4.2in}{\insertcommittee}
+   \parbox{0.85\textwidth}{\insertcommittee}
   \end{flushleft} %
   % flexible vertical space
   \vfill
