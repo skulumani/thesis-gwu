@@ -1436,18 +1436,6 @@
   % Add the author.
   \insertauthor
  \end{center} %
- % Vertical rubber space
- %\vspace*{\stretch{2}} %
- % Insert the chair info
- %\ifthenelse{\equal{\@cochair}{}}{
-  % No co-chairs; insert the chair.
-  %{\bfseries Chair: \insertchair} %
- %}{ %
-  % Use co-chairs.
-  %{\bfseries Co-Chairs: \insertcochair}} %
- % Vertical rubber space
- %\vspace*{\stretch{2}} %
- % Insert the text as a quotation
  \begin{quotation} %
   % Double-spaced lines required by Rackham
   \doublespacing %
