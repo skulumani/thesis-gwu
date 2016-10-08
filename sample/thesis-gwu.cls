@@ -1139,30 +1139,6 @@
 % This sets the formatting for appendices in the list.
 \newcommand*{\l@appendix}{\@dottedtocline{1}{0em}{2.5em}}
 
-% This sets the formatting of the list of appendices page.
-\newcommand*{\listofappendices}{%
- % Move to new page.
- \newpage %
- % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Appendices} %
- % Anchor for pdf
- \phantomsection %
- % Use front page styling.
- \frntpg %
- % Larger upper margin for first page of table (thesis only)
- \if@gwu@thesis %
-  %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
- \fi %
- % Add the title
- \begin{center}{\large\bfseries LIST OF APPENDICES} \end{center}%
- % Add some space after the title.
- \vspace{1ex} %
- % Start the automatic table of contents features.
- \begin{singlespace} %
-  \@starttoc{lox}\if@restonecol\twocolumn\fi %
- \end{singlespace} %
-}
-
 % Renew the command that starts the appendices.
 \renewcommand{\appendix}{ %
  % Move to new page.
@@ -1175,8 +1151,6 @@
  \phantomsection %
  % Add the page to the table of contents.
  \addcontentsline{toc}{chapter}{Appendices}
- % Stop adding sections to the table of contents.
- \addtocontents{toc}{\setcounter{tocdepth}{1}} %
  % Header for appendices.
  \renewcommand{\@chapapp}{APPENDIX} %
  % Renew the chapter and section labels.
@@ -1194,7 +1168,7 @@
  % Add a bookmark manually.
  \pdfbookmark[0]{#1}{#2} %
  % Add to the list of appendices rather than toc.
- \addcontentsline{lox}{chapter}{\protect\numberline{\thechapter}#1} %
+ \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1} %
  % Save the chapter number.
  \chaptermark{#1} %
  % Add extra space to the lists of figures and tables and maps.
