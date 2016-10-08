@@ -577,12 +577,9 @@
   % Center on the page.
    % Heading
    \begin{center}\textbf{\normalsize{#3}}\end{center}
-    % Required to use double-spacing for dissertation.
-    \if@gwu@thesis %
-     \doublespacing %
-    \fi %
-    % Insert the text.
-    \sloppy #1 %
+   \begin{doublespace}
+    \par #1
+   \end{doublespace}
   % Vertical rubber space
   \vspace*{\stretch{1}} %
  }{ %
