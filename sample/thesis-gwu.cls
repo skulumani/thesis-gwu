@@ -1177,13 +1177,10 @@
  \addtocontents{lom}{\protect\addvspace{8pt}} %
  \addtocontents{lop}{\protect\addvspace{8pt}} %
  \addtocontents{loi}{\protect\addvspace{8pt}} %
- % Produce the appropriate headings for the first page.
- \if@twocolumn %
-  \@topnewpage[\@makechapterhead{#2}] %
- \else %
+ 
   \@makechapterhead{#2} %
   \@afterheading %
- \fi }
+ }
 
 
 %% ---- LIST OF ABBREVIATIONS ------------------------------------------
@@ -1462,11 +1459,11 @@
   % Check for chapter overflow.
   \ifnum \c@secnumdepth >\m@ne %
    % CHAPTER and number
-   \begin{center}{\Large\bfseries \@chapapp{} \thechapter} \end{center} \par%
+   \begin{center}{\Large\textbf{ \@chapapp{} \thechapter }} \end{center} \par%
    % Vertical space
    \vskip 0.3in \fi %
    % Insert the title of the chapter.
-   \begin{center} \LARGE\bfseries #1 \end{center} %
+   \begin{center} \LARGE \textbf{ #1} \end{center} %
    % Vertical space after the title
    \nobreak \vskip 0.3in %
  } %
