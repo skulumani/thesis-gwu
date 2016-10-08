@@ -229,34 +229,12 @@
 % This will make labels and references hyperlinks.
 \if@gwu@backref
  % Use references in the bibliography.
- \RequirePackage[pagebackref=true,bookmarksdepth=3]{hyperref}
+ \RequirePackage[pagebackref=true]{hyperref}
 \else
  % Do not use back references.
- \RequirePackage[bookmarksdepth=3]{hyperref}
+ \RequirePackage{hyperref}
 \fi
 
-% This controls some settings that affect the appearance of links.
-\if@gwu@thesis
- % Use black for the main links.
- \hypersetup{ %
-  colorlinks=false, %
-  pdfstartview={FitH}, %
-  citecolor=Black, %
-  linkcolor=Black, %
-  urlcolor=Blue %
- }
-\else
- % Use maroon for the main links.
- \hypersetup{ %
-  colorlinks=true, %
-  pdfstartview={FitH}, %
-  citecolor=DarkGreen, %
-  linkcolor=Maroon, %
-  urlcolor=Blue %
- }
-\fi
-
-\if@gwu@debug
   \hypersetup{
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
     pdftoolbar=true,        % show Acrobat’s toolbar?
@@ -265,12 +243,10 @@
     pdfstartview={FitV},    % fits the width of the page to the window
     pdfnewwindow=true,      % links in new PDF window
     colorlinks=false,       % false: boxed links; true: colored links
-    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
-    citecolor=black,        % color of links to bibliography
-    filecolor=magenta,      % color of file links
-    urlcolor=Blue           % color of external links
+    bookmarksdepth=3,
+    bookmarksopen=true,
   }
-\fi
+
 % Cleveref referencing - must happen after hyperref
 \AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
 
