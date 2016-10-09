@@ -70,7 +70,6 @@
 \newif\if@gwu@listofmaps
 \newif\if@gwu@listofillustrations
 \newif\if@gwu@listofprograms
-\newif\if@gwu@listofappendices
 \newif\if@gwu@listofabbrevs
 \newif\if@gwu@listofsymbols
 \newif\if@gwu@listofacronyms
@@ -895,7 +894,6 @@
 \newcommand{\showlistofmaps}{\@gwu@listofmapstrue}
 \newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
 \newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
-\newcommand{\showlistofappendices}{\@gwu@listofappendicestrue}
 \newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
 \newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
 \newcommand{\showlistofsymbos}{\@gwu@listofsymbolstrue}
@@ -906,7 +904,6 @@
 \newcommand{\hidelistofmaps}{\@gwu@listofmapsfalse}
 \newcommand{\hidelistofillustrations}{\@gwu@listillustrationsfalse}
 \newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse}
-\newcommand{\hidelistofappendices}{\@gwu@listofappendicesfalse}
 \newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse}
 \newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
 \newcommand{\hidelistofsymbos}{\@gwu@listofsymbolsfalse}
@@ -1436,8 +1433,6 @@
  \if@gwu@listofillustrations\listofillustrations\fi %
  % Insert the list of programs.
  \if@gwu@listofprograms\listofprograms\fi %
- % Insert the list of appendices.
- \if@gwu@listofappendices\listofappendices\fi %
  % Insert the list of abbreviations.
  \if@gwu@listofabbrevs\listofabbreviations\fi %
  % Insert the list of acronyms.
