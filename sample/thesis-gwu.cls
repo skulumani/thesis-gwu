@@ -969,7 +969,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF FIGURES} \end{center}%
+ \begin{center}{\large\textbf{List of Figures}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -996,7 +996,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF TABLES} \end{center}%
+ \begin{center}{\large\textbf{List of Tables}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1028,7 +1028,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF MAPS} \end{center}%
+ \begin{center}{\large\textbf{List of Maps}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1060,7 +1060,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF ILLUSTRATIONS} \end{center}%
+ \begin{center}{\large\textbf{List of Illustrations}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1094,7 +1094,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF PROGRAMS} \end{center}%
+ \begin{center}{\large\textbf{List of Programs}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1130,7 +1130,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF ABBREVIATIONS} \end{center}%
+ \begin{center}{\large\textbf{List of Abbreviations}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1169,7 +1169,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF ACRONYMS} \end{center}%
+ \begin{center}{\large\textbf{List of Acronyms}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1208,7 +1208,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries LIST OF SYMBOLS} \end{center}%
+ \begin{center}{\large\textbf{List of Symbols}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic symbols feature.
@@ -1261,7 +1261,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\bfseries NOMENCLATURE} \end{center}%
+ \begin{center}{\large\textbf{Nomenclature}} \end{center}%
  % Add some space after the title.
  \vskip4ex %
 % Set the line skip
@@ -1333,7 +1333,7 @@
 \let\@tex@bibliography\bibliography
 
 % Change the bibliography header.
-\renewcommand*{\bibname}{\centerline{\large BIBLIOGRAPHY}}
+\renewcommand*{\bibname}{\centerline{\large Bibliography}}
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
