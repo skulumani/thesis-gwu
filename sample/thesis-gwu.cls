@@ -942,7 +942,7 @@
  % Use front page styling.
  \frntpg %
  % Add the title
- \begin{center}{\large\bfseries TABLE OF CONTENTS}\end{center} %
+ \begin{center}{\large\textbf{Table of Contents}}\end{center} %
  % Add some space after the title.
  \vspace{2ex} %
  % Start the automatic table of contents features.
