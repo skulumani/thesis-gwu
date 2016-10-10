@@ -942,7 +942,7 @@
  % Use front page styling.
  \frntpg %
  % Add the title
- \begin{center}{\large\textbf{Table of Contents}}\end{center} %
+ \begin{center}{\normalsize\textbf{Table of Contents}}\end{center} %
  % Add some space after the title.
  \vspace{2ex} %
  % Start the automatic table of contents features.
@@ -969,7 +969,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Figures}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Figures}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -996,7 +996,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Tables}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Tables}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1028,7 +1028,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Maps}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Maps}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1060,7 +1060,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Illustrations}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Illustrations}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1094,7 +1094,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Programs}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Programs}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1130,7 +1130,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Abbreviations}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Abbreviations}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1169,7 +1169,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Acronyms}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Acronyms}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1208,7 +1208,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{List of Symbols}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Symbols}} \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic symbols feature.
@@ -1261,7 +1261,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\large\textbf{Nomenclature}} \end{center}%
+ \begin{center}{\normalsize\textbf{Nomenclature}} \end{center}%
  % Add some space after the title.
  \vskip4ex %
 % Set the line skip
@@ -1313,7 +1313,7 @@
  \phantomsection\addcontentsline{toc}{chapter}{Abstract} 
  \begin{center} %
   % Formatting add the heading
-  {\large \textbf{Abstract}} \\[5ex] %
+  {\normalsize \textbf{Abstract}} \\[5ex] %
   % Add the title of the dissertation.
   {\normalsize \bfseries \inserttitle} \\[2ex] %
  \end{center} %
@@ -1333,7 +1333,7 @@
 \let\@tex@bibliography\bibliography
 
 % Change the bibliography header.
-\renewcommand*{\bibname}{\centerline{\large Bibliography}}
+\renewcommand*{\bibname}{\centerline{\normalsize Bibliography}}
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
