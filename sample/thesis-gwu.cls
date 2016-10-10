@@ -1410,12 +1410,6 @@
  \if@gwu@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
  \if@gwu@acknowledgments\acknowledgmentspage\fi %
- % Insert the preface if there is one.
- \if@gwu@preface\prefacepage\fi %
- % Insert the foreword if there is one.
- \if@gwu@foreword\forewordpage\fi %
- % Insert the prologue if there is one.
- \if@gwu@prologue\prologuepage\fi %
  % Insert the frontispiece if there is one.
  \if@gwu@frontispiece\frontispiecepage\fi %
 % \ifthenelse{\equal{\@frontispiece}{}}{}{\frontispiecepage} %
@@ -1441,6 +1435,12 @@
  \if@gwu@listofsymbols\listofsymbols\fi %
  % Insert the nomenclature.
  \if@gwu@nomenclature\insertnomenclature\fi %
+ % Insert the preface if there is one.
+ \if@gwu@preface\prefacepage\fi %
+ % Insert the foreword if there is one.
+ \if@gwu@foreword\forewordpage\fi %
+ % Insert the prologue if there is one.
+ \if@gwu@prologue\prologuepage\fi %
  % Move to next page.
  \newpage %
  % Restart page numbers for the chapters.
