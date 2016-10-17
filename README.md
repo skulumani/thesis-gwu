@@ -1,3 +1,9 @@
+## :exclamation: **USE AT YOUR OWN RISK** :boom:
+
+:construction: This is still in development so it's prone to breakage/issues at any time.
+
+
+
 ## GWU Thesis
 
 This is a GWU SEAS thesis template. 
@@ -6,11 +12,7 @@ It complies with the requirements as laid out by the [ETD](http://library.gwu.ed
 This is an extension/modification of a template created for the [University of Michigan](http://www-personal.umich.edu/~dalle/codes/thesis-umich/) by Derek Dalle.
 I've made some modifications and updates to replace out of date packages, and comply with GWU guidelines.
 
-## Usage
 
-This is still in development so it's prone to breakage/issues at any time.
-
-**Use at your own risk** :exclamation:
 
 ## License 
 
