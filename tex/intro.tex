@@ -8,22 +8,25 @@ Now what are the possibilities of warp drive? Cmdr Riker's nervous system has be
 Deflector power at maximum. Energy discharge in six seconds. Warp reactor core primary coolant failure. Fluctuate phaser resonance frequencies. Resistance is futile. Recommend we adjust shield harmonics to the upper EM band when proceeding. These appear to be some kind of power-wave-guide conduits which allow them to work collectively as they perform ship functions. Increase deflector modulation to upper frequency band.
 
 \section{Float environments}
-Theere are many possible float enviornments, and this section will serve as an introduction and demonstration of each of them.
+There are many possible float enviornments, and this section will serve as an introduction and demonstration of some of them.
 In addition, it offers the ability to ensure that this template actually follows the guidelines.
 
 \subsection{Figures}\label{ssec:figures}
 
-Here is a figure as shown in~\cref{fig:plain}.
+Here is a figure as shown in~\cref{fig:picard}.
+Notice how we're using the fancy referencing offered by the \verb+cleveref+ package. 
+Instead of using the normal~\verb+\ref+ command we instead use~\verb+\cref+. 
+The magic of \LaTeX automatically figures out that the previous reference points to a figure while~\cref{ssec:figures} points to a section.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/f1_plain.pdf}
-    \caption[Short caption for TOC]{Long caption to appear in text\label{fig:plain}}
+    \includegraphics[width=0.5\textwidth]{figures/picard_yes.jpg}
+    \caption[Damage report!]{I'm afraid I still don't understand, sir.\label{fig:picard}}
 \end{figure}
 
 \subsection{Tables}\label{ssec:tables}
 
-here's a table in~\cref{tab:table}
+Here's a table in~\cref{tab:table}
 
 \begin{table}
 \begin{center}
@@ -45,10 +48,29 @@ here's a table in~\cref{tab:table}
 \end{table}
 
 \section{References and Citation}
+Here's we'll fill this section with some more interesting Star Trek text.
+Run a manual sweep of anomalous airborne or electromagnetic readings. Radiation levels in our atmosphere have increased by 3,000 percent. Electromagnetic and subspace wave fronts approaching synchronization. What is the strength of the ship's deflector shields at maximum output? The wormhole's size and short period would make this a local phenomenon. Do you have sufficient data to compile a holographic simulation?
 
-\subsection{Clever referencing}
-\LaTeX offers the powerful ability to automatically handle references using \verb+\label+ and a corresponding \verb+\ref+.
-While~\cref{chap:intro} has more detail on some good practices for \LaTeX~that I've picked up.
+Finally, we'll add a subfigure to demonstrate it's proper use. 
+Many people use the package~\verb+subfigure+ but this is in fact, quite wrong. 
+To begin, the~\verb+subfigure+ package has been deprecated, which one can check by going to \url{https://www.ctan.org/pkg/subfigure}{CTAN}.
+Instead, everyone should be using~\verb+subcaption+, just as this class file is already doing.
+Here, in~\cref{fig:xkcd}, we see two subfigures encapsulated in a larger figure environment.
+Luckily, with our fancy referencing we have access to both~\cref{fig:ext,fig:ksp} using the same commands.
+The key thing to note from~\cref{fig:ext} is that trustworthiness reaches a maximum for those using~\verb+.tex+.
+\begin{figure}[htbp] 
+    \centering 
+    \begin{subfigure}[htbp]{0.5\textwidth} 
+        \includegraphics[width=\textwidth]{figures/file_extensions.png} 
+        \caption{File Extensions} \label{fig:ext} 
+    \end{subfigure}~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. %(or a blank line to force the subfigure onto a new line) 
+    \begin{subfigure}[htbp]{0.5\textwidth} 
+        \includegraphics[width=\textwidth]{figures/orbital_mechanics.png} 
+        \caption{Kerbal Space Program} \label{fig:ksp} 
+    \end{subfigure}
+    \caption[XKCD]{Some words of wisdom from Randall Munroe}
+    \label{fig:xkcd} 
+\end{figure}
 
 \subsection{References}
 
