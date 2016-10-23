@@ -63,7 +63,6 @@
 % The variables are \@gwu@thesis and \@gwu@report.
 % The default values are false.
 \newif\if@gwu@thesis
-\newif\if@gwu@report
 \newif\if@gwu@debug % option for debuggin
 \newif\if@gwu@listoffigures
 \newif\if@gwu@listoftables
@@ -99,10 +98,10 @@
 \newif\if@gwu@backref
 
 % Declare options for the overall layout.
-\DeclareOption{thesis}{\@gwu@thesistrue\@gwu@reportfalse}
-\DeclareOption{report}{\@gwu@reporttrue\@gwu@thesisfalse}
+\DeclareOption{thesis}{\@gwu@thesistrue}
+
 % if you call debug option then use the thesis option but not report
-\DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue\@gwu@reportfalse}
+\DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue}
 
 % Declare an option for the index.
 \DeclareOption{index}{\@gwu@indextrue}
@@ -119,13 +118,9 @@
 
 % This control structure calls the standard LaTeX report.cls class.
 % The base font size should be 10pt unless using the submit option.
-\if@gwu@report
- % Call the report class with 10pt fonts and two-sided formatting.
- \LoadClass[letterpaper,10pt,twoside]{report}
-\else
- % Call the report class with 12pt fonts and one-sided formatting.
- \LoadClass[letterpaper,12pt,oneside]{report}
-\fi
+
+\LoadClass[letterpaper,12pt,oneside]{report}
+
 
 % Make sure the index is off for 'thesis'.
 \if@gwu@thesis
@@ -136,13 +131,7 @@
 %% ---- PACKAGE LOADING ------------------------------------------------
 
 % This class uses the geometry.sty package to set the margins.
-\if@gwu@report
- % Use a 1-inch margin for all four sides for the report version.
- \RequirePackage[margin=1in,footskip=8pt,headsep=0.4cm,%
-  headheight=\baselineskip]{geometry}
- % This sets the distance between columns.
- \setlength{\columnsep}{0.3in}
-\else \if@gwu@debug
+\if@gwu@debug
   % Show margins 
   \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in,
   showframe]{geometry}
@@ -207,12 +196,6 @@
 % This is the package for special headers and footers.
 \RequirePackage{fancyhdr}
 
-% This package will allow for some sections to be in
-% different numbers of columns.
-\if@gwu@report
- \RequirePackage{multicol}
-\fi
-
 % some extra packages to help with debugging
 \if@gwu@debug
   \RequirePackage[final]{showlabels} % show labels for referencing
@@ -262,17 +245,11 @@
 % Clear the current header and footer.
 \fancyhf{}
 
-% Set the header and footer for normal pages.
-\if@gwu@report
- \fancyhead[LE,RO]{\bfseries\thepage}
- \fancyhead[LO]{\bfseries\rightmark}
- \fancyhead[RE]{\bfseries\leftmark}
-\else
- % Simply put the page number at the bottom center.
- \fancyfoot[C]{\thepage}
- % Get rid of the line at the top.
- \renewcommand{\headrulewidth}{0pt}
-\fi
+% Simply put the page number at the bottom center.
+\fancyfoot[C]{\thepage}
+% Get rid of the line at the top.
+\renewcommand{\headrulewidth}{0pt}
+
 
 % This sets the headers and footers for less-marked pages.
 % Example: beginning of each chapter.
@@ -1337,22 +1314,18 @@
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
- % Update the page format.
- \if@gwu@report %
-  % Eliminate vertical space.
-  \ \\[-2ex] %
- \else %
+  % Update the page format.
   % Switch to single spacing
   \singlespacing %
- \fi %
- % Move to new page.
- \clearpage %
- % Create a pdf anchor.
- \phantomsection %
- % Add to table of contents.
- \addcontentsline{toc}{chapter}{Bibliography} %
- % Load the bibliography.
- \@tex@bibliography{#1} %
+
+  % Move to new page.
+  \clearpage %
+  % Create a pdf anchor.
+  \phantomsection %
+  % Add to table of contents.
+  \addcontentsline{toc}{chapter}{Bibliography} %
+  % Load the bibliography.
+  \@tex@bibliography{#1} %
 }
 
 %% ---- CHAPTER HEADINGS -----------------------------------------------
