@@ -59,12 +59,11 @@
 \ProvidesClass{thesis-gwu}[2016/09/24 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
-% Define three switches for the the thesis format types.
-% The variables are \@gwu@thesis and \@gwu@report.
-% The default values are false.
+% Define two switches for the thesis type. thesis and debug 
 \newif\if@gwu@thesis
-\newif\if@gwu@report
 \newif\if@gwu@debug % option for debuggin
+\newif\if@gwu@noms % Flag if you don't have a MS degree
+
 \newif\if@gwu@listoffigures
 \newif\if@gwu@listoftables
 \newif\if@gwu@listofmaps
@@ -86,6 +85,7 @@
 
 % Set the default value of some of the options to true.
 \@gwu@thesistrue
+\@gwu@nomsfalse
 \@gwu@listoffigurestrue
 \@gwu@listoftablestrue
 \@gwu@copyrighttrue
@@ -99,16 +99,19 @@
 \newif\if@gwu@backref
 
 % Declare options for the overall layout.
-\DeclareOption{thesis}{\@gwu@thesistrue\@gwu@reportfalse}
-\DeclareOption{report}{\@gwu@reporttrue\@gwu@thesisfalse}
+\DeclareOption{thesis}{\@gwu@thesistrue\@gwu@debugfalse}
+
 % if you call debug option then use the thesis option but not report
-\DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue\@gwu@reportfalse}
+\DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue}
 
 % Declare an option for the index.
 \DeclareOption{index}{\@gwu@indextrue}
 
 % Declare an option for bibliography backrefs.
 \DeclareOption{backref}{\@gwu@backreftrue}
+
+% Options for PhD or MS theis
+\DeclareOption{noms}{\@gwu@nomstrue}
 
 % This passes any other options on to the 'report' class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}%
@@ -119,30 +122,18 @@
 
 % This control structure calls the standard LaTeX report.cls class.
 % The base font size should be 10pt unless using the submit option.
-\if@gwu@report
- % Call the report class with 10pt fonts and two-sided formatting.
- \LoadClass[letterpaper,10pt,twoside]{report}
-\else
- % Call the report class with 12pt fonts and one-sided formatting.
- \LoadClass[letterpaper,12pt,oneside]{report}
-\fi
+
+\LoadClass[letterpaper,12pt,oneside]{report}
 
 % Make sure the index is off for 'thesis'.
 \if@gwu@thesis
  \@gwu@indexfalse
 \fi
 
-
 %% ---- PACKAGE LOADING ------------------------------------------------
 
 % This class uses the geometry.sty package to set the margins.
-\if@gwu@report
- % Use a 1-inch margin for all four sides for the report version.
- \RequirePackage[margin=1in,footskip=8pt,headsep=0.4cm,%
-  headheight=\baselineskip]{geometry}
- % This sets the distance between columns.
- \setlength{\columnsep}{0.3in}
-\else \if@gwu@debug
+\if@gwu@debug
   % Show margins 
   \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in,
   showframe]{geometry}
@@ -207,12 +198,6 @@
 % This is the package for special headers and footers.
 \RequirePackage{fancyhdr}
 
-% This package will allow for some sections to be in
-% different numbers of columns.
-\if@gwu@report
- \RequirePackage{multicol}
-\fi
-
 % some extra packages to help with debugging
 \if@gwu@debug
   \RequirePackage[final]{showlabels} % show labels for referencing
@@ -262,17 +247,11 @@
 % Clear the current header and footer.
 \fancyhf{}
 
-% Set the header and footer for normal pages.
-\if@gwu@report
- \fancyhead[LE,RO]{\bfseries\thepage}
- \fancyhead[LO]{\bfseries\rightmark}
- \fancyhead[RE]{\bfseries\leftmark}
-\else
- % Simply put the page number at the bottom center.
- \fancyfoot[C]{\thepage}
- % Get rid of the line at the top.
- \renewcommand{\headrulewidth}{0pt}
-\fi
+% Simply put the page number at the bottom center.
+\fancyfoot[C]{\thepage}
+% Get rid of the line at the top.
+\renewcommand{\headrulewidth}{0pt}
+
 
 % This sets the headers and footers for less-marked pages.
 % Example: beginning of each chapter.
@@ -405,8 +384,12 @@
    % More rubber space
    %\vfill %
    % previous degrees
-   B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-   M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+   \if@gwu@noms
+     B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[4ex]
+   \else
+     B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+     M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+   \fi
    % Text from guidelines
    A Dissertation submitted to \\[4ex] %
    The Faculty of \\
@@ -1337,22 +1320,18 @@
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
- % Update the page format.
- \if@gwu@report %
-  % Eliminate vertical space.
-  \ \\[-2ex] %
- \else %
+  % Update the page format.
   % Switch to single spacing
   \singlespacing %
- \fi %
- % Move to new page.
- \clearpage %
- % Create a pdf anchor.
- \phantomsection %
- % Add to table of contents.
- \addcontentsline{toc}{chapter}{Bibliography} %
- % Load the bibliography.
- \@tex@bibliography{#1} %
+
+  % Move to new page.
+  \clearpage %
+  % Create a pdf anchor.
+  \phantomsection %
+  % Add to table of contents.
+  \addcontentsline{toc}{chapter}{Bibliography} %
+  % Load the bibliography.
+  \@tex@bibliography{#1} %
 }
 
 %% ---- CHAPTER HEADINGS -----------------------------------------------
