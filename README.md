@@ -19,7 +19,7 @@ Eventually, this class file can serve as a legitimate format for all GWU graduat
 
 :construction: This is still in development so the documentation is a little lacking but it is fully functional.
 
-For the user, you only have to modify the [frontmatter](./tex/frontmater.tex) with your information. 
+For the user, you only have to modify the [frontmatter](https://github.com/skulumani/thesis-gwu/blob/master/tex/frontmatter.tex) with your information. 
 The class file will automatically use this data to populate the title page, copyright, committee information, etc. 
 
 There is already logic built in to allow for commands to be removed/added at will.
