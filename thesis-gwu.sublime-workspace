@@ -1,0 +1,770 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "thesis-sample.tex",
+			"settings":
+			{
+				"buffer_size": 393,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "thesis-gwu.cls",
+			"settings":
+			{
+				"buffer_size": 46182,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 113.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"markdown che",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"markdo",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"diff",
+				"Git: Diff Staged Files"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"g",
+				"Git: Status"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"branch",
+				"Git: New Branch"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"pack list",
+				"Package Control: List Packages"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"them",
+				"Themr: List themes"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"git show",
+				"Git: Show Tags"
+			],
+			[
+				"commen",
+				"Toggle Comment"
+			],
+			[
+				"git re",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"git",
+				"Git: Push Current Branch"
+			],
+			[
+				"git push ",
+				"Git: Push"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git diff ",
+				"Git: Diff Current File"
+			],
+			[
+				"jump",
+				"LaTeXTools: Jump to PDF"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git open",
+				"Git: Open..."
+			],
+			[
+				"Snippet: ",
+				"Snippet: Enumerate"
+			],
+			[
+				"latextool",
+				"LaTeXTools: View TeX package documentation"
+			]
+		],
+		"width": 529.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/shankar/Documents/thesis-gwu"
+	],
+	"file_history":
+	[
+		"/Users/shankar/Documents/dissertation_proposal/presentation.tex",
+		"/Users/shankar/Documents/dissertation_proposal/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Documents/dissertation_proposal/proposal.tex",
+		"/Users/shankar/Documents/dissertation_proposal/README.md",
+		"/Users/shankar/Drive/docs/code_repository/latex_repo.md",
+		"/Users/shankar/Drive/docs/code_repository/latex/.gitignore",
+		"/Users/shankar/Drive/docs/code_repository/latex/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/GWU/proposal/README.md",
+		"/Users/shankar/Documents/skulumani.github.io/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Documents/skulumani.github.io/.git/MERGE_MSG",
+		"/Users/shankar/Documents/skulumani.github.io/cv.md",
+		"/Users/shankar/Documents/skulumani.github.io/research.md",
+		"/Users/shankar/Documents/skulumani.github.io/index.html",
+		"/Users/shankar/Documents/skulumani.github.io/_layouts/post.html",
+		"/Users/shankar/Documents/skulumani.github.io/_layouts/publication.html",
+		"/Users/shankar/Documents/skulumani.github.io/public/css/poole.css",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/2016-10-16-git_cheatsheet.md",
+		"/Users/shankar/Documents/skulumani.github.io/.git/rebase-merge/git-rebase-todo",
+		"/Users/shankar/Library/Application Support/Sublime Text 3/Packages/User/.git/MERGE_MSG",
+		"/Users/shankar/Library/Application Support/Sublime Text 3/Packages/User/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/docs/code_repository/latex/README.md",
+		"/Users/shankar/Drive/docs/technical_papers/bibtex/README.md",
+		"/Users/shankar/Drive/docs/code_repository/latex/.git/MERGE_MSG",
+		"/Users/shankar/Drive/docs/code_repository/latex/texmf.txt",
+		"/Users/shankar/Drive/docs/code_repository/system_configuration",
+		"/Users/shankar/Library/texmf/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Library/texmf/README.md",
+		"/Users/shankar/Desktop/gpr67mile-gpx.gpx",
+		"/Users/shankar/Documents/proposal-gwu/proposal.tex",
+		"/Users/shankar/Documents/thesis-gwu/thesis-gwu.cls",
+		"/Users/shankar/Drive/GWU/research/weekly_summary/20161021/20161021_summary.tex",
+		"/Users/shankar/Drive/docs/code_repository/latex/abstract_gwu/abstract_packages.sty",
+		"/Users/shankar/Drive/docs/code_repository/latex/abstract_gwu/abstract.tex",
+		"/Users/shankar/Documents/thesis-gwu/.git/MERGE_MSG",
+		"/Users/shankar/Documents/thesis-gwu/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Documents/thesis-gwu/thesis-sample.tex",
+		"/Users/shankar/Documents/thesis-gwu/tex/frontmatter.tex",
+		"/Users/shankar/Documents/thesis-gwu/tex/appendix.tex",
+		"/Users/shankar/Documents/thesis-gwu/tex/results.tex",
+		"/Users/shankar/Documents/thesis-gwu/tex/intro.tex",
+		"/Users/shankar/Documents/skulumani.github.io/_includes/head.html",
+		"/Users/shankar/Documents/skulumani.github.io/public/css/hyde.css",
+		"/Users/shankar/Documents/skulumani.github.io/public/css/syntax.css",
+		"/Users/shankar/Documents/skulumani.github.io/public/css/hyde_atom.css",
+		"/Users/shankar/Documents/skulumani.github.io/public/css/poole_atom.css",
+		"/Users/shankar/Documents/skulumani.github.io/public/css/syntax_atom.css",
+		"/Users/shankar/Documents/skulumani.github.io/_layouts/default.html",
+		"/Users/shankar/Documents/skulumani.github.io/_includes/sidebar.html",
+		"/Users/shankar/Documents/thesis-gwu/thesis-bib.bib",
+		"/Users/shankar/Drive/GWU/publications/ADS_JGCD/InfoConservation.tex",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/2015-10-28-cycling.md",
+		"/Users/shankar/Documents/skulumani.github.io/_includes/ride_with_gps_summary.html",
+		"/Users/shankar/Documents/skulumani.github.io/_drafts/2016-08-20-predict.md",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/2015-08-10-2015AAS.md",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/2016-10-15-2016AAS-B.md",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/2016-08-20-2016AAS.md",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/2015-10-09-2016ACC.md",
+		"/Users/shankar/Documents/skulumani.github.io/_drafts/2016-10-16-jekyll-review.md",
+		"/Users/shankar/Documents/skulumani.github.io/_drafts/jekyll-review.md",
+		"/Users/shankar/Documents/skulumani.github.io/Gemfile",
+		"/Users/shankar/Documents/skulumani.github.io/_config.yml",
+		"/Users/shankar/Documents/skulumani.github.io/404.html",
+		"/Users/shankar/Documents/skulumani.github.io/_drafts/git_cheatsheet.md",
+		"/Users/shankar/Documents/skulumani.github.io/_drafts/hyde-intro.md",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/README.md",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/_layouts/default.html",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/_includes/scripts.html",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/_includes/head.html",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/LICENSE",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/_config.yml",
+		"/Users/shankar/Documents/fdcl-gwu.github.io/404.html",
+		"/Users/shankar/Documents/github_pages/README.md",
+		"/Users/shankar/Documents/github_pages/Gemfile",
+		"/Users/shankar/Drive/GWU/lab_homepage.html",
+		"/Users/shankar/Documents/skulumani.github.io/styles.md",
+		"/Users/shankar/Documents/skulumani.github.io/_layouts/page.html",
+		"/Users/shankar/Documents/skulumani.github.io/about.md",
+		"/Users/shankar/Documents/skulumani.github.io/atom.xml",
+		"/Users/shankar/.gitconfig",
+		"/Users/shankar/Documents/skulumani.github.io/_posts/Icon\r",
+		"/Users/shankar/Documents/skulumani.github.io/.gitignore",
+		"/Users/shankar/Documents/kulumani_cv/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Documents/kulumani_cv/.git/rebase-merge/git-rebase-todo",
+		"/Users/shankar/Documents/kulumani_cv/.gitattributes",
+		"/Users/shankar/Drive/GWU/publications/JGCD/InfoConservation.tex",
+		"/Users/shankar/Drive/GWU/publications/ADS_JGCD/README.md",
+		"/Users/shankar/Drive/GWU/publications/ADS_JGCD/.gitignore",
+		"/Users/shankar/Drive/docs/code_repository/info_share/linux.md",
+		"/Users/shankar/Drive/docs/code_repository/info_share/git.md",
+		"/Users/shankar/Drive/docs/code_repository/info_share/latex.md",
+		"/Users/shankar/Drive/docs/code_repository/info_share/matlab.md",
+		"/Users/shankar/Drive/docs/code_repository/info_share/README.md",
+		"/Users/shankar/Drive/docs/code_repository/info_share/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/docs/website/skulumani.github.io/_config.yml",
+		"/Users/shankar/Drive/docs/website/skulumani.github.io/_posts/2016-08-20-2016AAS.md",
+		"/Users/shankar/Drive/GWU/publications/2016_AAS/2016_aas_presentation/README.md",
+		"/Users/shankar/Drive/GWU/publications/2016_AAS/2016_aas_manuscript/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/GWU/publications/2016_AAS/2016_aas_manuscript/README.md",
+		"/Users/shankar/Drive/GWU/publications/2016_AAS/2016_aas_abstract/abstract.tex",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/presentation/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/presentation/README.md",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/experiment/data/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/experiment/data/README.md",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/matlab/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/matlab/README.md",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/matlab/LICENSE.txt",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/2016-acc-manuscript/README.md",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/2016-acc-manuscript/LICENSE.txt",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/2016-acc-manuscript/ACC16.2.tex",
+		"/Users/shankar/Drive/GWU/publications/2016_ACC/2016-acc-manuscript/readme.txt",
+		"/Users/shankar/Drive/GWU/publications/2016_AAS/2016_aas_matlab/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/GWU/publications/2016_AAS/2016_aas_matlab/LICENSE.txt",
+		"/Users/shankar/Desktop/private.key",
+		"/Users/shankar/Desktop/public.key",
+		"/Users/shankar/.gnupg/gpg.conf",
+		"/Users/shankar/Drive/docs/code_repository/matlab/orbit_gui/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/docs/code_repository/thesis-gwu/sample/thesis-sample.tex",
+		"/Users/shankar/Drive/docs/code_repository/thesis-gwu/.git/COMMIT_EDITMSG",
+		"/Users/shankar/Drive/docs/code_repository/thesis-gwu/sample/tex/intro.tex",
+		"/Users/shankar/Drive/docs/code_repository/thesis-gwu/sample/tex/appendix.tex",
+		"/Users/shankar/Drive/GWU/dissertation_template/Dissertation_template/0_MainFile.tex",
+		"/Users/shankar/Drive/docs/code_repository/thesis-gwu/sample/tex/manual.tex",
+		"/Users/shankar/Drive/docs/code_repository/thesis-gwu/sample/tex/results.tex",
+		"/Users/shankar/Drive/GWU/publications/git_tutorial/presentation.tex",
+		"/Users/shankar/Desktop/simple_git/paper.tex",
+		"/Users/shankar/Desktop/git_test/paper.tex",
+		"/Users/shankar/Drive/docs/technical_papers/bibtex/.git/COMMIT_EDITMSG"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pst",
+			"h2",
+			"font-size",
+			"post",
+			"listofsymbols",
+			"symbol",
+			"font-famil",
+			"sidebar",
+			"abbreviation",
+			"appendices",
+			"copyright",
+			"committee",
+			"ttlp",
+			"commi",
+			"hyperset",
+			"table of cont",
+			"pdfbookmark",
+			"hyper",
+			"hypers",
+			"hyperref",
+			"hypersetup",
+			"pdfbookmark",
+			"pdf",
+			"section",
+			"\\l@section",
+			"tocline",
+			"table",
+			"flushleft",
+			"table of con",
+			"program",
+			"centering",
+			"textbf",
+			"nomencla",
+			"chapter",
+			"table of contents",
+			"insertabstract",
+			"abstract",
+			"insertfront",
+			"acknowle",
+			"frntpg",
+			"title",
+			"insertfront",
+			"\\an",
+			"committee",
+			"\\ttlpg",
+			"setspace",
+			"\\ttlpg",
+			"title",
+			"\n+",
+			"+\n",
+			"inclu",
+			"pics",
+			"usepackage",
+			"\\begin{center}",
+			"centerline",
+			"framed",
+			"\\else",
+			"ref",
+			"hyperref",
+			"forewordpage",
+			"foreword",
+			"insertpreface",
+			"foreword",
+			"insertfront",
+			"foreword",
+			"forward",
+			"foreward",
+			"loc",
+			"Icon",
+			"LSOverride",
+			"\\bf",
+			"committee",
+			"dedication",
+			"frontispiece",
+			"backref",
+			"frontpagestyle",
+			"dedicationstyle",
+			"dedication",
+			"empty",
+			"phdgrad",
+			"\\year",
+			"umich@",
+			"proof",
+			"used the hat map property",
+			"used the property",
+			"cite",
+			"    \\"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\bfseries",
+			"gwu@"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "thesis-sample.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "thesis-gwu.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 46182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 148.0
+	},
+	"output.latextools":
+	{
+		"height": 143.0
+	},
+	"pinned_build_system": "",
+	"project": "thesis-gwu.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 160.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
