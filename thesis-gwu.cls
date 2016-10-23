@@ -59,11 +59,11 @@
 \ProvidesClass{thesis-gwu}[2016/09/24 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
-% Define three switches for the the thesis format types.
-% The variables are \@gwu@thesis and \@gwu@report.
-% The default values are false.
+% Define two switches for the thesis type. thesis and debug 
 \newif\if@gwu@thesis
 \newif\if@gwu@debug % option for debuggin
+\newif\if@gwu@noms % Flag if you don't have a MS degree
+
 \newif\if@gwu@listoffigures
 \newif\if@gwu@listoftables
 \newif\if@gwu@listofmaps
@@ -85,6 +85,7 @@
 
 % Set the default value of some of the options to true.
 \@gwu@thesistrue
+\@gwu@nomsfalse
 \@gwu@listoffigurestrue
 \@gwu@listoftablestrue
 \@gwu@copyrighttrue
@@ -98,7 +99,7 @@
 \newif\if@gwu@backref
 
 % Declare options for the overall layout.
-\DeclareOption{thesis}{\@gwu@thesistrue}
+\DeclareOption{thesis}{\@gwu@thesistrue\@gwu@debugfalse}
 
 % if you call debug option then use the thesis option but not report
 \DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue}
@@ -108,6 +109,9 @@
 
 % Declare an option for bibliography backrefs.
 \DeclareOption{backref}{\@gwu@backreftrue}
+
+% Options for PhD or MS theis
+\DeclareOption{noms}{\@gwu@nomstrue}
 
 % This passes any other options on to the 'report' class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}%
@@ -121,12 +125,10 @@
 
 \LoadClass[letterpaper,12pt,oneside]{report}
 
-
 % Make sure the index is off for 'thesis'.
 \if@gwu@thesis
  \@gwu@indexfalse
 \fi
-
 
 %% ---- PACKAGE LOADING ------------------------------------------------
 
@@ -382,8 +384,12 @@
    % More rubber space
    %\vfill %
    % previous degrees
-   B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-   M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+   \if@gwu@noms
+     B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[4ex]
+   \else
+     B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+     M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+   \fi
    % Text from guidelines
    A Dissertation submitted to \\[4ex] %
    The Faculty of \\
