@@ -83,12 +83,15 @@
 \newif\if@gwu@nomenclature
 \newif\if@gwu@abstract
 
+\newif\if@gwu@msdegree
+
 % Set the default value of some of the options to true.
 \@gwu@thesistrue
 \@gwu@listoffigurestrue
 \@gwu@listoftablestrue
 \@gwu@copyrighttrue
 \@gwu@committeepagetrue
+\@gwu@msdegreetrue
 
 % This declares a variable for using an index.
 % An index is not allowed in dissertations.
@@ -325,6 +328,9 @@
 \newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
 \newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
 
+\newcommand{\showmsdegree}{\@gwu@msdegreetrue}
+\newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
+
 \newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
 \newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
 \newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
@@ -382,8 +388,12 @@
    % More rubber space
    %\vfill %
    % previous degrees
-   B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-   M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+   \if@gwu@msdegree
+    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+   \else
+    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[4ex]
+   \fi
    % Text from guidelines
    A Dissertation submitted to \\[4ex] %
    The Faculty of \\
