@@ -1,4 +1,4 @@
-## GWU Thesis
+## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
 This is a GWU SEAS thesis template. 
 It complies with the requirements as laid out by the [ETD](http://library.gwu.edu/etd/formatting-content).
