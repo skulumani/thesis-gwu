@@ -187,9 +187,6 @@
 % This package is used to generate alternate environments.
 \RequirePackage{float}
 
-% This package is used for the list of abbreviations
-\RequirePackage[printonlyused]{acronym}
-
 % This package is for the index, if it is to be used.
 \if@gwu@index
  \RequirePackage{makeidx}
@@ -235,6 +232,9 @@
 % Cleveref referencing - must happen after hyperref
 \AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
 
+% Glossaries package - must come after hypperef
+% This package is used for the list of abbreviations
+\RequirePackage[]{glossaries}
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
