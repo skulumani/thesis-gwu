@@ -72,6 +72,10 @@
 \newif\if@gwu@listofabbrevs
 \newif\if@gwu@listofsymbols
 \newif\if@gwu@listofacronyms
+
+\newif\if@gwu@listofglossariesabbrevs
+\newif\if@gwu@listofglossariessymbols
+
 \newif\if@gwu@copyright
 \newif\if@gwu@frontispiece
 \newif\if@gwu@committeepage
@@ -235,8 +239,8 @@
 % Glossaries package - must come after hypperef
 % This package is used for the list of abbreviations
 \RequirePackage[printonlyused]{acronym}
-\RequirePackage[toc,acronym]{glossaries}
-
+\RequirePackage[toc,acronym,symbols]{glossaries}
+\RequirePackage[automake]{glossaries-extra}
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -887,9 +891,8 @@
 \newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
 \newcommand{\showlistofsymbos}{\@gwu@listofsymbolstrue}
 
-\newcommand{\showglossarieslistofabbreviations}{\@gwuglossarieslistofabbreviationstrue}
-\newcommand{\showglossarieslistofacronyms}{\@gwuglossarieslistofacronymstrue}
-\newcommand{\showglossarieslistofsymbols}{\@gwuglossarieslistofsymbolstrue}
+\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofabbrevsfalse}
+\newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse}
 
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
@@ -1267,7 +1270,24 @@
 \end{onehalfspace}
 }
 
+%% ---- LIST OF GLOSSARIES ABBREVIATIONS ------------------------------------------
 
+% This sets the formatting of the list of tables page.
+\newcommand*{\listofglossaryabbreviations}{%
+ % Use front page styling.
+ \frntpg %
+ % Start the automatic abbreviations feature.
+ \printacronyms[title={\normalsize List of Abbreviations}]
+}
+
+
+% This sets the formatting of the list of tables page.
+\newcommand*{\listofglossarysymbols}{%
+ % Use front page styling.
+ \frntpg %
+ % Start the automatic abbreviations feature.
+ \printsymbols[title={\normalsize List of Symbols}]
+}
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
 \newcommand{\@abstract}{}
@@ -1421,10 +1441,12 @@
  \if@gwu@listofprograms\listofprograms\fi %
  % Insert the list of abbreviations.
  \if@gwu@listofabbrevs\listofabbreviations\fi %
+ \if@gwu@listofglossariesabbrevs\listofglossaryabbreviations\fi
  % Insert the list of acronyms.
  \if@gwu@listofacronyms\listofacronyms\fi %
  % Insert the list of symbols.
  \if@gwu@listofsymbols\listofsymbols\fi %
+ \if@gwu@listofglossariessymbols\listofglossarysymbols\fi
  % Insert the nomenclature.
  \if@gwu@nomenclature\insertnomenclature\fi %
  % Insert the preface if there is one.
