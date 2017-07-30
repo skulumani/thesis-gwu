@@ -234,7 +234,9 @@
 
 % Glossaries package - must come after hypperef
 % This package is used for the list of abbreviations
-\RequirePackage[]{glossaries}
+\RequirePackage[printonlyused]{acronym}
+\RequirePackage[toc,acronym]{glossaries}
+
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -885,6 +887,10 @@
 \newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
 \newcommand{\showlistofsymbos}{\@gwu@listofsymbolstrue}
 
+\newcommand{\showglossarieslistofabbreviations}{\@gwuglossarieslistofabbreviationstrue}
+\newcommand{\showglossarieslistofacronyms}{\@gwuglossarieslistofacronymstrue}
+\newcommand{\showglossarieslistofsymbols}{\@gwuglossarieslistofsymbolstrue}
+
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
 \newcommand{\hidelistoftables}{\@gwu@listoftablesfalse}
@@ -896,6 +902,9 @@
 \newcommand{\hidelistofsymbos}{\@gwu@listofsymbolsfalse}
 
 
+\newcommand{\hideglossarieslistofabbreviations}{\@gwuglossarieslistofabbreviationsfalse}
+\newcommand{\hideglossarieslistofacronyms}{\@gwuglossarieslistofacronymsfalse}
+\newcommand{\hideglossarieslistofsymbols}{\@gwuglossarieslistofsymbolsfalse}
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % This sets the formatting for chapter entries in the table of contents.
 \renewcommand*\l@chapter[2]{ %
