@@ -890,7 +890,7 @@
 \newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
 \newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
 \newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
-\newcommand{\showlistofsymbos}{\@gwu@listofsymbolstrue}
+\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue}
 
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
@@ -900,7 +900,7 @@
 \newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse}
 \newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse}
 \newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
-\newcommand{\hidelistofsymbos}{\@gwu@listofsymbolsfalse}
+\newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse}
 
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
