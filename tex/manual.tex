@@ -17,7 +17,6 @@ It also turns references within the text into links.
 The best examples in this file are the entries in the Table of Contents.
 Although the chapter and section names are shown in black (in accordance with the GWU guidelines), clicking on them does navigate to the start of the chapter, section, etc.
 
-Here's an acronym \ac{CRTBP} and a symbol \ac{F}, followed by some random text.
 
 \section{General Usage}
 The way to invoke usage of this template is to put
@@ -118,195 +117,87 @@ To assign the copyright to someone other than the author, use the following comm
 \end{verbatim}
 
 
-% \subsection{Text Pages}  \label{ssec:dedication}
-% The handling of the first few pages after the title page is one of the
-% best features of this template.  The pages that occur between the
-% copyright page and the abstract page all consist of short pieces of text
-% that are usually a single paragraph.  The list of such pages that exist
-% in this template (in the order they would appear if all used) is
-% dedication, acknowledgments, preface, prologue, and foreword.  Of
-% course, it would be unusual to use more than one of the last three.
-% The text for each of these pages is set up using a command of the same
-% name.
-% \begin{code}
-% \foreword{This is going to be the best dissertation ever.}
-% \end{code}
-% Usually the contents of each of these pages will be longer than a single
-% sentence, and thus it should be noted that each of these commands allows
-% most types of \LaTeX~input.  For example, the following is perfectly
-% acceptable input--at least as far as the template is concerned.
-% \begin{code}
-% \foreword{This is going to be the \emph{best}. \\
-%  \begin{center} Really, really. \end{center}}
-% \end{code}
+\subsection{Text Pages}  \label{ssec:dedication}
+The handling of the first few pages after the title page is one of the best features of this template.  
+The pages that occur between the copyright page and the abstract page all consist of short pieces of text that are usually a single paragraph.  
+The text for each of these pages is set up using a command of the same name.
+Generally, only one of the front matter pages is used. 
+\begin{verbatim}
+\foreword{This is going to be the best dissertation ever.}
+\end{verbatim}
+Usually the contents of each of these pages will be longer than a single sentence, and thus it should be noted that each of these commands allows most types of \LaTeX~input.  
+For example, the following is perfectly acceptable input--at least as far as the template is concerned.
+\begin{verbatim}
+\foreword{This is going to be the \emph{best}. \\
+ \begin{center} Really, really. \end{center}}
+\end{verbatim}
 
-% As I mentioned before, a given page will appear in the document if and
-% only if the corresponding command is used.  The order in which the pages
-% appear does not depend on the order the commands are used in the
-% preamble.  You can also prevent the pages from appearing by using
-% commands like \verb|\hideforeword|.
+As I mentioned before, a given page will appear in the document if and only if the corresponding command is used.  
+The order in which the pages appear does not depend on the order the commands are used in the preamble.  
+You can also prevent the pages from appearing by using commands like \verb|\hideforeword|.
 
-% The style of each page can also be set by the user.  By default, each
-% page will appear with a bold, italic heading corresponding to the name
-% of the page.  However, there are five other formats, which can be
-% controlled using an optional argument.  For example, the following
-% command creates a dedication page with no heading (\textit{i.e.}~it
-% does not say ``Dedication'' on the page) but with lines above and
-% below the dedication text.
-% \begin{code}
-% \dedication[4]{To Mom}
-% \end{code}
-% A complete list of the available styles is given in Table
-% \ref{tab:fronstyle}.  The style of each page can be set independently,
-% but it is also possible to change which style is used by default.
-% \begin{code}
-% \frontpagestyle{6}
-% \end{code}
-% This would make all of the commands that were called without optional
-% inputs to create pages using style 6.  In this document, the dedication
-% uses style 1, the acknowledgments use style 6, and the preface uses
-% style 2.  The heading is the reason that there is the ability to declare
-% a prologue, a foreword, and a preface.  The only difference between each
-% pair of commands is the resulting heading.
+The style of each page can also be set by the user.  
+By default, each page will appear with a bold, italic heading corresponding to the name
+of the page.  
+However, there are five other formats, which can be controlled using an optional argument.  
+For example, the following command creates a dedication page with no heading (\textit{i.e.}~it does not say ``Dedication'' on the page) but with lines above and below the dedication text.
+\begin{verbatim}
+\dedication[4]{To Mom}
+\end{verbatim}
+A complete list of the available styles is given in \cref{tab:fronstyle}.  
+The style of each page can be set independently, but it is also possible to change which style is used by default.
+\begin{verbatim}
+\frontpagestyle{6}
+\end{verbatim}
+This would make all of the commands that were called without optional
+inputs to create pages using style 6.  
 
-% \begin{table}
-%  \caption{ \label{tab:fronstyle}
-%   List of styles for frontmatter text pages}
-%  \centering
-%  \begin{tabular}{c @{\hspace{16pt}} p{8cm}}
-%   \hline \hline
-%   \textsc{Style} & \textsc{Description} \\
-%   \hline
-%   1 & Justified text with no header or lines \\
-%   2 & Justified text with bold italic header and no lines \\
-%   3 & Justified text, capitalized header, no lines \\
-%   4 & Justified text with lines and no header \\
-%   5 & Justified text with bold italic header and lines \\
-%   6 & Justified text with capitalized header and lines \\
-%   other & Centered text with no header or lines \\
-%   \hline \hline
-%  \end{tabular}
-% \end{table}
-
-% The final capability of the front page commands is to change the width
-% of the paragraph for each page.  By default each page except for the
-% preface and prologue will create a text region that is 66\% of the
-% maximum width allowed by the Rackham margin guidelines (The other two
-% are set to 75\% because they may have more text.), but these numbers
-% can be changed.  Suppose that for whatever reason the dedication page
-% would look better if the text area were quite a bit wider.
-% \begin{code}
-% \dedicationwidth{0.8}
-% \end{code}
-% Using this command would set the area to 80\% of the maximum allowable
-% width.  This command exists for each of the text pages, and the argument
-% should be a single number between 0 and 1.
-
-
-% \subsection{Lists of Things}   \label{ssec:lists}
-% For whatever reason, the Rackham guidelines say more about the Table of
-% Contents than any other page.  There are lots of comments about what
-% \textbf{\textsf{must}} and \textbf{\textsf{must not}} go in the Table
-% of Contents.  Of course, that is a relatively difficult thing to control
-% in \LaTeX, which is why it is critical to have a template that takes
-% care of all that automatically.
-
-% Suffice it to say that this template handles the Table of Contents
-% appropriately, but this section is also meant to address the List of
-% Figures, List of Tables, \textit{etc}.  According to the guidelines,
-% a corresponding list must appear if there is more than one figure,
-% table, map, program, illustration, or appendix.  How to insert a map,
-% program, or illustration is discussed in Section \ref{ssec:float}.  This
-% brings us to one of the things that the template is not able to do
-% automatically.  There is no way to determine if the document will have
-% more than one of each type of float, so the user must manually inform
-% the template which lists to create.  For example, if the document has
-% more than one map in it, the command
-% \begin{code}
-% \showlistofmaps
-% \end{code}
-% must occur somewhere in the preamble.  Note that this also applies to
-% the list of appendices, which for some reason are not supposed to
-% appear as simply specially-numbered chapters in the Table of Contents.
-% For more information about appendices with this template, see Appendix
-% \ref{app:appendix}.  The template assumes that the dissertation will
-% contain at least two figures and tables.  If, for example, there is only
-% one figure,
-% \begin{code}
-% \hidelistoffigures
-% \end{code}
-% must be put in the preamble.
-
-% The other type of list that can occur is for abbreviations of various
-% types.  This is a somewhat convenient feature, particularly there are a
-% lot of acronyms in the dissertation.  This template utilizes the
-% \tfile{acronym} package.  In the preamble put a command like the
-% following.
-% \begin{code}
-% \abbreviations{
-%  \acro{CFD}{Computational Fluid Dynamics}
-%  \acro{LOA}{List of Abbreviations}
-%  \acro{H2O}[$\mathrm{H_2O}$]{water}}
-% \end{code}
-% This will define a bunch of abbreviations that can be used.  When you
-% want to use one of the acronyms within the text, simply use the
-% \verb|\ac| command to refer to the abbreviation you want.  This will
-% automatically spell out what the abbreviation stands for on the first
-% use and only print out the abbreviation on subsequent uses.  For
-% example, when the definitions from the previous example are used,
-% \verb|\ac{H2O}| will result in ``$\mathrm{H_2O}$ (water)'' the first
-% time it is used and just ``$\mathrm{H_2O}$'' all subsequent times.  In
-% addition to the \verb|\abbreviations| command, the template also
-% provides \verb|\acronyms| and \verb|\symbols|.  Each of these works in
-% the same way, and if they are called, a page will appear between the
-% list of appendices and the abstract with the corresponding header.  As a
-% final note, the abbreviations will only appear in the list if they are
-% used at least once in the text of the document.
-
-% \subsection{Abstract Page}
-% The abstract page can optionally occur within the document.  To add an
-% abstract to a dissertation with this template, one can simply use the
-% \verb|\abstract| command.  In other words, this works almost exactly
-% like the dedication, acknowledgments, \textit{etc.}~commands.  However,
-% it will create a page with slightly more information, and there is no
-% optional argument that determines the style of the page.
-
-% According to the Rackham Guidelines, the abstract page
-% \textsf{\textbf{must}} have a page number.  However, the abstract page
-% created by this template meets the guidelines for the required abstract
-% that is needed separately from the dissertation, which
-% \textsf{\textbf{must not}} have a page number.  So that's pretty silly.
-% Anyway, it would be pretty convenient to just use the appropriate page
-% from the dissertation as the abstract page, so there is a command to
-% hide the page number on the abstract page.
-% \begin{code}
-% \hideabstractpagenumber
-% \end{code}
-% Once the abstract page has been printed, remember to git rid of this
-% command so that the abstract in the dissertation (which is not required,
-% by the way) will have the appropriate page number.
-
-
-% \section{Text Portion}
-% The template also provides several tools that can be used in the main
-% text part of the document, as well.  One of the features of this
-% template is that it loads most of the common packages automatically.
-% This alleviates the need for an annoying list of \verb|\usepackage|
-% commands in the preamble.  This does not mean, however that other
-% packages cannot be used.
+\begin{table}
+ \caption{ \label{tab:fronstyle}
+  List of styles for frontmatter text pages}
+ \centering
+ \begin{tabular}{c @{\hspace{16pt}} p{8cm}}
+  \hline \hline
+  \textsc{Style} & \textsc{Description} \\
+  \hline
+  1 & Justified text with no header or lines \\
+  2 & Justified text with bold italic header and no lines \\
+  3 & Justified text, capitalized header, no lines \\
+  4 & Justified text with lines and no header \\
+  5 & Justified text with bold italic header and lines \\
+  6 & Justified text with capitalized header and lines \\
+  other & Centered text with no header or lines \\
+  \hline \hline
+ \end{tabular}
+\end{table}
 
 
 
+\subsection{Lists of Things}   \label{ssec:lists}
+Suffice it to say that this template handles the Table of Contents appropriately, but this section is also meant to address the List of Figures, List of Tables, \textit{etc}.  According to the guidelines, a corresponding list must appear if there is more than one figure, table, map, program, illustration, or appendix.  
+The template assumes that the dissertation will contain at least two figures and tables.
+If, for example, there is only one figure,
+\begin{verbatim}
+\hidelistoffigures
+\end{verbatim}
+must be put in the preamble.
 
-% \subsection{Bibliography}
+The other type of list that can occur is for abbreviations of various types.  
+This is a somewhat convenient feature, particularly there are a lot of acronyms in the dissertation.  
+This template utilizes the \texttt{acronym} package, but eventually I would like to migrate to the use of \texttt{glossaries} which is continuing to be supported. 
+In the preamble put a command like the following.
+\begin{verbatim}
+\abbreviations{
+ \acro{CFD}{Computational Fluid Dynamics}
+ \acro{LOA}{List of Abbreviations}
+ \acro{H2O}[$\mathrm{H_2O}$]{water}}
+\end{verbatim}
+This will define a bunch of abbreviations that can be used.  
+When you want to use one of the acronyms within the text, simply use the \verb|\ac| command to refer to the abbreviation you want.  
+This will automatically spell out what the abbreviation stands for on the first use and only print out the abbreviation on subsequent uses.  
+Here's an acronym \ac{CRTBP}.
+And if we use it a second time, such as \ac{CRTBP}, only the abbreviation will appear.
 
-
-% backref
-
-
-
-% \subsection{Document Format}
-% how do you call the class file and it's options
 
 \section{Float environments}
 There are many possible float enviornments, and this section will serve as an introduction and demonstration of some of them.
