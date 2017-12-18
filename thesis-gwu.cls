@@ -915,7 +915,7 @@
 \newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse}
 \newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse}
 \newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
-\newcommand{\hidelistofsymbos}{\@gwu@listofsymbolsfalse}
+\newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse}
 
 
 \newcommand{\hideglossarieslistofabbreviations}{\@gwuglossarieslistofabbreviationsfalse}
