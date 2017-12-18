@@ -1,102 +1,72 @@
 % !TEX root = ../thesis-sample.tex
+\chapter{Using this template} \label{chap:intro}
 
-\chapter{Using This Template}   \label{chap:manual}
-This chapter is stuck among the others as a brief users' manual for this
-template.  The approach to this template is to result in \LaTeX~source
-code files (\textit{i.e.}~\tfile{.tex} files) that are as simple as
-possible.  It also tries to do as much as possible automatically so that
-the user does not have to spend a lot of effort trying to match the
-confusing and arbitrary guidelines from Rackham.  This is particularly
-useful for the first few pages, for example the title page, dedication,
-and abstract page, which are difficult to make in \LaTeX~and are
-supposed to go in a certain order.
+This chapter is stuck among the others as a brief users' manual for this template.  
+The approach to this template is to result in \LaTeX~source code files (\texttt{.tex} files) that are as simple as possible.  
+It also tries to do as much as possible automatically so that the user does not have to spend a lot of effort trying to match the poorly documented ``guidelines'' provided by GWU or SEAS. 
+This is particularly useful for the first few pages, for example the title page, dedication, and abstract page, which are difficult to make in \LaTeX~and are supposed to go in a certain order.
 
-In addition to the description in this chapter, anyone may, of course,
-also look at the source code for this file, \tfile{thesis-sample.tex}.
-That file contains all of the source for this \tfile{.pdf} in a single
-file, but it will work just as well with multiple input files combined
-with the \verb|\input| command.
+In addition to the description in this chapter, anyone may, of course, also look at the source code for this file, \texttt{thesis-sample.tex}.
+That file contains all of the source for this \texttt{.pdf} in a single file, but it will work just as well with multiple input files combined with the \texttt{input} or \texttt{include} commands.
+Generally, it is a better idea to use \texttt{include} as this will allow for selective compiling of a specific portion of your thesis, i.e. only a single chapter at a time.
 
-The final generic comment about this template is that it has been
-updated to take advantage of \LaTeX's capabilities to create documents
-with links in them.  Provided you are using a modern PDF viewer to view
-this document, you may have already noticed this.  It creates a list of
-bookmarks, which can be used to quickly navigate what may be a long
-document.  It also turns references within the text into links.  The
-best examples in this file are the entries in the Table of Contents.
-Although the chapter and section names are shown in black (in accordance
-with the Rackham guidelines), clicking on them does navigate to the
-start of the chapter, section, \textit{etc.}
+The final generic comment about this template is that it has been updated to take advantage of \LaTeX's capabilities to create documents with links in them.  
+Provided you are using a modern PDF viewer to view this document, you may have already noticed this.  
+It creates a list of bookmarks, which can be used to quickly navigate what may be a long document.  
+It also turns references within the text into links.  
+The best examples in this file are the entries in the Table of Contents.
+Although the chapter and section names are shown in black (in accordance with the GWU guidelines), clicking on them does navigate to the start of the chapter, section, etc.
+
 
 \section{General Usage}
 The way to invoke usage of this template is to put
-\begin{code}
-\documentclass{thesis-umich.cls}
-\end{code}
-at the beginning of your preamble.  This can also work if the
-\tfile{thesis-umich.cls} file is not in the same directory as your
-\tfile{.tex} file.  To do so, just give the relative path.
-\begin{code}
-\documentclass{./tex/thesis-umich.cls}
-\end{code}
+\begin{verbatim}
+\documentclass{thesis-gwu.cls}
+\end{verbatim}
+at the beginning of your preamble.  
+This can also work if the \texttt{thesis-gwu.cls} file is not in the same directory as your \texttt{.tex} file.  
+To do so, just give the relative path.
+\begin{verbatim}
+\documentclass{./tex/thesis-gwu.cls}
+\end{verbatim}
 
-Much like a usual article or report in \LaTeX, the user specifies the
-primary information about the document in the preamble with commands
-like
-\begin{code}
-\author{Derek J. Dalle}
-\chair{James F. Driscoll}
-\end{code}
-At the beginning of the document, \textit{i.e.}~wherever the user
-types \verb|\begin{document}|, the title page will automatically be
-created and inserted at the beginning of the document.  If you
-forget to declare any of the required fields, it will generate a
-title page with a message such as ``Insert an author!''
+Much like a usual article or report in \LaTeX, the user specifies the primary information about the document in the preamble with commands like
+\begin{verbatim}
+\author{Shankar Kulumani}
+\chair{Taeyoung Lee}
+\end{verbatim}
+At the beginning of the document, the title page will automatically be created and inserted at the beginning of the document.  
+If you forget to declare any of the required fields, it will generate a title page with a message such as ``Insert an author!''
 
-However, the template does a lot more in the preamble than just create
-a title page.  The preamble (that is, whatever comes before
-\verb|\begin{document}| in the primary \tfile{.tex} file) is also the
-place for the user to specify a dedication, any acknowledgments, a
-foreword, \textit{etc.}  This is done in a manner very similar manner
-to declaring the author, title, and so on.  Suppose that someone wants
-to have a simple dedication ``To Mom'' like the one in the Rackham
-guidelines, the following command is all that is needed.
-\begin{code}
+However, the template does a lot more in the preamble than just create a title page.  
+The preamble (that is, whatever comes before \texttt{begin\{document\}} in the primary \texttt{.tex} file) is also the place for the user to specify a dedication, any acknowledgments, a foreword, \textit{etc.}  
+This is done in a manner very similar manner to declaring the author, title, and so on. Suppose that someone wants to have a simple dedication ``To Mom'', the following command is all that is needed.
+\begin{verbatim}
 \dedication{To Mom}
-\end{code}
+\end{verbatim}
 This will cause the document to have a dedication page with the
-corresponding text.  If the \verb|\dedication| command is not present,
-there will not be a dedication page.  All the work of either having or
-not having a dedication has been compressed into a single command!
-Things other than simple text \emph{are} allowed in the dedication, so
-feel free to put equations or whatever inside there.  There are a few
-more commands that can be used to customize the appearance of the
-dedication page, and also for the other preamble text pages, but that
-is left to~\cref{ssec:dedication}.
-
+corresponding text.  
+If the \texttt{dedication} command is not present, there will not be a dedication page.  
+All the work of either having or not having a dedication has been compressed into a single command!
+Things other than simple text \emph{are} allowed in the dedication, so feel free to put equations or whatever inside there.  
+There are a few more commands that can be used to customize the appearance of the dedication page, and also for the other preamble text pages, but that is left to~\cref{ssec:dedication}.
 
 \section{Front Matter}
-The \LaTeX term ``frontmatter'' refers to all of the pages that occur
-before the beginning of the first chapter.  It is usually made clear
-to the reader because the pages in the front matter are numbered with
-lower-case Roman numerals instead of Arabic numerals.
+The \LaTeX term ``frontmatter'' refers to all of the pages that occur before the beginning of the first chapter.  
+It is usually made clear to the reader because the pages in the front matter are numbered with lower-case Roman numerals instead of Arabic numerals.
 
-The present template, \tfile{thesis-umich.cls} attempts to remove as
-much work associated with the front matter as possible.  The template
-inserts all of the front matter pages automatically, so that there is
-not even a need to use a command like \verb|\maketitle|.  The first
-thing after \verb|\begin{document}| should be the start of the first
+The present template, \texttt{thesis-gwu.cls} attempts to remove as much work associated with the front matter as possible.  
+The template inserts all of the front matter pages automatically, so that there is
+not even a need to use a command like \verb+\maketitle+.  
+The first thing after \verb+\begin{document}+ should be the start of the first
 chapter.
 
 \subsection{Identifiers}
-The template is not able to read minds, of course, so there needs to be
-some way of inputting the relevant information.  This section covers how
-to specify the author, title, and so on.  For the most part, this works
-just like any other \LaTeX~document, but a dissertation has a few more
-identifiers than most documents (How many books or reports have a
-committee?).  So there are a few extra commands provided by this
-template, and they work \emph{almost} exactly like the standard
-commands.
+The template is not able to read minds, of course, so there needs to be some way of inputting the relevant information.  
+This section covers how to specify the author, title, and so on.  
+For the most part, this works just like any other \LaTeX~document, but a dissertation has a few more identifiers than most documents (How many books or reports have a
+committee?).  
+So there are a few extra commands provided by this template, and they work \emph{almost} exactly like the standard commands.
 
 \begin{table}
  \caption{ \label{tab:identifiers}
@@ -132,107 +102,55 @@ commands.
  \end{tabular}
 \end{table}
 
-A full list of the identifiers is given in Table \ref{tab:identifiers}.
-All of these commands are required except for \verb|\chair| and
-\verb|\cochair|.  Those are only used if there is an in-dissertation
-abstract page, and in that case only one of the two commands needs to
-be used, depending on whether or not you have co-chairs.  If the
-\verb|\cochair| command is invoked, the chair will be ignored, and the
-co-chairs will be inserted on the abstract page.
+A full list of the identifiers is given in Table \cref{tab:identifiers}. 
+You're free to adjust/delete these commands as desired.
 
-The only command that is somewhat unusual to use is the
-\verb|\committee| command.  It requires the author to separate the
-different committee members manually using line-ending commands.  In
-general, this will look something like
-\begin{code}
-\committee{
- Professor 1 \\
- Professor 2, Other School \\
- Professor 3}
-\end{code}
-If any of the required fields are not specified, the compilation does
-not crash, but rather a reminder message (such as ``Insert a Title!'')
-will be placed on the title page in the place of whatever identifier
-is missing.
 
-The last comment in this section is on the ability to refer to the
-fields of the commands in Table \ref{tab:identifiers} automatically
-throughout the text.  This can be done using commands like
-\verb|\insertauthor|, \verb|\insertyear|, \textit{etc.}  This is not
-Earth-shattering, but it may be convenient if, for example, you are
-not sure if you will finish your dissertation in December or January.
 
 \subsection{Frontispiece and Copyright}
-Two optional pages occur after the title page and before page i.  The
-first of these is called the frontispiece, which is usually a picture
-that goes along with the theme of your document.  In this sample
-document, it is a schematic of a conceptual design of ascramjet vehicle.
-To get a frontispiece in your dissertation, use a command of the
-following form.
-\begin{code}
-\frontispiece{\includegraphics{...}}
-\end{code}
 
-The other page has the copyright information.  By default, the template
-assumes that there should be a copyright page, and the copyright
-holder is the author.  To prevent the copyright page from appearing,
-use the command \verb|\hidecopyright|.  To assign the copyright to
-someone other than the author, use the following command.
-\begin{code}
+By default, the template assumes that there should be a copyright page, and the copyright holder is the author.  
+To prevent the copyright page from appearing, use the command \verb|\hidecopyright|.  
+To assign the copyright to someone other than the author, use the following command.
+\begin{verbatim}
 \copyrightholder{Someone Else}
-\end{code}
+\end{verbatim}
 
 
 \subsection{Text Pages}  \label{ssec:dedication}
-The handling of the first few pages after the title page is one of the
-best features of this template.  The pages that occur between the
-copyright page and the abstract page all consist of short pieces of text
-that are usually a single paragraph.  The list of such pages that exist
-in this template (in the order they would appear if all used) is
-dedication, acknowledgments, preface, prologue, and foreword.  Of
-course, it would be unusual to use more than one of the last three.
-The text for each of these pages is set up using a command of the same
-name.
-\begin{code}
+The handling of the first few pages after the title page is one of the best features of this template.  
+The pages that occur between the copyright page and the abstract page all consist of short pieces of text that are usually a single paragraph.  
+The text for each of these pages is set up using a command of the same name.
+Generally, only one of the front matter pages is used. 
+\begin{verbatim}
 \foreword{This is going to be the best dissertation ever.}
-\end{code}
-Usually the contents of each of these pages will be longer than a single
-sentence, and thus it should be noted that each of these commands allows
-most types of \LaTeX~input.  For example, the following is perfectly
-acceptable input--at least as far as the template is concerned.
-\begin{code}
+\end{verbatim}
+Usually the contents of each of these pages will be longer than a single sentence, and thus it should be noted that each of these commands allows most types of \LaTeX~input.  
+For example, the following is perfectly acceptable input--at least as far as the template is concerned.
+\begin{verbatim}
 \foreword{This is going to be the \emph{best}. \\
  \begin{center} Really, really. \end{center}}
-\end{code}
+\end{verbatim}
 
-As I mentioned before, a given page will appear in the document if and
-only if the corresponding command is used.  The order in which the pages
-appear does not depend on the order the commands are used in the
-preamble.  You can also prevent the pages from appearing by using
-commands like \verb|\hideforeword|.
+As I mentioned before, a given page will appear in the document if and only if the corresponding command is used.  
+The order in which the pages appear does not depend on the order the commands are used in the preamble.  
+You can also prevent the pages from appearing by using commands like \verb|\hideforeword|.
 
-The style of each page can also be set by the user.  By default, each
-page will appear with a bold, italic heading corresponding to the name
-of the page.  However, there are five other formats, which can be
-controlled using an optional argument.  For example, the following
-command creates a dedication page with no heading (\textit{i.e.}~it
-does not say ``Dedication'' on the page) but with lines above and
-below the dedication text.
-\begin{code}
+The style of each page can also be set by the user.  
+By default, each page will appear with a bold, italic heading corresponding to the name
+of the page.  
+However, there are five other formats, which can be controlled using an optional argument.  
+For example, the following command creates a dedication page with no heading (\textit{i.e.}~it does not say ``Dedication'' on the page) but with lines above and below the dedication text.
+\begin{verbatim}
 \dedication[4]{To Mom}
-\end{code}
-A complete list of the available styles is given in Table
-\ref{tab:fronstyle}.  The style of each page can be set independently,
-but it is also possible to change which style is used by default.
-\begin{code}
+\end{verbatim}
+A complete list of the available styles is given in \cref{tab:fronstyle}.  
+The style of each page can be set independently, but it is also possible to change which style is used by default.
+\begin{verbatim}
 \frontpagestyle{6}
-\end{code}
+\end{verbatim}
 This would make all of the commands that were called without optional
-inputs to create pages using style 6.  In this document, the dedication
-uses style 1, the acknowledgments use style 6, and the preface uses
-style 2.  The heading is the reason that there is the ability to declare
-a prologue, a foreword, and a preface.  The only difference between each
-pair of commands is the resulting heading.
+inputs to create pages using style 6.  
 
 \begin{table}
  \caption{ \label{tab:fronstyle}
@@ -253,123 +171,121 @@ pair of commands is the resulting heading.
  \end{tabular}
 \end{table}
 
-The final capability of the front page commands is to change the width
-of the paragraph for each page.  By default each page except for the
-preface and prologue will create a text region that is 66\% of the
-maximum width allowed by the Rackham margin guidelines (The other two
-are set to 75\% because they may have more text.), but these numbers
-can be changed.  Suppose that for whatever reason the dedication page
-would look better if the text area were quite a bit wider.
-\begin{code}
-\dedicationwidth{0.8}
-\end{code}
-Using this command would set the area to 80\% of the maximum allowable
-width.  This command exists for each of the text pages, and the argument
-should be a single number between 0 and 1.
 
 
 \subsection{Lists of Things}   \label{ssec:lists}
-For whatever reason, the Rackham guidelines say more about the Table of
-Contents than any other page.  There are lots of comments about what
-\textbf{\textsf{must}} and \textbf{\textsf{must not}} go in the Table
-of Contents.  Of course, that is a relatively difficult thing to control
-in \LaTeX, which is why it is critical to have a template that takes
-care of all that automatically.
-
-Suffice it to say that this template handles the Table of Contents
-appropriately, but this section is also meant to address the List of
-Figures, List of Tables, \textit{etc}.  According to the guidelines,
-a corresponding list must appear if there is more than one figure,
-table, map, program, illustration, or appendix.  How to insert a map,
-program, or illustration is discussed in Section \ref{ssec:float}.  This
-brings us to one of the things that the template is not able to do
-automatically.  There is no way to determine if the document will have
-more than one of each type of float, so the user must manually inform
-the template which lists to create.  For example, if the document has
-more than one map in it, the command
-\begin{code}
-\showlistofmaps
-\end{code}
-must occur somewhere in the preamble.  Note that this also applies to
-the list of appendices, which for some reason are not supposed to
-appear as simply specially-numbered chapters in the Table of Contents.
-For more information about appendices with this template, see Appendix
-\ref{app:appendix}.  The template assumes that the dissertation will
-contain at least two figures and tables.  If, for example, there is only
-one figure,
-\begin{code}
+Suffice it to say that this template handles the Table of Contents appropriately, but this section is also meant to address the List of Figures, List of Tables, \textit{etc}.  According to the guidelines, a corresponding list must appear if there is more than one figure, table, map, program, illustration, or appendix.  
+The template assumes that the dissertation will contain at least two figures and tables.
+If, for example, there is only one figure,
+\begin{verbatim}
 \hidelistoffigures
-\end{code}
+\end{verbatim}
 must be put in the preamble.
 
-The other type of list that can occur is for abbreviations of various
-types.  This is a somewhat convenient feature, particularly there are a
-lot of acronyms in the dissertation.  This template utilizes the
-\tfile{acronym} package.  In the preamble put a command like the
-following.
-\begin{code}
+The other type of list that can occur is for abbreviations of various types.  
+This is a somewhat convenient feature, particularly there are a lot of acronyms in the dissertation.  
+This template utilizes the \texttt{acronym} package, but eventually I would like to migrate to the use of \texttt{glossaries} which is continuing to be supported. 
+In the preamble put a command like the following.
+\begin{verbatim}
 \abbreviations{
  \acro{CFD}{Computational Fluid Dynamics}
  \acro{LOA}{List of Abbreviations}
  \acro{H2O}[$\mathrm{H_2O}$]{water}}
-\end{code}
-This will define a bunch of abbreviations that can be used.  When you
-want to use one of the acronyms within the text, simply use the
-\verb|\ac| command to refer to the abbreviation you want.  This will
-automatically spell out what the abbreviation stands for on the first
-use and only print out the abbreviation on subsequent uses.  For
-example, when the definitions from the previous example are used,
-\verb|\ac{H2O}| will result in ``$\mathrm{H_2O}$ (water)'' the first
-time it is used and just ``$\mathrm{H_2O}$'' all subsequent times.  In
-addition to the \verb|\abbreviations| command, the template also
-provides \verb|\acronyms| and \verb|\symbols|.  Each of these works in
-the same way, and if they are called, a page will appear between the
-list of appendices and the abstract with the corresponding header.  As a
-final note, the abbreviations will only appear in the list if they are
-used at least once in the text of the document.
-
-\subsection{Abstract Page}
-The abstract page can optionally occur within the document.  To add an
-abstract to a dissertation with this template, one can simply use the
-\verb|\abstract| command.  In other words, this works almost exactly
-like the dedication, acknowledgments, \textit{etc.}~commands.  However,
-it will create a page with slightly more information, and there is no
-optional argument that determines the style of the page.
-
-According to the Rackham Guidelines, the abstract page
-\textsf{\textbf{must}} have a page number.  However, the abstract page
-created by this template meets the guidelines for the required abstract
-that is needed separately from the dissertation, which
-\textsf{\textbf{must not}} have a page number.  So that's pretty silly.
-Anyway, it would be pretty convenient to just use the appropriate page
-from the dissertation as the abstract page, so there is a command to
-hide the page number on the abstract page.
-\begin{code}
-\hideabstractpagenumber
-\end{code}
-Once the abstract page has been printed, remember to git rid of this
-command so that the abstract in the dissertation (which is not required,
-by the way) will have the appropriate page number.
+\end{verbatim}
+This will define a bunch of abbreviations that can be used.  
+When you want to use one of the acronyms within the text, simply use the \verb|\ac| command to refer to the abbreviation you want.  
+This will automatically spell out what the abbreviation stands for on the first use and only print out the abbreviation on subsequent uses.  
+Here's an acronym \ac{CRTBP}.
+And if we use it a second time, such as \ac{CRTBP}, only the abbreviation will appear.
 
 
-\section{Text Portion}
-The template also provides several tools that can be used in the main
-text part of the document, as well.  One of the features of this
-template is that it loads most of the common packages automatically.
-This alleviates the need for an annoying list of \verb|\usepackage|
-commands in the preamble.  This does not mean, however that other
-packages cannot be used.
+\section{Float environments}
+There are many possible float enviornments, and this section will serve as an introduction and demonstration of some of them.
+In addition, it offers the ability to ensure that this template actually follows the guidelines.
+
+\subsection{Figures}\label{ssec:figures}
+
+Here is a figure as shown in~\cref{fig:picard}.
+Notice how we're using the fancy referencing offered by the \verb+cleveref+ package. 
+Instead of using the normal~\verb+\ref+ command we instead use~\verb+\cref+. 
+The magic of \LaTeX automatically figures out that the previous reference points to a figure while~\cref{ssec:figures} points to a section.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/picard_yes.jpg}
+    \caption[Damage report!]{Glad to have a thesis class\label{fig:picard}}
+\end{figure}
+
+\subsection{Tables}\label{ssec:tables}
+
+Here's a table in~\cref{tab:table}
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Day & Min Temp & Max Temp & Summary \\ \hline
+    Monday & 11C & 22C & A clear day with lots of sunshine.  
+    However, the strong breeze will bring down the temperatures. \\ \hline
+    Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells 
+    across most of Scotland and Northern Ireland, 
+    but rain reaching the far northwest. \\ \hline
+    Wednesday & 10C & 21C & Rain will still linger for the morning. 
+    Conditions will improve by early afternoon and continue 
+    throughout the evening. \\
+    \hline
+    \end{tabular}
+    \caption[Short caption for table]{Long caption for text \label{tab:table}}
+    \end{center}
+\end{table}
+
+\section{References and Citation}
+Finally, we'll add a subfigure to demonstrate it's proper use. 
+Many people use the package~\verb+subfigure+ but this is in fact, quite wrong. 
+To begin, the~\verb+subfigure+ package has been deprecated, which one can check by going to \url{https://www.ctan.org/pkg/subfigure}{CTAN}.
+Instead, everyone should be using~\verb+subcaption+, just as this class file is already doing.
+Here, in~\cref{fig:xkcd}, we see two subfigures encapsulated in a larger figure environment.
+Luckily, with our fancy referencing we have access to both~\cref{fig:ext,fig:ksp} using the same commands.
+The key thing to note from~\cref{fig:ext} is that trustworthiness reaches a maximum for those using~\verb+.tex+.
+\begin{figure}[htbp] 
+    \centering 
+    \begin{subfigure}[htbp]{0.5\textwidth} 
+        \includegraphics[width=\textwidth]{figures/file_extensions.png} 
+        \caption{File Extensions} \label{fig:ext} 
+    \end{subfigure}~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. %(or a blank line to force the subfigure onto a new line) 
+    \begin{subfigure}[htbp]{0.5\textwidth} 
+        \includegraphics[width=\textwidth]{figures/orbital_mechanics.png} 
+        \caption{Kerbal Space Program} \label{fig:ksp} 
+    \end{subfigure}
+    \caption[XKCD]{Some words of wisdom from Randall Munroe}
+    \label{fig:xkcd} 
+\end{figure}
+
+\subsection{References}
+
+Lots of famous people tend to write famous papers~\cite{newton1999}. 
+Were they famous because or in-spite of their papers?
+Regardless, they're famous now and we all should read them.
+Certain people are so famous and do such great work that they invent a whole new field of study with a single paper~\cite{kalman1960,shannon1949}
+
+\section{Math}
+
+Here are some nice equations~\cref{prob_def,prob_def_constrained}
+\begin{align}
+\label{prob_def}
+&\min_{s\subset W}\ J(s) = \sum_{i=1}^{l-1} H(s_j, s_{j+1}) \\
+&\max_{s\subset W}\ P_{tr}(s) = \prod_{i=1}^{l-1} P_{tr}(s_j, s_{j+1}) \nonumber
+\end{align}
+
+Here's another equation.
+\begin{align}
+\label{prob_def_constrained}
+&\min_{s\subset W}\ J(s) = \sum_{i=1}^{l-1} H(s_j, s_{j+1}) \\
+&\text{subject to} \ P_{tr}(s)>\epsilon_{tr} \nonumber
+\end{align}
 
 
 
 
-\subsection{Bibliography}
 
-
-backref
-
-
-
-\subsection{Document Format}
-how do you call the class file and it's options
 

@@ -152,15 +152,22 @@
 \RequirePackage[l2tabu,orthodox]{nag}
 
 % This loads the required math packages.
+\RequirePackage[binary-units=true]{siunitx}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{amsthm}
 
 % This loads the proper graphics package.
 \RequirePackage{graphicx}
 
 % Better spacing for text
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
 \RequirePackage{microtype}
+\RequirePackage{bm}
 
 % This is useful for complex figures.
 \RequirePackage{subcaption}
@@ -900,6 +907,7 @@
 \newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
 \newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
 \newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
+
 \newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse}
 \newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse}
 

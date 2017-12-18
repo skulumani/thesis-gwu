@@ -72,7 +72,7 @@ Again, it pays to begin early.
 
 ## Usage
 
-:construction: This is still in development so the documentation is a little lacking but it is fully functional.
+:exclamation: Hopefully you've used LaTeX prior to starting your dissertation. 
 
 For the user, you only have to modify the [frontmatter](https://github.com/skulumani/thesis-gwu/blob/master/tex/frontmatter.tex) with your information. 
 The class file will automatically use this data to populate the title page, copyright, committee information, etc. 

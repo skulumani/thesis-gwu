@@ -2,19 +2,19 @@
 
 % --------- FRONT MATTER PAGES ---------------------
 % Title of the thesis
-\title{I guess it's better to be lucky than good.}
+\title{Thesis GWU Example Dissertation}
 
 % Author name
-\author{William T. Riker}
+\author{Shankar Kulumani}
 
 % Previous degrees
-\bsdepartment{Clean Shaving}
-\bsschool{The School of Hard Knocks}
-\bsgrad{May 2350}
+\bsdepartment{Astronautical Engineering}
+\bsschool{US Air Force Academy}
+\bsgrad{May 2009}
 
-\msdepartment{Epic Beards}
-\msschool{Starfleet Academy}
-\msgrad{May 2353}
+\msdepartment{Aeronautical and Astronautical Engineering}
+\msschool{Purdue University}
+\msgrad{May 2013}
 \showmsdegree % you can show or hide the MS degree line 
 % \hidemsdegree
 
@@ -23,7 +23,7 @@
 \showcommitteepage % hide this page if you're doing a MS thesis
 %\hidecommitteepage 
 \committee{ %
-Leonhard Euler, Associate Professor of Engineering and Applied Science,\\ 
+Taeyoung Lee, Associate Professor of Engineering and Applied Science,\\ 
 Dissertation Director\\ % remember to add a space between committee members
 
 Full Name, Title, \\
@@ -31,27 +31,29 @@ Dissertation Director/Dissertation Co-Director/Committee Member
 }
 
 % Chair must be entered separately for formatting reasons.
-\chair{Leonhard Euler}
+\chair{Tayeoung Lee}
 \chairtitle{Associate Professor of Mechanical and Aerospace Engineering}
 % Department
 \department{Mechanical and Aerospace Engineering}
 
-\phdgrad{May 28, 2358}
-\defensedate{May 28, 2358}
+\phdgrad{Dec 1, 2018}
+\defensedate{Dec 1, 2018}
 % Year of completion for copyright page and perhaps other places
-\year=2358 
+\year=2018
 
 % Copyright page
 %\copyrightholder{Someone else}
 
 % Dedication
 \dedication[8]{ %
-\textit{Fear is the true enemy, the only enemy.}
+\textit{Include a fancy quote or dedication}
 }
 
 % Acknowledgments
 \acknowledgments{
-These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before.
+    Here you can acknowledge all of those people who have helped you to reach this point.
+    It's rare that any work is done in a vacuum and your research is no exception.
+    Feel free to be grateful for all those who've aided you along your way.
 }
 
 % -----------------------------------------------------------------
@@ -59,15 +61,25 @@ These are the voyages of the Starship Enterprise. Its continuing mission, to exp
 % To choose one simply delete the others and they will automatically dissappear
 
 % Preface
-\preface{Unidentified vessel travelling at sub warp speed, bearing 235.7. Fluctuations in energy readings from it, Captain. All transporters off. A strange set-up, but I'd say the graviton generator is depolarized. The dark colourings of the scrapes are the leavings of natural rubber, a type of non-conductive sole used by researchers experimenting with electricity. The molecules must have been partly de-phased by the anyon beam.
+\preface{
+    This is the preface. 
+    It's another front matter page that offers additional detail into your work.
+    Typically, only one (preface OR prologue OR foreword) is used. 
+    You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
 }
 
 \prologue{
-Could someone survive inside a transporter buffer for 75 years? Some days you get the bear, and some days the bear gets you. We could cause a diplomatic crisis. Take the ship into the Neutral Zone We finished our first sensor sweep of the neutral zone. Worf, It's better than music. It's jazz. I am your worst nightmare!
+    This is the prologe. 
+    It's another front matter page that offers additional detail into your work.
+    Typically, only one (preface OR prologue OR foreword) is used. 
+    You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
 }
 
 \foreword[2]{
-Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've been one of the shortest assignments in the history of Starfleet. Well, I'll say this for him - he's sure of himself.
+    This is the forword. 
+    It's another front matter page that offers additional detail into your work.
+    Typically, only one (preface OR prologue OR foreword) is used. 
+    You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
 }
 % ----------------------------------------------------------------------
 
@@ -81,6 +93,7 @@ Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've 
 \showpreface
 \showprologue
 \showforeword
+
 % ------------ TABLE OF CONTENTS ----------------------
 % Commands to hide or show lists of figures, tables, etc.
 \showlistoffigures
@@ -89,6 +102,7 @@ Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've 
 
 % --------- ACRONYMS and SYMBOLS ------------------------------
 
+% You can either use the acronymn or glossaries package (both work)
 % Definition of any abbreviations used.
 \abbreviations{
     \acro{CRTBP}{Circular Restricted Three Body Problem}
@@ -103,9 +117,11 @@ Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've 
     \acro{J}{Moment of Inertia}
 }       
 
+% if you want acronymn (simpler) then change these to show
 \hidelistofabbreviations
 \hidelistofsymbols
 
+% if you want glossaries (more powerful) then leave above as hide
 % GLOSSARIES package options - automatically turns off front pages from acronym package
 
 % acronymns and symbols are basically the same, but there are two provided 
@@ -126,22 +142,13 @@ Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've 
     description={External Force}}
 
     % use either \acrlong (\acl), \acrfull (\acf}, \acrshort (\acs)
+
+
 % Some abstract text
 \abstract{
-In mattis lacinia semper. 
-Integer eu purus non felis varius dictum tristique sed leo. 
-Integer gravida rutrum quam. 
-Etiam non posuere nisl. 
-Phasellus laoreet sem eget dui commodo pharetra. 
-Maecenas eget enim tellus. 
-Vivamus rutrum tortor nulla, nec efficitur orci faucibus nec. 
-Nunc nec tempus nulla. 
-Ut dictum, tellus sed fermentum pharetra, arcu nulla pharetra lectus, sit amet volutpat lorem tortor vitae nulla. 
-Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-Vivamus rhoncus fermentum turpis et lacinia. 
-Vestibulum condimentum molestie odio quis blandit. 
-Curabitur a tellus eu ante rutrum finibus eget id libero. 
-Suspendisse euismod pretium pretium. 
-Maecenas congue interdum ante, ut condimentum velit suscipit at. 
-Vestibulum lobortis et orci non maximus.
+This is the abstract. 
+It contains some random text from the \texttt{lipsum} package. 
+You may safely remove the \texttt{lipsum} package once you write your thesis.
+
+\lipsum[1]
 }
