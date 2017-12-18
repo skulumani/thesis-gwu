@@ -304,7 +304,18 @@
  \thispagestyle{plain}
 }
 
+%%-------- GLOSSARIES STYLES------------------------------------
+% define a new glossary style for acronymns and symbols
+\renewcommand*{\glossarysection}[2][]{%
+{\centering\bfseries{#2}\par}%
+\phantomsection\addcontentsline{toc}{chapter}{#1}%
+}%
 
+\newglossarystyle{acronymsandsymbols}{%
+    \setglossarystyle{list}% % based on the list style
+    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossaryheader}{}%
+}
 %% ---- TITLE PAGE -----------------------------------------------------
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
