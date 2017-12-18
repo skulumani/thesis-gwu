@@ -75,6 +75,7 @@
 
 \newif\if@gwu@listofglossariesabbrevs
 \newif\if@gwu@listofglossariessymbols
+\newif\if@gwu@listofglossariesacronyms
 
 \newif\if@gwu@copyright
 \newif\if@gwu@frontispiece

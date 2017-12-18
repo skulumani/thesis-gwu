@@ -87,6 +87,8 @@ Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've 
 \showlistoftables
 \hidenomenclature
 
+% --------- ACRONYMS and SYMBOLS ------------------------------
+
 % Definition of any abbreviations used.
 \abbreviations{
     \acro{CRTBP}{Circular Restricted Three Body Problem}
@@ -101,18 +103,29 @@ Sure. You'd be surprised how far a hug goes with Geordi, or Worf. That might've 
     \acro{J}{Moment of Inertia}
 }       
 
-% glossaries acronyms and definitions
+\hidelistofabbreviations
+\hidelistofsymbols
+
+% GLOSSARIES package options - automatically turns off front pages from acronym package
+
+% acronymns and symbols are basically the same, but there are two provided 
+% locations where they can show up
 \setabbreviationstyle{long-short}
 \makeglossaries
+
 \showglossarieslistofabbreviations
 \showglossarieslistofsymbols
+
 \newacronym{crtbp}{CRTBP}{Circular Restricted Three Body Problem}
 \newacronym{force}{\ensuremath{F}}{force}
+
 \newglossaryentry{F}{
     type=symbols,
     name={\ensuremath{F}},
     sort=F,
     description={External Force}}
+
+    % use either \acrlong (\acl), \acrfull (\acf}, \acrshort (\acs)
 % Some abstract text
 \abstract{
 In mattis lacinia semper. 
