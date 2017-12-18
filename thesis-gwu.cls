@@ -900,11 +900,12 @@
 \newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
 \newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
 \newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
-\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
-\newcommand{\showlistofsymbos}{\@gwu@listofsymbolstrue}
+\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse}
+\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse}
 
-\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofabbrevsfalse}
+\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofacronymsfalse}
 \newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse}
+\newcommand{\showglossarieslistofacronyms}{\@gwu@listofglossariesacronymstrue\@gwu@listofacronymsfalse}
 
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
@@ -1286,19 +1287,21 @@
 
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofglossaryabbreviations}{%
+    \newpage%
  % Use front page styling.
  \frntpg %
  % Start the automatic abbreviations feature.
- \printacronyms[title={\normalsize List of Abbreviations}]
+ \printacronyms[style=acronymsandsymbols,title={\normalsize List of Abbreviations}]
 }
 
 
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofglossarysymbols}{%
+    \newpage%
  % Use front page styling.
  \frntpg %
  % Start the automatic abbreviations feature.
- \printsymbols[title={\normalsize List of Symbols}]
+ \printsymbols[style=acronymsandsymbols,title={\normalsize List of Symbols}]
 }
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
