@@ -926,9 +926,9 @@
 \newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse}
 
 
-\newcommand{\hideglossarieslistofabbreviations}{\@gwuglossarieslistofabbreviationsfalse}
-\newcommand{\hideglossarieslistofacronyms}{\@gwuglossarieslistofacronymsfalse}
-\newcommand{\hideglossarieslistofsymbols}{\@gwuglossarieslistofsymbolsfalse}
+\newcommand{\hideglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevsfalse}
+\newcommand{\hideglossarieslistofacronyms}{\@gwu@listofglossariesacronymsfalse}
+\newcommand{\hideglossarieslistofsymbols}{\@gwu@listofglossariessymbolsfalse}
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % This sets the formatting for chapter entries in the table of contents.
 \renewcommand*\l@chapter[2]{ %
@@ -1295,7 +1295,7 @@
 
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofglossaryabbreviations}{%
-    \newpage%
+    % \newpage%
  % Use front page styling.
  \frntpg %
  % Start the automatic abbreviations feature.
@@ -1305,7 +1305,7 @@
 
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofglossarysymbols}{%
-    \newpage%
+    % \newpage%
  % Use front page styling.
  \frntpg %
  % Start the automatic abbreviations feature.

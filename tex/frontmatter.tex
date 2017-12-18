@@ -128,7 +128,7 @@ Dissertation Director/Dissertation Co-Director/Committee Member
 % locations where they can show up
 \setabbreviationstyle{long-short}
 \makeglossaries
-
+% you can hide/show the glossaries page
 \showglossarieslistofabbreviations
 \showglossarieslistofsymbols
 
@@ -139,9 +139,16 @@ Dissertation Director/Dissertation Co-Director/Committee Member
     type=symbols,
     name={\ensuremath{F}},
     sort=F,
-    description={External Force}}
+    description={External Force}
+}
 
-    % use either \acrlong (\acl), \acrfull (\acf}, \acrshort (\acs)
+\newglossaryentry{linux}{
+    name=Linux,
+    description={is a generic term referring to the family of Unix-like computer operating systems that use the Linux kernel},
+    plural=Linuces
+}
+
+% use either \acrlong (\acl), \acrfull (\acf}, \acrshort (\acs)
 
 
 % Some abstract text

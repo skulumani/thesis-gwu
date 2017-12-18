@@ -181,10 +181,19 @@ If, for example, there is only one figure,
 \hidelistoffigures
 \end{verbatim}
 must be put in the preamble.
+There are similar commands to hide/show all of the front matter pages.
+These can be used at will as desired.
 
+\subsection{Glossary of Terms}\label{ssec:glossary}
+Here is an example.
+\Gls{linux} is a computer operating system, and its completely free and open.
+
+\subsection{Acronymns and Symbols}\label{ssec:acronymns}
 The other type of list that can occur is for abbreviations of various types.  
 This is a somewhat convenient feature, particularly there are a lot of acronyms in the dissertation.  
-This template utilizes the \texttt{acronym} package, but eventually I would like to migrate to the use of \texttt{glossaries} which is continuing to be supported. 
+This template utilizes the \texttt{acronym} or \texttt{glossaries} packages, but eventually I would like to migrate to the use of \texttt{glossaries} which is continuing to be supported and deprecate the use of \texttt{acronym}, for now both are supported. 
+
+\subsubsection{\texttt{acronymn} usage - try to avoid using this as it's not the best}
 In the preamble put a command like the following.
 \begin{verbatim}
 \abbreviations{
@@ -195,9 +204,17 @@ In the preamble put a command like the following.
 This will define a bunch of abbreviations that can be used.  
 When you want to use one of the acronyms within the text, simply use the \verb|\ac| command to refer to the abbreviation you want.  
 This will automatically spell out what the abbreviation stands for on the first use and only print out the abbreviation on subsequent uses.  
-Here's an acronym \ac{CRTBP}.
-And if we use it a second time, such as \ac{CRTBP}, only the abbreviation will appear.
 
+\subsubsection{\texttt{glossaries} usage - much improved and more powerful}
+In addition, you can utilize the much more powerful \texttt{glossaries} package.
+You can define symbols, acronymns, or full glossary entries as desired.
+Each acronymn is defined using the following:
+\begin{verbatim}
+\newacronym{crtb}{CRTBP}{Circular Restricted Three Body Problem}
+\end{verbatim}
+\glsresetall
+Here we can  use an acronym, such as \gls{crtbp}.
+Or display the full name, \acrfull{crtbp}.
 
 \section{Float environments}
 There are many possible float enviornments, and this section will serve as an introduction and demonstration of some of them.
