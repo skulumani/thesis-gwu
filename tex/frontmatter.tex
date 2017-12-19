@@ -134,24 +134,23 @@ Dissertation Director/Dissertation Co-Director/Committee Member
 \showglossarieslistofsymbols
 \showglossariesglossaryofterms
 
+% acronyms defined in glossaries
 \newabbreviation{crtbp}{CRTBP}{Circular Restricted Three Body Problem}
 \newabbreviation{lidar}{LIDAR}{Light Detection and Ranging}
-\newabbreviation{filo}{FILO}{first in last out}
-
-\newglossaryentry{F}{
-    type=symbols,
-    name={\ensuremath{F}},
-    sort=F,
-    description={External Force}
+% defining abbreviations like this allows for autocompletion
+\newglossaryentry{filo}{
+    name={FILO},
+    type=\glsxtrabbrvtype,
+    description={first in last out},
+    first={first in last out (FILO)}
 }
 
+% glossary entries
 \newglossaryentry{linux}{
     name=Linux,
     description={is a generic term referring to the family of Unix-like computer operating systems that use the Linux kernel},
     plural=Linuces
 }
-
-% use either \acrlong (\acl), \acrfull (\acf}, \acrshort (\acs)
 
 \newglossaryentry{matrix}{
     name={matrix},
@@ -159,6 +158,7 @@ Dissertation Director/Dissertation Co-Director/Committee Member
     description={rectangular array of quanttities}
 }
 
+% symbols
 \newglossaryentry{M}{
     type=symbols,
     name={\ensuremath{M}},
@@ -166,7 +166,12 @@ Dissertation Director/Dissertation Co-Director/Committee Member
     description={a \gls{matrix}}
 }
 
-
+\newglossaryentry{F}{
+    type=symbols,
+    name={\ensuremath{F}},
+    sort=F,
+    description={External Force}
+}
 % Some abstract text
 \abstract{
 This is the abstract. 
