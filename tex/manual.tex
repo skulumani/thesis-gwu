@@ -1,4 +1,5 @@
 % !TEX root = ../thesis-sample.tex
+
 \chapter{Using this template} \label{chap:intro}
 
 This chapter is stuck among the others as a brief users' manual for this template.  
@@ -187,7 +188,18 @@ These can be used at will as desired.
 \subsection{Glossary of Terms}\label{ssec:glossary}
 Here is an example.
 \Gls{linux} is a computer operating system, and its completely free and open.
-Here is a symbol \gls{force}.
+
+A \gls{matrix}, denoted \gls{M}.
+Lots of \glspl{matrix}.
+\Glspl{matrix} are a rectangular array of quantities.
+No indexing, linking, or formatting: \glsentrytext{matrix}.
+The identity \gls{matrix}['s] diagonal consists of ones.
+
+First use: \gls{filo}.
+Next use: \gls{filo}.
+Full form: \acrfull{filo}.
+
+
 \subsection{Acronymns and Symbols}\label{ssec:acronymns}
 The other type of list that can occur is for abbreviations of various types.  
 This is a somewhat convenient feature, particularly there are a lot of acronyms in the dissertation.  
@@ -212,9 +224,8 @@ Each acronymn is defined using the following:
 \begin{verbatim}
 \newacronym{crtb}{CRTBP}{Circular Restricted Three Body Problem}
 \end{verbatim}
-\glsresetall
 Here we can  use an acronym, such as \gls{crtbp}.
-Or display the full name, \acrfull{crtbp}.
+Or display the full name, \gls{crtbp}.
 
 \section{Float environments}
 There are many possible float enviornments, and this section will serve as an introduction and demonstration of some of them.
@@ -229,7 +240,7 @@ The magic of \LaTeX automatically figures out that the previous reference points
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/picard_yes.jpg}
+    \includegraphics[width=0.5\textwidth]{figures/picard_yes}
     \caption[Damage report!]{Glad to have a thesis class\label{fig:picard}}
 \end{figure}
 

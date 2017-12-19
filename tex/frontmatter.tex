@@ -125,14 +125,17 @@ Dissertation Director/Dissertation Co-Director/Committee Member
 
 % acronymns and symbols are basically the same, but there are two provided 
 % locations where they can show up
-\setabbreviationstyle{long-short}
+\setabbreviationstyle[acronym]{long-short}
+\setabbreviationstyle[abbreviation]{long-short}
 \makeglossaries
 % you can hide/show the glossaries page
 \showglossarieslistofabbreviations
 \showglossarieslistofsymbols
+\showglossariesglossaryofterms
 
-\newacronym{crtbp}{CRTBP}{Circular Restricted Three Body Problem}
-\newacronym{force}{\ensuremath{F}}{force}
+\newabbreviation{crtbp}{CRTBP}{Circular Restricted Three Body Problem}
+\newabbreviation{lidar}{LIDAR}{Light Detection and Ranging}
+\newabbreviation{filo}{FILO}{first in last out}
 
 \newglossaryentry{F}{
     type=symbols,
@@ -148,6 +151,19 @@ Dissertation Director/Dissertation Co-Director/Committee Member
 }
 
 % use either \acrlong (\acl), \acrfull (\acf}, \acrshort (\acs)
+
+\newglossaryentry{matrix}{
+    name={matrix},
+    plural={matrices},
+    description={rectangular array of quanttities}
+}
+
+\newglossaryentry{M}{
+    type=symbols,
+    name={\ensuremath{M}},
+    sort=M,
+    description={a \gls{matrix}}
+}
 
 
 % Some abstract text
