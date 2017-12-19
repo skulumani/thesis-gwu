@@ -72,6 +72,12 @@
 \newif\if@gwu@listofabbrevs
 \newif\if@gwu@listofsymbols
 \newif\if@gwu@listofacronyms
+
+\newif\if@gwu@listofglossariesabbrevs
+\newif\if@gwu@listofglossariessymbols
+\newif\if@gwu@listofglossariesacronyms
+\newif\if@gwu@glossaryofterms
+
 \newif\if@gwu@copyright
 \newif\if@gwu@frontispiece
 \newif\if@gwu@committeepage
@@ -194,9 +200,6 @@
 % This package is used to generate alternate environments.
 \RequirePackage{float}
 
-% This package is used for the list of abbreviations
-\RequirePackage[printonlyused]{acronym}
-
 % This package is for the index, if it is to be used.
 \if@gwu@index
  \RequirePackage{makeidx}
@@ -242,6 +245,10 @@
 % Cleveref referencing - must happen after hyperref
 \AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
 
+% Glossaries package - must come after hypperef
+% This package is used for the list of abbreviations
+\RequirePackage[printonlyused]{acronym}
+\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -304,7 +311,24 @@
  \thispagestyle{plain}
 }
 
+%%-------- GLOSSARIES STYLES------------------------------------
+% define a new glossary style for acronymns and symbols
+\renewcommand*{\glossarysection}[2][]{%
+{\centering\bfseries{#2}\par}%
+\phantomsection\addcontentsline{toc}{chapter}{#1}%
+}%
 
+\newglossarystyle{acronymsandsymbols}{%
+    \setglossarystyle{list}% % based on the list style
+    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossaryheader}{}%
+}
+
+\newglossarystyle{glossaryofterms}{%
+    \setglossarystyle{list}%
+    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossaryheader}{}%
+}
 %% ---- TITLE PAGE -----------------------------------------------------
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
@@ -889,8 +913,14 @@
 \newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
 \newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
 \newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
-\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue}
-\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue}
+
+\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse}
+\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse}
+
+\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofacronymsfalse}
+\newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse}
+\newcommand{\showglossarieslistofacronyms}{\@gwu@listofglossariesacronymstrue\@gwu@listofacronymsfalse}
+\newcommand{\showglossariesglossaryofterms}{\@gwu@glossaryoftermstrue}
 
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
@@ -902,6 +932,10 @@
 \newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
 \newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse}
 
+\newcommand{\hideglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevsfalse}
+\newcommand{\hideglossarieslistofacronyms}{\@gwu@listofglossariesacronymsfalse}
+\newcommand{\hideglossarieslistofsymbols}{\@gwu@listofglossariessymbolsfalse}
+\newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % This sets the formatting for chapter entries in the table of contents.
@@ -1265,7 +1299,31 @@
 \end{onehalfspace}
 }
 
+%% ---- LIST OF GLOSSARIES ABBREVIATIONS ------------------------------------------
 
+% This sets the formatting of the list of tables page.
+\newcommand*{\listofglossaryabbreviations}{%
+    % \newpage%
+ % Use front page styling.
+ \frntpg %
+ % Start the automatic abbreviations feature.
+ \printglossary[type=\glsxtrabbrvtype,style=acronymsandsymbols,title={\normalsize List of Abbreviations}]
+}
+
+
+% This sets the formatting of the list of tables page.
+\newcommand*{\listofglossarysymbols}{%
+    % \newpage%
+ % Use front page styling.
+ \frntpg %
+ % Start the automatic abbreviations feature.
+ \printglossary[type=symbols,style=acronymsandsymbols,title={\normalsize List of Symbols}]
+}
+
+\newcommand*{\listofglossaryofterms}{%
+\frntpg%
+\printglossary[style=glossaryofterms,type=main,title={\normalsize Glossary of Terms}]
+}
 %% ---- ABSTRACT -------------------------------------------------------
 % Command to hold the text of the abstract.
 \newcommand{\@abstract}{}
@@ -1419,12 +1477,15 @@
  \if@gwu@listofprograms\listofprograms\fi %
  % Insert the list of abbreviations.
  \if@gwu@listofabbrevs\listofabbreviations\fi %
+ \if@gwu@listofglossariesabbrevs\listofglossaryabbreviations\fi
  % Insert the list of acronyms.
  \if@gwu@listofacronyms\listofacronyms\fi %
  % Insert the list of symbols.
  \if@gwu@listofsymbols\listofsymbols\fi %
+ \if@gwu@listofglossariessymbols\listofglossarysymbols\fi
  % Insert the nomenclature.
  \if@gwu@nomenclature\insertnomenclature\fi %
+ \if@gwu@glossaryofterms\listofglossaryofterms\fi
  % Insert the preface if there is one.
  \if@gwu@preface\prefacepage\fi %
  % Insert the foreword if there is one.
