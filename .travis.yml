@@ -11,7 +11,7 @@ cache:
 
 before_install: 
 - bash ./utilities/travis_setup.sh
-- export PATH="/tmp/texlive/bin/x86_64-linx:$PATH"
+- export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
 - latexmk thesis-sample.tex
 
