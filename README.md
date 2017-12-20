@@ -1,8 +1,11 @@
-| Build Status              | PDF            |
-| :-----------------------: | :------------: |
-| ![Build Status][travis]   |                |
+| Build Status                             | PDF                          |
+| :--------------------------------------: | :--------------------------: |
+| [![Build Status][travis_shield]][travis] | [![PDF][pdf_shield]][pdf]    |
 
-[travis]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
+[travis_shield]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
+[travis]: https://travis-ci.org/skulumani/thesis-gwu
+[pdf_shield]: https://img.shields.io/badge/PDF-latest-orange.svg?style=flat
+[pdf]: https://github.com/skulumani/thesis-gwu/blob/master-pdf/thesis-sample.pdf
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
