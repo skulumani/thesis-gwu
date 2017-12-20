@@ -16,5 +16,6 @@ push @generated_exts, 'acn', 'acr', 'alg';
 $clean_ext .= '%R.ist %R.xdy';
 
 $pdf_mode = 1;
+$pdf_latex = 'pdflatex -interaction=nonstopmode -halt-on-error';
 
 
