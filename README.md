@@ -12,8 +12,15 @@
 This is a GWU SEAS thesis template. 
 It complies with the requirements as laid out by the [ETD](http://library.gwu.edu/etd/formatting-content).
 
-This is an extension/modification of a template created for the [University of Michigan](http://www-personal.umich.edu/~dalle/codes/thesis-umich/) by Derek Dalle.
-I've made some modifications and updates to replace out of date packages, and comply with GWU guidelines.
+### Building the PDF
+
+To build the document, it is easiest to use the great [`latexmk`](http://mg.readthedocs.io/latexmk.html) by simply running:
+
+~~~
+latexmk thesis-sample.tex
+~~~
+
+Which will automatically build and output a PDF, the latest version of which is linked [above][pdf].
 
 ## Intro to LaTeX
 
@@ -106,6 +113,11 @@ There are already a variety of [issues](https://github.com/skulumani/thesis-gwu/
 If you have any ideas to improve this class file or want to implement some new features feel free to submit a [pull request](https://help.github.com/articles/about-pull-requests/).
 
 Eventually, this class file can serve as a legitimate format for all GWU graduate work.
+
+## Inspiration
+
+This is an extension/modification of a template created for the [University of Michigan](http://www-personal.umich.edu/~dalle/codes/thesis-umich/) by Derek Dalle.
+I've made some modifications and updates to replace out of date packages, and comply with GWU guidelines.
 
 ## License 
 
