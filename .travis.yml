@@ -13,7 +13,7 @@ before_install:
 - bash ./utilities/travis_setup.sh
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
-- latexmk thesis-sample.tex
+- latexmk -pdf -interaction=nonstopmode -halt-on-error thesis-sample.tex
 after_success:
 - mv thesis-sample.pdf ~/
 - git checkout --orphan $TRAVIS_BRANCH-pdf
