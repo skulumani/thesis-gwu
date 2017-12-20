@@ -2,7 +2,7 @@
 | :-----------------------: | :------------: |
 | ![Build Status][travis]   |                |
 
-[travis]: (https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master)](https://travis-ci.org/skulumani/thesis-gwu)
+[travis]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
