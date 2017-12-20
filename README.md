@@ -1,3 +1,9 @@
+| Build Status              | PDF            |
+| :-----------------------: | :------------: |
+| ![Build Status][travis]   |                |
+
+[logo]: (https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master)](https://travis-ci.org/skulumani/thesis-gwu)
+
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
 This is a GWU SEAS thesis template. 
