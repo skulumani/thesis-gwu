@@ -14,4 +14,11 @@ before_install:
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
 - latexmk thesis-sample.tex
-
+after_success:
+- mv thesis-sample.pdf ~/
+- git checkout --orphan $TRAVIS_BRANCH-pdf
+- git rm -rf .
+- mv ~/thesis-sample.pdf ./
+- git add -f thesis-sample.pdf
+- git -c user.name='travis' -c user.email='travis' commit -m "Build thesis"
+- git push -q -f https://$GITHUB_USER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG $TRAVIS_BRANCH-pdf
