@@ -8,8 +8,6 @@ else
     git config --local user.name 'travis'
     git config --local user.email 'travis'
     git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag"
-    git push origin --tags
-    git fetch origin
 
     echo "Done making a tag"
 fi
