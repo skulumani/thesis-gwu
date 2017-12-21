@@ -4,10 +4,10 @@
 
 
 [travis_shield]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
-[release_shield]: https://img.shields.io/github/release/qubyte/rubidium.svg
+[release_shield]: https://img.shields.io/github/release/skulumani/thesis-gwu.svg
 [version_shield]: https://badge.fury.io/gh/skulumani%2Fthesis-gwu.svg
-[last_commit_shield]: https://img.shields.io/github/last-commit/google/skia.svg
-[activity_shield]: https://img.shields.io/github/commit-activity/y/eslint/eslint.svg
+[last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/thesis-gwu.svg
+[activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/thesis-gwu.svg
 
 [travis]: https://travis-ci.org/skulumani/thesis-gwu
 [github_release]: https://github.com/skulumani/thesis-gwu/releases/latest
