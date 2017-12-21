@@ -5,7 +5,7 @@
 [travis_shield]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
 [travis]: https://travis-ci.org/skulumani/thesis-gwu
 [pdf_shield]: https://img.shields.io/badge/PDF-latest-orange.svg?style=flat
-[pdf]: https://github.com/skulumani/thesis-gwu/blob/master-pdf/thesis-sample.pdf
+[pdf]: https://github.com/skulumani/thesis-gwu/releases/latest
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
