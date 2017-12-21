@@ -14,11 +14,14 @@ before_install:
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
 - latexmk -pdf -interaction=nonstopmode -halt-on-error thesis-sample.tex
-after_success:
-- mv thesis-sample.pdf ~/
-- git checkout --orphan $TRAVIS_BRANCH-pdf
-- git rm -rf .
-- mv ~/thesis-sample.pdf ./
-- git add -f thesis-sample.pdf
-- git -c user.name='travis' -c user.email='travis' commit -m "Build thesis"
-- git push -q -f https://$GITHUB_USER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG $TRAVIS_BRANCH-pdf
+before_deploy:
+- bash ./utilities/deploy.sh
+deploy:
+    provider: releases
+    api_key: 
+        secure: "YRou5qdRPhOqYp1R+9lgBccn1VESBYJv2MQMlCXW0mVtruxgaeMzLJ6VfmHYDW1BsNscee9K+rivpwZEZ3zU3dwk/3u+zw6pi9Bpas31fwVWnWQIH7Sbw4uhDbRwmqqLTMOEkoLTTI5xlGSWY0LwmxJmdO0zTDBumwOq066qKR2HmtOlV/KlTQLSJtzeyjxbROS2hLPxl6cglWu6oD/V0+gM38BEYiW1FVkBK6/8vMU8YI3vx3+QqnMO/ii7BV+ECWB3mM54k1qD7fkiDd6vFB67hEYetkbUfaM0ADa/z4Uc0mJkSY65xJQ4myH7jDby/ZWXDgkpni/dzJyn0PoNniqHHY99ZQmYAY0FJpnNBKcgVtrL2tpa7sh9atJg1uRcxozXfxYW6/+rSX9JRxqoqldi+LLYJXyyKI4vK+lYpnCuX4bsqq4PIRGl5+7iIMmFdNrtK+JsDgjZE8FaohqBmRv35X8+fXmskfV5pVQKpzDbXqVZUnhsMewTbkGyqPOXKgDm+HvLfzgjCQgdfrMIQOpbgPCN3h825m2vm42mcIouJGkCfqF+MVzTl413XqTW6Jy45m9xPhzodiSZE3IzGlR3Mk0i4Neit9MTxaTB/BTZZIXmhZPoxdlCfrN3Lb8u+i/PKsLFtohUAZC82Ko8Jh9r7Ko59w1vPt04NhW69vw="
+    file: thesis-sample.pdf
+    skip_cleanup: true
+    on:
+        all_branches: true
+        tags: false
