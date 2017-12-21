@@ -7,5 +7,10 @@ else
     echo "No current tag. Lets make one"
     git config --local user.name 'travis'
     git config --local user.email 'travis'
-    git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+    git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag"
+    git push origin --tags
+    git fetch origin
+
+    echo "Done making a tag"
 fi
+

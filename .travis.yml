@@ -1,27 +1,25 @@
 sudo: false
 language: generic
 matrix:
-    include:
-        - os: linux
-
+  include:
+  - os: linux
 cache:
-    directories:
-        - /tmp/texlive
-        - $HOME/.texlive
-
-before_install: 
+  directories:
+  - "/tmp/texlive"
+  - "$HOME/.texlive"
+before_install:
 - bash ./utilities/travis_setup.sh
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
 - latexmk -pdf -interaction=nonstopmode -halt-on-error thesis-sample.tex
-before_deploy:
+after_success:
 - bash ./utilities/deploy.sh
 deploy:
-    provider: releases
-    api_key: 
-        secure: "YRou5qdRPhOqYp1R+9lgBccn1VESBYJv2MQMlCXW0mVtruxgaeMzLJ6VfmHYDW1BsNscee9K+rivpwZEZ3zU3dwk/3u+zw6pi9Bpas31fwVWnWQIH7Sbw4uhDbRwmqqLTMOEkoLTTI5xlGSWY0LwmxJmdO0zTDBumwOq066qKR2HmtOlV/KlTQLSJtzeyjxbROS2hLPxl6cglWu6oD/V0+gM38BEYiW1FVkBK6/8vMU8YI3vx3+QqnMO/ii7BV+ECWB3mM54k1qD7fkiDd6vFB67hEYetkbUfaM0ADa/z4Uc0mJkSY65xJQ4myH7jDby/ZWXDgkpni/dzJyn0PoNniqHHY99ZQmYAY0FJpnNBKcgVtrL2tpa7sh9atJg1uRcxozXfxYW6/+rSX9JRxqoqldi+LLYJXyyKI4vK+lYpnCuX4bsqq4PIRGl5+7iIMmFdNrtK+JsDgjZE8FaohqBmRv35X8+fXmskfV5pVQKpzDbXqVZUnhsMewTbkGyqPOXKgDm+HvLfzgjCQgdfrMIQOpbgPCN3h825m2vm42mcIouJGkCfqF+MVzTl413XqTW6Jy45m9xPhzodiSZE3IzGlR3Mk0i4Neit9MTxaTB/BTZZIXmhZPoxdlCfrN3Lb8u+i/PKsLFtohUAZC82Ko8Jh9r7Ko59w1vPt04NhW69vw="
-    file: thesis-sample.pdf
-    skip_cleanup: true
-    on:
-        all_branches: true
-        tags: false
+  provider: releases
+  api_key:
+    secure: n3MnSZSRbg1ppbgt7gCc3nGYGfQCuBq3mwGy0fivKxHbY1CiMjoSyk/r1Afsy1wP4ECZR743OJ2gaL7WDiuQ05f8wrX8ANKoe8FLLGIIjD6w3TtBMcqgoceE0SD/nVzkihoQcO5XlPcmvwd6QyeqzhBlEaICky2l+jbIjvsLO1MQr/pCljbqFarvVHmYu/95zc0DeB5vcv337ztvjheng0tzILSD2hs2t+SanMS52rZy8+N3mcbP/JC53RB3Kd3Z4rtObZwf0a9f9fBhvNFmnbHcNMsPbD2tfyYaB3sY0oh075DeRmYZKNCV+Fj76gasLK84rPKcdgP4pGK4ZCCVqczb9OZwqiikWLT4nYZN2+kAiV0Lf4CLKBc6cwoqPv8iIwB7NSBiPi/SL1YVgnAkqVS0fnNP2ckdxU8SIxhZm8kwn5jHYPzaUQeHDJFlJivFr/c7X9M9jT6UQaa2fA0ytcvJcfCivLq9/ca3o/UbXPVushNLoT6Pik9WqiUZ5olxKtHos36jwotRco5bIrQyWxUi1ejC4RhE1NtHpyisPfI19bCtJZILivgnAsixRLHs+uTUlpnKQ44JkmGE+QVH7dx4jW5WzfoQE9WCfKVeZYSpLGMYYjwKK5+QwtSU+2N02DEwh2j/nWE3fO7TJJe3O4Rl9pBhK/+P2FIB6P4k/6I=
+  file: thesis-sample.pdf
+  skip_cleanup: true
+  on:
+    repo: skulumani/thesis-gwu
+    all_branches: true
