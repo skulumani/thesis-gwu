@@ -1,11 +1,19 @@
-| Build Status                             | PDF                          |
-| :--------------------------------------: | :--------------------------: |
-| [![Build Status][travis_shield]][travis] | [![PDF][pdf_shield]][pdf]    |
+| Build Status                             | Latest Release                                      | Version                                            | Last Commit                                                    | Activity                                    |
+| :--------------------------------------: | :--------------------------:                        | :----:                                             | :------:                                                       | :------:                                    |
+| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] |
+
 
 [travis_shield]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
+[release_shield]: https://img.shields.io/github/release/qubyte/rubidium.svg
+[version_shield]: https://badge.fury.io/gh/skulumani%2Fthesis-gwu.svg
+[last_commit_shield]: https://img.shields.io/github/last-commit/google/skia.svg
+[activity_shield]: https://img.shields.io/github/commit-activity/y/eslint/eslint.svg
+
 [travis]: https://travis-ci.org/skulumani/thesis-gwu
-[pdf_shield]: https://img.shields.io/badge/PDF-latest-orange.svg?style=flat
-[pdf]: https://github.com/skulumani/thesis-gwu/releases/latest
+[github_release]: https://github.com/skulumani/thesis-gwu/releases/latest
+[github_version]: https://github.com/skulumani/thesis-gwu/releases/latest
+[github_last_commit]: https://github.com/skulumani/thesis-gwu/commits/master
+[github_activity]: https://github.com/skulumani/thesis-gwu/graphs/commit-activity
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
