@@ -20,6 +20,25 @@
 This is a GWU SEAS thesis template. 
 It complies with the requirements as laid out by the [ETD](http://library.gwu.edu/etd/formatting-content).
 
+### Installing
+
+You can install this thesis class in one of two ways:
+
+1. Clone/Download this repo onto your computer, and use
+
+~~~
+\documentclass[path/to/thesis-gwu]
+~~~
+
+2. Install thesis-gwu from CTAN
+
+~~~
+tlmgr install thesis-gwu
+~~~
+
+Which will download this class file to your computer and install it appropriately. 
+Any document on your machine can then use `thesis-gwu`
+
 ### Building the PDF
 
 To build the document, it is easiest to use the great [`latexmk`](http://mg.readthedocs.io/latexmk.html) by simply running:
