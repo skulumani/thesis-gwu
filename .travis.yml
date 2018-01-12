@@ -25,4 +25,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: skulumani/thesis-gwu
-    tag: true
+    tag: false
+    all_branches: true
