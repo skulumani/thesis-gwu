@@ -15,5 +15,5 @@ else
 fi
 
 # create a zip file for CTAN
-zip -r9 ctan.zip figures/* tex/* LICENSE.md README.md thesis-bib.bib thesis-gwu.cls thesis-sample.pdf thesis-sample.tex
+zip -r9 thesis-gwu.zip figures/* tex/* LICENSE.md README.md thesis-bib.bib thesis-gwu.cls thesis-sample.pdf thesis-sample.tex
 

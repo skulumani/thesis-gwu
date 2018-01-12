@@ -20,7 +20,7 @@ deploy:
   api_key:
     secure: n3MnSZSRbg1ppbgt7gCc3nGYGfQCuBq3mwGy0fivKxHbY1CiMjoSyk/r1Afsy1wP4ECZR743OJ2gaL7WDiuQ05f8wrX8ANKoe8FLLGIIjD6w3TtBMcqgoceE0SD/nVzkihoQcO5XlPcmvwd6QyeqzhBlEaICky2l+jbIjvsLO1MQr/pCljbqFarvVHmYu/95zc0DeB5vcv337ztvjheng0tzILSD2hs2t+SanMS52rZy8+N3mcbP/JC53RB3Kd3Z4rtObZwf0a9f9fBhvNFmnbHcNMsPbD2tfyYaB3sY0oh075DeRmYZKNCV+Fj76gasLK84rPKcdgP4pGK4ZCCVqczb9OZwqiikWLT4nYZN2+kAiV0Lf4CLKBc6cwoqPv8iIwB7NSBiPi/SL1YVgnAkqVS0fnNP2ckdxU8SIxhZm8kwn5jHYPzaUQeHDJFlJivFr/c7X9M9jT6UQaa2fA0ytcvJcfCivLq9/ca3o/UbXPVushNLoT6Pik9WqiUZ5olxKtHos36jwotRco5bIrQyWxUi1ejC4RhE1NtHpyisPfI19bCtJZILivgnAsixRLHs+uTUlpnKQ44JkmGE+QVH7dx4jW5WzfoQE9WCfKVeZYSpLGMYYjwKK5+QwtSU+2N02DEwh2j/nWE3fO7TJJe3O4Rl9pBhK/+P2FIB6P4k/6I=
   file:
-    - ctan.zip
+    - thesis-gwu.zip
     - thesis-sample.pdf
   skip_cleanup: true
   on:
