@@ -49,7 +49,7 @@
 %%                                  abstract that prints at the end.
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
 %%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
-%%
+%%  2018.01.20 @Shankar Kulumani  : Setup titlesec for modifying headings
 
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
@@ -1403,14 +1403,14 @@
   \@tex@bibliography{#1} %
 }
 
-%% ---- CHAPTER HEADINGS -----------------------------------------------
+%% ---- CHAPTER/SECTION HEADINGS -----------------------------------------------
 % Change the chapter headings to uppercase.
 \renewcommand{\@chapapp}{CHAPTER}
 
 % Change the formatting of the first page of each chapter.
 \renewcommand{\@makechapterhead}[1]{%
  % Insert an extra top margin.
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ % \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  % Insert the text
  { %
   % Ensure proper alignment.
