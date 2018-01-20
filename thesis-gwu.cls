@@ -170,6 +170,9 @@
 \RequirePackage{microtype}
 \RequirePackage{bm}
 
+% Add package for managing section headings
+\RequirePackage[]{titlesec}
+
 % This is useful for complex figures.
 \RequirePackage{subcaption}
 
@@ -1405,29 +1408,47 @@
 
 %% ---- CHAPTER/SECTION HEADINGS -----------------------------------------------
 % Change the chapter headings to uppercase.
-\renewcommand{\@chapapp}{CHAPTER}
+% \renewcommand{\@chapapp}{CHAPTER}
 
-% Change the formatting of the first page of each chapter.
-\renewcommand{\@makechapterhead}[1]{%
- % Insert an extra top margin.
- % \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
- % Insert the text
- { %
-  % Ensure proper alignment.
-  \parindent 0pt \raggedright %
-  % Check for chapter overflow.
-  \ifnum \c@secnumdepth >\m@ne %
-   % CHAPTER and number
-   \begin{center}{\Large\textbf{ \@chapapp{} \thechapter }} \end{center} \par%
-   % Vertical space
-   \vskip 0.3in \fi %
-   % Insert the title of the chapter.
-   \begin{center} \LARGE \textbf{ #1} \end{center} %
-   % Vertical space after the title
-   \nobreak \vskip 0.3in %
- } %
-}
+% % Change the formatting of the first page of each chapter.
+% \renewcommand{\@makechapterhead}[1]{%
+%  % Insert an extra top margin.
+%  % \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+%  % Insert the text
+%  { %
+%   % Ensure proper alignment.
+%   \parindent 0pt \raggedright %
+%   % Check for chapter overflow.
+%   \ifnum \c@secnumdepth >\m@ne %
+%    % CHAPTER and number
+%    \begin{center}{\Large\textbf{ \@chapapp{} \thechapter }} \end{center} \par%
+%    % Vertical space
+%    \vskip 0.3in \fi %
+%    % Insert the title of the chapter.
+%    \begin{center} \LARGE \textbf{ #1} \end{center} %
+%    % Vertical space after the title
+%    \nobreak \vskip 0.3in %
+%  } %
+% }
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[runin]
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
 
+\titlespacing*{\chapter} {0pt}{50pt}{40pt}
+\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\paragraph} {0pt}{3.25ex plus 1ex minus .2ex}{1em}
+\titlespacing*{\subparagraph} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 
 %% ---- SPACING --------------------------------------------------------
 % This fixes the spacing below captions, which by default can be small.
