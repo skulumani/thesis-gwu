@@ -1430,12 +1430,12 @@
 %    \nobreak \vskip 0.3in %
 %  } %
 % }
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\chapter}[hang]
+{\normalfont\normalsize\bfseries\centering}{\chaptertitlename\ \thechapter:}{20pt}{\normalsize}
 \titleformat{\section}
-{\normalfont\Large\bfseries}{\thesection}{1em}{}
+{\normalfont\normalsize\bfseries}{\thesection}{1em}{\normalsize}
 \titleformat{\subsection}
-{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{\normalsize}
 \titleformat{\subsubsection}
 {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 \titleformat{\paragraph}[runin]
@@ -1443,7 +1443,7 @@
 \titleformat{\subparagraph}[runin]
 {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
 
-\titlespacing*{\chapter} {0pt}{50pt}{40pt}
+\titlespacing*{\chapter} {0pt}{*0}{*4}
 \titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 \titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
