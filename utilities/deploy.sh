@@ -21,3 +21,6 @@ cp -rt ./thesis-gwu figures tex LICENSE.md README.md thesis-bib.bib thesis-gwu.c
 
 zip -r9 thesis-gwu.zip  thesis-gwu 
 
+# Can use ctan-o-mat to automatticaly deploy
+# modify thesis-gwu.pkg version number and anything else
+# then run ctan-o-mat -v --<validate or submit> --pkg ./utilities/thesis-gwu.pkg
