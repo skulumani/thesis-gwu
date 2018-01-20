@@ -15,5 +15,9 @@ else
 fi
 
 # create a zip file for CTAN
-zip -r9 thesis-gwu.zip figures/* tex/* LICENSE.md README.md thesis-bib.bib thesis-gwu.cls thesis-sample.pdf thesis-sample.tex
+# create a new directory and copy files to it and then zip it up
+mkdir thesis-gwu
+cp -rt ./thesis-gwu figures tex LICENSE.md README.md thesis-bib.bib thesis-gwu.cls thesis-sample.pdf thesis-sample.tex
+
+zip -r9 thesis-gwu.zip  thesis-gwu 
 
