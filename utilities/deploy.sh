@@ -9,7 +9,7 @@ else
     git config --local user.email 'travis'
     DATE=$(date +"%Y%m%d")
 
-    git tag -a v$(date +"%Y%m%dT%H%M%S")-${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag"
+    # git tag -a v$(date +"%Y%m%dT%H%M%S")-${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag"
 
     echo "Done making a tag"
 fi
