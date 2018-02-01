@@ -1450,6 +1450,8 @@
 \titlespacing*{\paragraph} {0pt}{3.25ex plus 1ex minus .2ex}{1em}
 \titlespacing*{\subparagraph} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 
+%% -------- APPENDIX ------------------------
+
 %% ---- SPACING --------------------------------------------------------
 % This fixes the spacing below captions, which by default can be small.
 \setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
@@ -1527,7 +1529,7 @@
  % Use the correct formatting.
  \if@gwu@thesis %
   % Use 1.5 spacing
-  \onehalfspacing %
+  \doublespacing %
  \else %
   % Use two-column format
   \twocolumn %
