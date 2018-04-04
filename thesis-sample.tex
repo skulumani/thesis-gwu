@@ -3,6 +3,8 @@
 % this package is only used to generate some random text. 
 % it is not needed in a true document
 \usepackage{lipsum}
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{library.bib}
 
 \input{tex/frontmatter}
 
@@ -12,8 +14,7 @@
 \include{tex/manual}
 \include{tex/results}
 
-\bibliographystyle{plain}
-\bibliography{thesis-bib}
+\printbibliography
 
 % appendices must appear after
 \include{tex/appendix}
