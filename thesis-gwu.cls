@@ -414,28 +414,28 @@
    \begin{singlespacing}
     % Insert the title.
     {\normalsize\bfseries\inserttitle} %
-   \end{singlespacing} \\[4ex] %
+    \end{singlespacing} \\[4\baselineskip]
    % Vertical rubber space
 %   \vfill %
    % Print the word 'by'.
-   by \insertauthor \\[4ex] %
+   by \insertauthor \\[3\baselineskip] %
    % More rubber space
    %\vfill %
    % previous degrees
    \if@gwu@msdegree
     B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[4ex]
+    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
    \else
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[4ex]
+    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
    \fi
    % Text from guidelines
-   A Dissertation submitted to \\[4ex] %
+   A Dissertation submitted to \\[3\baselineskip] %
    The Faculty of \\
    The School of Engineering and Applied Science \\
    of The George Washington University \\
    in partial satisfaction of the requirements \\
-   for the degree of \insertdegree \\[4ex]
-   \insertphdgrad \\[4ex]
+   for the degree of \insertdegree \\[3\baselineskip]
+   \insertphdgrad \\[4\baselineskip]
    % insert doctoral advisor
    Dissertation directed by \\[2ex]
    \insertchair \\
