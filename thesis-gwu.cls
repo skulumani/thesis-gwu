@@ -999,13 +999,14 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Figures}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Figures}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
+ % \vspace{1ex} %
  % Start the automatic table of contents features.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \@starttoc{lof}\if@restonecol\twocolumn\fi %
- \end{singlespace} %
+ % \end{singlespace} %
+
 }
 
 
@@ -1026,13 +1027,12 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Tables}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Tables}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
  % Start the automatic table of contents features.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \@starttoc{lot}\if@restonecol\twocolumn\fi %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 
@@ -1058,13 +1058,13 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Maps}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Maps}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \@starttoc{lom}\if@restonecol\twocolumn\fi %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 
@@ -1090,13 +1090,13 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Illustrations}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Illustrations}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
+ % \vspace{1ex} %
  % Start the automatic table of contents features.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \@starttoc{loi}\if@restonecol\twocolumn\fi %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 
@@ -1124,13 +1124,13 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Programs}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Programs}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
+ % \vspace{1ex} %
  % Start the automatic table of contents features.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \@starttoc{lop}\if@restonecol\twocolumn\fi %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 %% ---- LIST OF ABBREVIATIONS ------------------------------------------
@@ -1160,15 +1160,15 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Abbreviations}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Abbreviations}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
+ % \vspace{1ex} %
  % Start the automatic abbreviations feature.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \begin{acronym} %
    \@abbrevs %
   \end{acronym} %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 
@@ -1199,15 +1199,15 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Acronyms}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Acronyms}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
+ % \vspace{1ex} %
  % Start the automatic abbreviations feature.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \begin{acronym} %
    \@acronyms %
   \end{acronym} %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 
@@ -1238,15 +1238,15 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Symbols}} \end{center}%
+ \begin{center}{\normalsize\textbf{List of Symbols}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vspace{1ex} %
+ % \vspace{1ex} %
  % Start the automatic symbols feature.
- \begin{singlespace} %
+ % \begin{singlespace} %
   \begin{acronym} %
    \@symbols %
   \end{acronym} %
- \end{singlespace} %
+ % \end{singlespace} %
 }
 
 %% ---- NOMENCLATURE ---------------------------------------------------
@@ -1291,9 +1291,9 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{Nomenclature}} \end{center}%
+ \begin{center}{\normalsize\textbf{Nomenclature}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
- \vskip4ex %
+ % \vskip4ex %
 % Set the line skip
 \begin{onehalfspace}
 % Insert the nomenclature conents
