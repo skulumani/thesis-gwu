@@ -26,4 +26,4 @@ deploy:
   on:
     repo: skulumani/thesis-gwu
     tags: true
-    all_branches: true
+    branch: master
