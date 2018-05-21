@@ -491,10 +491,9 @@
   \begin{center}
     \begin{singlespace}
       {\normalsize\bfseries\inserttitle} \\[4ex]
-      \insertauthor
+      \insertauthor \\[4\baselineskip]
     \end{singlespace}
-  \end{center}
-
+\end{center}
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
