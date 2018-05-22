@@ -336,6 +336,7 @@
 \RequirePackage[usenames,dvipsnames]{color}
 % Custom color for references.
 \definecolor{DarkGreen}{rgb}{0,0.6,0}
+\definecolor{RoyalBlue}{rgb}{0,0.14,0.4}
 
 % This will make labels and references hyperlinks.
 \if@gwu@backref
@@ -346,21 +347,23 @@
  \RequirePackage{hyperref}
 \fi
 
-  \hypersetup{
-    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
-    pdffitwindow=false,     % window fit to page when opened
-    pdfstartview={FitV},    % fits the width of the page to the window
-    pdfnewwindow=true,      % links in new PDF window
-    colorlinks=false,       % false: boxed links; true: colored links
-    bookmarksdepth=3,
-    bookmarksopen=true,
-    pdftitle={\inserttitle},    % title
-    pdfauthor={\insertauthor},     % author
-    pdfcreator={\insertauthor},   % creator of the document
-    pdfproducer={\insertauthor}, % producer of the document
-  }
+
+\hypersetup{
+	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=true,        % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitV},    % fits the width of the page to the window
+	pdfnewwindow=true,      % links in new PDF window
+	bookmarksdepth=3,
+	bookmarksopen=true,
+	pdftitle={\inserttitle},       % title
+	pdfauthor={\insertauthor},     % author
+	pdfcreator={\insertauthor},    % creator of the document
+	pdfproducer={\insertauthor},   % producer of the document
+	colorlinks=true,               % false: boxed links; true: colored links
+	%linkcolor=RoyalBlue,          % link colors can be set like this if required
+}
 
 % Cleveref referencing - must happen after hyperref
 \AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
