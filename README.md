@@ -1,6 +1,6 @@
-| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         |
-| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       |
-| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] |
+| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         | Citation |
+| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       | :-----: |
+| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] | [![DOI][ doi_shield ]][ doi ]
 
 [travis_shield]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
 [release_shield]: https://img.shields.io/github/release/skulumani/thesis-gwu.svg
@@ -8,6 +8,7 @@
 [last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/thesis-gwu.svg
 [activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/thesis-gwu.svg
 [ctan_shield]: https://img.shields.io/ctan/v/tex.svg
+[doi_shield]: https://zenodo.org/badge/69136100.svg
 
 [travis]: https://travis-ci.org/skulumani/thesis-gwu
 [github_release]: https://github.com/skulumani/thesis-gwu/releases/latest
@@ -15,6 +16,7 @@
 [github_last_commit]: https://github.com/skulumani/thesis-gwu/commits/master
 [github_activity]: https://github.com/skulumani/thesis-gwu/graphs/commit-activity
 [ctan]: https://ctan.org/pkg/thesis-gwu
+[doi]: https://zenodo.org/badge/latestdoi/69136100
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
