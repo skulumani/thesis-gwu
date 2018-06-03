@@ -138,7 +138,7 @@ There is also some demonstration of typical commands, such as equations, figures
 
 ## Additional Tips
 
-You can find some additional tips in [`./docs/tips.md`](./docs/tips.md)
+You can find some additional tips in [`./doc/tips.md`](./doc/tips.md)
 
 ## Dissertation examples
 
