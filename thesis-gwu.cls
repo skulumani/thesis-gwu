@@ -218,11 +218,125 @@
   \RequirePackage{refcheck} % check for unused references/labels
 \fi
 
+%% ---- TITLE PAGE -----------------------------------------------------
+% The fields to be used for the title page
+\renewcommand{\@title}{Insert a Title!}
+\renewcommand{\@author}{Insert an Author!}
+
+\newcommand{\@bsdepartment}{Insert a BS department name!}
+\newcommand{\@bsschool}{Insert BS school!}
+\newcommand{\@bsgrad}{BS Grad date!}
+
+\newcommand{\@msdepartment}{Insert a MS department name!}
+\newcommand{\@msschool}{Insert MS school!}
+\newcommand{\@msgrad}{MS Grad date!}
+
+\newcommand{\@degree}{Doctor of Philosophy}
+\newcommand{\@department}{Insert a Department Name!}
+\newcommand{\@committee}{Insert a Committee!}
+\newcommand{\@chair}{Insert a Chair!}
+\newcommand{\@chairtitle}{Professor of INSERT Title!}
+\newcommand{\@cochair}{}
+\newcommand{\@phdgrad}{PhD Grad date!}
+\newcommand{\@defensedate}{Insert defense date!}
+
+% Commands to set the titlepage fields
+\renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
+\renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
+
+\newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
+\newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
+\newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
+
+\newcommand{\showmsdegree}{\@gwu@msdegreetrue}
+\newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
+
+\newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
+\newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
+\newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
+
+\newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
+\newcommand{\department}[1]{\renewcommand{\@department}{#1}}
+\newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
+\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
+\newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
+\newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
+\newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
+\newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
+% Commands for the user to be able to use the defined fields.
+\newcommand{\inserttitle}{\@title}
+\newcommand{\insertauthor}{\@author}
+
+\newcommand{\insertbsdepartment}{\@bsdepartment}
+\newcommand{\insertbsschool}{\@bsschool}
+\newcommand{\insertbsgrad}{\@bsgrad}
+
+\newcommand{\insertmsdepartment}{\@msdepartment}
+\newcommand{\insertmsschool}{\@msschool}
+\newcommand{\insertmsgrad}{\@msgrad}
+
+\newcommand{\insertdegree}{\@degree}
+\newcommand{\insertdepartment}{\@department}
+\newcommand{\insertcommittee}{\@committee}
+\newcommand{\insertchair}{\@chair}
+\newcommand{\insertchairtitle}{\@chairtitle}
+\newcommand{\insertcochair}{\@cochair}
+\newcommand{\insertyear}{\number\year}
+\newcommand{\insertphdgrad}{\@phdgrad}
+
+\newcommand{\insertdefensedate}{\@defensedate}
+% This redefines the title page to automatically have all of the
+% features and properties that it should according to the guidelines.
+\renewcommand*{\titlepage}{
+	% Insert the titlepage formatting.
+	\ttlpg %
+	% Use single-spaced lines for the title page.
+	\begin{singlespace} %
+		% Move down the page slightly.
+		\hbox{\vspace{0.3in}} %
+		% Center the title page as well.
+		\begin{center} %
+			% Put the title itself in 1.5-spaced format.
+			\begin{singlespacing}
+				% Insert the title.
+				{\normalsize\bfseries\inserttitle} %
+			\end{singlespacing} \\[4\baselineskip]
+			% Vertical rubber space
+			%   \vfill %
+			% Print the word 'by'.
+			by \insertauthor \\[3\baselineskip] %
+			% More rubber space
+			%\vfill %
+			% previous degrees
+			\if@gwu@msdegree
+			B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+			M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
+			\else
+			B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
+			\fi
+			% Text from guidelines
+			A Dissertation submitted to \\[3\baselineskip] %
+			The Faculty of \\
+			The School of Engineering and Applied Science \\
+			of The George Washington University \\
+			in partial satisfaction of the requirements \\
+			for the degree of \insertdegree \\[3\baselineskip]
+			\insertphdgrad \\[4\baselineskip]
+			% insert doctoral advisor
+			Dissertation directed by \\[2ex]
+			\insertchair \\
+			\insertchairtitle
+		\end{center} %
+	\end{singlespace} %
+}
+
+
 %% ---- HYPERREF ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
 \RequirePackage[usenames,dvipsnames]{color}
 % Custom color for references.
 \definecolor{DarkGreen}{rgb}{0,0.6,0}
+\definecolor{RoyalBlue}{rgb}{0,0.14,0.4}
 
 % This will make labels and references hyperlinks.
 \if@gwu@backref
@@ -233,17 +347,23 @@
  \RequirePackage{hyperref}
 \fi
 
-  \hypersetup{
-    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
-    pdffitwindow=false,     % window fit to page when opened
-    pdfstartview={FitV},    % fits the width of the page to the window
-    pdfnewwindow=true,      % links in new PDF window
-    colorlinks=false,       % false: boxed links; true: colored links
-    bookmarksdepth=3,
-    bookmarksopen=true,
-  }
+
+\hypersetup{
+	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=true,        % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitV},    % fits the width of the page to the window
+	pdfnewwindow=true,      % links in new PDF window
+	bookmarksdepth=3,
+	bookmarksopen=true,
+	pdftitle={\inserttitle},       % title
+	pdfauthor={\insertauthor},     % author
+	pdfcreator={\insertauthor},    % creator of the document
+	pdfproducer={\insertauthor},   % producer of the document
+	colorlinks=true,               % false: boxed links; true: colored links
+	%linkcolor=RoyalBlue,          % link colors can be set like this if required
+}
 
 % Cleveref referencing - must happen after hyperref
 \AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
@@ -331,117 +451,6 @@
     \setglossarystyle{list}%
     \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
     \renewcommand*{\glossaryheader}{}%
-}
-%% ---- TITLE PAGE -----------------------------------------------------
-% The fields to be used for the title page
-\renewcommand{\@title}{Insert a Title!}
-\renewcommand{\@author}{Insert an Author!}
-
-\newcommand{\@bsdepartment}{Insert a BS department name!}
-\newcommand{\@bsschool}{Insert BS school!}
-\newcommand{\@bsgrad}{BS Grad date!}
-
-\newcommand{\@msdepartment}{Insert a MS department name!}
-\newcommand{\@msschool}{Insert MS school!}
-\newcommand{\@msgrad}{MS Grad date!}
-
-\newcommand{\@degree}{Doctor of Philosophy}
-\newcommand{\@department}{Insert a Department Name!}
-\newcommand{\@committee}{Insert a Committee!}
-\newcommand{\@chair}{Insert a Chair!}
-\newcommand{\@chairtitle}{Professor of INSERT Title!}
-\newcommand{\@cochair}{}
-\newcommand{\@phdgrad}{PhD Grad date!}
-\newcommand{\@defensedate}{Insert defense date!}
-
-% Commands to set the titlepage fields
-\renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
-\renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
-
-\newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
-\newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
-\newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
-
-\newcommand{\showmsdegree}{\@gwu@msdegreetrue}
-\newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
-
-\newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
-\newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
-\newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
-
-\newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
-\newcommand{\department}[1]{\renewcommand{\@department}{#1}}
-\newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
-\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
-\newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
-\newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
-\newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
-\newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
-% Commands for the user to be able to use the defined fields.
-\newcommand{\inserttitle}{\@title}
-\newcommand{\insertauthor}{\@author}
-
-\newcommand{\insertbsdepartment}{\@bsdepartment}
-\newcommand{\insertbsschool}{\@bsschool}
-\newcommand{\insertbsgrad}{\@bsgrad}
-
-\newcommand{\insertmsdepartment}{\@msdepartment}
-\newcommand{\insertmsschool}{\@msschool}
-\newcommand{\insertmsgrad}{\@msgrad}
-
-\newcommand{\insertdegree}{\@degree}
-\newcommand{\insertdepartment}{\@department}
-\newcommand{\insertcommittee}{\@committee}
-\newcommand{\insertchair}{\@chair}
-\newcommand{\insertchairtitle}{\@chairtitle}
-\newcommand{\insertcochair}{\@cochair}
-\newcommand{\insertyear}{\number\year}
-\newcommand{\insertphdgrad}{\@phdgrad}
-
-\newcommand{\insertdefensedate}{\@defensedate}
-% This redefines the title page to automatically have all of the
-% features and properties that it should according to the guidelines.
-\renewcommand*{\titlepage}{
- % Insert the titlepage formatting.
- \ttlpg %
- % Use single-spaced lines for the title page.
- \begin{singlespace} %
-  % Move down the page slightly.
-  \hbox{\vspace{0.3in}} %
-  % Center the title page as well.
-  \begin{center} %
-   % Put the title itself in 1.5-spaced format.
-   \begin{singlespacing}
-    % Insert the title.
-    {\normalsize\bfseries\inserttitle} %
-    \end{singlespacing} \\[4\baselineskip]
-   % Vertical rubber space
-%   \vfill %
-   % Print the word 'by'.
-   by \insertauthor \\[3\baselineskip] %
-   % More rubber space
-   %\vfill %
-   % previous degrees
-   \if@gwu@msdegree
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
-   \else
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
-   \fi
-   % Text from guidelines
-   A Dissertation submitted to \\[3\baselineskip] %
-   The Faculty of \\
-   The School of Engineering and Applied Science \\
-   of The George Washington University \\
-   in partial satisfaction of the requirements \\
-   for the degree of \insertdegree \\[3\baselineskip]
-   \insertphdgrad \\[4\baselineskip]
-   % insert doctoral advisor
-   Dissertation directed by \\[2ex]
-   \insertchair \\
-   \insertchairtitle
-  \end{center} %
- \end{singlespace} %
 }
 
 
