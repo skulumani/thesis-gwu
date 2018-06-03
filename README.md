@@ -136,6 +136,17 @@ You can add more packages but be aware that all package interactions **HAVE NOT*
 
 There is also some demonstration of typical commands, such as equations, figures, cross-referencing. 
 
+## Additional Tips
+
+## Dissertation examples
+
+If you decide to use this template, feel free to send me an [email](mailto:skulumani@gwu.edu) and I can add your name/link below:
+
+* [Farshad Nasiri](https://www.linkedin.com/in/farshad-nasiri): The Structure of turbulent a boundary layer along a vertical, surface-piercing flat plate
+* [Evan Kaufman](https://www.linkedin.com/in/evan-kaufman-7333b81b)
+* [Mahdis Bisheban](https://www.linkedin.com/in/mahdisbisheban)
+* [Mohammed Reza Najjari](https://www.linkedin.com/in/mohammad-reza-najjari-249b2b79)
+
 ## Contributing
 
 Feel free to contribute any comments/suggestions you may have for this thesis. 
