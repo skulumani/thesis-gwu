@@ -138,6 +138,8 @@ There is also some demonstration of typical commands, such as equations, figures
 
 ## Additional Tips
 
+You can find some additional tips in [`./docs/tips.md`](./docs/tips.md)
+
 ## Dissertation examples
 
 If you decide to use this template, feel free to send me an [email](mailto:skulumani@gwu.edu) and I can add your name/link below:
