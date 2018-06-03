@@ -20,8 +20,9 @@
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
-This is a GWU SEAS thesis template. 
-It complies with the requirements as laid out by the [ETD](http://library.gwu.edu/etd/formatting-content).
+This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms to the University and SEAS formatting guidelines as of May 21 2018.
+
+![screenshot](./doc/etd.png)
 
 ### Installing
 
