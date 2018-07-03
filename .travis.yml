@@ -7,7 +7,7 @@ cache:
   directories:
   - "/tmp/texlive"
   - "$HOME/.texlive"
-  timeout: 3600
+  timeout: 7200
 before_install:
 - bash ./utilities/travis_setup.sh
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
