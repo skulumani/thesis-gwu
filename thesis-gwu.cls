@@ -698,6 +698,8 @@
 
 %% ---- COMMANDS TO HIDE/SHOW FRONT PAGES ------------------------------
 % Commands to show front pages
+\newcommand{\showtitlepage}{\@gwu@titlepagetrue}
+
 \newcommand{\showcopyright}{\@gwu@copyrighttrue}
 \newcommand{\showdedication}{\@gwu@dedicationtrue}
 \newcommand{\showacknowledgments}{\@gwu@acknowledgmentstrue}
@@ -709,6 +711,8 @@
 \newcommand{\showcommitteepage}{\@gwu@committeepagetrue}
 
 % Commands to hide front pages
+\newcommand{\hidetitlepage}{\@gwu@titlepagefalse}
+
 \newcommand{\hidecopyright}{\@gwu@copyrightfalse}
 \newcommand{\hidededication}{\@gwu@dedicationfalse}
 \newcommand{\hideacknowledgments}{\@gwu@acknowledgmentsfalse}
