@@ -64,6 +64,8 @@
 % The default values are false.
 \newif\if@gwu@thesis
 \newif\if@gwu@debug % option for debuggin
+
+\newif\if@gwu@tableofcontents
 \newif\if@gwu@listoffigures
 \newif\if@gwu@listoftables
 \newif\if@gwu@listofmaps
@@ -91,12 +93,14 @@
 
 \newif\if@gwu@msdegree
 
+\newif\if@gwu@titlepage
+
 % Set the default value of some of the options to true.
 \@gwu@thesistrue
-\@gwu@listoffigurestrue
-\@gwu@listoftablestrue
-\@gwu@copyrighttrue
-\@gwu@committeepagetrue
+% \@gwu@listoffigurestrue
+% \@gwu@listoftablestrue
+% \@gwu@copyrighttrue
+% \@gwu@committeepagefalse
 \@gwu@msdegreetrue
 
 % This declares a variable for using an index.
@@ -355,7 +359,7 @@
 \newcommand{\@defensedate}{Insert defense date!}
 
 % Commands to set the titlepage fields
-\renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
+\renewcommand{\title}[1]{\renewcommand{\@title}{#1}\@gwu@titlepagetrue}
 \renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
 
 \newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
@@ -371,7 +375,7 @@
 
 \newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
-\newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
+\newcommand{\committee}[1]{\renewcommand{\@committee}{#1}\@gwu@committeepagetrue}
 \newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
 \newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
 \newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
@@ -694,6 +698,8 @@
 
 %% ---- COMMANDS TO HIDE/SHOW FRONT PAGES ------------------------------
 % Commands to show front pages
+\newcommand{\showtitlepage}{\@gwu@titlepagetrue}
+
 \newcommand{\showcopyright}{\@gwu@copyrighttrue}
 \newcommand{\showdedication}{\@gwu@dedicationtrue}
 \newcommand{\showacknowledgments}{\@gwu@acknowledgmentstrue}
@@ -705,6 +711,8 @@
 \newcommand{\showcommitteepage}{\@gwu@committeepagetrue}
 
 % Commands to hide front pages
+\newcommand{\hidetitlepage}{\@gwu@titlepagefalse}
+
 \newcommand{\hidecopyright}{\@gwu@copyrightfalse}
 \newcommand{\hidededication}{\@gwu@dedicationfalse}
 \newcommand{\hideacknowledgments}{\@gwu@acknowledgmentsfalse}
@@ -909,35 +917,39 @@
 
 %% ---- COMMANDS FOR LIST OF FIGURES, ETC. -----------------------------
 % Commands to show each of the lists
-\newcommand{\showlistoffigures}{\@gwu@listoffigurestrue}
-\newcommand{\showlistoftables}{\@gwu@listoftablestrue}
-\newcommand{\showlistofmaps}{\@gwu@listofmapstrue}
-\newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
-\newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
-\newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
+\newcommand{\showtableofcontents}{\@gwu@tableofcontentstrue}
 
-\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse}
-\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse}
+\newcommand{\showlistoffigures}{\@gwu@listoffigurestrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistoftables}{\@gwu@listoftablestrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofmaps}{\@gwu@listofmapstrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofprograms}{\@gwu@listofprogramstrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue\@gwu@tableofcontentstrue}
 
-\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofacronymsfalse}
-\newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse}
-\newcommand{\showglossarieslistofacronyms}{\@gwu@listofglossariesacronymstrue\@gwu@listofacronymsfalse}
-\newcommand{\showglossariesglossaryofterms}{\@gwu@glossaryoftermstrue}
+\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse\@gwu@tableofcontentstrue}
+
+\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofacronymsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showglossarieslistofacronyms}{\@gwu@listofglossariesacronymstrue\@gwu@listofacronymsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showglossariesglossaryofterms}{\@gwu@glossaryoftermstrue\@gwu@tableofcontentstrue}
 
 % Commands to hide each of the lists
-\newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
-\newcommand{\hidelistoftables}{\@gwu@listoftablesfalse}
-\newcommand{\hidelistofmaps}{\@gwu@listofmapsfalse}
-\newcommand{\hidelistofillustrations}{\@gwu@listillustrationsfalse}
-\newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse}
-\newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse}
-\newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
-\newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse}
+\newcommand{\hidetableofcontents}{\@gwu@tableofcontentsfalse}
 
-\newcommand{\hideglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevsfalse}
-\newcommand{\hideglossarieslistofacronyms}{\@gwu@listofglossariesacronymsfalse}
-\newcommand{\hideglossarieslistofsymbols}{\@gwu@listofglossariessymbolsfalse}
-\newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse}
+\newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistoftables}{\@gwu@listoftablesfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofmaps}{\@gwu@listofmapsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofillustrations}{\@gwu@listillustrationsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse\@gwu@tableofcontentsfalse}
+
+\newcommand{\hideglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hideglossarieslistofacronyms}{\@gwu@listofglossariesacronymsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hideglossarieslistofsymbols}{\@gwu@listofglossariessymbolsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse\@gwu@tableofcontentsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % This sets the formatting for chapter entries in the table of contents.
@@ -1459,7 +1471,7 @@
 % Commands to be placed after \begin{document}
 \AtBeginDocument{ %
  % Insert a title page.
- \titlepage %
+\if@gwu@titlepage\titlepage\fi %
  % Change the PDF title.
  \hypersetup{
  pdftitle=\inserttitle,
@@ -1486,7 +1498,7 @@
  % Insert the abstract.
  \if@gwu@abstract\abstractpage\fi %
  % Insert the table of contents.
- \tableofcontents %
+ \if@gwu@tableofcontents\tableofcontents\fi %
  % Insert the list of figures.
  \if@gwu@listoffigures\listoffigures\fi %
  % Insert the list of tables.
