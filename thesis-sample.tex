@@ -1,19 +1,34 @@
-\documentclass[thesis]{thesis-gwu}[2016/09/24]
+\documentclass[thesis]{./thesis-gwu}[2016/09/24]
 
 % this package is only used to generate some random text. 
 % it is not needed in a true document
-\usepackage{lipsum}
+% \input{tex/frontmatter}
+\makeglossaries
 
-\input{tex/frontmatter}
+\usepackage{lipsum}
+\usepackage{pgfplots}
+\usepgfplotslibrary{external}
+\tikzexternalize
+
 %% DOCUMENT AREA
 \begin{document}
 
-\include{tex/manual}
-\include{tex/results}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}
+            \addplot {x^2};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Externalized tikz plot}
+\end{figure}
 
-\bibliographystyle{plain}
-\bibliography{thesis-bib}
+% \include{tex/manual}
+% \include{tex/results}
+
+% \bibliographystyle{plain}
+% \bibliography{thesis-bib}
 
 % appendices must appear after
-\include{tex/appendix}
+% \include{tex/appendix}
 \end{document}
