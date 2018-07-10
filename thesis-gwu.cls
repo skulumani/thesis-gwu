@@ -166,8 +166,6 @@
 
 % This loads the proper graphics package.
 \RequirePackage{graphicx}
-\RequirePackage{pgfplots}
-\usepgfplotslibrary{external}
 
 % Better spacing for text
 \RequirePackage[utf8]{inputenc}
@@ -1472,6 +1470,7 @@
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
 \AtBeginDocument{%
+    \providecommand\tikzifexternalizing[2]{#2}%
  % Insert a title page.
 \tikzifexternalizing{}{\if@gwu@titlepage\titlepage\fi}%
  % Change the PDF title.
