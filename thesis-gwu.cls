@@ -56,7 +56,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/07/09 v1.5.0 GWU Thesis template]
+\ProvidesClass{thesis-gwu}[2018/07/09 v1.5.1 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -1472,9 +1472,9 @@
 \AtBeginDocument{%
     \providecommand\tikzifexternalizing[2]{#2}%
  % Insert a title page.
-\tikzifexternalizing{}{\if@gwu@titlepage\titlepage\fi}%
+\tikzifexternalizing{}{\if@gwu@titlepage\titlepage\fi%
  % Change the PDF title.
- \hypersetup{
+ \hypersetup{%
  pdftitle=\inserttitle,
  pdfauthor=\insertauthor,
  pdfcreator=\insertauthor,
@@ -1488,7 +1488,7 @@
  % Use lower-case roman numerals.
  \renewcommand{\thepage}{\roman{page}} %
  % Insert the copyright page if there is one.
- \if@gwu@copyright\copyrightpage\fi
+ \if@gwu@copyright\copyrightpage\fi%
  % Insert a dedication if there is one.
  \if@gwu@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
@@ -1520,7 +1520,7 @@
  \if@gwu@listofglossariessymbols\listofglossarysymbols\fi
  % Insert the nomenclature.
  \if@gwu@nomenclature\insertnomenclature\fi %
- \if@gwu@glossaryofterms\listofglossaryofterms\fi
+ \if@gwu@glossaryofterms\listofglossaryofterms\fi%
  % Insert the preface if there is one.
  \if@gwu@preface\prefacepage\fi %
  % Insert the foreword if there is one.
@@ -1546,5 +1546,6 @@
   % Use two-column format
   \twocolumn %
  \fi %
+ }
 }
 
