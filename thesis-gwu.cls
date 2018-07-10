@@ -224,20 +224,20 @@
 
 %% ---- HYPERREF ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
-\RequirePackage[usenames,dvipsnames]{color}
+\RequirePackage[]{color}
 % Custom color for references.
-\definecolor{DarkGreen}{rgb}{0,0.6,0}
+% \definecolor{DarkGreen}{rgb}{0,0.6,0}
 
 % This will make labels and references hyperlinks.
-\if@gwu@backref
+\if@gwu@backref%
  % Use references in the bibliography.
- \RequirePackage[pagebackref=true]{hyperref}
-\else
+ \RequirePackage[pagebackref=true]{hyperref}%
+\else%
  % Do not use back references.
- \RequirePackage{hyperref}
+ \RequirePackage{hyperref}%
 \fi
 
-  \hypersetup{
+  \hypersetup{%
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
     pdftoolbar=true,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
@@ -247,15 +247,15 @@
     colorlinks=false,       % false: boxed links; true: colored links
     bookmarksdepth=3,
     bookmarksopen=true,
-  }
+  }%
 
 % Cleveref referencing - must happen after hyperref
-\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
+\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}%
 
 % Glossaries package - must come after hypperef
 % This package is used for the list of abbreviations
-\RequirePackage[printonlyused]{acronym}
-\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}
+\RequirePackage[printonlyused]{acronym}%
+\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -1469,9 +1469,10 @@
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
-\AtBeginDocument{ %
+\AtBeginDocument{%
+    \providecommand\tikzifexternalizing[2]{#2}%
  % Insert a title page.
-\if@gwu@titlepage\titlepage\fi %
+\tikzifexternalizing{}{\if@gwu@titlepage\titlepage\fi}%
  % Change the PDF title.
  \hypersetup{
  pdftitle=\inserttitle,
