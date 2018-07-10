@@ -244,6 +244,20 @@ The magic of \LaTeX automatically figures out that the previous reference points
     \caption[Damage report!]{Glad to have a thesis class\label{fig:picard}}
 \end{figure}
 
+Here's another figure that demonstrates the use of \texttt{tikz} and the externalization library.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={$x$},
+            ylabel={$y$},
+            ]
+            \addplot {x^2};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Externalized\label{fig:tikz}}
+\end{figure}
+
 \subsection{Tables}\label{ssec:tables}
 
 Here's a table in~\cref{tab:table}

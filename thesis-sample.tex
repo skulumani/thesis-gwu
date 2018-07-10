@@ -6,6 +6,10 @@
 
 \input{tex/frontmatter}
 
+% this will speed up your tikz figures by building them once to another directory
+\tikzexternalize
+\tikzsetexternalprefix{cache/}
+
 %% DOCUMENT AREA
 \begin{document}
 
