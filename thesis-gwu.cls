@@ -56,7 +56,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/07/31 v1.5.2 GWU Thesis template]
+\ProvidesClass{thesis-gwu}[2018/07/31 v1.6.0 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
