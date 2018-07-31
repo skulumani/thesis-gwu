@@ -993,6 +993,8 @@
  \end{singlespace} %
 }
 
+% adjust spacing for page numbers
+\renewcommand{\@pnumwidth}{2.0em}% default is 1.55em
 
 %% ---- LIST OF FIGURES ------------------------------------------------
 % This sets the formatting for the various entry types.
@@ -1230,7 +1232,7 @@
 % Command to set the symbols.
 \newcommand{\symbols}[1]{ %
  % Show the list of symbols.
- \@gwu@listofsymbolstrue %
+ \@gwu@listofsymbolstrue%
  % Redefine the list.
  \renewcommand{\@symbols}{#1}}
 
@@ -1240,24 +1242,24 @@
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofsymbols}{%
  % Move to new page.
- \newpage %
+ \newpage%
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Symbols} %
+ \phantomsection\addcontentsline{toc}{chapter}{List of Symbols}%
  % Use front page styling.
- \frntpg %
+ \frntpg%
  % Larger upper margin for first page of table (thesis only)
- \if@gwu@thesis %
+ \if@gwu@thesis%
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
- \fi %
+ \fi%
  % Add the title
  \begin{center}{\normalsize\textbf{List of Symbols}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
  % \vspace{1ex} %
  % Start the automatic symbols feature.
  % \begin{singlespace} %
-  \begin{acronym} %
-   \@symbols %
-  \end{acronym} %
+  \begin{acronym}%
+   \@symbols%
+  \end{acronym}%
  % \end{singlespace} %
 }
 
@@ -1465,7 +1467,7 @@
 
 %% ---- SPACING --------------------------------------------------------
 % This fixes the spacing below captions, which by default can be small.
-\setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
+\setlength\belowcaptionskip{7pt plus 4pt minus 1pt}%
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
@@ -1480,7 +1482,7 @@
  pdfcreator=\insertauthor,
  pdfproducer=\insertauthor} %
   % Insert dissertation committeee page 
-  \if@gwu@committeepage\committeepage\fi
+  \if@gwu@committeepage\committeepage\fi%
  % Initialize page numbers.
  \setcounter{page}{2} %
  % Page numbers at the bottom
@@ -1505,19 +1507,19 @@
  % Insert the list of tables.
  \if@gwu@listoftables\listoftables\fi %
  % Insert the list of maps.
- \if@gwu@listofmaps\listofmaps\fi %
+ \if@gwu@listofmaps\listofmaps\fi%
  % Insert the list of illustrations.
- \if@gwu@listofillustrations\listofillustrations\fi %
+ \if@gwu@listofillustrations\listofillustrations\fi%
  % Insert the list of programs.
- \if@gwu@listofprograms\listofprograms\fi %
+ \if@gwu@listofprograms\listofprograms\fi%
  % Insert the list of abbreviations.
- \if@gwu@listofabbrevs\listofabbreviations\fi %
- \if@gwu@listofglossariesabbrevs\listofglossaryabbreviations\fi
+ \if@gwu@listofabbrevs\listofabbreviations\fi%
+ \if@gwu@listofglossariesabbrevs\listofglossaryabbreviations\fi%
  % Insert the list of acronyms.
- \if@gwu@listofacronyms\listofacronyms\fi %
+ \if@gwu@listofacronyms\listofacronyms\fi%
  % Insert the list of symbols.
- \if@gwu@listofsymbols\listofsymbols\fi %
- \if@gwu@listofglossariessymbols\listofglossarysymbols\fi
+ \if@gwu@listofsymbols\listofsymbols\fi%
+ \if@gwu@listofglossariessymbols\listofglossarysymbols\fi%
  % Insert the nomenclature.
  \if@gwu@nomenclature\insertnomenclature\fi %
  \if@gwu@glossaryofterms\listofglossaryofterms\fi%
