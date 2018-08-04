@@ -148,6 +148,8 @@ If you decide to use this template, feel free to send me an [email](mailto:skulu
 * [Evan Kaufman](https://www.linkedin.com/in/evan-kaufman-7333b81b)
 * [Mahdis Bisheban](https://www.linkedin.com/in/mahdisbisheban)
 * [Mohammed Reza Najjari](https://www.linkedin.com/in/mohammad-reza-najjari-249b2b79)
+* [Shankar Kulumani](https://shankarkulumani.com/2018/07/dissertation.html) - [Geometric Mechanics and Control for Small Body Missions](https://github.com/skulumani/dissertation) accepted 1 Aug 2018:w
+* [Will Zywiec](https://www.linkedin.com/in/will-zywiec-363812137/)
 
 ## Contributing
 
