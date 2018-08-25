@@ -174,6 +174,8 @@
 \RequirePackage{microtype}
 \RequirePackage{bm}
 
+\RequirePackage{mathptmx}
+
 % Add package for managing section headings
 \RequirePackage[]{titlesec}
 
