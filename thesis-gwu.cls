@@ -420,7 +420,7 @@
    \begin{singlespacing}
     % Insert the title.
     {\normalsize\bfseries\inserttitle} %
-    \end{singlespacing} \\[4\baselineskip]
+    \end{singlespacing} \\[3\baselineskip]
    % Vertical rubber space
 %   \vfill %
    % Print the word 'by'.
@@ -443,7 +443,7 @@
    for the degree of \insertdegree \\[3\baselineskip]
    \insertphdgrad \\[4\baselineskip]
    % insert doctoral advisor
-   Dissertation directed by \\[2ex]
+   Dissertation directed by \\[1\baselineskip]
    \insertchair \\
    \insertchairtitle
   \end{center} %
@@ -496,8 +496,8 @@
 
   \begin{center}
     \begin{singlespace}
-      {\normalsize\bfseries\inserttitle} \\[4ex]
-      \insertauthor \\[4\baselineskip]
+      {\normalsize\bfseries\inserttitle} \\[1\baselineskip]
+      \insertauthor \\[3\baselineskip]
     \end{singlespace}
 \end{center}
   % Non-justified content
