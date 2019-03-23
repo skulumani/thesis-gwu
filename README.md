@@ -24,6 +24,10 @@ This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms 
 
 ![screenshot](./doc/etd.png)
 
+### Overleaf
+
+The template is available on [Overleaf](https://www.overleaf.com/read/cdvwbxczqkrn). 
+
 ### Installing
 
 You can install this thesis class in one of two ways:
