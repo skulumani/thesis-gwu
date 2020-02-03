@@ -2,63 +2,70 @@
 
 % --------- FRONT MATTER PAGES ---------------------
 % Title of the thesis
-\title{Thesis GWU Example Dissertation}
+\title{Motivating the inclusion of construct validity in social media measurement: Translating trust in vaccines from surveys to Twitter}
 
 % Author name
-\author{Shankar Kulumani}
+\author{Michael C. Smith}
 
 % Previous degrees
-\bsdepartment{Astronautical Engineering}
-\bsschool{US Air Force Academy}
-\bsgrad{May 2009}
+\bsdepartment{Computer Science}
+\bsschool{The Johns Hopkins University} %made change in .cls file from B.S. to B.Eng.
+\bsgrad{May 2011}
 
-\msdepartment{Aeronautical and Astronautical Engineering}
-\msschool{Purdue University}
-\msgrad{May 2013}
+\msdepartment{Computer Science}
+\msschool{The Johns Hopkins University}
+\msgrad{December 2014}
 \showmsdegree % you can show or hide the MS degree line 
-% \hidemsdegree
+%\hidemsdegree
 
 % PhD degree commands
 % Committee
 \showcommitteepage % hide this page if you're doing a MS thesis
 %\hidecommitteepage 
 \committee{ %
-Taeyoung Lee, Associate Professor of Engineering and Applied Science,\\ 
-Dissertation Director\\ % remember to add a space between committee members
+David A. Broniatowski, Associate Professor of Engineering Management and Systems Engineering, The George Washington University, Dissertation Director\\ % remember to add a space between committee members
 
-Full Name, Title, \\
-Dissertation Director/Dissertation Co-Director/Committee Member
+Thomas A. Mazzuchi, Professor of Engineering Management and Systems Engineering, George Washington University, Committee Member \\
+
+Dr. Sandra C. Quinn, Professor of Family Science,  University of Maryland, 
+Committee Member \\
+
+J. Rene van Dorp, Professor of Engineering Management and Systems Engineering, George Washington University, Committee Member \\
+
+Mark Dredze, John C. Malone Associate Professor in the Department of Computer Science, The Johns Hopkins University, External Examiner \\
 }
 
 % Chair must be entered separately for formatting reasons.
-\chair{Tayeoung Lee}
-\chairtitle{Associate Professor of Mechanical and Aerospace Engineering}
+\chair{David A. Broniatowski}
+\chairtitle{Associate Professor of Engineering Management and Systems Engineering}
 % Department
-\department{Mechanical and Aerospace Engineering}
+\department{Engineering Management and Systems Engineering}
 
-\phdgrad{December 1, 2018}
-\defensedate{December 1, 2018}
+% \phdgrad{TBD}
+\defensedate{2019-12-18}
 % Year of completion for copyright page and perhaps other places
-\year=2018
+\year=2020
 
 % Copyright page
 %\copyrightholder{Someone else}
 
 % Dedication
 \dedication{ %
-Include a fancy quote or dedication
+%Include a fancy quote or dedication
+\begin{center}
+    \emph{I hope I make you proud.}
+\end{center}
 }
 
 % Acknowledgments
 \acknowledgments{
-    Here you can acknowledge all of those people who have helped you to reach this point.
-    It's rare that any work is done in a vacuum and your research is no exception.
-    Feel free to be grateful for all those who've aided you along your way.
+    I would like to acknowledge all of the people who helped me get to this point, because this document is the capstone of the last 5 years of my career.\\
+    
 }
 
 % -----------------------------------------------------------------
-% Typically only one of Preface/Foreward/Prologue would be in your thesis.
-% To choose one simply delete the others and they will automatically dissappear
+% Typically only one of Preface/Foreword/Prologue would be in your thesis.
+% To choose one simply delete the others and they will automatically disappear
 
 % Preface
 \preface{
@@ -69,14 +76,14 @@ Include a fancy quote or dedication
 }
 
 \prologue{
-    This is the prologe. 
+    This is the prologue. 
     It's another front matter page that offers additional detail into your work.
     Typically, only one (preface OR prologue OR foreword) is used. 
     You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
 }
 
 \foreword[2]{
-    This is the forword. 
+    This is the foreword. 
     It's another front matter page that offers additional detail into your work.
     Typically, only one (preface OR prologue OR foreword) is used. 
     You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
@@ -91,10 +98,23 @@ Include a fancy quote or dedication
 \showdedication
 \showacknowledgments
 \showpreface
-\showprologue
-\showforeword
+\hideprologue
+\hideforeword
 
 % ------------ TABLE OF CONTENTS ----------------------
+% add 'chapter' preceding the snum
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\renewcommand{\cftchapaftersnum}{:}
+\setlength{\cftchapnumwidth}{\widthof{Appendix AAA~ }}
+% change this to 'appendix' by hacking the \appendix command
+\makeatletter
+\g@addto@macro\appendix{%
+  \addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
+  }%
+}
+\makeatother
+
 % Commands to hide or show lists of figures, tables, etc.
 \showlistoffigures
 \showlistoftables
@@ -103,7 +123,7 @@ Include a fancy quote or dedication
 % --------- ACRONYMS and SYMBOLS ------------------------------
 % TODO Deprecate the entire acronym package and switch to glossaries
 
-% You can either use the acronymn or glossaries package (both work)
+% You can either use the acronym or glossaries package (both work)
 % Definition of any abbreviations used.
 \abbreviations{
     \acro{CRTBP}{Circular Restricted Three Body Problem}
@@ -117,7 +137,7 @@ Include a fancy quote or dedication
     \acro{J}{Moment of Inertia}
 }       
 
-% if you want acronymn (simpler) then change these to show
+% if you want acronym (simpler) then change these to show
 \hidelistofabbreviations
 \hidelistofsymbols
 

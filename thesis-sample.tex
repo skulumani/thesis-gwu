@@ -1,5 +1,6 @@
 \documentclass[thesis]{thesis-gwu}[2018/05/21]
 
+
 % this package is only used to generate some random text. 
 % it is not needed in a true document
 \usepackage{lipsum}
@@ -9,14 +10,25 @@
 % this will speed up your tikz figures by building them once to another directory
 \usepackage{pgfplots}
 \usepgfplotslibrary{external}
-\tikzexternalize
-\tikzsetexternalprefix{cache/}
+%\tikzexternalize
+%\tikzsetexternalprefix{cache/}
 
 %% DOCUMENT AREA
 \begin{document}
-
-\include{tex/manual}
+\begin{comment}
+\include{tex/intro-example}
+\include{tex/manual-ex}
+\include{tex/results-example.tex}
+\end{comment}
+% \begin{comment}
+\include{tex/intro}
+\include{tex/litreview}
+\include{tex/prevmethods}
+\include{tex/methods}
 \include{tex/results}
+\include{tex/discussion}
+\include{tex/conclusion}
+% \end{comment}
 
 \bibliographystyle{plain}
 \bibliography{thesis-bib}

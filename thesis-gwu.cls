@@ -441,7 +441,7 @@
    of The George Washington University \\
    in partial satisfaction of the requirements \\
    for the degree of \insertdegree \\[3\baselineskip]
-   \insertphdgrad \\[4\baselineskip]
+   \insertphdgrad \\[3\baselineskip]
    % insert doctoral advisor
    Dissertation directed by \\[1\baselineskip]
    \insertchair \\
@@ -954,16 +954,22 @@
 \newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse\@gwu@tableofcontentsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
+\RequirePackage{tocloft}
+\RequirePackage{calc}
+
 % This sets the formatting for chapter entries in the table of contents.
-\renewcommand*\l@chapter[2]{ %
+\begin{comment}
+%\renewcommand*\l@chapter[2]{ %
  % First add some vertical space.
- \vskip 1ex plus 1pt minus 1pt
+% \vskip 1ex plus 1pt minus 1pt
  % Format the spacing and use dots between title and number.
- \@dottedtocline{1}{0em}{1.2em} %
+% \@dottedtocline{1}{0em}{1.2em} %
  % This sets the formatting for the chapter name and page number.
- {\textbf{#1}}{\textbf{#2}} %
+% {\textbf{#1}}{\textbf{#2}} %
  % Add some space below, too.
- \vskip 1ex}
+% \vskip 1ex}
+\end{comment}
+
 
 % These lines set the spacing for other table of contents entries.
 \renewcommand*{\l@section}{\@dottedtocline{2}{2.5em}{2em}}
@@ -1552,4 +1558,3 @@
  \fi %
  }
 }
-
