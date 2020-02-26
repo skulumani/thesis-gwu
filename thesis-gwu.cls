@@ -513,7 +513,7 @@
   \frntpg
     \begin{doublespace}
     \noindent
-    \insertphdschool of The George Washington
+    \insertphdschool \space of The George Washington
     University certifies that \insertauthor~has passed the Final Examination for the
     degree of \insertdegree~as of \insertdefensedate. This is the
     final and approved form of the dissertation.
