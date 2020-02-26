@@ -214,7 +214,7 @@ In the preamble put a command like the following.
  \acro{H2O}[$\mathrm{H_2O}$]{water}}
 \end{verbatim}
 This will define a bunch of abbreviations that can be used.  
-When you want to use one of the acronyms within the text, simply use the \verb|\ac| command to refer to the abbreviation you want.  
+When you want to use one of the acronyms within the text, simply use the \verb|\ac| command to refer to the abbreviation you want.
 This will automatically spell out what the abbreviation stands for on the first use and only print out the abbreviation on subsequent uses.  
 
 \subsubsection{\texttt{glossaries} usage - much improved and more powerful}
@@ -224,8 +224,13 @@ Each acronymn is defined using the following:
 \begin{verbatim}
 \newacronym{crtb}{CRTBP}{Circular Restricted Three Body Problem}
 \end{verbatim}
-Here we can  use an acronym, such as \gls{crtbp}.
+Here we can use an acronym, such as \gls{crtbp}.
 Or display the full name, \gls{crtbp}.
+
+Here's an \verb|\ac| acronym \ac{CRTBP}, followed by some random text, but \ac{HIDEME}
+
+
+Let's use an acronym from the \texttt{glossaries} package, \acrfull{crtbp} and \gls{F} but \acrfull{hideme}.
 
 \section{Float environments}
 There are many possible float enviornments, and this section will serve as an introduction and demonstration of some of them.
@@ -263,22 +268,21 @@ Here's another figure that demonstrates the use of \texttt{tikz} and the externa
 Here's a table in~\cref{tab:table}
 
 \begin{table}
-\begin{center}
+    \centering
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Day & Min Temp & Max Temp & Summary \\ \hline
     Monday & 11C & 22C & A clear day with lots of sunshine.  
     However, the strong breeze will bring down the temperatures. \\ \hline
-    Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells 
+    Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells
     across most of Scotland and Northern Ireland, 
     but rain reaching the far northwest. \\ \hline
-    Wednesday & 10C & 21C & Rain will still linger for the morning. 
+    Wednesday & 10C & 21C & Rain will still linger for the morning.
     Conditions will improve by early afternoon and continue 
-    throughout the evening. \\
+    throughout the evening.\\
     \hline
     \end{tabular}
     \caption[Short caption for table]{Long caption for text \label{tab:table}}
-    \end{center}
 \end{table}
 
 \section{References and Citation}

@@ -7,32 +7,14 @@
 
 \input{tex/frontmatter}
 
-% this will speed up your tikz figures by building them once to another directory
-\usepackage{pgfplots}
-\usepgfplotslibrary{external}
-%\tikzexternalize
-%\tikzsetexternalprefix{cache/}
-
 %% DOCUMENT AREA
 \begin{document}
-% \begin{comment}
-\include{tex/intro-example}
-\include{tex/manual-ex}
+\include{tex/manual}  % here is a manual on how to use the template
 \include{tex/results-example.tex}
-% \end{comment}
-\begin{comment}
-\include{tex/intro}
-\include{tex/litreview}
-\include{tex/prevmethods}
-\include{tex/methods}
-\include{tex/results}
-\include{tex/discussion}
-\include{tex/conclusion}
-\end{comment}
 
 \bibliographystyle{plain}
 \bibliography{thesis-bib}
 
 % appendices must appear after
-\include{tex/appendix}
+\include{tex/appendix-ex}
 \end{document}

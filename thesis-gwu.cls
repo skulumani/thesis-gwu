@@ -50,13 +50,14 @@
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
 %%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
 %%  2018.01.20 @Shankar Kulumani  : Setup titlesec for modifying headings
+%%  2020.02.26 @Michael Smith     : 2020 update for GWU template
 
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
 \NeedsTeXFormat{LaTeX2e}
 
-% This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/08/31 v1.6.1 GWU Thesis template]
+% This command gives the name of the class and dates it
+\ProvidesClass{thesis-gwu}[2020/02/26 v1.7.0 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -142,6 +143,12 @@
 
 
 %% ---- PACKAGE LOADING ------------------------------------------------
+% this will speed up your tikz figures by building them once to another directory
+\usepackage{pgfplots}
+\usepgfplotslibrary{external}
+\pgfplotsset{compat=1.16}
+%\tikzexternalize
+%\tikzsetexternalprefix{cache/}
 
 % This class uses the geometry.sty package to set the margins.
 \if@gwu@debug
@@ -258,6 +265,14 @@
 % This package is used for the list of abbreviations
 \RequirePackage[printonlyused]{acronym}%
 \RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
+
+
+\glsxtrRevertTocMarks % remove warning from tocloft about starttoc
+
+\RequirePackage[titles]{tocloft}
+\RequirePackage{calc}
+
+
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -343,13 +358,16 @@
 \renewcommand{\@title}{Insert a Title!}
 \renewcommand{\@author}{Insert an Author!}
 
-\newcommand{\@bsdepartment}{Insert a BS department name!}
-\newcommand{\@bsschool}{Insert BS school!}
-\newcommand{\@bsgrad}{BS Grad date!}
+% and other fields
+\newcommand{\@bachelordegree}{Insert a Bachelor's degree!}
+\newcommand{\@bsdepartment}{Insert a Bachelor's department name!}
+\newcommand{\@bsschool}{Insert Bachelor's school!}
+\newcommand{\@bsgrad}{Bachelor's Grad date!}
 
-\newcommand{\@msdepartment}{Insert a MS department name!}
-\newcommand{\@msschool}{Insert MS school!}
-\newcommand{\@msgrad}{MS Grad date!}
+\newcommand{\@masterdegree}{Insert a Master's degree!}
+\newcommand{\@msdepartment}{Insert a Master's department name!}
+\newcommand{\@msschool}{Insert Master's school!}
+\newcommand{\@msgrad}{Master's Grad date!}
 
 \newcommand{\@degree}{Doctor of Philosophy}
 \newcommand{\@department}{Insert a Department Name!}
@@ -358,12 +376,14 @@
 \newcommand{\@chairtitle}{Professor of INSERT Title!}
 \newcommand{\@cochair}{}
 \newcommand{\@phdgrad}{PhD Grad date!}
+\newcommand{\@phdschool}{Insert PhD school}
 \newcommand{\@defensedate}{Insert defense date!}
 
 % Commands to set the titlepage fields
 \renewcommand{\title}[1]{\renewcommand{\@title}{#1}\@gwu@titlepagetrue}
 \renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
 
+\newcommand{\bachelordegree}[1]{\renewcommand{\@bachelordegree}{#1}}
 \newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
 \newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
 \newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
@@ -371,6 +391,7 @@
 \newcommand{\showmsdegree}{\@gwu@msdegreetrue}
 \newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
 
+\newcommand{\masterdegree}[1]{\renewcommand{\@masterdegree}{#1}}
 \newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
 \newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
 \newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
@@ -382,15 +403,18 @@
 \newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
 \newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
 \newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
+\newcommand{\phdschool}[1]{\renewcommand{\@phdschool}{#1}}
 \newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
 % Commands for the user to be able to use the defined fields.
 \newcommand{\inserttitle}{\@title}
 \newcommand{\insertauthor}{\@author}
 
+\newcommand{\insertbachelordegree}{\@bachelordegree}
 \newcommand{\insertbsdepartment}{\@bsdepartment}
 \newcommand{\insertbsschool}{\@bsschool}
 \newcommand{\insertbsgrad}{\@bsgrad}
 
+\newcommand{\insertmasterdegree}{\@masterdegree}
 \newcommand{\insertmsdepartment}{\@msdepartment}
 \newcommand{\insertmsschool}{\@msschool}
 \newcommand{\insertmsgrad}{\@msgrad}
@@ -403,6 +427,7 @@
 \newcommand{\insertcochair}{\@cochair}
 \newcommand{\insertyear}{\number\year}
 \newcommand{\insertphdgrad}{\@phdgrad}
+\newcommand{\insertphdschool}{\@phdschool}
 
 \newcommand{\insertdefensedate}{\@defensedate}
 % This redefines the title page to automatically have all of the
@@ -429,15 +454,15 @@
    %\vfill %
    % previous degrees
    \if@gwu@msdegree
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
+    \insertbachelordegree \space in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+    \insertmasterdegree \space in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
    \else
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
+    \insertbachelordegree \space in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
    \fi
    % Text from guidelines
    A Dissertation submitted to \\[3\baselineskip] %
    The Faculty of \\
-   The School of Engineering and Applied Science \\
+   \insertphdschool \\
    of The George Washington University \\
    in partial satisfaction of the requirements \\
    for the degree of \insertdegree \\[3\baselineskip]
@@ -488,7 +513,7 @@
   \frntpg
     \begin{doublespace}
     \noindent
-    The School of Engineering and Applied Science of The George Washington
+    \insertphdschool of The George Washington
     University certifies that \insertauthor~has passed the Final Examination for the
     degree of \insertdegree~as of \insertdefensedate. This is the
     final and approved form of the dissertation.
@@ -496,7 +521,7 @@
 
   \begin{center}
     \begin{singlespace}
-      {\normalsize\bfseries\inserttitle} \\[1\baselineskip]
+      {\normalsize\bfseries\inserttitle} \\[2\baselineskip]
       \insertauthor \\[3\baselineskip]
     \end{singlespace}
 \end{center}
@@ -954,8 +979,6 @@
 \newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse\@gwu@tableofcontentsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
-\RequirePackage{tocloft}
-\RequirePackage{calc}
 
 % This sets the formatting for chapter entries in the table of contents.
 \begin{comment}
@@ -1409,7 +1432,7 @@
 \let\@tex@bibliography\bibliography
 
 % Change the bibliography header.
-\renewcommand*{\bibname}{\centerline{\normalsize Bibliography}}
+\renewcommand*{\bibname}{\centering{\normalsize Bibliography}}
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %

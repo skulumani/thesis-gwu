@@ -2,47 +2,66 @@
 
 % --------- FRONT MATTER PAGES ---------------------
 % Title of the thesis
-\title{Motivating the inclusion of construct validity in social media measurement: Translating trust in vaccines from surveys to Twitter}
+\title{What's the Title of Your Dissertation?}
+% capitalize significant words!
 
 % Author name
-\author{Michael C. Smith}
+\author{Your Name Here}
 
 % Previous degrees
-\bsdepartment{Computer Science}
-\bsschool{The Johns Hopkins University} %made change in .cls file from B.S. to B.Eng.
-\bsgrad{May 2011}
+\bachelordegree{Your Bachelor's degree}
+\bsdepartment{Your old department}
+\bsschool{Your alma mater}
+\bsgrad{Month, YYYY} % month, year
 
+\masterdegree{M.S.E.}
 \msdepartment{Computer Science}
-\msschool{The Johns Hopkins University}
-\msgrad{December 2014}
-\showmsdegree % you can show or hide the MS degree line 
-%\hidemsdegree
+\msschool{Your alma mater}
+\msgrad{Month, YYYY}  % month, year
+% you can show or hide the MS degree line
+\showmsdegree
+% \hidemsdegree
 
 % PhD degree commands
 % Committee
 \showcommitteepage % hide this page if you're doing a MS thesis
 %\hidecommitteepage 
-\committee{ %
-David A. Broniatowski, Associate Professor of Engineering Management and Systems Engineering, The George Washington University, Dissertation Director\\ % remember to add a space between committee members
 
-Thomas A. Mazzuchi, Professor of Engineering Management and Systems Engineering, George Washington University, Committee Member \\
 
-Dr. Sandra C. Quinn, Professor of Family Science,  University of Maryland, 
-Committee Member \\
-
-J. Rene van Dorp, Professor of Engineering Management and Systems Engineering, George Washington University, Committee Member \\
-
-Mark Dredze, John C. Malone Associate Professor in the Department of Computer Science, The Johns Hopkins University, External Examiner \\
-}
+% define COMMITTEE information
 
 % Chair must be entered separately for formatting reasons.
-\chair{David A. Broniatowski}
-\chairtitle{Associate Professor of Engineering Management and Systems Engineering}
-% Department
-\department{Engineering Management and Systems Engineering}
+\chair{Professor A. Person}
+\department{Your Department}
+\chairtitle{Professor-Title of \insertdepartment}
 
-% \phdgrad{TBD}
-\defensedate{2019-12-18}
+\phdschool{The School of Engineering and Applied Science}
+
+\committee{ 
+% director first
+\insertchairtitle, Dissertation Director
+
+% remember to add a space between committee members
+\vspace{\baselineskip}
+
+% you don't need to write "The George Washington University" every time
+Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
+
+\vspace{\baselineskip}
+
+Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
+
+\vspace{\baselineskip}
+
+Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
+\vspace{\baselineskip}
+
+% external examiner
+Name of External Examiner, Title, Department, The External University, Committee Member  % include university of any external examiner! but still "committee member"
+}
+
+\phdgrad{March 8, 2020}  % Month, DD, YYYY
+\defensedate{December 18, 2019}  % Month, DD, YYYY
 % Year of completion for copyright page and perhaps other places
 \year=2020
 
@@ -51,16 +70,14 @@ Mark Dredze, John C. Malone Associate Professor in the Department of Computer Sc
 
 % Dedication
 \dedication{ %
-%Include a fancy quote or dedication
-\begin{center}
-    \emph{I hope I make you proud.}
-\end{center}
+\emph{Include a fancy quote or dedication.}
 }
 
 % Acknowledgments
 \acknowledgments{
-    I would like to acknowledge all of the people who helped me get to this point, because this document is the capstone of the last 5 years of my career.\\
-    
+    Here you can acknowledge all of those people who have helped you to reach this point.
+    It's rare that any work is done in a vacuum and your research is no exception.
+    Feel free to be grateful for all those who've aided you along your way.
 }
 
 % -----------------------------------------------------------------
@@ -129,6 +146,7 @@ Mark Dredze, John C. Malone Associate Professor in the Department of Computer Sc
     \acro{CRTBP}{Circular Restricted Three Body Problem}
     \acro{NSA}{National Security Agency}
     \acro{SSME}{Space Shuttle Main Engine}
+    \acro{HIDEME}{Hide the pages for One of These Abbreviation Systems; this is from abbreviations}
 }
 % call an abbreviation using \ac{abbrev}
 
@@ -138,8 +156,8 @@ Mark Dredze, John C. Malone Associate Professor in the Department of Computer Sc
 }       
 
 % if you want acronym (simpler) then change these to show
-\hidelistofabbreviations
-\hidelistofsymbols
+\showlistofabbreviations
+\showlistofsymbols
 
 % if you want glossaries (more powerful) then leave above as hide
 % GLOSSARIES package options - automatically turns off front pages from acronym package
@@ -157,6 +175,8 @@ Mark Dredze, John C. Malone Associate Professor in the Department of Computer Sc
 % acronyms defined in glossaries
 \newabbreviation{crtbp}{CRTBP}{Circular Restricted Three Body Problem}
 \newabbreviation{lidar}{LIDAR}{Light Detection and Ranging}
+\newabbreviation{hideme}{HIDEME}{Hide One of These Abbreviation Systems; this is from Glossaries}
+
 % defining abbreviations like this allows for autocompletion
 \newglossaryentry{filo}{
     name={FILO},
@@ -192,6 +212,7 @@ Mark Dredze, John C. Malone Associate Professor in the Department of Computer Sc
     sort=F,
     description={External Force}
 }
+
 % Some abstract text
 \abstract{
 This is the abstract. 
