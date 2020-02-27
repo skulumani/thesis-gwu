@@ -12,12 +12,12 @@
 \bachelordegree{Your Bachelor's degree}
 \bsdepartment{Your old department}
 \bsschool{Your alma mater}
-\bsgrad{Month, YYYY} % month, year
+\bsgrad{Month YYYY} % "month year"
 
 \masterdegree{M.S.}
 \msdepartment{Your graduate old department}
 \msschool{Your graduate alma mater}
-\msgrad{Month, YYYY}  % month, year
+\msgrad{Month YYYY}  % "month year"
 % you can show or hide the MS degree line
 \showmsdegree
 % \hidemsdegree
@@ -30,10 +30,12 @@
 
 % define COMMITTEE information
 
+% in general, note that administrative titles are not used, instead use "professorial titles"?
+
 % Chair must be entered separately for formatting reasons.
 \chair{Professor A. Person}
 \department{Your Department}
-\chairtitle{Professor-Title of \insertdepartment}
+\chairtitle{Amazing Professor of \insertdepartment}
 
 \phdschool{The School of Engineering and Applied Science}
 
@@ -44,7 +46,7 @@
 % remember to add a space between committee members
 \vspace{\baselineskip}
 
-% you don't need to write "The George Washington University" every time
+% you shouldn't write "The George Washington University" every time
 Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
 
 \vspace{\baselineskip}
@@ -57,11 +59,11 @@ Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Membe
 \vspace{\baselineskip}
 
 % external examiner
-Name of External Examiner, Title, Department, The External University, Committee Member  % include university of any external examiner! but still "committee member"
+Professorial Title and Name of External Examiner, The External University (or title and name, job title, name of company), Committee Member  % include university or company of any external examiner! but still "committee member"
 }
 
-\phdgrad{March 8, 2020}  % Month, DD, YYYY
-\defensedate{December 18, 2019}  % Month, DD, YYYY
+\phdgrad{March 8, 2020}  % Month DD, YYYY
+\defensedate{December 18, 2019}  % Month DD, YYYY
 % Year of completion for copyright page and perhaps other places
 \year=2020
 
@@ -117,20 +119,6 @@ Name of External Examiner, Title, Department, The External University, Committee
 \showpreface
 \hideprologue
 \hideforeword
-
-% ------------ TABLE OF CONTENTS ----------------------
-% add 'chapter' preceding the snum
-\renewcommand{\cftchappresnum}{\chaptername\space}
-\renewcommand{\cftchapaftersnum}{:}
-\setlength{\cftchapnumwidth}{\widthof{Appendix AAA~ }}
-% change this to 'appendix' by hacking the \appendix command
-\makeatletter
-\g@addto@macro\appendix{%
-  \addtocontents{toc}{%
-    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
-  }%
-}
-\makeatother
 
 % Commands to hide or show lists of figures, tables, etc.
 \showlistoffigures

@@ -269,7 +269,7 @@
 
 \glsxtrRevertTocMarks % remove warning from tocloft about starttoc
 
-\RequirePackage[titles]{tocloft}
+\RequirePackage{tocloft}
 \RequirePackage{calc}
 
 
@@ -336,6 +336,7 @@
 }
 
 %%-------- GLOSSARIES STYLES------------------------------------
+
 % define a new glossary style for acronymns and symbols
 \renewcommand*{\glossarysection}[2][]{%
 {\centering\bfseries{#2}\par}%
@@ -344,13 +345,13 @@
 
 \newglossarystyle{acronymsandsymbols}{%
     \setglossarystyle{list}% % based on the list style
-    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossarypreamble}{\vspace{8ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
 
 \newglossarystyle{glossaryofterms}{%
     \setglossarystyle{list}%
-    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossarypreamble}{\vspace{8ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
 %% ---- TITLE PAGE -----------------------------------------------------
@@ -515,20 +516,20 @@
     \noindent
     \insertphdschool \space of The George Washington
     University certifies that \insertauthor~has passed the Final Examination for the
-    degree of \insertdegree~as of \insertdefensedate. This is the
-    final and approved form of the dissertation.
+    degree of \insertdegree~as of \insertdefensedate. This is the final and approved form of the dissertation.
     \end{doublespace}
 
   \begin{center}
     \begin{singlespace}
-      {\normalsize\bfseries\inserttitle} \\[2\baselineskip]
+      \vspace{\baselineskip}
+      {\normalsize\bfseries\inserttitle} \\[3\baselineskip]
       \insertauthor \\[3\baselineskip]
     \end{singlespace}
 \end{center}
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
-   Dissertation Research Committee: \\[2ex] %
+   Dissertation Research Committee: \\[4ex] %
    % Horizontal spacing
    \hspace{5em} %
    % Insert the committee (in a box).
@@ -602,7 +603,9 @@
   % Style 2: Bold heading at top of page. Doublespacing for text
   % Center on the page.
    % Heading
-   \begin{center}\textbf{\normalsize{#3}}\end{center}
+   \begin{center}\textbf{\normalsize{#3}}
+   \vspace{\baselineskip}
+   \end{center}
    \begin{doublespace}
     \par #1
    \end{doublespace}
@@ -979,19 +982,29 @@
 \newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse\@gwu@tableofcontentsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
-
-% This sets the formatting for chapter entries in the table of contents.
-\begin{comment}
-%\renewcommand*\l@chapter[2]{ %
- % First add some vertical space.
-% \vskip 1ex plus 1pt minus 1pt
- % Format the spacing and use dots between title and number.
-% \@dottedtocline{1}{0em}{1.2em} %
- % This sets the formatting for the chapter name and page number.
-% {\textbf{#1}}{\textbf{#2}} %
- % Add some space below, too.
-% \vskip 1ex}
-\end{comment}
+% this overwrites the tocloft defaults.
+% definitely could be less hacky, but unsure of how to properly do this or respect the earlier formatting
+% including [titles] when loading tocloft also turns off the indentation needed!
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\contentsname}{Table of Contents}  
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\newpage\hfill\bfseries\normalsize}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\newpage\hfill\bfseries\normalsize}
+\renewcommand{\cftafterlottitle}{\hfill}
+% add 'chapter' preceding the section num in TOC
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\renewcommand{\cftchapaftersnum}{:}
+\setlength{\cftchapnumwidth}{\widthof{Appendix AAA~ }}
+% but change "chapter" to 'appendix' by hacking the \appendix command
+% patching "appendix" per https://texfaq.org/FAQ-patch
+\let\OldAppendix\appendix
+\renewcommand{\appendix}{
+\OldAppendix
+\addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}
+  }
+}
 
 
 % These lines set the spacing for other table of contents entries.
@@ -1205,7 +1218,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Abbreviations}}\\[2\baselineskip] \end{center}%
+ \begin{center}{\normalsize\textbf{List of Abbreviations}}\\[3\baselineskip] \end{center}%
  % Add some space after the title.
  % \vspace{1ex} %
  % Start the automatic abbreviations feature.
