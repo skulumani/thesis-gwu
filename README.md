@@ -1,3 +1,5 @@
+Note: this README needs to be updated, as of 2020-03-02, but as of this commit, all LaTeX formatting is correct and confirmed by the GW library.
+
 | Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         | Citation |
 | :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       | :-----: |
 | [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] | [![DOI][ doi_shield ]][ doi ]
