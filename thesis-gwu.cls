@@ -116,6 +116,7 @@
 
 % if you call debug option then use the thesis option but not report
 \DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue}
+% \@gwu@debugtrue % uncomment for debug mode
 
 % Declare an option for the index.
 \DeclareOption{index}{\@gwu@indextrue}
@@ -141,137 +142,8 @@
  \@gwu@indexfalse
 \fi
 
-
 %% ---- PACKAGE LOADING ------------------------------------------------
-% this will speed up your tikz figures by building them once to another directory
-\usepackage{pgfplots}
-\usepgfplotslibrary{external}
-\pgfplotsset{compat=1.16}
-%\tikzexternalize
-%\tikzsetexternalprefix{cache/}
-
-% This class uses the geometry.sty package to set the margins.
-\if@gwu@debug
-  % Show margins 
-  \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in,
-  showframe]{geometry}
-\else
- % Use the standard margins for the thesis version.
- \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in]{geometry}
-\fi
-
-% Obsolete package check
-\RequirePackage[l2tabu,orthodox]{nag}
-
-% This loads the required math packages.
-\RequirePackage[binary-units=true]{siunitx}
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-\RequirePackage{mathtools}
-\RequirePackage{amsthm}
-
-% This loads the proper graphics package.
-\RequirePackage{graphicx}
-
-% Better spacing for text
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{lmodern}
-\RequirePackage{microtype}
-\RequirePackage{bm}
-
-\RequirePackage{mathptmx}
-
-% Add package for managing section headings
-\RequirePackage[]{titlesec}
-
-% This is useful for complex figures.
-\RequirePackage{subcaption}
-
-% Compress multiple citations
-% \RequirePackage{cite}
-
-% This package allows the ability to create a 'code' environment.
-\RequirePackage{verbatim}
-
-% This hopefully tells verbatim to leave my damn quotes alone.
-% \RequirePackage{upquote}
-
-% This package enables the use of proper single quotes in text.
-% \RequirePackage{textcomp}
-
-% This package is used to set line spacing.
-\RequirePackage{setspace}
-
-% This package is used to make nomenclature tables that can span pages.
-% \RequirePackage{longtable}
-
-% This package allows conditional testing of varibles.
-\RequirePackage{ifthen}
-
-% This package is used for silly letter spacing
-\RequirePackage{soul}
-
-% This package is used to generate alternate environments.
-\RequirePackage{float}
-
-% This package is for the index, if it is to be used.
-\if@gwu@index
- \RequirePackage{makeidx}
- \makeindex
-\fi
-
-% This is the package for special headers and footers.
-\RequirePackage{fancyhdr}
-
-% some extra packages to help with debugging
-\if@gwu@debug
-  \RequirePackage[final]{showlabels} % show labels for referencing
-  \RequirePackage{refcheck} % check for unused references/labels
-\fi
-
-%% ---- HYPERREF ----------------------------------------------------------
-% This loads a package that allows extra colors for links.
-\RequirePackage[]{color}
-% Custom color for references.
-% \definecolor{DarkGreen}{rgb}{0,0.6,0}
-
-% This will make labels and references hyperlinks.
-\if@gwu@backref%
- % Use references in the bibliography.
- \RequirePackage[pagebackref=true]{hyperref}%
-\else%
- % Do not use back references.
- \RequirePackage{hyperref}%
-\fi
-
-  \hypersetup{%
-    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
-    pdffitwindow=false,     % window fit to page when opened
-    pdfstartview={FitV},    % fits the width of the page to the window
-    pdfnewwindow=true,      % links in new PDF window
-    colorlinks=false,       % false: boxed links; true: colored links
-    bookmarksdepth=3,
-    bookmarksopen=true,
-  }%
-
-% Cleveref referencing - must happen after hyperref
-\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}%
-
-% Glossaries package - must come after hypperef
-% This package is used for the list of abbreviations
-\RequirePackage[printonlyused]{acronym}%
-\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
-
-
-\glsxtrRevertTocMarks % remove warning from tocloft about starttoc
-
-\RequirePackage{tocloft}
-\RequirePackage{calc}
-
+\input{required-packages}
 
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
@@ -345,15 +217,16 @@
 
 \newglossarystyle{acronymsandsymbols}{%
     \setglossarystyle{list}% % based on the list style
-    \renewcommand*{\glossarypreamble}{\vspace{8ex}}%
+    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
 
 \newglossarystyle{glossaryofterms}{%
     \setglossarystyle{list}%
-    \renewcommand*{\glossarypreamble}{\vspace{8ex}}%
+    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
+
 %% ---- TITLE PAGE -----------------------------------------------------
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
@@ -597,7 +470,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{2}}{ %
   % Style 2: Bold heading at top of page. Doublespacing for text
@@ -610,7 +484,8 @@
     \par #1
    \end{doublespace}
   % Vertical rubber space
-  \vspace*{\stretch{1}} %
+  % \vspace*{\stretch{1}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{3}}{ %
   % Style 3: Spread caps heading
@@ -631,7 +506,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{4}}{ %
   % Style 4: lined
@@ -654,7 +530,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{5}}{ %
   % Style 5: bold italic heading with lines
@@ -681,7 +558,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  % \vspace*{\stretch{2}} 
+  \vspace*{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{6}}{ %
   % Style 6: lined with spread caps header
@@ -708,7 +586,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  % \vspace*{\stretch{2}} %
+  \vspace*{\baselineskip} %
  }{ %
   % Default style: centered
   % Vertical rubber space
@@ -722,7 +601,8 @@
    \end{minipage} %
  \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{1}} %
+  \vspace*{\baselineskip} %
+  % \vspace*{\stretch{2}} %
  }}}}}} %
 }
 
@@ -983,15 +863,21 @@
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % this overwrites the tocloft defaults.
-% definitely could be less hacky, but unsure of how to properly do this or respect the earlier formatting
+% definitely could be less hacky, but unsure of how to properly do this or respect the other formatting below
 % including [titles] when loading tocloft also turns off the indentation needed!
 \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftbeforetoctitleskip}{-2ex}
+\renewcommand{\cftaftertoctitleskip}{5ex}
 \renewcommand{\contentsname}{Table of Contents}  
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftloftitlefont}{\newpage\hfill\bfseries\normalsize}
 \renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftbeforeloftitleskip}{0ex}
+\renewcommand{\cftafterloftitleskip}{5ex}
 \renewcommand{\cftlottitlefont}{\newpage\hfill\bfseries\normalsize}
 \renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftbeforelottitleskip}{0ex}
+\renewcommand{\cftafterlottitleskip}{5ex}
 % add 'chapter' preceding the section num in TOC
 \renewcommand{\cftchappresnum}{\chaptername\space}
 \renewcommand{\cftchapaftersnum}{:}
@@ -1030,7 +916,7 @@
  % Add the title
  \begin{center}{\normalsize\textbf{Table of Contents}}\end{center} %
  % Add some space after the title.
- \vspace{2ex} %
+ \vspace{1ex} %
  % Start the automatic table of contents features.
  \begin{singlespace} %
   \@starttoc{toc}\if@restonecol\twocolumn\fi %
