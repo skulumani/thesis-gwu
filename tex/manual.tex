@@ -269,15 +269,19 @@ Here's a table in~\cref{tab:table}
 
 \begin{table}
     \centering
+    %\resizebox{\textwidth}{!}{
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
-    Day & Min Temp & Max Temp & Summary \\ \hline
+    Day & Min Temp & Max Temp & Summary \\ 
+    \hline
     Monday & 11C & 22C & A clear day with lots of sunshine.  
-    However, the strong breeze will bring down the temperatures. \\ \hline
+    However, the strong breeze will bring down the temperatures. \\ 
+    \hline
     Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells
     across most of Scotland and Northern Ireland, 
-    but rain reaching the far northwest. \\ \hline
-    Wednesday & 10C & 21C & Rain will still linger for the morning.
+    but rain reaching the far northwest. \hfill \\ 
+    \hline
+    Wednesday & 10C & 21C & Rain will still linger for the morning. \hfill 
     Conditions will improve by early afternoon and continue 
     throughout the evening.\\
     \hline
@@ -295,7 +299,7 @@ Luckily, with our fancy referencing we have access to both~\cref{fig:ext,fig:ksp
 The key thing to note from~\cref{fig:ext} is that trustworthiness reaches a maximum for those using~\verb+.tex+.
 \begin{figure}[htbp] 
     \centering 
-    \begin{subfigure}[htbp]{0.5\textwidth} 
+    \begin{subfigure}[htbp]{0.4\textwidth} 
         \includegraphics[width=\textwidth]{figures/file_extensions.png} 
         \caption{File Extensions} \label{fig:ext} 
     \end{subfigure}~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. %(or a blank line to force the subfigure onto a new line) 
