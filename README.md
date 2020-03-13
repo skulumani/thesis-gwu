@@ -29,7 +29,7 @@ This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms 
 
 ### Overleaf
 
-The template is available on [Overleaf](https://www.overleaf.com/latex/templates/george-washington-university-thesis-template-thesis-gwu/hkbwhnrsyzwh). 
+The template is available on [Overleaf](https://www.overleaf.com/latex/templates/george-washington-university-thesis-template/sbbbvxfxvpps). 
 
 ### Installing
 
