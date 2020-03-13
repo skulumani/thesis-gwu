@@ -50,13 +50,14 @@
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
 %%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
 %%  2018.01.20 @Shankar Kulumani  : Setup titlesec for modifying headings
+%%  2020.02.26 @Michael Smith     : 2020 update for GWU template
 
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
 \NeedsTeXFormat{LaTeX2e}
 
-% This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/08/31 v1.6.1 GWU Thesis template]
+% This command gives the name of the class and dates it
+\ProvidesClass{thesis-gwu}[2020/02/26 v1.7.0 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -115,6 +116,7 @@
 
 % if you call debug option then use the thesis option but not report
 \DeclareOption{debug}{\@gwu@debugtrue\@gwu@thesistrue}
+% \@gwu@debugtrue % uncomment for debug mode
 
 % Declare an option for the index.
 \DeclareOption{index}{\@gwu@indextrue}
@@ -140,124 +142,9 @@
  \@gwu@indexfalse
 \fi
 
-
 %% ---- PACKAGE LOADING ------------------------------------------------
+\input{required-packages}
 
-% This class uses the geometry.sty package to set the margins.
-\if@gwu@debug
-  % Show margins 
-  \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in,
-  showframe]{geometry}
-\else
- % Use the standard margins for the thesis version.
- \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in]{geometry}
-\fi
-
-% Obsolete package check
-\RequirePackage[l2tabu,orthodox]{nag}
-
-% This loads the required math packages.
-\RequirePackage[binary-units=true]{siunitx}
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-\RequirePackage{mathtools}
-\RequirePackage{amsthm}
-
-% This loads the proper graphics package.
-\RequirePackage{graphicx}
-
-% Better spacing for text
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{lmodern}
-\RequirePackage{microtype}
-\RequirePackage{bm}
-
-\RequirePackage{mathptmx}
-
-% Add package for managing section headings
-\RequirePackage[]{titlesec}
-
-% This is useful for complex figures.
-\RequirePackage{subcaption}
-
-% Compress multiple citations
-% \RequirePackage{cite}
-
-% This package allows the ability to create a 'code' environment.
-\RequirePackage{verbatim}
-
-% This hopefully tells verbatim to leave my damn quotes alone.
-% \RequirePackage{upquote}
-
-% This package enables the use of proper single quotes in text.
-% \RequirePackage{textcomp}
-
-% This package is used to set line spacing.
-\RequirePackage{setspace}
-
-% This package is used to make nomenclature tables that can span pages.
-% \RequirePackage{longtable}
-
-% This package allows conditional testing of varibles.
-\RequirePackage{ifthen}
-
-% This package is used for silly letter spacing
-\RequirePackage{soul}
-
-% This package is used to generate alternate environments.
-\RequirePackage{float}
-
-% This package is for the index, if it is to be used.
-\if@gwu@index
- \RequirePackage{makeidx}
- \makeindex
-\fi
-
-% This is the package for special headers and footers.
-\RequirePackage{fancyhdr}
-
-% some extra packages to help with debugging
-\if@gwu@debug
-  \RequirePackage[final]{showlabels} % show labels for referencing
-  \RequirePackage{refcheck} % check for unused references/labels
-\fi
-
-%% ---- HYPERREF ----------------------------------------------------------
-% This loads a package that allows extra colors for links.
-\RequirePackage[]{color}
-% Custom color for references.
-% \definecolor{DarkGreen}{rgb}{0,0.6,0}
-
-% This will make labels and references hyperlinks.
-\if@gwu@backref%
- % Use references in the bibliography.
- \RequirePackage[pagebackref=true]{hyperref}%
-\else%
- % Do not use back references.
- \RequirePackage{hyperref}%
-\fi
-
-  \hypersetup{%
-    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
-    pdffitwindow=false,     % window fit to page when opened
-    pdfstartview={FitV},    % fits the width of the page to the window
-    pdfnewwindow=true,      % links in new PDF window
-    colorlinks=false,       % false: boxed links; true: colored links
-    bookmarksdepth=3,
-    bookmarksopen=true,
-  }%
-
-% Cleveref referencing - must happen after hyperref
-\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}%
-
-% Glossaries package - must come after hypperef
-% This package is used for the list of abbreviations
-\RequirePackage[printonlyused]{acronym}%
-\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -321,6 +208,7 @@
 }
 
 %%-------- GLOSSARIES STYLES------------------------------------
+
 % define a new glossary style for acronymns and symbols
 \renewcommand*{\glossarysection}[2][]{%
 {\centering\bfseries{#2}\par}%
@@ -338,18 +226,22 @@
     \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
+
 %% ---- TITLE PAGE -----------------------------------------------------
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
 \renewcommand{\@author}{Insert an Author!}
 
-\newcommand{\@bsdepartment}{Insert a BS department name!}
-\newcommand{\@bsschool}{Insert BS school!}
-\newcommand{\@bsgrad}{BS Grad date!}
+% and other fields
+\newcommand{\@bachelordegree}{Insert a Bachelor's degree!}
+\newcommand{\@bsdepartment}{Insert a Bachelor's department name!}
+\newcommand{\@bsschool}{Insert Bachelor's school!}
+\newcommand{\@bsgrad}{Bachelor's Grad date!}
 
-\newcommand{\@msdepartment}{Insert a MS department name!}
-\newcommand{\@msschool}{Insert MS school!}
-\newcommand{\@msgrad}{MS Grad date!}
+\newcommand{\@masterdegree}{Insert a Master's degree!}
+\newcommand{\@msdepartment}{Insert a Master's department name!}
+\newcommand{\@msschool}{Insert Master's school!}
+\newcommand{\@msgrad}{Master's Grad date!}
 
 \newcommand{\@degree}{Doctor of Philosophy}
 \newcommand{\@department}{Insert a Department Name!}
@@ -358,12 +250,14 @@
 \newcommand{\@chairtitle}{Professor of INSERT Title!}
 \newcommand{\@cochair}{}
 \newcommand{\@phdgrad}{PhD Grad date!}
+\newcommand{\@phdschool}{Insert PhD school}
 \newcommand{\@defensedate}{Insert defense date!}
 
 % Commands to set the titlepage fields
 \renewcommand{\title}[1]{\renewcommand{\@title}{#1}\@gwu@titlepagetrue}
 \renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
 
+\newcommand{\bachelordegree}[1]{\renewcommand{\@bachelordegree}{#1}}
 \newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
 \newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
 \newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
@@ -371,6 +265,7 @@
 \newcommand{\showmsdegree}{\@gwu@msdegreetrue}
 \newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
 
+\newcommand{\masterdegree}[1]{\renewcommand{\@masterdegree}{#1}}
 \newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
 \newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
 \newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
@@ -382,15 +277,18 @@
 \newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
 \newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
 \newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
+\newcommand{\phdschool}[1]{\renewcommand{\@phdschool}{#1}}
 \newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
 % Commands for the user to be able to use the defined fields.
 \newcommand{\inserttitle}{\@title}
 \newcommand{\insertauthor}{\@author}
 
+\newcommand{\insertbachelordegree}{\@bachelordegree}
 \newcommand{\insertbsdepartment}{\@bsdepartment}
 \newcommand{\insertbsschool}{\@bsschool}
 \newcommand{\insertbsgrad}{\@bsgrad}
 
+\newcommand{\insertmasterdegree}{\@masterdegree}
 \newcommand{\insertmsdepartment}{\@msdepartment}
 \newcommand{\insertmsschool}{\@msschool}
 \newcommand{\insertmsgrad}{\@msgrad}
@@ -403,6 +301,7 @@
 \newcommand{\insertcochair}{\@cochair}
 \newcommand{\insertyear}{\number\year}
 \newcommand{\insertphdgrad}{\@phdgrad}
+\newcommand{\insertphdschool}{\@phdschool}
 
 \newcommand{\insertdefensedate}{\@defensedate}
 % This redefines the title page to automatically have all of the
@@ -429,19 +328,19 @@
    %\vfill %
    % previous degrees
    \if@gwu@msdegree
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
+    \insertbachelordegree \space in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+    \insertmasterdegree \space in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
    \else
-    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
+    \insertbachelordegree \space in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
    \fi
    % Text from guidelines
    A Dissertation submitted to \\[3\baselineskip] %
    The Faculty of \\
-   The School of Engineering and Applied Science \\
+   \insertphdschool \\
    of The George Washington University \\
    in partial satisfaction of the requirements \\
    for the degree of \insertdegree \\[3\baselineskip]
-   \insertphdgrad \\[4\baselineskip]
+   \insertphdgrad \\[3\baselineskip]
    % insert doctoral advisor
    Dissertation directed by \\[1\baselineskip]
    \insertchair \\
@@ -488,22 +387,22 @@
   \frntpg
     \begin{doublespace}
     \noindent
-    The School of Engineering and Applied Science of The George Washington
+    \insertphdschool \space of The George Washington
     University certifies that \insertauthor~has passed the Final Examination for the
-    degree of \insertdegree~as of \insertdefensedate. This is the
-    final and approved form of the dissertation.
+    degree of \insertdegree~as of \insertdefensedate. This is the final and approved form of the dissertation.
     \end{doublespace}
 
   \begin{center}
     \begin{singlespace}
-      {\normalsize\bfseries\inserttitle} \\[1\baselineskip]
+      \vspace{\baselineskip}
+      {\normalsize\bfseries\inserttitle} \\[3\baselineskip]
       \insertauthor \\[3\baselineskip]
     \end{singlespace}
 \end{center}
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
-   Dissertation Research Committee: \\[2ex] %
+   Dissertation Research Committee: \\[4ex] %
    % Horizontal spacing
    \hspace{5em} %
    % Insert the committee (in a box).
@@ -571,18 +470,22 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{2}}{ %
   % Style 2: Bold heading at top of page. Doublespacing for text
   % Center on the page.
    % Heading
-   \begin{center}\textbf{\normalsize{#3}}\end{center}
+   \begin{center}\textbf{\normalsize{#3}}
+   \vspace{\baselineskip}
+   \end{center}
    \begin{doublespace}
     \par #1
    \end{doublespace}
   % Vertical rubber space
-  \vspace*{\stretch{1}} %
+  % \vspace*{\stretch{1}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{3}}{ %
   % Style 3: Spread caps heading
@@ -603,7 +506,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{4}}{ %
   % Style 4: lined
@@ -626,7 +530,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
+  \vspace{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{5}}{ %
   % Style 5: bold italic heading with lines
@@ -653,7 +558,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  % \vspace*{\stretch{2}} 
+  \vspace*{\baselineskip} %
  }{ %
  \ifthenelse{\equal{#2}{6}}{ %
   % Style 6: lined with spread caps header
@@ -680,7 +586,8 @@
    \end{minipage} %
   \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  % \vspace*{\stretch{2}} %
+  \vspace*{\baselineskip} %
  }{ %
   % Default style: centered
   % Vertical rubber space
@@ -694,7 +601,8 @@
    \end{minipage} %
  \end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{1}} %
+  \vspace*{\baselineskip} %
+  % \vspace*{\stretch{2}} %
  }}}}}} %
 }
 
@@ -954,16 +862,36 @@
 \newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse\@gwu@tableofcontentsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
-% This sets the formatting for chapter entries in the table of contents.
-\renewcommand*\l@chapter[2]{ %
- % First add some vertical space.
- \vskip 1ex plus 1pt minus 1pt
- % Format the spacing and use dots between title and number.
- \@dottedtocline{1}{0em}{1.2em} %
- % This sets the formatting for the chapter name and page number.
- {\textbf{#1}}{\textbf{#2}} %
- % Add some space below, too.
- \vskip 1ex}
+% this overwrites the tocloft defaults.
+% definitely could be less hacky, but unsure of how to properly do this or respect the other formatting below
+% including [titles] when loading tocloft also turns off the indentation needed!
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftbeforetoctitleskip}{-2ex}
+\renewcommand{\cftaftertoctitleskip}{5ex}
+\renewcommand{\contentsname}{Table of Contents}  
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\newpage\hfill\bfseries\normalsize}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftbeforeloftitleskip}{0ex}
+\renewcommand{\cftafterloftitleskip}{5ex}
+\renewcommand{\cftlottitlefont}{\newpage\hfill\bfseries\normalsize}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftbeforelottitleskip}{0ex}
+\renewcommand{\cftafterlottitleskip}{5ex}
+% add 'chapter' preceding the section num in TOC
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\renewcommand{\cftchapaftersnum}{:}
+\setlength{\cftchapnumwidth}{\widthof{Appendix AAA~ }}
+% but change "chapter" to 'appendix' by hacking the \appendix command
+% patching "appendix" per https://texfaq.org/FAQ-patch
+\let\OldAppendix\appendix
+\renewcommand{\appendix}{
+\OldAppendix
+\addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}
+  }
+}
+
 
 % These lines set the spacing for other table of contents entries.
 \renewcommand*{\l@section}{\@dottedtocline{2}{2.5em}{2em}}
@@ -988,7 +916,7 @@
  % Add the title
  \begin{center}{\normalsize\textbf{Table of Contents}}\end{center} %
  % Add some space after the title.
- \vspace{2ex} %
+ \vspace{1ex} %
  % Start the automatic table of contents features.
  \begin{singlespace} %
   \@starttoc{toc}\if@restonecol\twocolumn\fi %
@@ -1176,7 +1104,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Abbreviations}}\\[2\baselineskip] \end{center}%
+ \begin{center}{\normalsize\textbf{List of Abbreviations}}\\[3\baselineskip] \end{center}%
  % Add some space after the title.
  % \vspace{1ex} %
  % Start the automatic abbreviations feature.
@@ -1403,7 +1331,7 @@
 \let\@tex@bibliography\bibliography
 
 % Change the bibliography header.
-\renewcommand*{\bibname}{\centerline{\normalsize Bibliography}}
+\renewcommand*{\bibname}{\centering{\normalsize Bibliography}}
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
@@ -1552,4 +1480,3 @@
  \fi %
  }
 }
-

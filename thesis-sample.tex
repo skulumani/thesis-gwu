@@ -1,26 +1,21 @@
-\documentclass[thesis]{thesis-gwu}[2018/05/21]
+\documentclass[thesis]{thesis-gwu}[2020/02/03]
+
 
 % this package is only used to generate some random text. 
 % it is not needed in a true document
 \usepackage{lipsum}
 
-\input{tex/frontmatter}
 
-% this will speed up your tikz figures by building them once to another directory
-\usepackage{pgfplots}
-\usepgfplotslibrary{external}
-\tikzexternalize
-\tikzsetexternalprefix{cache/}
+\input{tex/frontmatter}
 
 %% DOCUMENT AREA
 \begin{document}
-
-\include{tex/manual}
-\include{tex/results}
+\include{tex/manual}  % here is a manual on how to use the template
+\include{tex/results-example}
 
 \bibliographystyle{plain}
 \bibliography{thesis-bib}
 
 % appendices must appear after
-\include{tex/appendix}
+\include{tex/appendix-ex}
 \end{document}
