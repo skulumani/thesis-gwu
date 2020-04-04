@@ -395,7 +395,7 @@
   \begin{center}
     \begin{singlespace}
       \vspace{\baselineskip}
-      {\normalsize\bfseries\inserttitle} \\[3\baselineskip]
+      {\normalsize\bfseries\inserttitle} \\[1\baselineskip]
       \insertauthor \\[3\baselineskip]
     \end{singlespace}
 \end{center}
