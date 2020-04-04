@@ -1,10 +1,3 @@
-% this will speed up your tikz figures by building them once to another directory
-\usepackage{pgfplots}
-\usepgfplotslibrary{external}
-\pgfplotsset{compat=1.16}
-%\tikzexternalize
-%\tikzsetexternalprefix{cache/}
-
 % This class uses the geometry.sty package to set the margins.
 \if@gwu@debug
   % Show margins 
@@ -121,7 +114,7 @@
 \RequirePackage[printonlyused]{acronym}%
 \RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
 
-\glsxtrRevertTocMarks % remove warning from tocloft about starttoc
+% \glsxtrRevertTocMarks % remove warning from tocloft about starttoc
 
-\RequirePackage{tocloft}
-\RequirePackage{calc}
+% \RequirePackage{tocloft}
+% \RequirePackage{calc}

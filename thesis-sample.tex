@@ -1,10 +1,16 @@
-\documentclass[thesis]{thesis-gwu}[2020/02/03]
+\documentclass[thesis]{./thesis-gwu}[2020/02/03]
 
 
 % this package is only used to generate some random text. 
 % it is not needed in a true document
 \usepackage{lipsum}
 
+% this will speed up your tikz figures by building them once to another directory
+\usepackage{pgfplots}
+\usepgfplotslibrary{external}
+\pgfplotsset{compat=1.16}
+\tikzexternalize
+\tikzsetexternalprefix{cache/}
 
 \input{tex/frontmatter}
 
