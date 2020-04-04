@@ -1,79 +1,52 @@
 % !TEX root = ../thesis-sample.tex
 
 % --------- FRONT MATTER PAGES ---------------------
-
 % Title of the thesis
-\title{What's the Title of Your Dissertation?}
-% capitalize significant words!
+\title{Thesis GWU Example Dissertation}
 
 % Author name
-\author{Your Name Here}
+\author{Shankar Kulumani}
 
 % Previous degrees
-\bachelordegree{Your Bachelor's degree}
-\bsdepartment{Your old department}
-\bsschool{Your alma mater}
-\bsgrad{Month YYYY} % "month year"
+\bsdepartment{Astronautical Engineering}
+\bsschool{US Air Force Academy}
+\bsgrad{May 2009}
 
-\masterdegree{M.S.}
-\msdepartment{Your graduate old department}
-\msschool{Your graduate alma mater}
-\msgrad{Month YYYY}  % "month year"
-% you can show or hide the MS degree line
-\showmsdegree
+\msdepartment{Aeronautical and Astronautical Engineering}
+\msschool{Purdue University}
+\msgrad{May 2013}
+\showmsdegree % you can show or hide the MS degree line 
 % \hidemsdegree
 
 % PhD degree commands
 % Committee
 \showcommitteepage % hide this page if you're doing a MS thesis
 %\hidecommitteepage 
+\committee{ %
+Taeyoung Lee, Associate Professor of Engineering and Applied Science,\\ 
+Dissertation Director\\ % remember to add a space between committee members
 
-
-% define COMMITTEE information
-
-% in general, note that administrative titles are not used, instead use "professorial titles"?
-
-% Chair must be entered separately for formatting reasons.
-\chair{Professor A. Person}
-\department{Insert Department}
-\chairtitle{Amazing Professor of \insertdepartment}
-
-\phdschool{The School of Engineering and Applied Science}
-
-\committee{ 
-% director first
-\insertchair, \insertchairtitle, Dissertation Director
-
-% remember to add a space between committee members
-\vspace{\baselineskip}
-
-% you shouldn't write "The George Washington University" every time
-Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
-
-\vspace{\baselineskip}
-
-Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
-
-\vspace{\baselineskip}
-
-Full Name, Title, Dissertation Director/Dissertation Co-Director/Committee Member
-\vspace{\baselineskip}
-
-% external examiner
-Name of External Examiner, Professorial Title, Name of External University (or Name, Job Title, Name of External Company), Committee Member  % include university or company of any external examiner! but still "committee member"
+Full Name, Title, \\
+Dissertation Director/Dissertation Co-Director/Committee Member
 }
 
-\phdgrad{March 8, 2020}  % Month DD, YYYY
-\defensedate{December 18, 2019}  % Month DD, YYYY
+% Chair must be entered separately for formatting reasons.
+\chair{Tayeoung Lee}
+\chairtitle{Associate Professor of Mechanical and Aerospace Engineering}
+% Department
+\department{Mechanical and Aerospace Engineering}
+
+\phdgrad{December 1, 2018}
+\defensedate{December 1, 2018}
 % Year of completion for copyright page and perhaps other places
-\year=2020
+\year=2018
 
 % Copyright page
 %\copyrightholder{Someone else}
 
 % Dedication
 \dedication{ %
-\emph{Include a fancy quote or dedication.}
+Include a fancy quote or dedication
 }
 
 % Acknowledgments
@@ -84,8 +57,8 @@ Name of External Examiner, Professorial Title, Name of External University (or N
 }
 
 % -----------------------------------------------------------------
-% Typically only one of Preface/Foreword/Prologue would be in your thesis.
-% To choose one simply delete the others and they will automatically disappear
+% Typically only one of Preface/Foreward/Prologue would be in your thesis.
+% To choose one simply delete the others and they will automatically dissappear
 
 % Preface
 \preface{
@@ -96,14 +69,14 @@ Name of External Examiner, Professorial Title, Name of External University (or N
 }
 
 \prologue{
-    This is the prologue. 
+    This is the prologe. 
     It's another front matter page that offers additional detail into your work.
     Typically, only one (preface OR prologue OR foreword) is used. 
     You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
 }
 
 \foreword[2]{
-    This is the foreword. 
+    This is the forword. 
     It's another front matter page that offers additional detail into your work.
     Typically, only one (preface OR prologue OR foreword) is used. 
     You can remove the other sections by deleting them inside \texttt{tex/frontmatter.tex} or using the appropriate show or hide commands.
@@ -118,11 +91,11 @@ Name of External Examiner, Professorial Title, Name of External University (or N
 \showdedication
 \showacknowledgments
 \showpreface
-\hideprologue
-\hideforeword
+\showprologue
+\showforeword
 
+% ------------ TABLE OF CONTENTS ----------------------
 % Commands to hide or show lists of figures, tables, etc.
-\showtableofcontents
 \showlistoffigures
 \showlistoftables
 \hidenomenclature
@@ -130,13 +103,12 @@ Name of External Examiner, Professorial Title, Name of External University (or N
 % --------- ACRONYMS and SYMBOLS ------------------------------
 % TODO Deprecate the entire acronym package and switch to glossaries
 
-% You can either use the acronym or glossaries package (both work)
+% You can either use the acronymn or glossaries package (both work)
 % Definition of any abbreviations used.
 \abbreviations{
     \acro{CRTBP}{Circular Restricted Three Body Problem}
     \acro{NSA}{National Security Agency}
     \acro{SSME}{Space Shuttle Main Engine}
-    \acro{HIDEME}{Hide the pages for One of These Abbreviation Systems; this is from abbreviations}
 }
 % call an abbreviation using \ac{abbrev}
 
@@ -145,9 +117,9 @@ Name of External Examiner, Professorial Title, Name of External University (or N
     \acro{J}{Moment of Inertia}
 }       
 
-% if you want acronym (simpler) then change these to show
-\showlistofabbreviations
-\showlistofsymbols
+% if you want acronymn (simpler) then change these to show
+\hidelistofabbreviations
+\hidelistofsymbols
 
 % if you want glossaries (more powerful) then leave above as hide
 % GLOSSARIES package options - automatically turns off front pages from acronym package
@@ -165,8 +137,6 @@ Name of External Examiner, Professorial Title, Name of External University (or N
 % acronyms defined in glossaries
 \newabbreviation{crtbp}{CRTBP}{Circular Restricted Three Body Problem}
 \newabbreviation{lidar}{LIDAR}{Light Detection and Ranging}
-\newabbreviation{hideme}{HIDEME}{Hide One of These Abbreviation Systems; this is from Glossaries}
-
 % defining abbreviations like this allows for autocompletion
 \newglossaryentry{filo}{
     name={FILO},
@@ -202,7 +172,6 @@ Name of External Examiner, Professorial Title, Name of External University (or N
     sort=F,
     description={External Force}
 }
-
 % Some abstract text
 \abstract{
 This is the abstract. 

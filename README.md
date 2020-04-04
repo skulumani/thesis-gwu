@@ -1,6 +1,3 @@
-Note: this README needs to be updated, as of 2020-03-02, but as of this commit, all LaTeX formatting is correct and confirmed by the GW library.
-
-
 | Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         | Citation |
 | :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       | :-----: |
 | [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] | [![DOI][ doi_shield ]][ doi ]
@@ -23,13 +20,13 @@ Note: this README needs to be updated, as of 2020-03-02, but as of this commit, 
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
-This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms to the University and SEAS formatting guidelines as of March 3, 2020.
+This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms to the University and SEAS formatting guidelines as of May 21 2018.
 
 ![screenshot](./doc/etd.png)
 
 ### Overleaf
 
-The template is available on [Overleaf](https://www.overleaf.com/latex/templates/george-washington-university-thesis-template/sbbbvxfxvpps). 
+The template is available on [Overleaf](https://www.overleaf.com/latex/templates/george-washington-university-thesis-template-thesis-gwu/hkbwhnrsyzwh). 
 
 ### Installing
 
@@ -87,7 +84,7 @@ Installing everything means you can work without being connected to the internet
 You also have total control over the various intricacies of LaTeX as it's on your system.
 This also means you have the responsibility of ensuring it's working properly, and fixing it when it goes horribly wrong.
 
-Using an online service frees you from dealing with downloading, installing, updating, etc. 
+Using and online service frees you from dealing with downloading, installing, updating, etc. 
 At the same time, you also are dependent on the internet and a working website in order to write your thesis. 
 If their website is compromised, crashes, gets DDoS'ed or the like, you may be in a difficult situation. 
 
@@ -136,11 +133,10 @@ For example, there are a variety of frontmatter pages, i.e. prologue, preface, a
 Simply, by removing the command or using the macros `\hidepreface` you can automatically remove them. 
 
 Your text can be included in individual `/tex/*.tex` files and included in the main document using `\include{./tex/chapter1.tex}`. 
-This gives you the added benefit of using `\includeonly{chapter1.tex}` to compile only specific sections of your much larger thesis.
+This gives you the added benefit of using `\includeonly{chapter1.tex}` to compile only specific sections of your much larger thesis. 
 
 The class file already loads several common packages such as, `amsmath, graphicx, cleveref, hyperref` and others. 
-
-If you need to load other or more packages, we've split off a `required-packages.tex` file for you to edit; it gets `input`ted into the class file. However, be aware that all package interactions **HAVE NOT** been tested. 
+You can add more packages but be aware that all package interactions **HAVE NOT** been tested. 
 
 There is also some demonstration of typical commands, such as equations, figures, cross-referencing. 
 
