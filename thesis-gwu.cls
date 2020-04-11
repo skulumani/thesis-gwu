@@ -50,13 +50,14 @@
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
 %%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
 %%  2018.01.20 @Shankar Kulumani  : Setup titlesec for modifying headings
-
+% TODO: Add comments from Mike Smith here for the changelog
+% TODO: Make variables for line space sizing - more flexible
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/08/31 v1.6.1 GWU Thesis template]
+\ProvidesClass{thesis-gwu}[2020/04/11 v2.2 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -329,13 +330,13 @@
 
 \newglossarystyle{acronymsandsymbols}{%
     \setglossarystyle{list}% % based on the list style
-    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossarypreamble}{\vspace{3ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
 
 \newglossarystyle{glossaryofterms}{%
     \setglossarystyle{list}%
-    \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
+    \renewcommand*{\glossarypreamble}{\vspace{3ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
 %% ---- TITLE PAGE -----------------------------------------------------
@@ -441,7 +442,7 @@
    of The George Washington University \\
    in partial satisfaction of the requirements \\
    for the degree of \insertdegree \\[3\baselineskip]
-   \insertphdgrad \\[4\baselineskip]
+   \insertphdgrad \\[3\baselineskip]
    % insert doctoral advisor
    Dissertation directed by \\[1\baselineskip]
    \insertchair \\
@@ -1254,7 +1255,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi%
  % Add the title
- \begin{center}{\normalsize\textbf{List of Symbols}}\\[2\baselineskip] \end{center}%
+ \begin{center}{\normalsize\textbf{List of Symbols}}\\[3\baselineskip] \end{center}%
  % Add some space after the title.
  % \vspace{1ex} %
  % Start the automatic symbols feature.
