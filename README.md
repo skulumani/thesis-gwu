@@ -18,6 +18,19 @@
 [ctan]: https://ctan.org/pkg/thesis-gwu
 [doi]: https://zenodo.org/badge/latestdoi/69136100
 
+# WARNING - NO LONGER MAINTAINED
+
+This thesis template is no longer maintained as of August 2018. 
+At the time it satisfied all requirements for GWU SEAS, however since that time the standards have again changed and GWU is unwilling or unable to provide basic typesetting assistance to the countless graduate students. 
+
+As a result, if you're reading this you'll be faced with many of the same problems I faced. 
+
+Good luck in your studies and working towards graduation. 
+
+I hope this template helps to get you started and is relatively simple to update to whatever the current standards are. 
+
+As always I'm happy to accept pull requests. 
+
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
 This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms to the University and SEAS formatting guidelines as of May 21 2018.
