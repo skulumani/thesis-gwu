@@ -20,7 +20,7 @@
 % This field contains the version of the package.
 % The value is optional.
 % The value is restricted to 32 characters.
-\version{1.3.0}
+\version{1.6.1}
 % -------------------------------------------------------------------------
 % This field contains the name of the author(s).
 % The value is optional.
@@ -34,7 +34,7 @@
 % -------------------------------------------------------------------------
 % This field contains the name of the uploader.
 % The value is restricted to 255 characters.
-\uploader{Shankar kulumani}
+\uploader{Shankar Kulumani}
 % -------------------------------------------------------------------------
 % This field contains the directory on CTAN.
 % The value is optional.

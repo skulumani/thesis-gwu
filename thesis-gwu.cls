@@ -56,7 +56,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/05/21 v1.3.0 GWU Thesis template]
+\ProvidesClass{thesis-gwu}[2018/08/31 v1.6.1 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -64,6 +64,8 @@
 % The default values are false.
 \newif\if@gwu@thesis
 \newif\if@gwu@debug % option for debuggin
+
+\newif\if@gwu@tableofcontents
 \newif\if@gwu@listoffigures
 \newif\if@gwu@listoftables
 \newif\if@gwu@listofmaps
@@ -91,12 +93,14 @@
 
 \newif\if@gwu@msdegree
 
+\newif\if@gwu@titlepage
+
 % Set the default value of some of the options to true.
 \@gwu@thesistrue
-\@gwu@listoffigurestrue
-\@gwu@listoftablestrue
-\@gwu@copyrighttrue
-\@gwu@committeepagetrue
+% \@gwu@listoffigurestrue
+% \@gwu@listoftablestrue
+% \@gwu@copyrighttrue
+% \@gwu@committeepagefalse
 \@gwu@msdegreetrue
 
 % This declares a variable for using an index.
@@ -170,6 +174,8 @@
 \RequirePackage{microtype}
 \RequirePackage{bm}
 
+\RequirePackage{mathptmx}
+
 % Add package for managing section headings
 \RequirePackage[]{titlesec}
 
@@ -218,160 +224,41 @@
   \RequirePackage{refcheck} % check for unused references/labels
 \fi
 
-%% ---- TITLE PAGE -----------------------------------------------------
-% The fields to be used for the title page
-\renewcommand{\@title}{Insert a Title!}
-\renewcommand{\@author}{Insert an Author!}
-
-\newcommand{\@bsdepartment}{Insert a BS department name!}
-\newcommand{\@bsschool}{Insert BS school!}
-\newcommand{\@bsgrad}{BS Grad date!}
-
-\newcommand{\@msdepartment}{Insert a MS department name!}
-\newcommand{\@msschool}{Insert MS school!}
-\newcommand{\@msgrad}{MS Grad date!}
-
-\newcommand{\@degree}{Doctor of Philosophy}
-\newcommand{\@department}{Insert a Department Name!}
-\newcommand{\@committee}{Insert a Committee!}
-\newcommand{\@chair}{Insert a Chair!}
-\newcommand{\@chairtitle}{Professor of INSERT Title!}
-\newcommand{\@cochair}{}
-\newcommand{\@phdgrad}{PhD Grad date!}
-\newcommand{\@defensedate}{Insert defense date!}
-
-% Commands to set the titlepage fields
-\renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
-\renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
-
-\newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
-\newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
-\newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
-
-\newcommand{\showmsdegree}{\@gwu@msdegreetrue}
-\newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
-
-\newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
-\newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
-\newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
-
-\newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
-\newcommand{\department}[1]{\renewcommand{\@department}{#1}}
-\newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
-\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
-\newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
-\newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
-\newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
-\newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
-% Commands for the user to be able to use the defined fields.
-\newcommand{\inserttitle}{\@title}
-\newcommand{\insertauthor}{\@author}
-
-\newcommand{\insertbsdepartment}{\@bsdepartment}
-\newcommand{\insertbsschool}{\@bsschool}
-\newcommand{\insertbsgrad}{\@bsgrad}
-
-\newcommand{\insertmsdepartment}{\@msdepartment}
-\newcommand{\insertmsschool}{\@msschool}
-\newcommand{\insertmsgrad}{\@msgrad}
-
-\newcommand{\insertdegree}{\@degree}
-\newcommand{\insertdepartment}{\@department}
-\newcommand{\insertcommittee}{\@committee}
-\newcommand{\insertchair}{\@chair}
-\newcommand{\insertchairtitle}{\@chairtitle}
-\newcommand{\insertcochair}{\@cochair}
-\newcommand{\insertyear}{\number\year}
-\newcommand{\insertphdgrad}{\@phdgrad}
-
-\newcommand{\insertdefensedate}{\@defensedate}
-% This redefines the title page to automatically have all of the
-% features and properties that it should according to the guidelines.
-\renewcommand*{\titlepage}{
-	% Insert the titlepage formatting.
-	\ttlpg %
-	% Use single-spaced lines for the title page.
-	\begin{singlespace} %
-		% Move down the page slightly.
-		\hbox{\vspace{0.3in}} %
-		% Center the title page as well.
-		\begin{center} %
-			% Put the title itself in 1.5-spaced format.
-			\begin{singlespacing}
-				% Insert the title.
-				{\normalsize\bfseries\inserttitle} %
-			\end{singlespacing} \\[4\baselineskip]
-			% Vertical rubber space
-			%   \vfill %
-			% Print the word 'by'.
-			by \insertauthor \\[3\baselineskip] %
-			% More rubber space
-			%\vfill %
-			% previous degrees
-			\if@gwu@msdegree
-			B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
-			M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
-			\else
-			B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
-			\fi
-			% Text from guidelines
-			A Dissertation submitted to \\[3\baselineskip] %
-			The Faculty of \\
-			The School of Engineering and Applied Science \\
-			of The George Washington University \\
-			in partial satisfaction of the requirements \\
-			for the degree of \insertdegree \\[3\baselineskip]
-			\insertphdgrad \\[4\baselineskip]
-			% insert doctoral advisor
-			Dissertation directed by \\[2ex]
-			\insertchair \\
-			\insertchairtitle
-		\end{center} %
-	\end{singlespace} %
-}
-
-
 %% ---- HYPERREF ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
-\RequirePackage[usenames,dvipsnames]{color}
+\RequirePackage[]{color}
 % Custom color for references.
-\definecolor{DarkGreen}{rgb}{0,0.6,0}
-\definecolor{RoyalBlue}{rgb}{0,0.14,0.4}
+% \definecolor{DarkGreen}{rgb}{0,0.6,0}
+% \definecolor{RoyalBlue}{rgb}{0,0.14,0.4}
 
 % This will make labels and references hyperlinks.
-\if@gwu@backref
+\if@gwu@backref%
  % Use references in the bibliography.
- \RequirePackage[pagebackref=true]{hyperref}
-\else
+ \RequirePackage[pagebackref=true]{hyperref}%
+\else%
  % Do not use back references.
- \RequirePackage{hyperref}
+ \RequirePackage{hyperref}%
 \fi
 
-
-\hypersetup{
-	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-	pdftoolbar=true,        % show Acrobat’s toolbar?
-	pdfmenubar=true,        % show Acrobat’s menu?
-	pdffitwindow=false,     % window fit to page when opened
-	pdfstartview={FitV},    % fits the width of the page to the window
-	pdfnewwindow=true,      % links in new PDF window
-	bookmarksdepth=3,
-	bookmarksopen=true,
-	pdftitle={\inserttitle},       % title
-	pdfauthor={\insertauthor},     % author
-	pdfcreator={\insertauthor},    % creator of the document
-	pdfproducer={\insertauthor},   % producer of the document
-	colorlinks=true,               % false: boxed links; true: colored links
-	%linkcolor=RoyalBlue,          % link colors can be set like this if required
-}
+  \hypersetup{%
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitV},    % fits the width of the page to the window
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    bookmarksdepth=3,
+    bookmarksopen=true,
+  }%
 
 % Cleveref referencing - must happen after hyperref
-\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}
+\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}%
 
 % Glossaries package - must come after hypperef
 % This package is used for the list of abbreviations
-\RequirePackage[printonlyused]{acronym}
-\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}
+\RequirePackage[printonlyused]{acronym}%
+\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -454,6 +341,119 @@
 }
 
 
+%% ---- TITLE PAGE -----------------------------------------------------
+% The fields to be used for the title page
+\renewcommand{\@title}{Insert a Title!}
+\renewcommand{\@author}{Insert an Author!}
+
+\newcommand{\@bsdepartment}{Insert a BS department name!}
+\newcommand{\@bsschool}{Insert BS school!}
+\newcommand{\@bsgrad}{BS Grad date!}
+
+\newcommand{\@msdepartment}{Insert a MS department name!}
+\newcommand{\@msschool}{Insert MS school!}
+\newcommand{\@msgrad}{MS Grad date!}
+
+\newcommand{\@degree}{Doctor of Philosophy}
+\newcommand{\@department}{Insert a Department Name!}
+\newcommand{\@committee}{Insert a Committee!}
+\newcommand{\@chair}{Insert a Chair!}
+\newcommand{\@chairtitle}{Professor of INSERT Title!}
+\newcommand{\@cochair}{}
+\newcommand{\@phdgrad}{PhD Grad date!}
+\newcommand{\@defensedate}{Insert defense date!}
+
+% Commands to set the titlepage fields
+\renewcommand{\title}[1]{\renewcommand{\@title}{#1}\@gwu@titlepagetrue}
+\renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
+
+\newcommand{\bsdepartment}[1]{\renewcommand{\@bsdepartment}{#1}}
+\newcommand{\bsschool}[1]{\renewcommand{\@bsschool}{#1}}
+\newcommand{\bsgrad}[1]{\renewcommand{\@bsgrad}{#1}}
+
+\newcommand{\showmsdegree}{\@gwu@msdegreetrue}
+\newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
+
+\newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
+\newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
+\newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
+
+\newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
+\newcommand{\department}[1]{\renewcommand{\@department}{#1}}
+\newcommand{\committee}[1]{\renewcommand{\@committee}{#1}\@gwu@committeepagetrue}
+\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
+\newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
+\newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
+\newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
+\newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
+% Commands for the user to be able to use the defined fields.
+\newcommand{\inserttitle}{\@title}
+\newcommand{\insertauthor}{\@author}
+
+\newcommand{\insertbsdepartment}{\@bsdepartment}
+\newcommand{\insertbsschool}{\@bsschool}
+\newcommand{\insertbsgrad}{\@bsgrad}
+
+\newcommand{\insertmsdepartment}{\@msdepartment}
+\newcommand{\insertmsschool}{\@msschool}
+\newcommand{\insertmsgrad}{\@msgrad}
+
+\newcommand{\insertdegree}{\@degree}
+\newcommand{\insertdepartment}{\@department}
+\newcommand{\insertcommittee}{\@committee}
+\newcommand{\insertchair}{\@chair}
+\newcommand{\insertchairtitle}{\@chairtitle}
+\newcommand{\insertcochair}{\@cochair}
+\newcommand{\insertyear}{\number\year}
+\newcommand{\insertphdgrad}{\@phdgrad}
+
+\newcommand{\insertdefensedate}{\@defensedate}
+% This redefines the title page to automatically have all of the
+% features and properties that it should according to the guidelines.
+\renewcommand*{\titlepage}{
+ % Insert the titlepage formatting.
+ \ttlpg %
+ % Use single-spaced lines for the title page.
+ \begin{singlespace} %
+  % Move down the page slightly.
+  \hbox{\vspace{0.3in}} %
+  % Center the title page as well.
+  \begin{center} %
+   % Put the title itself in 1.5-spaced format.
+   \begin{singlespacing}
+    % Insert the title.
+    {\normalsize\bfseries\inserttitle} %
+    \end{singlespacing} \\[3\baselineskip]
+   % Vertical rubber space
+%   \vfill %
+   % Print the word 'by'.
+   by \insertauthor \\[3\baselineskip] %
+   % More rubber space
+   %\vfill %
+   % previous degrees
+   \if@gwu@msdegree
+    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\
+    M.S. in \insertmsdepartment, \insertmsgrad, \insertmsschool \\[2\baselineskip]
+   \else
+    B.S. in \insertbsdepartment, \insertbsgrad, \insertbsschool \\[2\baselineskip]
+   \fi
+   % Text from guidelines
+   A Dissertation submitted to \\[3\baselineskip] %
+   The Faculty of \\
+   The School of Engineering and Applied Science \\
+   of The George Washington University \\
+   in partial satisfaction of the requirements \\
+   for the degree of \insertdegree \\[3\baselineskip]
+   \insertphdgrad \\[4\baselineskip]
+   % insert doctoral advisor
+   Dissertation directed by \\[1\baselineskip]
+   \insertchair \\
+   \insertchairtitle
+  \end{center} %
+ \end{singlespace} %
+}
+
+
 %% ---- FRONTISPIECE ---------------------------------------------------
 % Command for the frontispiece
 \newcommand{\@frontispiece}{\@empty}
@@ -499,8 +499,8 @@
 
   \begin{center}
     \begin{singlespace}
-      {\normalsize\bfseries\inserttitle} \\[4ex]
-      \insertauthor \\[4\baselineskip]
+      {\normalsize\bfseries\inserttitle} \\[1\baselineskip]
+      \insertauthor \\[3\baselineskip]
     \end{singlespace}
 \end{center}
   % Non-justified content
@@ -703,6 +703,8 @@
 
 %% ---- COMMANDS TO HIDE/SHOW FRONT PAGES ------------------------------
 % Commands to show front pages
+\newcommand{\showtitlepage}{\@gwu@titlepagetrue}
+
 \newcommand{\showcopyright}{\@gwu@copyrighttrue}
 \newcommand{\showdedication}{\@gwu@dedicationtrue}
 \newcommand{\showacknowledgments}{\@gwu@acknowledgmentstrue}
@@ -714,6 +716,8 @@
 \newcommand{\showcommitteepage}{\@gwu@committeepagetrue}
 
 % Commands to hide front pages
+\newcommand{\hidetitlepage}{\@gwu@titlepagefalse}
+
 \newcommand{\hidecopyright}{\@gwu@copyrightfalse}
 \newcommand{\hidededication}{\@gwu@dedicationfalse}
 \newcommand{\hideacknowledgments}{\@gwu@acknowledgmentsfalse}
@@ -918,35 +922,39 @@
 
 %% ---- COMMANDS FOR LIST OF FIGURES, ETC. -----------------------------
 % Commands to show each of the lists
-\newcommand{\showlistoffigures}{\@gwu@listoffigurestrue}
-\newcommand{\showlistoftables}{\@gwu@listoftablestrue}
-\newcommand{\showlistofmaps}{\@gwu@listofmapstrue}
-\newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue}
-\newcommand{\showlistofprograms}{\@gwu@listofprogramstrue}
-\newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue}
+\newcommand{\showtableofcontents}{\@gwu@tableofcontentstrue}
 
-\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse}
-\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse}
+\newcommand{\showlistoffigures}{\@gwu@listoffigurestrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistoftables}{\@gwu@listoftablestrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofmaps}{\@gwu@listofmapstrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofillustrations}{\@gwu@listillustrationstrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofprograms}{\@gwu@listofprogramstrue\@gwu@tableofcontentstrue}
+\newcommand{\showlistofabbreviations}{\@gwu@listofabbrevstrue\@gwu@tableofcontentstrue}
 
-\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofacronymsfalse}
-\newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse}
-\newcommand{\showglossarieslistofacronyms}{\@gwu@listofglossariesacronymstrue\@gwu@listofacronymsfalse}
-\newcommand{\showglossariesglossaryofterms}{\@gwu@glossaryoftermstrue}
+\newcommand{\showlistofacronyms}{\@gwu@listofacronymstrue\@gwu@listofglossariesabbrevsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showlistofsymbols}{\@gwu@listofsymbolstrue\@gwu@listofglossariessymbolsfalse\@gwu@tableofcontentstrue}
+
+\newcommand{\showglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevstrue\@gwu@listofacronymsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showglossarieslistofsymbols}{\@gwu@listofglossariessymbolstrue\@gwu@listofsymbolsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showglossarieslistofacronyms}{\@gwu@listofglossariesacronymstrue\@gwu@listofacronymsfalse\@gwu@tableofcontentstrue}
+\newcommand{\showglossariesglossaryofterms}{\@gwu@glossaryoftermstrue\@gwu@tableofcontentstrue}
 
 % Commands to hide each of the lists
-\newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse}
-\newcommand{\hidelistoftables}{\@gwu@listoftablesfalse}
-\newcommand{\hidelistofmaps}{\@gwu@listofmapsfalse}
-\newcommand{\hidelistofillustrations}{\@gwu@listillustrationsfalse}
-\newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse}
-\newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse}
-\newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse}
-\newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse}
+\newcommand{\hidetableofcontents}{\@gwu@tableofcontentsfalse}
 
-\newcommand{\hideglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevsfalse}
-\newcommand{\hideglossarieslistofacronyms}{\@gwu@listofglossariesacronymsfalse}
-\newcommand{\hideglossarieslistofsymbols}{\@gwu@listofglossariessymbolsfalse}
-\newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse}
+\newcommand{\hidelistoffigures}{\@gwu@listoffiguresfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistoftables}{\@gwu@listoftablesfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofmaps}{\@gwu@listofmapsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofillustrations}{\@gwu@listillustrationsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofprograms}{\@gwu@listofprogramsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofabbreviations}{\@gwu@listofabbrevsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofacronyms}{\@gwu@listofacronymsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hidelistofsymbols}{\@gwu@listofsymbolsfalse\@gwu@tableofcontentsfalse}
+
+\newcommand{\hideglossarieslistofabbreviations}{\@gwu@listofglossariesabbrevsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hideglossarieslistofacronyms}{\@gwu@listofglossariesacronymsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hideglossarieslistofsymbols}{\@gwu@listofglossariessymbolsfalse\@gwu@tableofcontentsfalse}
+\newcommand{\hideglossariesglossaryofterms}{\@gwu@glossaryoftermsfalse\@gwu@tableofcontentsfalse}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % This sets the formatting for chapter entries in the table of contents.
@@ -990,6 +998,8 @@
  \end{singlespace} %
 }
 
+% adjust spacing for page numbers
+\renewcommand{\@pnumwidth}{2.0em}% default is 1.55em
 
 %% ---- LIST OF FIGURES ------------------------------------------------
 % This sets the formatting for the various entry types.
@@ -1227,7 +1237,7 @@
 % Command to set the symbols.
 \newcommand{\symbols}[1]{ %
  % Show the list of symbols.
- \@gwu@listofsymbolstrue %
+ \@gwu@listofsymbolstrue%
  % Redefine the list.
  \renewcommand{\@symbols}{#1}}
 
@@ -1237,24 +1247,24 @@
 % This sets the formatting of the list of tables page.
 \newcommand*{\listofsymbols}{%
  % Move to new page.
- \newpage %
+ \newpage%
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Symbols} %
+ \phantomsection\addcontentsline{toc}{chapter}{List of Symbols}%
  % Use front page styling.
- \frntpg %
+ \frntpg%
  % Larger upper margin for first page of table (thesis only)
- \if@gwu@thesis %
+ \if@gwu@thesis%
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
- \fi %
+ \fi%
  % Add the title
  \begin{center}{\normalsize\textbf{List of Symbols}}\\[2\baselineskip] \end{center}%
  % Add some space after the title.
  % \vspace{1ex} %
  % Start the automatic symbols feature.
  % \begin{singlespace} %
-  \begin{acronym} %
-   \@symbols %
-  \end{acronym} %
+  \begin{acronym}%
+   \@symbols%
+  \end{acronym}%
  % \end{singlespace} %
 }
 
@@ -1462,21 +1472,22 @@
 
 %% ---- SPACING --------------------------------------------------------
 % This fixes the spacing below captions, which by default can be small.
-\setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
+\setlength\belowcaptionskip{7pt plus 4pt minus 1pt}%
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
-\AtBeginDocument{ %
+\AtBeginDocument{%
+    \providecommand\tikzifexternalizing[2]{#2}%
  % Insert a title page.
- \titlepage %
+\tikzifexternalizing{}{\if@gwu@titlepage\titlepage\fi%
  % Change the PDF title.
- \hypersetup{
+ \hypersetup{%
  pdftitle=\inserttitle,
  pdfauthor=\insertauthor,
  pdfcreator=\insertauthor,
  pdfproducer=\insertauthor} %
   % Insert dissertation committeee page 
-  \if@gwu@committeepage\committeepage\fi
+  \if@gwu@committeepage\committeepage\fi%
  % Initialize page numbers.
  \setcounter{page}{2} %
  % Page numbers at the bottom
@@ -1484,7 +1495,7 @@
  % Use lower-case roman numerals.
  \renewcommand{\thepage}{\roman{page}} %
  % Insert the copyright page if there is one.
- \if@gwu@copyright\copyrightpage\fi
+ \if@gwu@copyright\copyrightpage\fi%
  % Insert a dedication if there is one.
  \if@gwu@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
@@ -1495,28 +1506,28 @@
  % Insert the abstract.
  \if@gwu@abstract\abstractpage\fi %
  % Insert the table of contents.
- \tableofcontents %
+ \if@gwu@tableofcontents\tableofcontents\fi %
  % Insert the list of figures.
  \if@gwu@listoffigures\listoffigures\fi %
  % Insert the list of tables.
  \if@gwu@listoftables\listoftables\fi %
  % Insert the list of maps.
- \if@gwu@listofmaps\listofmaps\fi %
+ \if@gwu@listofmaps\listofmaps\fi%
  % Insert the list of illustrations.
- \if@gwu@listofillustrations\listofillustrations\fi %
+ \if@gwu@listofillustrations\listofillustrations\fi%
  % Insert the list of programs.
- \if@gwu@listofprograms\listofprograms\fi %
+ \if@gwu@listofprograms\listofprograms\fi%
  % Insert the list of abbreviations.
- \if@gwu@listofabbrevs\listofabbreviations\fi %
- \if@gwu@listofglossariesabbrevs\listofglossaryabbreviations\fi
+ \if@gwu@listofabbrevs\listofabbreviations\fi%
+ \if@gwu@listofglossariesabbrevs\listofglossaryabbreviations\fi%
  % Insert the list of acronyms.
- \if@gwu@listofacronyms\listofacronyms\fi %
+ \if@gwu@listofacronyms\listofacronyms\fi%
  % Insert the list of symbols.
- \if@gwu@listofsymbols\listofsymbols\fi %
- \if@gwu@listofglossariessymbols\listofglossarysymbols\fi
+ \if@gwu@listofsymbols\listofsymbols\fi%
+ \if@gwu@listofglossariessymbols\listofglossarysymbols\fi%
  % Insert the nomenclature.
  \if@gwu@nomenclature\insertnomenclature\fi %
- \if@gwu@glossaryofterms\listofglossaryofterms\fi
+ \if@gwu@glossaryofterms\listofglossaryofterms\fi%
  % Insert the preface if there is one.
  \if@gwu@preface\prefacepage\fi %
  % Insert the foreword if there is one.
@@ -1542,5 +1553,6 @@
   % Use two-column format
   \twocolumn %
  \fi %
+ }
 }
 

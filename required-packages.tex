@@ -1,0 +1,120 @@
+% This class uses the geometry.sty package to set the margins.
+\if@gwu@debug
+  % Show margins 
+  \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in,
+  showframe]{geometry}
+\else
+ % Use the standard margins for the thesis version.
+ \RequirePackage[top=1in,bottom=1in,left=1.25in, right=1.25in]{geometry}
+\fi
+
+% Obsolete package check
+\RequirePackage[l2tabu,orthodox]{nag}
+
+% This loads the required math packages.
+\RequirePackage[binary-units=true]{siunitx}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{amsthm}
+
+% This loads the proper graphics package.
+\RequirePackage{graphicx}
+
+% Better spacing for text
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage{bm}
+
+\RequirePackage{mathptmx}
+
+% Add package for managing section headings
+\RequirePackage[]{titlesec}
+
+% This is useful for complex figures.
+\RequirePackage{subcaption}
+
+% Compress multiple citations
+% \RequirePackage{cite}
+
+% This package allows the ability to create a 'code' environment.
+\RequirePackage{verbatim}
+
+% This hopefully tells verbatim to leave my damn quotes alone.
+% \RequirePackage{upquote}
+
+% This package enables the use of proper single quotes in text.
+% \RequirePackage{textcomp}
+
+% This package is used to set line spacing.
+\RequirePackage{setspace}
+
+% This package is used to make nomenclature tables that can span pages.
+% \RequirePackage{longtable}
+
+% This package allows conditional testing of varibles.
+\RequirePackage{ifthen}
+
+% This package is used for silly letter spacing
+\RequirePackage{soul}
+
+% This package is used to generate alternate environments.
+\RequirePackage{float}
+
+% This package is for the index, if it is to be used.
+\if@gwu@index
+ \RequirePackage{makeidx}
+ \makeindex
+\fi
+
+% This is the package for special headers and footers.
+\RequirePackage{fancyhdr}
+
+% some extra packages to help with debugging
+\if@gwu@debug
+  \RequirePackage[final]{showlabels} % show labels for referencing
+  \RequirePackage{refcheck} % check for unused references/labels
+\fi
+
+%% ---- HYPERREF ----------------------------------------------------------
+% This loads a package that allows extra colors for links.
+\RequirePackage[]{color}
+% Custom color for references.
+% \definecolor{DarkGreen}{rgb}{0,0.6,0}
+
+% This will make labels and references hyperlinks.
+\if@gwu@backref%
+ % Use references in the bibliography.
+ \RequirePackage[pagebackref=true]{hyperref}%
+\else%
+ % Do not use back references.
+ \RequirePackage{hyperref}%
+\fi
+
+  \hypersetup{%
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitV},    % fits the width of the page to the window
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    bookmarksdepth=3,
+    bookmarksopen=true,
+  }%
+
+% Cleveref referencing - must happen after hyperref
+\AtEndOfClass{\RequirePackage[noabbrev,capitalize]{cleveref}}%
+
+% Glossaries package - must come after hypperef
+% This package is used for the list of abbreviations
+\RequirePackage[printonlyused]{acronym}%
+\RequirePackage[abbreviations,symbols,shortcuts=none,automake]{glossaries-extra}%
+
+% \glsxtrRevertTocMarks % remove warning from tocloft about starttoc
+
+% \RequirePackage{tocloft}
+% \RequirePackage{calc}

@@ -1,22 +1,22 @@
 % !TEX root = ../thesis-sample.tex
 
-\chapter{Using this template} \label{chap:intro}
+\chapter{Leveraging the household sector’s ideas} \label{chap:ECAST}
 
-This chapter is stuck among the others as a brief users' manual for this template.  
-The approach to this template is to result in \LaTeX~source code files (\texttt{.tex} files) that are as simple as possible.  
-It also tries to do as much as possible automatically so that the user does not have to spend a lot of effort trying to match the poorly documented ``guidelines'' provided by GWU or SEAS. 
-This is particularly useful for the first few pages, for example the title page, dedication, and abstract page, which are difficult to make in \LaTeX~and are supposed to go in a certain order.
+\section{Introduction}
+A new paradigm of innovation recognizes the efforts of individuals within the general public, or “household sector” (von Hippel, 2017), who feel strongly enough about a problem to create and share their ideas for free. Scholars theorize that this process is highly personal or “local” (von Hippel, 2017, 2005). Individuals view—or formulate (Lüthje et al., 2005; Shah and Tripsas, 2007)—the problem through their perceptions and experiences. Their choice of knowledge to apply is also informed by their background (Franke et al., 2013; Jeppesen and Lakhani, 2010). The resulting combinations of formulations and knowledge can be valuable to those who cannot draw on the same material (Afuah and Tucci, 2012; Franke et al., 2013; Prahalad, 2004)—they are “distant” from it. Additionally, these individuals represent a significant portion of the general public (de Jong, 2016; von Hippel et al., 2012, 2011), contributing across a wide range of domains like baby products (Poetz and Schreier, 2012), mountain bikes (Lüthje et al., 2005), and medical devices (Lettl et al., 2009; von Hippel, 2017). 
 
-In addition to the description in this chapter, anyone may, of course, also look at the source code for this file, \texttt{thesis-sample.tex}.
-That file contains all of the source for this \texttt{.pdf} in a single file, but it will work just as well with multiple input files combined with the \texttt{input} or \texttt{include} commands.
-Generally, it is a better idea to use \texttt{include} as this will allow for selective compiling of a specific portion of your thesis, i.e. only a single chapter at a time.
+Despite the household sector’s potential for capability and capacity, organizations have struggled to leverage them alongside their internal efforts. In fact, organizations judge most contributions from the innovative public to be of little value. For example, BP’s call for ideas after the Deepwater Horizon oil spill in the Gulf of Mexico received 120,000 contributions (Gulf Coast Ecosystem Restoration Council, 2010) to seal the well or clean up the affected waterways (Goldenberg, 2011). According to BP, however, the public’s effort “yielded very little in terms of results” (Goldenberg, 2011) and did not translate into a solution that went “all the way” (Alexy et al., 2012, p. 117) to implementation. These scenarios highlight the current inability to bridge the public-organization gap successfully. Organizations can prompt a large amount of free effort from the public. However, their efforts are wasted if the problem is mismatched for the public’s strengths, or their resulting contributions are not—or cannot—be translated into the organization’s context.    
 
-The final generic comment about this template is that it has been updated to take advantage of \LaTeX's capabilities to create documents with links in them.  
-Provided you are using a modern PDF viewer to view this document, you may have already noticed this.  
-It creates a list of bookmarks, which can be used to quickly navigate what may be a long document.  
-It also turns references within the text into links.  
-The best examples in this file are the entries in the Table of Contents.
-Although the chapter and section names are shown in black (in accordance with the GWU guidelines), clicking on them does navigate to the start of the chapter, section, etc.
+This work is an attempt to bridge that gap. The literature has theorized that the public’s local knowledge (Afuah and Tucci, 2012; Franke et al., 2013; Jeppesen and Lakhani, 2010) and local formulation (Lüthje et al., 2005) of the problem are drivers for quality. Scholars have also explored how a contribution that is distant or lacks enough depth can be misjudged (di Gangi et al., 2010; di Gangi and Wasko, 2009; Piezunka and Dahlander, 2014), even if it solves the problem. In this paper, we studied how the constructs of local knowledge, local formulation, and depth influence the substance of the public’s contributions, based on their impact within the focal organization. 
+
+To answer this question, we selected a setting where the public’s contributions to a problem were meaningful to the focal organization. National Aeronautics and Space Administration (NASA)’s Asteroid Initiative was a program tasked with consolidating asteroid activities in the agency, as well as engaging with individuals and entities outside of the NASA’s established planetary defense community. We observed this program and its events across several years. Here, our data captured NASA’s change in perception of public contributions over time. Our data also captured the public’s solving processes and contributions to a mission design problem in a citizen forum—an event that played a crucial role in the perception change. Our analysis linked these two: we connected the public’s solving dynamics to this change in perception by unpacking how and when the public created contributions that were deemed substantive by NASA.
+
+While current theory implies direct links between the public’s problem-solving strengths and the substance of their contribution, we find only partially support for these relationships. As anticipated by theory, an individual’s use of their local knowledge correlated directly to the substance of their contribution. In contrast, the impact of an individual’s local formulation was more nuanced. Local formulation—reformulating the NASA problem in their own terms—increased the substance of their contribution because it increased the depth of said contribution. That is, the relationship between substance and formulation was fully mediated by depth of the contribution. Lastly, the interaction of local knowledge and local formulation consistently reduced the likelihood of a substantive contribution. 
+
+Our findings contribute to understanding how organizations can leverage the public’s problem-solving efforts alongside their own (Chatterji and Fabrizio, 2011; Goucher-Lambert and Cagan, 2019; Lifshitz-Assaf, 2018; Lüthje et al., 2005; Szajnfarber and Vrolijk, 2018). We unpacked how the public created their most valuable contributions (Acar, 2019; Stock et al., 2016) to a problem that the focal organization considered important. We also studied the interaction of problem-solving constructs that are rarely examined at the same time (Gralla et al., 2016). More broadly, this work is an existence proof that the free innovation paradigm can be directed.
+
+We organized this paper as follows: first, we review the literature on local knowledge, local formulation, and depth of contributions. Next, we describe our setting, the data stemming from it, as well as the methods used in our analysis. Then, we present our results, and discuss these in the context of our setting and the existing literature. We conclude by explaining the limitations of the study, as well as outlining potential areas of future work. 
+
 
 
 \section{General Usage}
@@ -241,6 +241,7 @@ The magic of \LaTeX automatically figures out that the previous reference points
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/picard_yes.jpg}
+
     \caption[Damage report!]{Glad to have a thesis class\label{fig:picard}}
 \end{figure}
 
@@ -255,7 +256,7 @@ Here's another figure that demonstrates the use of \texttt{tikz} and the externa
             \addplot {x^2};
         \end{axis}
     \end{tikzpicture}
-    \caption{Externalized\label{fig:tikz}}
+    \caption{Externajhjhjhjjhi\label{fig:tikz}}
 \end{figure}
 
 \subsection{Tables}\label{ssec:tables}
@@ -289,19 +290,7 @@ Instead, everyone should be using~\verb+subcaption+, just as this class file is 
 Here, in~\cref{fig:xkcd}, we see two subfigures encapsulated in a larger figure environment.
 Luckily, with our fancy referencing we have access to both~\cref{fig:ext,fig:ksp} using the same commands.
 The key thing to note from~\cref{fig:ext} is that trustworthiness reaches a maximum for those using~\verb+.tex+.
-\begin{figure}[htbp] 
-    \centering 
-    \begin{subfigure}[htbp]{0.5\textwidth} 
-        \includegraphics[width=\textwidth]{figures/file_extensions.png} 
-        \caption{File Extensions} \label{fig:ext} 
-    \end{subfigure}~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. %(or a blank line to force the subfigure onto a new line) 
-    \begin{subfigure}[htbp]{0.5\textwidth} 
-        \includegraphics[width=\textwidth]{figures/orbital_mechanics.png} 
-        \caption{Kerbal Space Program} \label{fig:ksp} 
-    \end{subfigure}
-    \caption[XKCD]{Some words of wisdom from Randall Munroe}
-    \label{fig:xkcd} 
-\end{figure}
+
 
 \subsection{References}
 

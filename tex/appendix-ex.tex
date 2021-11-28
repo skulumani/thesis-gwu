@@ -1,0 +1,38 @@
+% !TEX root = ../thesis-sample.tex
+\appendix
+\doublespacing
+\chapter{Appendix}
+This is an example of an appendix. 
+The only difference is the use of \verb+\appendix+ command at the start of this \texttt{tex} file. 
+This automatically changes the chapter and section headings.
+
+\section{A section}
+The easiest method.
+
+\begin{equation}\label{eq:sum}
+    x_k = \frac{a_k+b_k}{2}
+\end{equation}
+
+\section{False Position}
+\lipsum[20]
+
+
+\section{Starting the Appendices}
+Actually, using appendices is quite simple.  Immediately after the end
+of the last chapter and before the start of the first appendix, simply
+enter the command \verb|\appendix|.  This will tell \LaTeX~to change
+how it interprets the commands \verb|\chapter|, \verb|\section|,
+\textit{etc.}
+
+Each appendix is actually a chapter, so once the \verb|\appendix|
+command has been called, start a new appendix by simply using the
+\verb|\chapter| command.
+
+Note that the \verb|\appendix| command should be called only
+once--not before the start of each appendix.
+
+All the fancy referencing and tools still work.
+You only need to add the appendix command and all will be as it should be.
+
+\chapter{Another Appendix}
+\lipsum[24]
