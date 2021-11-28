@@ -18,6 +18,7 @@ fi
 # create a new directory and copy files to it and then zip it up
 mkdir thesis-gwu
 latexmk -C
+rm tex/*.aux
 cp -rt ./thesis-gwu figures tex LICENSE.md README.md thesis-bib.bib thesis-gwu.cls thesis-sample.pdf thesis-sample.tex
 
 zip -r9 thesis-gwu.zip  thesis-gwu 

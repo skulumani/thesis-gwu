@@ -1,6 +1,6 @@
-| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         |
-| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       |
-| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] |
+| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         | Citation |
+| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       | :-----: |
+| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] | [![DOI][ doi_shield ]][ doi ]
 
 [travis_shield]: https://travis-ci.org/skulumani/thesis-gwu.svg?branch=master 
 [release_shield]: https://img.shields.io/github/release/skulumani/thesis-gwu.svg
@@ -8,6 +8,7 @@
 [last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/thesis-gwu.svg
 [activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/thesis-gwu.svg
 [ctan_shield]: https://img.shields.io/ctan/v/tex.svg
+[doi_shield]: https://zenodo.org/badge/69136100.svg
 
 [travis]: https://travis-ci.org/skulumani/thesis-gwu
 [github_release]: https://github.com/skulumani/thesis-gwu/releases/latest
@@ -15,11 +16,30 @@
 [github_last_commit]: https://github.com/skulumani/thesis-gwu/commits/master
 [github_activity]: https://github.com/skulumani/thesis-gwu/graphs/commit-activity
 [ctan]: https://ctan.org/pkg/thesis-gwu
+[doi]: https://zenodo.org/badge/latestdoi/69136100
+
+# WARNING - NO LONGER MAINTAINED
+
+This thesis template is no longer maintained as of August 2018. 
+At the time it satisfied all requirements for GWU SEAS, however since that time the standards have again changed and GWU is unwilling or unable to provide basic typesetting assistance to the countless graduate students. 
+
+As a result, if you're reading this you'll be faced with many of the same problems I faced. 
+
+Good luck in your studies and working towards graduation. 
+
+I hope this template helps to get you started and is relatively simple to update to whatever the current standards are. 
+
+As always I'm happy to accept pull requests. 
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
-This is a GWU SEAS thesis template. 
-It complies with the requirements as laid out by the [ETD](http://library.gwu.edu/etd/formatting-content).
+This is a [GWU SEAS](https://library.gwu.edu/seas) thesis template, it conforms to the University and SEAS formatting guidelines as of May 21 2018.
+
+![screenshot](./doc/etd.png)
+
+### Overleaf
+
+The template is available on [Overleaf](https://www.overleaf.com/latex/templates/george-washington-university-thesis-template-thesis-gwu/hkbwhnrsyzwh). 
 
 ### Installing
 
@@ -132,6 +152,21 @@ The class file already loads several common packages such as, `amsmath, graphicx
 You can add more packages but be aware that all package interactions **HAVE NOT** been tested. 
 
 There is also some demonstration of typical commands, such as equations, figures, cross-referencing. 
+
+## Additional Tips
+
+You can find some additional tips in [`./doc/tips.md`](./doc/tips.md)
+
+## Dissertation examples
+
+If you decide to use this template, feel free to send me an [email](mailto:skulumani@gwu.edu) and I can add your name/link below:
+
+* [Farshad Nasiri](https://www.linkedin.com/in/farshad-nasiri): The Structure of turbulent a boundary layer along a vertical, surface-piercing flat plate
+* [Evan Kaufman](https://www.linkedin.com/in/evan-kaufman-7333b81b)
+* [Mahdis Bisheban](https://www.linkedin.com/in/mahdisbisheban)
+* [Mohammed Reza Najjari](https://www.linkedin.com/in/mohammad-reza-najjari-249b2b79)
+* [Shankar Kulumani](https://shankarkulumani.com/2018/07/dissertation.html) - [Geometric Mechanics and Control for Small Body Missions](https://github.com/skulumani/dissertation) accepted 1 Aug 2018:w
+* [Will Zywiec](https://www.linkedin.com/in/will-zywiec-363812137/)
 
 ## Contributing
 
