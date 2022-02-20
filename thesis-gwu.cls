@@ -50,13 +50,14 @@
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
 %%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
 %%  2018.01.20 @Shankar Kulumani  : Setup titlesec for modifying headings
+%%  2022.01.01 @Kanishke Gamagedara  : Update for 2022 GWU style guidelines
 
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-gwu}[2018/08/31 v1.6.1 GWU Thesis template]
+\ProvidesClass{thesis-gwu}[2022/01/01 v1.6.2 GWU Thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -102,6 +103,11 @@
 % \@gwu@copyrighttrue
 % \@gwu@committeepagefalse
 \@gwu@msdegreetrue
+
+
+% When there are two co-directors
+\newif\if@gwu@cochair
+\@gwu@cochairfalse
 
 % This declares a variable for using an index.
 % An index is not allowed in dissertations.
@@ -229,6 +235,7 @@
 \RequirePackage[]{color}
 % Custom color for references.
 % \definecolor{DarkGreen}{rgb}{0,0.6,0}
+% \definecolor{RoyalBlue}{rgb}{0,0.14,0.4}
 
 % This will make labels and references hyperlinks.
 \if@gwu@backref%
@@ -338,6 +345,8 @@
     \renewcommand*{\glossarypreamble}{\vspace{4ex}}%
     \renewcommand*{\glossaryheader}{}%
 }
+
+
 %% ---- TITLE PAGE -----------------------------------------------------
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
@@ -357,6 +366,7 @@
 \newcommand{\@chair}{Insert a Chair!}
 \newcommand{\@chairtitle}{Professor of INSERT Title!}
 \newcommand{\@cochair}{}
+\newcommand{\@cochairtitle}{}
 \newcommand{\@phdgrad}{PhD Grad date!}
 \newcommand{\@defensedate}{Insert defense date!}
 
@@ -371,6 +381,8 @@
 \newcommand{\showmsdegree}{\@gwu@msdegreetrue}
 \newcommand{\hidemsdegree}{\@gwu@msdegreefalse}
 
+\newcommand{\hascochair}{\@gwu@cochairtrue}
+
 \newcommand{\msdepartment}[1]{\renewcommand{\@msdepartment}{#1}}
 \newcommand{\msschool}[1]{\renewcommand{\@msschool}{#1}}
 \newcommand{\msgrad}[1]{\renewcommand{\@msgrad}{#1}}
@@ -381,6 +393,7 @@
 \newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
 \newcommand{\chairtitle}[1]{\renewcommand{\@chairtitle}{#1}}
 \newcommand{\cochair}[1]{\renewcommand{\@cochair}{#1}}
+\newcommand{\cochairtitle}[1]{\renewcommand{\@cochairtitle}{#1}}
 \newcommand{\phdgrad}[1]{\renewcommand{\@phdgrad}{#1}}
 \newcommand{\defensedate}[1]{\renewcommand{\@defensedate}{#1}}
 % Commands for the user to be able to use the defined fields.
@@ -401,6 +414,7 @@
 \newcommand{\insertchair}{\@chair}
 \newcommand{\insertchairtitle}{\@chairtitle}
 \newcommand{\insertcochair}{\@cochair}
+\newcommand{\insertcochairtitle}{\@cochairtitle}
 \newcommand{\insertyear}{\number\year}
 \newcommand{\insertphdgrad}{\@phdgrad}
 
@@ -412,8 +426,8 @@
  \ttlpg %
  % Use single-spaced lines for the title page.
  \begin{singlespace} %
-  % Move down the page slightly.
-  \hbox{\vspace{0.3in}} %
+  % Title starts 2 inches from the top.
+  \hbox{\vspace{0.4in}} %
   % Center the title page as well.
   \begin{center} %
    % Put the title itself in 1.5-spaced format.
@@ -438,14 +452,23 @@
    A Dissertation submitted to \\[3\baselineskip] %
    The Faculty of \\
    The School of Engineering and Applied Science \\
-   of The George Washington University \\
-   in partial satisfaction of the requirements \\
+   of the George Washington University \\
+   in partial fulfillment of the requirements \\
    for the degree of \insertdegree \\[3\baselineskip]
    \insertphdgrad \\[4\baselineskip]
    % insert doctoral advisor
    Dissertation directed by \\[1\baselineskip]
+   \if@gwu@cochair
+   \insertchair \\
+   \insertchairtitle \\
+   [1\baselineskip]
+   \insertcochair \\
+   \insertcochairtitle
+   \else
    \insertchair \\
    \insertchairtitle
+   \fi
+   
   \end{center} %
  \end{singlespace} %
 }
@@ -505,7 +528,7 @@
    % Heading for the committee
    Dissertation Research Committee: \\[2ex] %
    % Horizontal spacing
-   \hspace{5em} %
+   \hspace{0.5in} %
    % Insert the committee (in a box).
    \parbox{0.85\textwidth}{\insertcommittee}
   \end{flushleft} %
@@ -1452,11 +1475,11 @@
 \titleformat{\subsection}
 {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{\normalsize}
 \titleformat{\subsubsection}
-{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+{\normalfont\normalsize\bfseries}{\hspace*{0.25in}\thesubsubsection}{1em}{}
 \titleformat{\paragraph}[runin]
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+{\normalfont\normalsize\bfseries}{\hspace*{0.5in}\theparagraph}{1em}{}
 \titleformat{\subparagraph}[runin]
-{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+{\normalfont\normalsize\bfseries}{\hspace*{0.75in}\thesubparagraph}{1em}{}
 
 \titlespacing*{\chapter} {0pt}{*0}{*4}
 \titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
@@ -1505,9 +1528,9 @@
  % Insert the table of contents.
  \if@gwu@tableofcontents\tableofcontents\fi %
  % Insert the list of figures.
- \if@gwu@listoffigures\listoffigures\fi %
+ \if@gwu@listoffigures {\doublespacing \listoffigures} \fi %
  % Insert the list of tables.
- \if@gwu@listoftables\listoftables\fi %
+ \if@gwu@listoftables {\doublespacing \listoftables} \fi %
  % Insert the list of maps.
  \if@gwu@listofmaps\listofmaps\fi%
  % Insert the list of illustrations.
