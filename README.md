@@ -20,7 +20,10 @@
 
 # WARNING - NO LONGER MAINTAINED
 
-This thesis template is no longer maintained as of August 2018. 
+This thesis template is no longer maintained as of ~August 2018.~ February 2022. 
+[Kanishke](https://github.com/kanishkegb) made modifications to meeting the arbitrary new "standards" as of 12/31/2021.
+Feel free to use with the knowledge the "standards" will change again.
+
 At the time it satisfied all requirements for GWU SEAS, however since that time the standards have again changed and GWU is unwilling or unable to provide basic typesetting assistance to the countless graduate students. 
 
 As a result, if you're reading this you'll be faced with many of the same problems I faced. 
