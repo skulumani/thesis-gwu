@@ -51,6 +51,8 @@
 %%  2016.09.24 @Shankar Kulumani  : First attempt to modify for GWU
 %%  2018.01.20 @Shankar Kulumani  : Setup titlesec for modifying headings
 %%  2022.01.01 @Kanishke Gamagedara  : Update for 2022 GWU style guidelines
+%%  2022.04.06 @Tingyu Wang       : Correct spacings in the title page,
+%%                                  the list of tables and figures page.
 
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
@@ -455,7 +457,7 @@
    of the George Washington University \\
    in partial fulfillment of the requirements \\
    for the degree of \insertdegree \\[3\baselineskip]
-   \insertphdgrad \\[4\baselineskip]
+   \insertphdgrad \\[3\baselineskip]
    % insert doctoral advisor
    Dissertation directed by \\[1\baselineskip]
    \if@gwu@cochair
@@ -1038,7 +1040,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Figures}}\\[2\baselineskip] \end{center}%
+ \begin{center}{\normalsize\textbf{List of Figures}}\\[1\baselineskip] \end{center}%
  % Add some space after the title.
  % \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -1066,7 +1068,7 @@
   %\begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  \fi %
  % Add the title
- \begin{center}{\normalsize\textbf{List of Tables}}\\[2\baselineskip] \end{center}%
+ \begin{center}{\normalsize\textbf{List of Tables}}\\[1\baselineskip] \end{center}%
  % Add some space after the title.
  % Start the automatic table of contents features.
  % \begin{singlespace} %
