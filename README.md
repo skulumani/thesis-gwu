@@ -18,7 +18,7 @@
 [ctan]: https://ctan.org/pkg/thesis-gwu
 [doi]: https://zenodo.org/badge/latestdoi/69136100
 
-# WARNING - NO LONGER MAINTAINED
+# LaTeX Template for GWU Thesis/Dissertation
 
 As of 2022 summer, this satisfies all requirements for GWU SEAS. 
 
