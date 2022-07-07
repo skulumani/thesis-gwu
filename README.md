@@ -20,19 +20,26 @@
 
 # WARNING - NO LONGER MAINTAINED
 
-This thesis template is no longer maintained as of ~August 2018.~ February 2022. 
-[Kanishke](https://github.com/kanishkegb) made modifications to meeting the arbitrary new "standards" as of 12/31/2021.
-Feel free to use with the knowledge the "standards" will change again.
+As of 2022 summer, this satisfies all requirements for GWU SEAS. 
 
-At the time it satisfied all requirements for GWU SEAS, however since that time the standards have again changed and GWU is unwilling or unable to provide basic typesetting assistance to the countless graduate students. 
+<br>
 
-As a result, if you're reading this you'll be faced with many of the same problems I faced. 
+**Rant Alert**
 
-Good luck in your studies and working towards graduation. 
+However the standards change time to time and GWU is unwilling or unable to provide basic typesetting assistance to the countless graduate students.
+Providing an up-to-date official template only would make both students' and the ETD administraters' lives easier.
+But the **official** templates provided in ETD and SEAS web pages are in **beta** or **illustrative**, which makes you wonder how they would expect students to follow their constantly changing style guidelines if they themselves cannot follow them.
 
-I hope this template helps to get you started and is relatively simple to update to whatever the current standards are. 
+![screenshot](./doc/seas-etd.png)
 
-As always I'm happy to accept pull requests. 
+<br>
+
+Anyways, hope this would be a good starting point for you to starts working on the formatting.
+Please feel free to update this and make a pull request whenever your dissertation gets approved to help a fellow grad student out!
+
+Good luck in your studies and working towards graduation! 
+
+<br>
 
 ## [GWU Thesis](https://skulumani.github.io/2016/10/thesis-gwu)
 
@@ -164,6 +171,7 @@ You can find some additional tips in [`./doc/tips.md`](./doc/tips.md)
 
 If you decide to use this template, feel free to send me an [email](mailto:skulumani@gwu.edu) and I can add your name/link below:
 
+* [Kanishke Gamagedara](https://drive.google.com/file/d/1h9kTC167nkdj9AI0NrHs2cKJ0ZV0Ww1i/view) - Geometric Control and Estimation for Autonomous UAVs in Ocean Environments
 * [Farshad Nasiri](https://www.linkedin.com/in/farshad-nasiri): The Structure of turbulent a boundary layer along a vertical, surface-piercing flat plate
 * [Evan Kaufman](https://www.linkedin.com/in/evan-kaufman-7333b81b)
 * [Mahdis Bisheban](https://www.linkedin.com/in/mahdisbisheban)
